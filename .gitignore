@@ -1,0 +1,6 @@
+.vscode/*
+*.pyc
+*/output/*
+res/*
+KM_KBQA/models/*
+KM_KBQA/res/*

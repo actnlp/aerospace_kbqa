@@ -1,0 +1,1 @@
+from KM_KBQA.BertEntityRelationClassification import multitask_main_k_fold
