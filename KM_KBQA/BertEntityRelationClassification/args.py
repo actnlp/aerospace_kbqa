@@ -28,7 +28,6 @@ def create_path(path):
         os.makedirs(path)
 
 
-
 # -----------ARGS---------------------
 VOCAB_FILE = "KM_KBQA/models/vocab.txt"
 
@@ -136,21 +135,22 @@ task_name = '%s_blr_%f_nlr_%f_bs_%d_lhs_%d_mhs_%d_epoch_%d_all_data' % (
     'multitask_atten_cnn', learning_rate, non_bert_learning_rate, train_batch_size, bilstm_hidden_size, mlp_hidden_size,
     num_train_epochs)
 # task_name = "bert_ner_data_neraug_BIO"                      # 训练任务名称
-log_path = "KM_KBQA/output/logs/" + task_name
+PREFIX = os.path.dirname(__file__)
+log_path = PREFIX+"/output/logs/" + task_name
 create_path(log_path)
 k_fold_report_path = os.path.join(log_path, 'k_fold_report.txt')
 eval_res_path = os.path.join(log_path, 'eval_res.csv')
-plot_path = "KM_KBQA/output/images/" + task_name + "/loss_acc.png"
+plot_path = PREFIX+"/output/images/" + task_name + "/loss_acc.png"
 create_path(plot_path.rsplit('/', 1)[0])
 data_dir = "KM_KBQA/res/"  # 原始数据文件夹，应包括tsv文件
 cache_dir = "KM_KBQA/model/"
-output_dir = os.path.join("KM_KBQA/output/checkpoint",
+output_dir = os.path.join(PREFIX+"/output/checkpoint",
                           task_name)  # checkpoint和预测输出文件夹
-trained_dir = os.path.join("KM_KBQA/output/trained_model")
+trained_dir = os.path.join(PREFIX+"/output/trained_model")
 create_path(output_dir)
 create_path(trained_dir)
 
-tensorboard_path = os.path.join('KM_KBQA/output', 'tensorboardX', task_name)
+tensorboard_path = os.path.join(PREFIX, 'tensorboardX', task_name)
 create_path(tensorboard_path)
 
 

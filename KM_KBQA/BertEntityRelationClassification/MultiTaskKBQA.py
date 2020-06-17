@@ -6,8 +6,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from pytorch_pretrained_bert.modeling import BertModel, BertPreTrainedModel
 from sklearn.metrics import classification_report, f1_score
+from transformers import BertModel, BertPreTrainedModel
 
 from . import args
 from .crf import CRF
@@ -18,7 +18,8 @@ class_report_path = os.path.join(args.log_path, 'class_report.log')
 class MultiTaskKBQA(nn.Module):
     def __init__(self, config):
         super(MultiTaskKBQA, self).__init__()
-        self.bert = BertEncoder.from_pretrained(args.bert_model)
+        # self.bert = BertEncoder.from_pretrained(args.bert_model)
+        self.bert = BertEncoder.from_pretrained('bert-base-chinese')
         self.crf = CRFEncoder(config)
         self.cnn_encoder_1 = nn.Conv1d(
             in_channels=args.crf_hidden_size, out_channels=args.bilstm_hidden_size, kernel_size=3, padding=1)
@@ -211,10 +212,10 @@ class BertEncoder(BertPreTrainedModel):
                 input_ids,
                 token_type_ids,
                 attention_mask,
-                label_id=None,
-                output_all_encoded_layers=False):
-        bert_encode, _ = self.bert(input_ids, token_type_ids, attention_mask,
-                                   output_all_encoded_layers=output_all_encoded_layers)
+                label_id=None):
+                # output_all_encoded_layers=False):
+        bert_encode, _ = self.bert(input_ids, token_type_ids, attention_mask,)
+                                #    output_all_encoded_layers=output_all_encoded_layers)
         bert_embeddings = self.bert.embeddings(input_ids, token_type_ids)
 
         return bert_encode, bert_embeddings

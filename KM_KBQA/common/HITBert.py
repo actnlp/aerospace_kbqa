@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from transformers import BertConfig, BertModel, BertTokenizer
 
-pretrained_bert_path = 'KM_KBQA/models/pytorch_model.bin'
+pretrained_bert_path = 'KM_KBQA/models/bert-base-chinese.bin'
 pretrained_vocab_path = 'KM_KBQA/models/vocab.txt'
 pretrained_config_path = 'KM_KBQA/models/bert_config.json'
 

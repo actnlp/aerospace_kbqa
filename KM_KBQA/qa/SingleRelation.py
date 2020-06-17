@@ -14,7 +14,7 @@ from ..linking.EntityLinking import recognize_entity
 from .Limiter import Limiter
 from .ListQuestion import check_list_questions
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 # 检查是否存在中文字符，包括一些特定英文字符
 def is_contain_chinese(s):

@@ -6,7 +6,7 @@ from fuzzywuzzy import fuzz
 from ..config import config
 from ..common import LTP, AsyncNeoDriver
 
-# logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.INFO)
 entity_pattern = r'《(.+)》|<(.+)>|“(.+)”|"(.+)"|\'(.+)\''
 entity_set = None
 

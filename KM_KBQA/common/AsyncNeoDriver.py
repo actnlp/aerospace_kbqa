@@ -10,7 +10,7 @@ from functools import lru_cache
 import aiohttp
 import torch
 
-# logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.INFO)
 headers = {'Authorization': 'bmVvNGo6MTIzNDU2',
            'Accept': 'application/json; charset=UTF-8',
            'Content-Type': 'application/json'}

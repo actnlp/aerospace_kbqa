@@ -23,7 +23,7 @@ def you_function():
 def init_logger(logger_name, logging_path):
     if logger_name not in Logger.manager.loggerDict:
         logger = logging.getLogger(logger_name)
-        logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.INFO)
         handler = TimedRotatingFileHandler(filename=logging_path + "/all.log", when='D', backupCount=7)
         datefmt = '%Y-%m-%d %H:%M:%S'
         format_str = '[%(asctime)s]: %(name)s %(filename)s[line:%(lineno)s] %(levelname)s  %(message)s'

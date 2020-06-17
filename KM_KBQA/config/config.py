@@ -2,7 +2,7 @@ import os
 
 project_dir = os.path.dirname(os.path.dirname(__file__))
 data_path = os.path.join(project_dir, 'data')
-model_path = os.path.join(project_dir, 'model_file')
+model_path = os.path.join(project_dir, 'models')
 
 LEX_PATH = os.path.join(project_dir, 'lexicons')
 STOP_WORD_PATH = os.path.join(LEX_PATH, 'stopwords.txt')
@@ -40,5 +40,5 @@ prop_ths = 0.76
 exact_ent_ths = 0.83
 
 '''multitask training'''
-RAW_SOURCE_DATA = os.path.join(project_dir, 'NewKBQA/data_processing/seq_label_raw.txt')
-TARGET_SOURCE_DATA = os.path.join(project_dir, 'NewKBQA/data_processing/seq_label_target.txt')
+RAW_SOURCE_DATA = os.path.join(project_dir, 'KM_KBQA/data_processing/seq_label_raw.txt')
+TARGET_SOURCE_DATA = os.path.join(project_dir, 'KM_KBQA/data_processing/seq_label_target.txt')

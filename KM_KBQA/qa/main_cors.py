@@ -5,6 +5,7 @@ import os
 import pdb
 import pickle
 import subprocess
+import traceback
 
 import aiohttp_cors
 from aiohttp import web
@@ -125,7 +126,7 @@ def run(args):
             return web.json_response({})
 
         except Exception as e:
-            logger.error(e)
+            logger.error(traceback.format_exc())
 
     # 载入实体字典
     all_ent_emb = update_entity_embeddings(HITBert.encode, ['Instance', 'SubGenre', 'Genre'],

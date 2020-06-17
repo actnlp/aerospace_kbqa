@@ -11,11 +11,11 @@ import jieba
 from aiohttp import web
 
 from ..BertEntityRelationClassification import args
-from ..BertEntityRelationClassification.multitask_main_k_fold import \
-    multitask_predict
+from ..BertEntityRelationClassification.BertERClsPredict import \
+    predict as BertERCls
 from ..BertEntityRelationClassification.predict import merchandise_predict
 from ..common.link_kb import prepare_server
-from . import Limiter
+from .Limiter import Limiter
 
 logger = logging.getLogger('commercial')
 formatter = logging.Formatter(
@@ -79,7 +79,7 @@ def predictV2(sentence):
                 返回top1类别实体
     '''
     # 1. top1 top3 predict
-    m_ent_top1, m_rel_top1, m_ent_top3 = multitask_predict(sentence.strip())
+    m_ent_top1, m_rel_top1, m_ent_top3 = BertERCls(sentence.strip())
     mer_ent_top3 = merchandise_predict(sentence, driver)
     if len(mer_ent_top3) > 0:
         m_ent_top3 = mer_ent_top3
@@ -122,7 +122,7 @@ def predictV3(sentence):
         4. 找出句子中的各限制条件并返回
     '''
     # 1. top1 top3 predict
-    m_ent_top1, m_rel_top1, m_ent_top3 = multitask_predict(sentence.strip())
+    m_ent_top1, m_rel_top1, m_ent_top3 = BertERCls(sentence.strip())
     mer_ent_top3 = merchandise_predict(sentence, driver)
     if len(mer_ent_top3) > 0:
         m_ent_top3 = mer_ent_top3
@@ -174,7 +174,7 @@ def predictV3(sentence):
 
 def predict(sentence):
     mer_ent_top3 = merchandise_predict(sentence, driver)
-    m_ent_top1, m_rel_top1, m_top3_ent = multitask_predict(sentence.strip())
+    m_ent_top1, m_rel_top1, m_top3_ent = BertERCls(sentence.strip())
     if len(mer_ent_top3) > 0:
         return {
             'entity_top1': mer_ent_top3[0],
@@ -259,7 +259,7 @@ def jaccard_rank(entities):
 
 def predict_defense(sentence, graph_driver):
     mer_ent_top3 = merchandise_predict(sentence, driver)
-    m_ent_top1, m_rel_top1, m_top3_ent = multitask_predict(sentence.strip())
+    m_ent_top1, m_rel_top1, m_top3_ent = BertERCls(sentence.strip())
     logger.info('mer_ent_top3'+str(mer_ent_top3))
     logger.info('mtop3'+str(m_top3_ent))
     # calculate limits
