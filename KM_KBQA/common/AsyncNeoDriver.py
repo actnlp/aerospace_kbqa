@@ -10,6 +10,21 @@ from functools import lru_cache
 import aiohttp
 import torch
 
+
+driver_pool = {}
+
+
+def get_driver(**kwargs):
+    global driver_pool
+    name = kwargs.get('name', 'default')
+    if name in driver_pool:
+        return driver_pool[name]
+    else:
+        driver = AsyncNeoDriver(**kwargs)
+        driver_pool[name] = driver
+        return driver
+
+
 # logging.basicConfig(level=logging.INFO)
 headers = {'Authorization': 'bmVvNGo6MTIzNDU2',
            'Accept': 'application/json; charset=UTF-8',
@@ -22,11 +37,13 @@ second_genre_label = 'SubGenre'
 entity_label = 'Instance'
 entity_embeddings_path = './data/entity_embeddings.pkl'
 
+
 class AsyncNeoDriver():
     def __init__(self,
                  server_address=default_address,
                  entity_label='Instance',
-                 fuzzy_index=None):
+                 fuzzy_index=None,
+                 name='default'):
         self.server_address = server_address
         self.entity_label = entity_label
         self.fuzzy_index = fuzzy_index
@@ -80,7 +97,6 @@ class AsyncNeoDriver():
         return asyncio.run_coroutine_threadsafe(
             self.get_entities_by_matching_property_async(property, value), self.loop)
 
-
     async def get_entities_by_matching_property_async(self, property, value):
         result = await self.execute_async('match (n:%s) where n.%s contains "%s" return n,id(n)' %
                                           (self.entity_label, property, value))
@@ -97,13 +113,14 @@ class AsyncNeoDriver():
         # print('match (n:%s) return n' % (entity_label))
         processed_filters = ''
         for filter_label in filter_labels:
-            processed_filters += 'not n.label contains \'%s\' and ' % (filter_label)
+            processed_filters += 'not n.label contains \'%s\' and ' % (
+                filter_label)
         if processed_filters != '':
             # 删去最后一个and 并在前面加上where语句
             processed_filters = processed_filters[:-5]
             processed_filters = 'where ' + processed_filters
         result = await self.execute_async('match (n:%s) %s return n, id(n)' %
-                                      (entity_label, processed_filters))
+                                          (entity_label, processed_filters))
         # print('entities number:', len(result['data']))
         return self.process_result(result)
 
@@ -123,8 +140,8 @@ class AsyncNeoDriver():
 
             res = sorted(res, key=lambda x: x[1], reversed=True)'''
 
-
-            print("CALL db.index.fulltext.queryNodes('%s','%s') yield node,score return node,id(node),score" % (self.fuzzy_index, name))
+            print("CALL db.index.fulltext.queryNodes('%s','%s') yield node,score return node,id(node),score" % (
+                self.fuzzy_index, name))
             result = await self.execute_async("CALL db.index.fulltext.queryNodes('%s','%s') yield node,score return node,id(node),score" % (self.fuzzy_index, name))
             # print('\nfuzzy_result: ', result)
             try:
@@ -146,11 +163,12 @@ class AsyncNeoDriver():
             except:
                 return None
         else:
-            if name in self.entity_name_cache: # and name != '机场' and '黄花机场' not in name:
+            if name in self.entity_name_cache:  # and name != '机场' and '黄花机场' not in name:
                 return self.entity_name_cache[name]
             else:
                 r = await self.get_entities_by_property_async('name', name)
-                r = list(filter(lambda x: x['name'] != '黄花机场' and x['name'] != '机场', r))
+                r = list(filter(lambda x: x['name']
+                                != '黄花机场' and x['name'] != '机场', r))
                 # print('\n\nget_entitie_by_name_exact: ', r)
                 self.entity_name_cache[name] = r
                 for entity in r:
@@ -194,7 +212,6 @@ class AsyncNeoDriver():
             self.get_entity_information_by_label_async(label), self.loop
         )
 
-
     def exist_name(self, name):
         async def _exist_name(name):
             r = await self.get_entities_by_name_async(name)
@@ -212,7 +229,7 @@ class AsyncNeoDriver():
         else:
             arrow2 = '>'
         res = await self.execute_async('match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return m, id(m)'
-                                              % (f_genre, arrow1, arrow2, c_genre, f_name))
+                                       % (f_genre, arrow1, arrow2, c_genre, f_name))
         # print('match (n:%s)%s-[r]-%s(m:%s) where n.name = \'%s\' return m, id(m)'% (f_genre, arrow1, arrow2, c_genre, f_name))
         # res = [x['name'] for x in result]
         # res = list(map(lambda x: tuple(x['row']), result['data']))
@@ -327,8 +344,8 @@ class AsyncNeoDriver():
             return : list of entities
         '''
 
-        result = await self.execute_async('match (n:%s) return n,id(n), properties(n)' % (genre))
-        res = list(map(lambda x: x['row'], result['data']))
+        result = await self.execute_async('match (n:%s) return n,id(n)' % (genre))
+        res = self.process_result(result)
         return res
 
     def get_entities_by_genre(self, genre):
@@ -354,18 +371,31 @@ class AsyncNeoDriver():
         return asyncio.run_coroutine_threadsafe(
             self.get_entities_by_genre_and_name_async(genre, name), self.loop)
 
+    async def get_merchandise_entities_by_genre_async(self, genre):
+        '''
+            return : list of entities
+        '''
+
+        result = await self.execute_async('match (n:%s) where exists(n.服务内容) return properties(n)' % (genre))
+        res = list(map(lambda x: x['row'], result['data']))
+        return res
+
+    def get_merchandise_entities_by_genre(self, genre):
+        '''
+            return : list of entities
+        '''
+        return asyncio.run_coroutine_threadsafe(
+            self.get_merchandise_entities_by_genre_async(genre), self.loop)
+
+    def get_instance_of_genre(self, genre_name, genre='SubGenre'):
+        result = self.execute(
+            'match (n:Instance)-[:属于]->(m:%s {name:"%s"}) return n,id(n)' % (genre, genre_name)).result()
+        result = self.process_result(result)
+        return result
+
     def __del__(self):
         asyncio.run_coroutine_threadsafe(self.session.close(), self.loop)
 
 
 if __name__ == "__main__":
-    driver = AsyncNeoDriver()
-
-    rs = driver.get_entity_information_by_label('SubGenre').result()
-    pdb.set_trace()
-    # rs = driver.get_entities_by_name('何炅')
-    # neoId = rs.result()[0]['neoId']
-    # rs = driver.get_relations_by_id(neoId).result()
-    print(rs)
-    # asyncio.run_coroutine_threadsafe(driver.session.close(), driver.loop)
-    asyncio.run_coroutine_threadsafe(driver.session.close(), driver.loop)
+    pass

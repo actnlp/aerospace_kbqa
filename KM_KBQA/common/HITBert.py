@@ -14,11 +14,12 @@ BertConfig.pretrained_config_archive_map['bert-base-chinese'] = pretrained_confi
 
 hit_tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
 hit_model = BertModel.from_pretrained('bert-base-chinese')
-hit_model.cuda()
+device = 'cpu'
+hit_model.to(device)
 hit_model.eval()
 
 def encode(sent):
-    input_ids = torch.tensor(hit_tokenizer.encode(sent)).cuda().unsqueeze(0)
+    input_ids = torch.tensor(hit_tokenizer.encode(sent)).unsqueeze(0).to(device)
     # with torch.no_grad():
     outputs = hit_model(input_ids)[0][0]
 

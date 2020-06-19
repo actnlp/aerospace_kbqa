@@ -4,8 +4,6 @@ import asyncio
 import csv
 import json
 import logging
-import pdb
-import subprocess
 
 import jieba
 from aiohttp import web
@@ -187,74 +185,6 @@ def predict(sentence):
             'rel_top1': m_rel_top1,
             'entity_top3': m_top3_ent
         }
-
-
-@routes.get('/commercial/')
-async def commercial_predict(request):
-    logger.info(request.path_qs)
-    try:
-        if 'q' in request.query:
-            q = request.query['q']
-            logger.info(q)
-            res = predict(q)
-            logger.info(res)
-            return web.json_response(res, dumps=dump)
-    except Exception as e:
-        logger.error(e)
-    return web.json_response({})
-
-
-@routes.get('/commercialV2/')
-async def commercial_predict(request):
-    logger.info(request.path_qs)
-    try:
-        if 'q' in request.query:
-            q = request.query['q']
-            logger.info(q)
-            res = predictV2(q)
-            logger.info(res)
-            return web.json_response(res, dumps=dump)
-    except Exception as e:
-        logger.error(e)
-    return web.json_response({})
-
-
-@routes.get('/commercialV3/')
-async def commercial_predict(request):
-    logger.info(request.path_qs)
-    try:
-        if 'q' in request.query:
-            q = request.query['q']
-            logger.info(q)
-            res = predictV3(q)
-            logger.info(res)
-            return web.json_response(res, dumps=dump)
-    except Exception as e:
-        logger.error(e)
-    return web.json_response({})
-
-
-def run_server():
-    server = web.Application()
-    server.add_routes(routes)
-    web.run_app(server, port=p_args.local_port)
-
-
-def run_test():
-    while True:
-        sent = input()
-        if sent == 'q':
-            return
-        else:
-            print(predictV2(sent))
-
-
-def jaccard_rank(entities):
-    def jaccard(a, b):
-        a = set(a)
-        b = set(b)
-        return len(a & b) / len(a | b)
-    pass
 
 
 def predict_defense(sentence, graph_driver):

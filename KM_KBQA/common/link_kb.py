@@ -10,7 +10,7 @@ import subprocess
 import aiohttp_cors
 from aiohttp import web
 
-from .async_neo_driver import AsyncNeoDriver
+from .AsyncNeoDriver import AsyncNeoDriver
 
 
 def prepare_server(args):

@@ -1,4 +1,5 @@
 import os
+from functools import lru_cache
 
 import torch
 from transformers import BertConfig, BertModel, BertTokenizer
@@ -36,6 +37,7 @@ def get_model():
     return global_model
 
 
+@lru_cache(maxsize=8)
 def predict(sent):
     # get input_ids, input_mask and segment_ids from sent
     tokenizer = get_tokenizer()

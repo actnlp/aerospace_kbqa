@@ -44,14 +44,3 @@ def merchandise_predict(sentence, driver):
     match_entities.sort(key=lambda x: x[1], reverse=True)
     match_entities = [m[0] for m in match_entities[:3]]
     return match_entities
-
-
-def match_content(sent_cut: list, contents: list):
-    ''''
-    Args:
-        sent_cut: ['word', 'word']
-        contents: [
-            [entity_name:str, entity_content:list], 
-        ]
-    '''
-    words_set = set(sent_cut)

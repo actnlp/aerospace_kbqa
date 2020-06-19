@@ -4,7 +4,7 @@ import pdb
 import jieba
 import jieba.posseg as pseg
 
-from ..config.config import LEX_PATH
+from ..config.config import LEX_PATH, STOP_WORD_PATH
 
 # cws_model_path = os.path.join(LTP_DATA_DIR, 'cws.model')
 # pos_model_path = os.path.join(LTP_DATA_DIR, 'pos.model')
@@ -45,9 +45,18 @@ def cut(sent):
     return list(jieba.cut(sent, cut_all=False))
 
 
-def customed_jieba_cut(sent, path, cut_stop=True):
-    with open(path, 'r', encoding='utf-8') as f:
-        stopwords = [line.replace('\n', '') for line in f]
+def load_stopwords(fname):
+    with open(fname, 'r', encoding='utf-8') as f:
+        stopwords = {line.strip() for line in f}
+    return stopwords
+
+
+stopwords = load_stopwords(STOP_WORD_PATH)
+
+
+def customed_jieba_cut(sent, path=None, cut_stop=True):
+    # with open(path, 'r', encoding='utf-8') as f:
+        # stopwords = [line.replace('\n', '') for line in f]
     cut_sent = list(jieba.cut(sent, cut_all=False))
 
     for i, wd in enumerate(cut_sent):
