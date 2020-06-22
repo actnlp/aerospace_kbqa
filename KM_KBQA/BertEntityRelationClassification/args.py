@@ -220,4 +220,3 @@ cws_model_path = os.path.join(cache_dir, 'ltp_data', 'cws.model')
 pos_model_path = os.path.join(cache_dir, 'ltp_data', 'pos.model')
 par_model_path = os.path.join(cache_dir, 'ltp_data', 'parser.model')
 
-print('task begin: ', task_name)
