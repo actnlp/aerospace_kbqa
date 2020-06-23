@@ -144,6 +144,7 @@ class ConstraintExtractor():
                 for rel, rel_val in ent.items():
                     if rel in self.remove_prop:
                         continue
+                    rel_val = str(rel_val)
                     if constr_name in rel \
                        or constr_name in rel_val \
                        or constr_val[0] in rel \

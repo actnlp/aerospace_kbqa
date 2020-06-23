@@ -30,6 +30,7 @@ class BertRelExtractor(AbstractRelExtractor):
         if rel in ent:
             res.append({
                 'id': ent['neoId'],
+                'mention': ent['name'],
                 'entity': ent['name'],
                 'rel_name': rel,
                 'rel_val': ent[rel],
@@ -69,8 +70,6 @@ class MatchRelExtractor(AbstractRelExtractor):
                 if p_i in prop and w_i in word:
                     ratio = 1.5
         return ratio
-
-
 
     def extract_rel(self, sent_cut,
                     linked_ent,

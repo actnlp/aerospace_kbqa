@@ -387,9 +387,18 @@ class AsyncNeoDriver():
         return asyncio.run_coroutine_threadsafe(
             self.get_merchandise_entities_by_genre_async(genre), self.loop)
 
+    @lru_cache(maxsize=256)
     def get_instance_of_genre(self, genre_name, genre='SubGenre'):
         result = self.execute(
             'match (n:Instance)-[:属于]->(m:%s {name:"%s"}) return distinct n,id(n)' % (genre, genre_name)).result()
+        result = self.process_result(result)
+        return result
+
+    @lru_cache(maxsize=128)
+    def get_entities_only_by_name(self, name):
+        result = self.execute(
+            'match (n {name:"%s"}) return n, id(n)' % name
+        ).result()
         result = self.process_result(result)
         return result
 

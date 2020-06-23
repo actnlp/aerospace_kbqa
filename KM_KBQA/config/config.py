@@ -47,22 +47,25 @@ RAW_SOURCE_DATA = os.path.join(
 TARGET_SOURCE_DATA = os.path.join(
     project_dir, 'KM_KBQA/data_processing/seq_label_target.txt')
 
+'''KBQA config'''
+# 问题分类模型地址
+QCLS_PATH = os.path.join(model_path, 'check_kbqa_model.pt')
 
 # config logging
 
-logger = logging.getLogger()
+logger = logging.getLogger('qa')
 formatter = logging.Formatter(
     '%(asctime)s %(filename)s:%(lineno)d %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 logger.setLevel(logging.INFO)
-ch = logging.StreamHandler()
-ch.setFormatter(formatter)
-ch.setLevel(logging.INFO)
+# ch = logging.StreamHandler()
+# ch.setFormatter(formatter)
+# ch.setLevel(logging.INFO)
 fh = logging.FileHandler('run.log', 'a', encoding='utf-8')
 fh.setFormatter(formatter)
 fh.setLevel(logging.INFO)
 debug_h = logging.FileHandler('debug.log', 'a', encoding='utf-8')
 debug_h.setFormatter(formatter)
 debug_h.setLevel(logging.DEBUG)
-logger.addHandler(ch)
+# logger.addHandler(ch)
 logger.addHandler(fh)
 logger.addHandler(debug_h)

@@ -379,8 +379,8 @@ class QAHelper():
         logger.info(['limits', limits])
 
         # 合并两个集合
-        # link_res = self.link_entity(sent)
-        link_res = self.linker.link(sent, limits)
+        link_res = self.link_entity(sent)
+        # link_res = self.linker.link(sent, limits)
 
         # 判断是否是列举类型
         # sent_is_list = check_list_questions(sent, self.link_entity)
@@ -813,7 +813,7 @@ if __name__ == "__main__":
     linker = EntityLinking.Linker(driver=driver)
     qahelper = QAHelper(driver, linker)
     # questions = ['姚明的女儿是谁?', '姚明出生在哪？', '你知道姚明是哪里人吗？', '北京航空航天大学在哪？']
-    questions = ['打火机可以携带吗？', '机场有婴儿车可以租用吗', '机场有轮椅可以租用吗',
+    questions = ['东航的值机柜台在哪？', '有什么餐厅吗？', '机场哪里有吃饭的地方？', '机场有麦当劳吗？', '打火机可以携带吗？', '机场有婴儿车可以租用吗', '机场有轮椅可以租用吗',
                  '停车场怎么收费', '停车场费用怎么样？', '停车场一个小时多少钱？', '停车场多少钱？']
     # questions = ['停车场费用怎么样？']
     for q in questions:

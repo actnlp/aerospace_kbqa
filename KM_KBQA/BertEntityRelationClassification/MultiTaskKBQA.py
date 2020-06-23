@@ -43,8 +43,8 @@ class MultiTaskKBQA(nn.Module):
                 args.bilstm_hidden_size * args.bilstm_num_layers, args.num_tag))
             self.rel_w = torch.nn.Parameter(torch.FloatTensor(
                 args.bilstm_hidden_size * args.bilstm_num_layers, args.num_tag))
-            nn.init.xavier_uniform(self.ent_w)
-            nn.init.xavier_uniform(self.rel_w)
+            nn.init.xavier_uniform_(self.ent_w)
+            nn.init.xavier_uniform_(self.rel_w)
 
     def forward(self,
                 input_ids,

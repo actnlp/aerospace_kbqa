@@ -162,6 +162,7 @@ class BertLinker():
                 ent = {
                     'ent': e,
                     'id': e['neoId'],
+                    'mention': e['name'],
                     'rank': rank+1,
                     'source': 'bert',
                     'score': 1/(rank+1)
@@ -187,6 +188,7 @@ class CommercialLinker():
                 e = self.driver.get_entity_by_id(ent_id).result()[0]
                 ent = {
                     'ent': e,
+                    'mention': e['name'],
                     'id': ent_id,
                     'score': score/100,
                     'source': 'commercial',

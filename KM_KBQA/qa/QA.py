@@ -1,14 +1,18 @@
 import logging
+import traceback
 from functools import lru_cache
 
+from fuzzywuzzy import fuzz
+
 from ..common import LTP, AsyncNeoDriver
+from ..config import config
 from ..linking import NewLinking
 from .ConstraintExtractor import ConstraintExtractor
 from .Limiter import Limiter
 from .ListQuestion import check_list_questions
 from .RelExtractor import BertRelExtractor, MatchRelExtractor
 
-logger = logging.getLogger()
+logger = logging.getLogger('qa')
 
 
 def filter_sentence(sent, stop_list, rpl_list):
@@ -111,8 +115,14 @@ class QA():
     def match_constraint(self, qa_res, constraint, id2linked_ent):
         for ans in qa_res:
             linked_ent = id2linked_ent[ans['id']]
-            match_res = self.constr_extractor.match_constraint(
-                constraint, linked_ent)
+            try:
+                match_res = self.constr_extractor.match_constraint(
+                    constraint, linked_ent)
+            except:
+                print(constraint)
+                print(linked_ent)
+                traceback.print_exc()
+            
             if match_res is not None:
                 # logger.info('限制匹配结果: '+str(match_res))
                 ans['constr_score'] = 0
@@ -126,6 +136,66 @@ class QA():
 
             else:
                 ans['constr_score'] = 0
+
+    def generate_natural_ans(self, qa_res: dict, id2linked_ent):
+        linked_ent = id2linked_ent[qa_res['id']]
+        ent = linked_ent['ent']
+        ent_name = ent['name']
+        cand_name = qa_res['mention']
+
+        natural_ans = ''
+        ans_name = ent_name if fuzz.token_sort_ratio(
+            ' '.join(cand_name), ' '.join(ent_name)) < 80 else cand_name
+
+        airline_ans = ''
+        if '航司代码' in ent:
+            airline_value = ent['航司代码']
+            airline_ans = '，办理%s航司业务' % airline_value
+
+        if 'rel_score' not in qa_res:
+            ans_list = []
+            ans_list.append('您好，机场内有%s' % ans_name)
+            # 列举类，找出时间和地点
+            for rel, rel_val in ent.items():
+                if '时间' in rel:
+                    ans_list.append('营业时间是%s' % rel_val)
+                if '地点' == rel:
+                    ans_list.append('位置在%s' % rel_val)
+                if '价格' in rel or '收费' in rel:
+                    ans_list.append('价格为%s' % rel_val)
+                if '电话' in rel or '联系' in rel:
+                    ans_list.append('电话是%s' % rel_val)
+
+            # ans = '您好，机场内有%s，办理%s航司业务，位置在%s，营业时间是%s，价格为%s，电话是%s' % (ans_name, airline_value, loc_prop_value, time_prop_value, price_prop_value, tel_prop_value)
+
+            # 加话术
+            # if (time_prop_value == '' or time_prop_value == '暂无') and (loc_prop_value == '' or loc_prop_value == '暂无'):
+            #     ans = '您好，机场内有%s' % (ans_name)
+            # elif time_prop_value == '' or time_prop_value == '暂无':
+            #     ans = '您好，机场内有%s，位置在%s' % (ans_name, loc_prop_value)
+            # elif loc_prop_value == '' or loc_prop_value == '暂无':
+            #     ans = '您好，机场内有%s，营业时间是%s' % (ans_name, loc_prop_value)
+            # else:
+            #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
+            natural_ans = '，'.join(ans_list)
+            natural_ans += airline_ans
+            return natural_ans
+        else:
+            rel = qa_res['rel_name']
+            rel_val = qa_res['rel_val']
+            # 话术生成
+            if '地点' in rel:
+                natural_ans = '您好，%s在%s' % (ans_name, rel_val)
+            elif '时间' in rel:
+                natural_ans = '您好，%s的服务时间是%s' % (ans_name, rel_val)
+            elif rel in {'客服电话', '联系电话', '联系方式'}:
+                natural_ans = '您好，%s的客服电话是%s' % (ans_name, rel_val)
+            elif rel == '手续费' or '价格' in rel or '收费' in rel:
+                natural_ans = '您好，%s的收费标准是%s' % (ans_name, rel_val)
+            else:
+                natural_ans = '您好，%s的%s是%s' % (ans_name, rel, rel_val)
+            natural_ans += airline_ans
+            return natural_ans
 
     def answer(self, sent):
         '''
@@ -145,28 +215,26 @@ class QA():
         # 1. 使用替换规则
         sent = filter_sentence(sent, self.stop_list, self.rpl_list)
         sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
-        logger.info('cut :'+str(sent_cut))
+        logger.debug('cut :'+str(sent_cut))
 
         # 2. extract constaints
         constr_res = self.constr_extractor.extract(sent)
-        logger.info('限制: '+str(constr_res))
+        logger.debug('限制: '+str(constr_res))
 
         # 3. link: 使用多种linker，合并结果
-        # TODO 多linker合并
-        # link_res = self.rule_linker.link(sent, limits)
         link_res, id2linked_ent = self.link(sent)
-        logger.info('链接结果: '+str(link_res[:10]))
-        # TODO 4. 处理列举类型
+        logger.debug('链接结果: '+str(link_res[:10]))
+        # 4. 处理列举类型
         is_list = check_list_questions(sent, self.rule_linker.link)
-        logger.info('是否列举: '+str(is_list))
+        logger.debug('是否列举: '+str(is_list))
         # 5. 非列举型匹配关系 extract relations, match+bert
         rel_match_res = self.extract_rel(sent, sent_cut, link_res)
-        logger.info('关系匹配: '+str(rel_match_res[:10]))
+        logger.debug('关系匹配: '+str(rel_match_res[:10]))
 
-        # TODO 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
+        # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         # qa_res {'id','mention','entity','link_score','rel_name','rel_val','rel_score','constr_name','constr_val'}
         qa_res = []
-        LINK_THRESH = 0.9
+        LINK_THRESH = 1
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list:
             qa_res.extend([{
@@ -179,7 +247,7 @@ class QA():
             qa_res.extend(rel_match_res)
             for linked_ent in link_res:
                 if linked_ent['id'] not in match_rel_ent_ids \
-                        and linked_ent['score'] >= LINK_THRESH:
+                        and linked_ent['score'] > LINK_THRESH:
                     qa_res.append({
                         'id': linked_ent['id'],
                         'mention': linked_ent.get('mention', linked_ent['ent']['name']),
@@ -187,15 +255,38 @@ class QA():
                         'link_score': linked_ent['score'],
                     })
 
-        # TODO 7. 匹配限制
+        # 9. 匹配机场本身相关的问题
+        if len(qa_res) <= 5 and '机场' in sent:
+            airport_ent = self.driver.get_entities_only_by_name(
+                config.airport.name)[0]
+            linked_airport = {
+                'ent': airport_ent,
+                'mention': airport_ent['name'],
+                'id': airport_ent['neoId'],
+                'score': 1,
+                'source': 'airport',
+            }
+            id2linked_ent[linked_airport['id']] = linked_airport
+            airport_rel_match = self.extract_rel(
+                sent, sent_cut, [linked_airport])
+            qa_res.extend(airport_rel_match)
+
+        # 7. 匹配限制
         if any(map(lambda x: x != '', constr_res.values())):
             self.match_constraint(qa_res, constr_res, id2linked_ent)
-        # TODO 8. 答案排序
+        # 8. 答案排序
         qa_res.sort(key=lambda ans: (
             ans.get('constr_score', 0), ans['link_score'] + ans.get('rel_score', 0)), reverse=True)
-        # TODO 9. 匹配机场本身相关的问题
-        # TODO 10. select answer
-        logger.info('答案: '+str(qa_res[:10]))
+        qa_res = qa_res[:10]
+        logger.debug('答案: '+str(qa_res))
+        natural_ans = []
+        for res in qa_res:
+            n_ans = self.generate_natural_ans(
+                res, id2linked_ent)
+            res['natural_ans'] = n_ans
+            natural_ans.append(n_ans)
+        logger.info('自然语言答案: '+str(natural_ans))
+        return qa_res
 
 
 class FrontendAdapter():
@@ -205,7 +296,7 @@ class FrontendAdapter():
 
 if __name__ == "__main__":
     qa = QA()
-    questions = ['东航的值机柜台在哪？', '有什么餐厅吗？', '机场哪里有吃饭的地方？', '机场有麦当劳吗？', '打火机可以携带吗？', '机场有婴儿车可以租用吗', '机场有轮椅可以租用吗',
+    questions = ['昆明机场是什么时候建立的？', '长水机场在什么地方？', '东航的值机柜台在哪？', '有什么餐厅吗？', '机场哪里有吃饭的地方？', '机场有麦当劳吗？', '打火机可以携带吗？', '机场有婴儿车可以租用吗', '机场有轮椅可以租用吗',
                  '停车场怎么收费', '停车场费用怎么样？', '停车场一个小时多少钱？', '停车场多少钱？']
     for q in questions:
         qa.answer(q)
