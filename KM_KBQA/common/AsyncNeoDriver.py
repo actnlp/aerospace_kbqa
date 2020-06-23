@@ -228,7 +228,7 @@ class AsyncNeoDriver():
             arrow1 = '<'
         else:
             arrow2 = '>'
-        res = await self.execute_async('match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return m, id(m)'
+        res = await self.execute_async('match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return distinct m, id(m)'
                                        % (f_genre, arrow1, arrow2, c_genre, f_name))
         # print('match (n:%s)%s-[r]-%s(m:%s) where n.name = \'%s\' return m, id(m)'% (f_genre, arrow1, arrow2, c_genre, f_name))
         # res = [x['name'] for x in result]
@@ -389,7 +389,7 @@ class AsyncNeoDriver():
 
     def get_instance_of_genre(self, genre_name, genre='SubGenre'):
         result = self.execute(
-            'match (n:Instance)-[:属于]->(m:%s {name:"%s"}) return n,id(n)' % (genre, genre_name)).result()
+            'match (n:Instance)-[:属于]->(m:%s {name:"%s"}) return distinct n,id(n)' % (genre, genre_name)).result()
         result = self.process_result(result)
         return result
 

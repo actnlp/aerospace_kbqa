@@ -7,6 +7,7 @@ import re
 
 import jieba
 from fuzzywuzzy import fuzz, process
+from functools import lru_cache
 
 from ..BertEntityRelationClassification.BertERClsPredict import \
     predict as BertERCls
@@ -51,12 +52,13 @@ class RuleLinker():
         self.id2ent = {x['neoId']: x for x in all_entities}
         self.ent_names = {x['name'] for x in all_entities}
 
+    @lru_cache(maxsize=128)
     def link(self, sent, limits=None):
         # use bert embedding to fuzzy match entities
         mention_list = recognize_entity(sent)
         if mention_list == []:
             return []
-        self.sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
+        # self.sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         # print('cut:', self.cut)
         res = []
         for mention in mention_list:

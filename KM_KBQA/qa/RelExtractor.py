@@ -70,49 +70,7 @@ class MatchRelExtractor(AbstractRelExtractor):
                     ratio = 1.5
         return ratio
 
-    def match_limit(self, limits, props):
-        # check whether limit is available
-        exist_limit = []
-        res_limit = {}
-        for limit in limits.keys():
-            if limits[limit] != '' and limits[limit] is not None:
-                flag = True
-                for prop in props.keys():
-                    if limit in prop or limit in props[prop] or limits[limit][0] in prop or limits[limit][0] in props[
-                            prop]:
-                        flag = False
-                        res_limit[prop] = True
-                        exist_limit.append((prop, limit))
-                if flag:
-                    return None
 
-        # filter result
-        time_pattern = re.compile(r'\d+[:, ：]')
-        for prop, limit in exist_limit:
-            limit_content = props[prop].lower()
-            if '地点' in limit:
-                for item in limits['地点']:
-                    if item not in limit_content:
-                        res_limit[prop] = False
-            elif '时间' in limit:
-                for item in limits['时间']:
-                    #  ''' or item == '最早' or item == '最晚'''''
-                    if (item == '24小时' or item == '最早' or item == '最晚') and item not in limit_content:
-                        res_limit[prop] = False
-                        continue
-                    bg_ed = time_pattern.findall(limit_content)
-                    bg_ed = [int(x[:-1]) for x in bg_ed]
-                    if '时' not in item:
-                        if len(bg_ed) == 2:
-                            if not (bg_ed[0] < int(item) < bg_ed[1]):
-                                res_limit[prop] = False
-
-            elif '币种' in limit or '银行' in limit or '航空公司' in limit or '价格' in limit:
-                for item in limits[limit]:
-                    if item not in limit_content:
-                        res_limit[prop] = False
-
-        return res_limit
 
     def extract_rel(self, sent_cut,
                     linked_ent,

@@ -25,20 +25,24 @@ def check_list_questions(sent, link_func):
                     ret = True
         return ret
 
-    has_list, has_rel = False, False
+    is_list, has_rel = False, False
     mention_list = recognize_entity(sent)
     for mention in mention_list:
-        if has_rel_word(mention, '地点') or has_rel_word(mention, '时间') or has_rel_word(mention, '电话') or has_rel_word(mention, '价格'):
-            has_rel = True
+        # if has_rel_word(mention, '地点') or has_rel_word(mention, '时间') or has_rel_word(mention, '电话') or has_rel_word(mention, '价格'):
+        #     has_rel = True
+        has_rel = has_rel_word(mention, '地点') \
+            or has_rel_word(mention, '时间') \
+            or has_rel_word(mention, '电话') \
+            or has_rel_word(mention, '价格')
     # 查找是否有一个listword在句子里面
     for list_word in config.LIST_WORD_LIST:
         if list_word in sent:
             prev_sent = sent.split(list_word)[0]
             prev_link_res = link_func(prev_sent)
             if len(prev_link_res) == 0 and not has_rel:
-                has_list = True
+                is_list = True
             break
-    return has_list
+    return is_list
 
 
 def generate_ngram(seq, max_size=6, min_size=1, ignore_w=[]):
