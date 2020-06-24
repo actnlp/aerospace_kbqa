@@ -36,7 +36,7 @@ class Airport:
 airport = Airport()
 
 # ths
-check_kbqa_ths = 0.3
+check_kbqa_ths = 0.5
 simi_ths = 0.80
 prop_ths = 0.76
 exact_ent_ths = 0.83

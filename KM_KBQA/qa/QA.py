@@ -67,6 +67,8 @@ class QA():
         for linked_ent in link_res:
             ent = linked_ent['ent']
             if ent['label'] == 'SubGenre' or ent['label'] == 'Genre':
+                if self.rule_linker.is_special_entity(ent):
+                    continue
                 instances = self.get_instances(
                     ent['name'], ent['label'], 'Instance')
                 if instances is not None:
@@ -122,7 +124,7 @@ class QA():
                 print(constraint)
                 print(linked_ent)
                 traceback.print_exc()
-            
+
             if match_res is not None:
                 # logger.info('限制匹配结果: '+str(match_res))
                 ans['constr_score'] = 0
@@ -144,8 +146,9 @@ class QA():
         cand_name = qa_res['mention']
 
         natural_ans = ''
-        ans_name = ent_name if fuzz.token_sort_ratio(
-            ' '.join(cand_name), ' '.join(ent_name)) < 80 else cand_name
+        # ans_name = ent_name if fuzz.token_sort_ratio(
+        # ' '.join(cand_name), ' '.join(ent_name)) < 80 else cand_name
+        ans_name = ent_name
 
         airline_ans = ''
         if '航司代码' in ent:
@@ -256,7 +259,7 @@ class QA():
                     })
 
         # 9. 匹配机场本身相关的问题
-        if len(qa_res) <= 5 and '机场' in sent:
+        if len(qa_res) == 0 and '机场' in sent:
             airport_ent = self.driver.get_entities_only_by_name(
                 config.airport.name)[0]
             linked_airport = {
@@ -280,13 +283,16 @@ class QA():
         qa_res = qa_res[:10]
         logger.debug('答案: '+str(qa_res))
         natural_ans = []
+        filtered_qa_res = []
         for res in qa_res:
             n_ans = self.generate_natural_ans(
                 res, id2linked_ent)
-            res['natural_ans'] = n_ans
-            natural_ans.append(n_ans)
+            if n_ans not in natural_ans:
+                res['natural_ans'] = n_ans
+                natural_ans.append(n_ans)
+                filtered_qa_res.append(res)
         logger.info('自然语言答案: '+str(natural_ans))
-        return qa_res
+        return filtered_qa_res
 
 
 class FrontendAdapter():

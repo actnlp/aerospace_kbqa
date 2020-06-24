@@ -35,7 +35,8 @@ class BertRelExtractor(AbstractRelExtractor):
                 'rel_name': rel,
                 'rel_val': ent[rel],
                 'link_score': linked_ent['score'],
-                'rel_score': 1
+                'rel_score': 1,
+                'rel_source': 'bert'
             })
         return res
 
@@ -132,7 +133,8 @@ class MatchRelExtractor(AbstractRelExtractor):
                         'rel_name': prop,
                         'rel_val': props_dict[prop],
                         'link_score': linked_ent['score'],
-                        'rel_score': score
+                        'rel_score': score,
+                        'rel_source': 'match'
                     })
         if len(res) == 0:
             return None

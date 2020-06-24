@@ -11,7 +11,7 @@ class QAFull():
     def answer(self, sent):
         kbqa_prob = self.qcls.eval([sent])[0]
         if kbqa_prob < config.check_kbqa_ths:
-            ans = ['非KBQA问题']
+            ans = [{'natural_ans': '非KBQA问题'}]
         else:
             ans = self.kbqa.answer(sent)
         return ans

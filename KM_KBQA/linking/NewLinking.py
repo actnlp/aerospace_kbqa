@@ -39,15 +39,22 @@ class RuleLinker():
             self.driver = driver
         self.load_all_entities()
 
+    def is_special_entity(self, ent_dict):
+        return ent_dict['label'] == 'Genre' \
+            and (
+            '类' in ent_dict['name']
+            or '航空公司' in ent_dict['name']
+            or '行李安检' in ent_dict['name']
+        )
+
     def load_all_entities(self, entity_labels=['Instance', 'SubGenre', 'Genre']):
         all_entities = []
         for entity_label in entity_labels:
             tmp_entities = self.driver.get_all_entities(entity_label).result()
-            if entity_label == 'Genre':
-                tmp_entities = list(filter(
-                    lambda x: '类' not in x['name'] and '航空公司' not in x['name'] and '行李安检' not in x['name'], tmp_entities))
             for e in tmp_entities:
                 e['label'] = entity_label
+            tmp_entities = [e for e in tmp_entities
+                            if not self.is_special_entity(e)]
             all_entities += tmp_entities
         self.id2ent = {x['neoId']: x for x in all_entities}
         self.ent_names = {x['name'] for x in all_entities}
