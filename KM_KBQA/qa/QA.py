@@ -102,14 +102,14 @@ class QA():
             # 匹配关系
             rel_matched = self.match_extractor.extract_rel(
                 sent_cut, linked_ent)
-            if rel_matched is not None:
-                rel_match_res += rel_matched
+            rel_match_res += rel_matched
             # bert 提取关系
             rel_bert_res = self.bert_extractor.extract_rel(sent, linked_ent)
             for bert_rel in rel_bert_res:
-                for match_rel in rel_match_res:
+                for match_rel in rel_matched:
                     if bert_rel['rel_name'] == match_rel['rel_name']:
                         match_rel['rel_score'] += 0.3
+                        match_rel['rel_source'] += ' bert'
                     else:
                         rel_match_res.append(bert_rel)
         return rel_match_res

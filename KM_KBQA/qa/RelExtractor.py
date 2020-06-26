@@ -137,9 +137,9 @@ class MatchRelExtractor(AbstractRelExtractor):
                         'rel_source': 'match'
                     })
         if len(res) == 0:
-            return None
+            return []
         res.sort(key=lambda x: x['rel_score'], reverse=True)
-        res_lang = []
+        # res_lang = []
         # for item in res:
         #     rel = list(item[3].keys())[0]
         #     val = item[3][rel]
