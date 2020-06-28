@@ -3,6 +3,7 @@ import pdb
 import re
 
 import jieba
+from fuzzywuzzy import fuzz
 
 from ..BertEntityRelationClassification.BertERClsPredict import \
     predict as BertERCls
@@ -48,7 +49,7 @@ class MatchRelExtractor(AbstractRelExtractor):
         else:
             self.driver = driver
         self.remove_prop = {'subname', 'description',
-                            'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden'}
+                            'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'entity_label'}
 
     def normalize_prop(self, prop):
         if '地点' in prop:
@@ -116,10 +117,16 @@ class MatchRelExtractor(AbstractRelExtractor):
         used_pairs = set()
 
         for prop in props_set:
+            old_prop = prop
             for word in rest_words:
-                score = cosine_word_similarity(word, self.normalize_prop(prop))
-                ratio = self.normalize_ratio(word, prop)
-                score = ratio if ratio > 1 else score
+                prop = prop.replace('服务', '')
+                cos_score = cosine_word_similarity(
+                    word, self.normalize_prop(prop))
+                text_score = fuzz.UQRatio(word, prop)/100
+                ratio = 0.6
+                score = ratio*cos_score + (1-ratio)*text_score
+                rule_score = self.normalize_ratio(word, prop)
+                score = rule_score if rule_score > 1 else score
                 if word in prop and len(word) > 1:
                     score *= 1.2
                 if score > thresh and (word, prop) not in used_pairs:
@@ -130,8 +137,8 @@ class MatchRelExtractor(AbstractRelExtractor):
                         'id': ent['neoId'],
                         'mention': mention,
                         'entity': ent['name'],
-                        'rel_name': prop,
-                        'rel_val': props_dict[prop],
+                        'rel_name': old_prop,
+                        'rel_val': props_dict[old_prop],
                         'link_score': linked_ent['score'],
                         'rel_score': score,
                         'rel_source': 'match'

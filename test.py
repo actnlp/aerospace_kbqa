@@ -3,7 +3,9 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
+from KM_KBQA.config import config
 from KM_KBQA.qa.QAFull import QAFull
+from KM_KBQA.qa import QA
 
 
 def test_qa(fname):
@@ -22,3 +24,6 @@ if __name__ == "__main__":
     test_qa(test_file)
     test_file = 'commercial.txt'
     test_qa(test_file)
+    # test_file = 'debug_q.txt'
+    # test_qa(test_file)
+    # QA.test_qa()

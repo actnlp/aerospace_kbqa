@@ -3,7 +3,7 @@ import re
 
 class ConstraintExtractor():
     remove_prop = {'name', 'subname', 'description',
-                   'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'textqa答案'}
+                   'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'textqa答案','entity_label'}
 
     def __init__(self):
         pass

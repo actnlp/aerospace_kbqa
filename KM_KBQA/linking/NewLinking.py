@@ -40,7 +40,7 @@ class RuleLinker():
         self.load_all_entities()
 
     def is_special_entity(self, ent_dict):
-        return ent_dict['label'] == 'Genre' \
+        return ent_dict['entity_label'] == 'Genre' \
             and (
             '类' in ent_dict['name']
             or '航空公司' in ent_dict['name']
@@ -52,7 +52,7 @@ class RuleLinker():
         for entity_label in entity_labels:
             tmp_entities = self.driver.get_all_entities(entity_label).result()
             for e in tmp_entities:
-                e['label'] = entity_label
+                e['entity_label'] = entity_label
             tmp_entities = [e for e in tmp_entities
                             if not self.is_special_entity(e)]
             all_entities += tmp_entities
@@ -84,15 +84,25 @@ class RuleLinker():
                 filtered_key = self.filter_key(ent_name)
                 if filtered_key == '':
                     continue
+                RATIO = 0.5
                 score = cosine_word_similarity(converted_item, filtered_key)
-                score1 = fuzz.token_sort_ratio(
-                    ' '.join(converted_item), ' '.join(filtered_key))
-                score2 = fuzz.token_sort_ratio(
-                    converted_item, filtered_key)
-                if score1 > 70 and score2 >= 50 \
-                   and len(converted_item) > 1:
-                    score *= 1.2
-                    score += (score1-70)/100
+                # score1 = fuzz.token_sort_ratio(
+                #     ' '.join(converted_item), ' '.join(filtered_key))
+                # score2 = fuzz.token_sort_ratio(
+                #     converted_item, filtered_key)
+                # if score1 > 70 and score2 >= 50 \
+                #    and len(converted_item) > 1:
+                score1 = fuzz.UQRatio(converted_item, filtered_key)/100
+                score = RATIO*score + (1-RATIO) * score1
+                # if score1 >= 0.6:
+                #     score *= 1.2
+                # else:
+                #     score *= 0.9
+                # if score1 >= 60:
+                #     score *= 1.2
+                #     score += (score1-60)/100
+                # else:
+                #     score *= 0.9
                 '''if item in key and len(item) > 1:
                     score *= 1.1'''
                 # punish english words
@@ -172,7 +182,7 @@ class BertLinker():
                     'mention': e['name'],
                     'rank': rank+1,
                     'source': 'bert',
-                    'score': 1/(rank+1)
+                    'score': 1/(rank+1) - 0.05
                 }
                 res.append(ent)
         return res
@@ -185,23 +195,37 @@ class CommercialLinker():
         else:
             self.driver = driver
         self.content2entId = self.build_revert_index()
+        self.ban_word = {'机场'}
 
     def link(self, sent):
-        content_keys = self.retrieve_content_keys(sent)
-        res = []
-        for content, score in content_keys:
-            ent_ids = self.content2entId[content]
-            for ent_id in ent_ids:
-                e = self.driver.get_entity_by_id(ent_id).result()[0]
-                ent = {
-                    'ent': e,
-                    'mention': e['name'],
-                    'id': ent_id,
-                    'score': score/100,
-                    'source': 'commercial',
-                    'content': content
-                }
-                res.append(ent)
+        sent_cut = LTP.customed_jieba_cut(sent)
+        id2ent = {}
+        for word in sent_cut:
+            if word in self.ban_word:
+                continue
+            content_keys = self.retrieve_content_keys(word)
+            for content, score in content_keys:
+                ent_ids = self.content2entId[content]
+                score /= 100
+                if score > 0.5:
+                    for ent_id in ent_ids:
+                        e = self.driver.get_entity_by_id(ent_id).result()[0]
+                        if '服务内容' in e:
+                            e.pop('服务内容')
+                        if ent_id in id2ent:
+                            old_score = id2ent[ent_id]['score']
+                            id2ent[ent_id]['score'] = max(score, old_score)
+                        else:
+                            ent = {
+                                'ent': e,
+                                'mention': word,
+                                'id': ent_id,
+                                'score': score,
+                                'source': 'commercial',
+                                'content': content
+                            }
+                            id2ent[ent_id] = ent
+        res = list(id2ent.values())
         return res
 
     def build_revert_index(self):
@@ -210,7 +234,7 @@ class CommercialLinker():
         content2entId = {}
         for ent in entities:
             ent_id = ent['neoId']
-            content_str = ent.get('服务内容', '')
+            content_str = ent.get('服务内容', '').replace('服务', '')
             content = content_str.split(';')
             for c in content:
                 if c == '':
@@ -222,8 +246,11 @@ class CommercialLinker():
         return content2entId
 
     def retrieve_content_keys(self, sent):
-        words = LTP.customed_jieba_cut(sent)
-        sent = ''.join(words)
+        # words = LTP.customed_jieba_cut(sent)
+        # sent = ''.join(words).replace('服务', '')
+        sent = sent.replace('服务', '')
+        if sent == '':
+            return []
         res = process.extract(sent, self.content2entId.keys(),
                               scorer=fuzz.UQRatio,
                               limit=2)
@@ -254,7 +281,7 @@ def test_bert_linker():
 def test_commercial_linker():
     commercial_linker = CommercialLinker()
     # print(commercial_linker.content2entId)
-    sent = '有可以打游戏的地方吗？'
+    sent = '过了安检里面有没有书吧？'
     # sent = '东航的值机柜台在哪？'
     res = commercial_linker.link(sent)
     print(res)
@@ -262,5 +289,5 @@ def test_commercial_linker():
 
 if __name__ == '__main__':
     # test_bert_linker()
-    # test_commercial_linker()
-    test_rule_linker()
+    test_commercial_linker()
+    # test_rule_linker()

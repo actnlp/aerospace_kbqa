@@ -54,23 +54,24 @@ class QA():
 
         bert_res = self.bert_linker.link(sent)
         commercial_res = self.commercial_linker.link(sent)
+        # logger.info('商业链接: %s' % str(commercial_res))
         rule_res = self.rule_linker.link(sent)
         link_res = rule_res
         id2linked_ent = {linked_ent['id']: linked_ent
                          for linked_ent in link_res}
         # merge bert res
-        merge_link_res(commercial_res, id2linked_ent)
-        # merge commecial res
         merge_link_res(bert_res, id2linked_ent)
+        # merge commecial res
+        merge_link_res(commercial_res, id2linked_ent)
         # 获取具体实体
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if ent['label'] == 'SubGenre' or ent['label'] == 'Genre':
+            if ent['entity_label'] == 'SubGenre' or ent['entity_label'] == 'Genre':
                 if self.rule_linker.is_special_entity(ent):
                     continue
                 instances = self.get_instances(
-                    ent['name'], ent['label'], 'Instance')
+                    ent['name'], ent['entity_label'], 'Instance')
                 if instances is not None:
                     link_res_extend.extend([{
                         'ent': e,
@@ -79,7 +80,7 @@ class QA():
                         'score':linked_ent['score'],
                         'source':linked_ent['source']+' sub',
                     } for e in instances])
-            elif ent['label'] == 'Instance':
+            elif ent['entity_label'] == 'Instance':
                 link_res_extend.append(linked_ent)
 
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
@@ -200,6 +201,15 @@ class QA():
             natural_ans += airline_ans
             return natural_ans
 
+    def rank_ans(self, qa_res):
+        for ans in qa_res:
+            ans['final_score'] = ans.get('constr_score', 0) + \
+                ans['link_score'] + \
+                ans.get('rel_score', 0)
+        qa_res.sort(key=lambda ans: ans['final_score'], reverse=True)
+        # qa_res = [ans for ans in qa_res if ans['final_score'] >= 0.6]
+        return qa_res
+
     def answer(self, sent):
         '''
             问答流程：
@@ -237,7 +247,8 @@ class QA():
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         # qa_res {'id','mention','entity','link_score','rel_name','rel_val','rel_score','constr_name','constr_val'}
         qa_res = []
-        LINK_THRESH = 1
+        LINK_THRESH = 0.8
+        REL_THRESH = 0.8
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list:
             qa_res.extend([{
@@ -247,10 +258,14 @@ class QA():
                 'link_score':linked_ent['score'],
             } for linked_ent in link_res])
         else:
-            qa_res.extend(rel_match_res)
+            # 删掉关系匹配的结果中，匹配结果不高的部分
+            qa_res.extend([rel_res for rel_res in rel_match_res
+                           if rel_res['rel_score'] >= REL_THRESH and
+                           rel_res['link_score'] >= LINK_THRESH
+                           ])
             for linked_ent in link_res:
                 if linked_ent['id'] not in match_rel_ent_ids \
-                        and linked_ent['score'] > LINK_THRESH:
+                        and linked_ent['score'] >= LINK_THRESH:
                     qa_res.append({
                         'id': linked_ent['id'],
                         'mention': linked_ent.get('mention', linked_ent['ent']['name']),
@@ -258,7 +273,7 @@ class QA():
                         'link_score': linked_ent['score'],
                     })
 
-        # 9. 匹配机场本身相关的问题
+        # 7. 匹配机场本身相关的问题
         if len(qa_res) == 0 and '机场' in sent:
             airport_ent = self.driver.get_entities_only_by_name(
                 config.airport.name)[0]
@@ -274,14 +289,16 @@ class QA():
                 sent, sent_cut, [linked_airport])
             qa_res.extend(airport_rel_match)
 
-        # 7. 匹配限制
+        # 8. 匹配限制
         if any(map(lambda x: x != '', constr_res.values())):
             self.match_constraint(qa_res, constr_res, id2linked_ent)
-        # 8. 答案排序
-        qa_res.sort(key=lambda ans: (
-            ans.get('constr_score', 0), ans['link_score'] + ans.get('rel_score', 0)), reverse=True)
+
+        # 9. 答案排序
+        qa_res = self.rank_ans(qa_res)
         qa_res = qa_res[:10]
         logger.debug('答案: '+str(qa_res))
+
+        # 10. 生成自然语言答案
         natural_ans = []
         filtered_qa_res = []
         for res in qa_res:
@@ -292,6 +309,7 @@ class QA():
                 natural_ans.append(n_ans)
                 filtered_qa_res.append(res)
         logger.info('自然语言答案: '+str(natural_ans))
+
         return filtered_qa_res
 
 
@@ -300,9 +318,14 @@ class FrontendAdapter():
         driver = AsyncNeoDriver.get_driver()
 
 
-if __name__ == "__main__":
+def test_qa():
     qa = QA()
-    questions = ['昆明机场是什么时候建立的？', '长水机场在什么地方？', '东航的值机柜台在哪？', '有什么餐厅吗？', '机场哪里有吃饭的地方？', '机场有麦当劳吗？', '打火机可以携带吗？', '机场有婴儿车可以租用吗', '机场有轮椅可以租用吗',
-                 '停车场怎么收费', '停车场费用怎么样？', '停车场一个小时多少钱？', '停车场多少钱？']
+    # questions = ['昆明机场是什么时候建立的？', '长水机场在什么地方？', '东航的值机柜台在哪？', '有什么餐厅吗？', '机场哪里有吃饭的地方？', '机场有麦当劳吗？', '打火机可以携带吗？', '机场有婴儿车可以租用吗', '机场有轮椅可以租用吗',
+    #              '停车场怎么收费', '停车场费用怎么样？', '停车场一个小时多少钱？', '停车场多少钱？']
+    questions = ['过了安检里面有没有书吧？']
     for q in questions:
         qa.answer(q)
+
+
+if __name__ == "__main__":
+    test_qa()
