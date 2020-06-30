@@ -17,6 +17,9 @@ from .LinkUtil import recognize_entity
 from ..common.HITBert import cosine_word_similarity
 
 
+exception_subgenre = {'临时身份证办理'}
+
+
 def contain_chinese(s):
     s = s.replace('-', '').lower()
     if s in {'wifi', 'atm', 'vip', 'kfc'}:
@@ -171,7 +174,9 @@ class BertLinker():
     def link(self, sent):
         _, _, ent_type_top3 = BertERCls(sent)
         # print(ent_type_top3)
-        instances_top3 = [self.driver.get_instance_of_genre(ent_type)
+        instances_top3 = [self.driver.get_instance_of_genre(ent_type, genre='SubGenre') +
+                          (self.driver.get_entities_by_name(ent_type).result()
+                           if ent_type in exception_subgenre else [])
                           for ent_type in ent_type_top3]
         res = []
         for rank, instances in enumerate(instances_top3):

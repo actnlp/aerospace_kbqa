@@ -53,9 +53,11 @@ class QA():
                     link_res.append(linked_ent)
 
         bert_res = self.bert_linker.link(sent)
+        # logger.info('bert链接: %s' % str(bert_res))
         commercial_res = self.commercial_linker.link(sent)
         # logger.info('商业链接: %s' % str(commercial_res))
         rule_res = self.rule_linker.link(sent)
+        # logger.info('规则链接: %s' % str(rule_res))
         link_res = rule_res
         id2linked_ent = {linked_ent['id']: linked_ent
                          for linked_ent in link_res}
@@ -67,7 +69,8 @@ class QA():
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if ent['entity_label'] == 'SubGenre' or ent['entity_label'] == 'Genre':
+            if (ent['entity_label'] == 'SubGenre' and ent['name'] not in NewLinking.exception_subgenre)\
+                    or ent['entity_label'] == 'Genre':
                 if self.rule_linker.is_special_entity(ent):
                     continue
                 instances = self.get_instances(
@@ -80,7 +83,7 @@ class QA():
                         'score':linked_ent['score'],
                         'source':linked_ent['source']+' sub',
                     } for e in instances])
-            elif ent['entity_label'] == 'Instance':
+            elif ent['entity_label'] == 'Instance' or ent['name'] in NewLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
 
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
@@ -135,8 +138,7 @@ class QA():
                         ans['constr_name'] = constr
                         ans['constr_val'] = linked_ent['ent'][constr]
                     else:
-                        ans['constr_score'] += -1
-
+                        ans['constr_score'] += -0.2
             else:
                 ans['constr_score'] = 0
 
