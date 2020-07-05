@@ -2,20 +2,28 @@ import logging
 import traceback
 from functools import lru_cache
 
-from fuzzywuzzy import fuzz
 
 from ..common import LTP, AsyncNeoDriver
+from ..common import Segment as seg
 from ..config import config
 from ..linking import NewLinking
 from .ConstraintExtractor import ConstraintExtractor
-from .Limiter import Limiter
 from .ListQuestion import check_list_questions
 from .RelExtractor import BertRelExtractor, MatchRelExtractor
 
 logger = logging.getLogger('qa')
 
 
-def filter_sentence(sent, stop_list, rpl_list):
+def load_stopwords(fname):
+    with open(fname, 'r', encoding='utf-8') as f:
+        stopwords = {line.strip() for line in f}
+    return stopwords
+
+
+stopwords = load_stopwords(config.STOP_WORD_PATH)
+
+
+def replace_word(sent, stop_list, rpl_list):
     # 过滤词汇
     for stop in stop_list:
         sent = sent.replace(stop, '')
@@ -26,8 +34,14 @@ def filter_sentence(sent, stop_list, rpl_list):
 
 class QA():
     stop_list = ['吗', '里面']
-    rpl_list = [('在哪儿', '的地点'), ('在哪里', '的地点'), ('在哪', '的地点'), ('哪里',
-                                                                '地点'), ('哪里', '地点'), ('哪有', '地点'), ('属于', '在'), ('vip', '贵宾')]
+    rpl_list = [('在哪儿', '的地点'),
+                ('在哪里', '的地点'),
+                ('在哪', '的地点'),
+                ('哪里', '地点'),
+                ('哪里', '地点'),
+                ('哪有', '地点'),
+                ('属于', '在'),
+                ('vip', '贵宾')]
 
     def __init__(self):
         self.driver = AsyncNeoDriver.get_driver()
@@ -38,8 +52,42 @@ class QA():
         self.bert_extractor = BertRelExtractor()
         self.constr_extractor = ConstraintExtractor()
 
-    @lru_cache(maxsize=128)
-    def link(self, sent):
+    def preprocess(self, sent):
+        '''
+            返回(处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag)
+            问句预处理：
+            1. 分词前替换规则
+            2. 分词, pos tag
+            3. 分词后替换规则：停用词，特殊词
+        '''
+        # 分词前替换规则
+        sent_replaced = replace_word(sent, QA.stop_list, QA.rpl_list)
+        # 分词
+        sent_cut, pos_tag = seg.pos_cut(sent_replaced)
+        # 特殊词处理
+        sent_cut_pro = []
+        pos_tag_pro = []
+        for word, tag in zip(sent_cut, pos_tag):
+            if len(word) > 2 and word[-1] == '费':
+                sent_cut_pro.append(word[:-1])
+                sent_cut_pro.append('费用')
+                pos_tag_pro.append(tag)
+                pos_tag_pro.append(tag)
+            else:
+                sent_cut_pro.append(word)
+                pos_tag_pro.append(tag)
+        # 去除停用词
+        sent_cut = []
+        pos_tag = []
+        for word, tag in zip(sent_cut_pro, pos_tag_pro):
+            if word not in stopwords and word != ' ':
+                sent_cut.append(word)
+                pos_tag.append(tag)
+
+        return sent_replaced, sent_cut, pos_tag
+
+    # @lru_cache(maxsize=128)
+    def link(self, sent, sent_cut, pos_tag):
         def merge_link_res(res, id2linked_ent):
             for linked_ent in res:
                 neoId = linked_ent['id']
@@ -54,9 +102,9 @@ class QA():
 
         bert_res = self.bert_linker.link(sent)
         # logger.info('bert链接: %s' % str(bert_res))
-        commercial_res = self.commercial_linker.link(sent)
+        commercial_res = self.commercial_linker.link(sent, sent_cut)
         # logger.info('商业链接: %s' % str(commercial_res))
-        rule_res = self.rule_linker.link(sent)
+        rule_res = self.rule_linker.link(sent, sent_cut, pos_tag)
         # logger.info('规则链接: %s' % str(rule_res))
         link_res = rule_res
         id2linked_ent = {linked_ent['id']: linked_ent
@@ -121,6 +169,7 @@ class QA():
     def match_constraint(self, qa_res, constraint, id2linked_ent):
         for ans in qa_res:
             linked_ent = id2linked_ent[ans['id']]
+            match_res = None
             try:
                 match_res = self.constr_extractor.match_constraint(
                     constraint, linked_ent)
@@ -134,7 +183,7 @@ class QA():
                 ans['constr_score'] = 0
                 for constr, is_match in match_res.items():
                     if is_match:
-                        ans['constr_score'] += 1
+                        ans['constr_score'] += 0.3
                         ans['constr_name'] = constr
                         ans['constr_val'] = linked_ent['ent'][constr]
                     else:
@@ -227,9 +276,10 @@ class QA():
              10. 返回答案
         '''
         logger.info('question :%s' % sent)
-        # 1. 使用替换规则
-        sent = filter_sentence(sent, self.stop_list, self.rpl_list)
-        sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
+        # 1. 使用替换规则(预处理)
+        # sent = replace_word(sent, self.stop_list, self.rpl_list)
+        # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
+        sent, sent_cut, pos_tag = self.preprocess(sent)
         logger.debug('cut :'+str(sent_cut))
 
         # 2. extract constaints
@@ -237,10 +287,11 @@ class QA():
         logger.debug('限制: '+str(constr_res))
 
         # 3. link: 使用多种linker，合并结果
-        link_res, id2linked_ent = self.link(sent)
+        link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag)
         logger.debug('链接结果: '+str(link_res[:10]))
         # 4. 处理列举类型
-        is_list = check_list_questions(sent, self.rule_linker.link)
+        # is_list = check_list_questions(sent, self.rule_linker.link)
+        is_list = False
         logger.debug('是否列举: '+str(is_list))
         # 5. 非列举型匹配关系 extract relations, match+bert
         rel_match_res = self.extract_rel(sent, sent_cut, link_res)

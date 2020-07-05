@@ -1,9 +1,10 @@
 import re
+from fuzzywuzzy import fuzz
 
 
 class ConstraintExtractor():
     remove_prop = {'name', 'subname', 'description',
-                   'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'textqa答案','entity_label'}
+                   'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'textqa答案', 'entity_label'}
 
     def __init__(self):
         pass
@@ -139,16 +140,17 @@ class ConstraintExtractor():
         res_constr = {}
         ent = linked_ent['ent']
         for constr_name, constr_val in constraint.items():
-            if constr_val != '' and constr_val is not None:
+            if constr_val != '' and constr_val is not None \
+                    and fuzz.UQRatio(constr_val[0], ent['name']) < 50:
                 match_constr = False
                 for rel, rel_val in ent.items():
                     if rel in self.remove_prop:
                         continue
                     rel_val = str(rel_val)
-                    if constr_name in rel \
-                       or constr_name in rel_val \
-                       or constr_val[0] in rel \
-                       or constr_val[0] in rel_val:
+                    if (constr_name in rel
+                        or constr_name in rel_val
+                        or constr_val[0] in rel
+                            or constr_val[0] in rel_val):
                         match_constr = True
                         res_constr[rel] = True
                         exist_constr.append((rel, constr_name))

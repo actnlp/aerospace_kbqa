@@ -1,28 +1,22 @@
-'''
-    实体链接
-    link
-    返回列表：[dict({info_dict, mention, 抽取方式, 分值})]
-'''
 import re
-
-import jieba
+import logging
 from fuzzywuzzy import fuzz, process
 from functools import lru_cache
 
 from ..BertEntityRelationClassification.BertERClsPredict import \
     predict as BertERCls
-from ..common import LTP, AsyncNeoDriver
+from ..common import AsyncNeoDriver
 from ..config import config
-from .LinkUtil import recognize_entity
+from .LinkUtil import retrieve_mention
 from ..common.HITBert import cosine_word_similarity
 
-
+logger = logging.getLogger('qa')
 exception_subgenre = {'临时身份证办理'}
 
 
 def contain_chinese(s):
     s = s.replace('-', '').lower()
-    if s in {'wifi', 'atm', 'vip', 'kfc'}:
+    if s in {'wifi', 'atm', 'vip', 'kfc', 'ktv'}:
         return True
     for c in s:
         if ('\u4e00' <= c <= '\u9fa5'):
@@ -32,6 +26,28 @@ def contain_chinese(s):
 
 def contain_english(s):
     return bool(re.search('[A-Za-z]', s))
+
+
+def load_ent_alias(fname):
+    ent2alias = {}
+    with open(fname, 'r', encoding='utf-8') as f:
+        for line in f:
+            ent, alias = line.split(':')
+            alias = [a.strip() for a in alias.split(',')]
+            ent2alias[ent] = alias
+    return ent2alias
+
+
+def make_mention2ent(ent2alias):
+    mention2ent = {}
+    for ent, alias in ent2alias.items():
+        for mention in alias:
+            if mention in mention2ent:
+                logger.warning('指称映射冲突：%s -> [%s, %s]' %
+                               (mention, mention2ent[mention], ent))
+            else:
+                mention2ent[mention] = ent
+    return mention2ent
 
 
 class RuleLinker():
@@ -62,16 +78,19 @@ class RuleLinker():
         self.id2ent = {x['neoId']: x for x in all_entities}
         self.ent_names = {x['name'] for x in all_entities}
 
-    @lru_cache(maxsize=128)
-    def link(self, sent, limits=None):
+    # @lru_cache(maxsize=128)
+    def link(self, sent, sent_cut, pos_tag, limits=None):
         # use bert embedding to fuzzy match entities
-        mention_list = recognize_entity(sent)
+        # mention_list = recognize_entity(sent)
+        mention_list = retrieve_mention(sent_cut, pos_tag)
         if mention_list == []:
             return []
+        logger.debug('指称: ' + str(mention_list))
         # self.sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         # print('cut:', self.cut)
         res = []
         for mention in mention_list:
+            mention = mention.lower()
             one_res = []
             if self.filter_q_entity(mention):
                 continue
@@ -89,28 +108,8 @@ class RuleLinker():
                     continue
                 RATIO = 0.5
                 score = cosine_word_similarity(converted_item, filtered_key)
-                # score1 = fuzz.token_sort_ratio(
-                #     ' '.join(converted_item), ' '.join(filtered_key))
-                # score2 = fuzz.token_sort_ratio(
-                #     converted_item, filtered_key)
-                # if score1 > 70 and score2 >= 50 \
-                #    and len(converted_item) > 1:
                 score1 = fuzz.UQRatio(converted_item, filtered_key)/100
                 score = RATIO*score + (1-RATIO) * score1
-                # if score1 >= 0.6:
-                #     score *= 1.2
-                # else:
-                #     score *= 0.9
-                # if score1 >= 60:
-                #     score *= 1.2
-                #     score += (score1-60)/100
-                # else:
-                #     score *= 0.9
-                '''if item in key and len(item) > 1:
-                    score *= 1.1'''
-                # punish english words
-                '''if not is_contain_chinese(key) or len(key) == 1:
-                    score *= 0.8'''
                 one_res.append({
                     'ent': ent,
                     'mention': mention,
@@ -151,7 +150,7 @@ class RuleLinker():
             if wd == item:
                 return True
         # or not is_contain_chinese(item):
-        if '时间' in item or '地点' in item or '位置' in item or '地方' in item or '收费' in item or '价格' in item or '限制' in item or item == '电话':
+        if re.search(r'(时间|地点|位置|地方|收费|价格|限制|电话)', item) is not None:
             return True
         return False
 
@@ -159,7 +158,7 @@ class RuleLinker():
         item = item.split('(')[0].split('（')[0].lower()
         if '服务' in item and item != '服务':
             item = item.replace('服务', '')
-        if item == '柜台' or item == '其他柜台' or item == '行李' or item == '咨询':
+        if item in {'柜台', '其他柜台', '行李', '咨询'}:
             item = ''
         return item
 
@@ -171,7 +170,7 @@ class BertLinker():
         else:
             self.driver = driver
 
-    def link(self, sent):
+    def link(self, sent, sent_cut=None, pos_tag=None):
         _, _, ent_type_top3 = BertERCls(sent)
         # print(ent_type_top3)
         instances_top3 = [self.driver.get_instance_of_genre(ent_type, genre='SubGenre') +
@@ -202,8 +201,7 @@ class CommercialLinker():
         self.content2entId = self.build_revert_index()
         self.ban_word = {'机场'}
 
-    def link(self, sent):
-        sent_cut = LTP.customed_jieba_cut(sent)
+    def link(self, sent, sent_cut, pos_tag=None):
         id2ent = {}
         for word in sent_cut:
             if word in self.ban_word:
@@ -231,6 +229,9 @@ class CommercialLinker():
                             }
                             id2ent[ent_id] = ent
         res = list(id2ent.values())
+        if '买' in sent or '卖' in sent:
+            for ent in res:
+                ent['score'] += 0.3
         return res
 
     def build_revert_index(self):

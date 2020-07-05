@@ -45,6 +45,10 @@ def cut(sent):
     return list(jieba.cut(sent, cut_all=False))
 
 
+def pos_cut(sent):
+    return list(pseg.cut(sent))
+
+
 def load_stopwords(fname):
     with open(fname, 'r', encoding='utf-8') as f:
         stopwords = {line.strip() for line in f}
@@ -59,6 +63,7 @@ def customed_jieba_cut(sent, path=None, cut_stop=True):
         # stopwords = [line.replace('\n', '') for line in f]
     cut_sent = list(jieba.cut(sent, cut_all=False))
 
+    # TODO 去掉这个耦合的部分
     for i, wd in enumerate(cut_sent):
         if len(wd) > 2 and wd[-1] == '费':
             cut_sent[i] = wd[:-1]
@@ -66,11 +71,8 @@ def customed_jieba_cut(sent, path=None, cut_stop=True):
 
     if not cut_stop:
         return cut_sent
-    ret_cut_sent = []
-    for wd in cut_sent:
-        if wd not in stopwords and wd != ' ':
-            ret_cut_sent.append(wd)
-
+    ret_cut_sent = [word for word in cut_sent
+                    if word not in stopwords and word != ' ']
     return ret_cut_sent
 
 
