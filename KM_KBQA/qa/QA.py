@@ -2,6 +2,7 @@ import logging
 import traceback
 from functools import lru_cache
 
+from fuzzywuzzy import fuzz
 
 from ..common import LTP, AsyncNeoDriver
 from ..common import Segment as seg
@@ -167,6 +168,8 @@ class QA():
         return rel_match_res
 
     def match_constraint(self, qa_res, constraint, id2linked_ent):
+        non_empty_constr = [(constr_name, constr_val) for constr_name, constr_val in constraint.items()
+                            if constr_val != '' and constr_val is not None]
         for ans in qa_res:
             linked_ent = id2linked_ent[ans['id']]
             match_res = None
@@ -178,9 +181,9 @@ class QA():
                 print(linked_ent)
                 traceback.print_exc()
 
-            if match_res is not None:
+            ans['constr_score'] = 0
+            if match_res is not None and len(match_res) != 0:
                 # logger.info('限制匹配结果: '+str(match_res))
-                ans['constr_score'] = 0
                 for constr, is_match in match_res.items():
                     if is_match:
                         ans['constr_score'] += 0.3
@@ -189,7 +192,9 @@ class QA():
                     else:
                         ans['constr_score'] += -0.2
             else:
-                ans['constr_score'] = 0
+                for constr_name, constr_val in non_empty_constr:
+                    if fuzz.UQRatio(constr_val[0], ans['entity']) >= 60:
+                        ans['link_score'] -= 0.3
 
     def generate_natural_ans(self, qa_res: dict, id2linked_ent):
         linked_ent = id2linked_ent[qa_res['id']]

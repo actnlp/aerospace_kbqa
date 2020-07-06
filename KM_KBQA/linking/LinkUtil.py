@@ -1,9 +1,9 @@
-
 from functools import lru_cache
+
 from fuzzywuzzy import fuzz
 
-from ..config import config
 from ..common import LTP
+from ..config import config
 
 
 def generate_ngram(seq, max_size=6, min_size=1, ignore_w=['服务']):
@@ -118,7 +118,7 @@ def generate_bigram(sent_cut, pos_tag):
                   if len(sent_cut[i]) > 1 and
                   pos_tag[i] != '' and
                   '有' not in sent_cut[i] and
-                  '机场' not in sent_cut[i] 
+                  '机场' not in sent_cut[i]
                   and sent_cut[i] not in air_lexicons  # TODO 这个是为啥？？
                   ]
     cand = []
