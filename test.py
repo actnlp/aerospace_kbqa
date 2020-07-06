@@ -7,23 +7,41 @@ from KM_KBQA.config import config
 from KM_KBQA.qa.QAFull import QAFull
 from KM_KBQA.qa import QA
 
+TEST_FILE_DIR = 'test/'
+TEST_RESULT_DIR = os.path.join(TEST_FILE_DIR, 'result')
+if not os.path.isdir(TEST_RESULT_DIR):
+    os.mkdir(TEST_RESULT_DIR)
+
 
 def test_qa(fname):
+    if not os.path.isfile(fname):
+        fname = os.path.join(TEST_FILE_DIR, fname)
     with open(fname, 'r', encoding='utf-8') as f:
         quesitons = [line.strip() for line in f]
     qa = QAFull()
     ans = [qa.answer(q) for q in tqdm(quesitons)]
     ans_text = ['\n'.join(map(lambda x:x['natural_ans'], a[:3])) for a in ans]
     ans_df = pd.DataFrame({'question': quesitons, 'answer top3': ans_text})
-    output_fname = os.path.basename(fname).split('.')[0] + '_res.xlsx'
+    basename = os.path.basename(fname).split('.')[0]
+    output_fname = os.path.join(TEST_RESULT_DIR, basename + '_res.xlsx')
+    # 与上一次结果对比
+    if os.path.isfile(output_fname):
+        old_df = pd.read_excel(output_fname)
+        idx = old_df['answer top3'] != ans_df['answer top3']
+        diff_df = pd.merge(old_df[idx], ans_df[idx],
+                           left_index=True, right_index=True, how='left')
+        diff_fname = os.path.join(TEST_RESULT_DIR, basename + '_diff.xlsx')
+        diff_df.to_excel(diff_fname)
+
     ans_df.to_excel(output_fname)
 
 
 if __name__ == "__main__":
-    test_file = 'KM_KBQA/res/all_single_rel_cls_raw.txt'
-    test_qa(test_file)
-    test_file = 'commercial.txt'
-    test_qa(test_file)
-    # test_file = 'debug_q.txt'
+    # test_file = 'KM_KBQA/res/all_single_rel_cls_raw.txt'
     # test_qa(test_file)
+    # test_file = 'commercial.txt'
+    # test_qa(test_file)
+    test_file = 'debug_q0702.txt'
+    test_qa(test_file)
+    # test_er(test_file)
     # QA.test_qa()

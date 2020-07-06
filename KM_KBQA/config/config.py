@@ -8,6 +8,7 @@ model_path = os.path.join(project_dir, 'models')
 LEX_PATH = os.path.join(project_dir, 'lexicons')
 STOP_WORD_PATH = os.path.join(LEX_PATH, 'stopwords.txt')
 AIR_LEXICON_PATH = os.path.join(LEX_PATH, 'air_lexicon.txt')
+ENT_ALIAS_PATH = os.path.join(project_dir, 'res', 'ent_alias.txt')
 
 ABSTRACT_DICT = {'丢': '失物招领', '取款机': 'atm', '存款机': 'atm', '存取款机': 'atm', '提款机': 'atm', '取钱': '银行', 'kfc': '肯德基', '加油': '加油站', '乘机手续': '值机柜台',
                  '住': '酒店', '住宿': '酒店', '吃': '餐厅', '吃饭': '餐厅', '餐饮': '餐厅', '开水': '饮水处', '剪发': '理发店', '剪头发': '理发店', '喂奶': '母婴室',
@@ -56,7 +57,7 @@ QCLS_PATH = os.path.join(model_path, 'check_kbqa_model.pt')
 logger = logging.getLogger('qa')
 formatter = logging.Formatter(
     '%(asctime)s %(filename)s:%(lineno)d %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 # ch = logging.StreamHandler()
 # ch.setFormatter(formatter)
 # ch.setLevel(logging.INFO)

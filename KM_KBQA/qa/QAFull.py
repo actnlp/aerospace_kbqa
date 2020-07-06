@@ -1,6 +1,10 @@
+import logging
+
 from ..common.QCLS import QCLSWrapper
 from ..config import config
 from .QA import QA
+
+logger = logging.getLogger('qa')
 
 
 class QAFull():
@@ -12,6 +16,7 @@ class QAFull():
         kbqa_prob = self.qcls.eval([sent])[0]
         if kbqa_prob < config.check_kbqa_ths:
             ans = [{'natural_ans': '非KBQA问题'}]
+            logger.info('非KBQA问题: '+sent)
         else:
             ans = self.kbqa.answer(sent)
         return ans

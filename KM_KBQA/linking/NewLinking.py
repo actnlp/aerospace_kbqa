@@ -1,3 +1,4 @@
+import os
 import re
 import logging
 from fuzzywuzzy import fuzz, process
@@ -30,11 +31,13 @@ def contain_english(s):
 
 def load_ent_alias(fname):
     ent2alias = {}
-    with open(fname, 'r', encoding='utf-8') as f:
-        for line in f:
-            ent, alias = line.split(':')
-            alias = [a.strip() for a in alias.split(',')]
-            ent2alias[ent] = alias
+    if os.path.isfile(fname):
+        logger.info('load entity alias file %s' % fname)
+        with open(fname, 'r', encoding='utf-8') as f:
+            for line in f:
+                ent, alias = line.split(':')
+                alias = [a.strip() for a in alias.split(',')]
+                ent2alias[ent] = alias
     return ent2alias
 
 
@@ -43,10 +46,11 @@ def make_mention2ent(ent2alias):
     for ent, alias in ent2alias.items():
         for mention in alias:
             if mention in mention2ent:
-                logger.warning('指称映射冲突：%s -> [%s, %s]' %
-                               (mention, mention2ent[mention], ent))
+                # logger.warning('指称映射冲突：%s -> [%s, %s]' %
+                            #    (mention, mention2ent[mention], ent))
+                mention2ent[mention].append(ent)
             else:
-                mention2ent[mention] = ent
+                mention2ent[mention] = [ent]
     return mention2ent
 
 
@@ -57,6 +61,8 @@ class RuleLinker():
         else:
             self.driver = driver
         self.load_all_entities()
+        ent2alias = load_ent_alias(config.ENT_ALIAS_PATH)
+        self.mention2ent = make_mention2ent(ent2alias)
 
     def is_special_entity(self, ent_dict):
         return ent_dict['entity_label'] == 'Genre' \
@@ -92,31 +98,33 @@ class RuleLinker():
         for mention in mention_list:
             mention = mention.lower()
             one_res = []
-            if self.filter_q_entity(mention):
+            if self.is_not_entity(mention):
                 continue
-            converted_item = self.convert_abstract_verb(
-                mention, sent, limits)
+            # cand_name = self.convert_abstract_verb(
+            #     mention, sent, limits)
+            cand_names = self.convert_mention2ent(mention)
             for ent in self.id2ent.values():
                 # for ent_name in self.ent_names:
                 ent_name = ent['name']
-                # 该实体为英文而问的有汉语或相反
-                if contain_chinese(converted_item) and not contain_chinese(ent_name) or contain_english(
-                        converted_item) and not contain_english(ent_name):
+                ent_name_rewrite = self.rewrite_ent_name(ent_name)
+                if ent_name_rewrite == '':
                     continue
-                filtered_key = self.filter_key(ent_name)
-                if filtered_key == '':
-                    continue
-                RATIO = 0.5
-                score = cosine_word_similarity(converted_item, filtered_key)
-                score1 = fuzz.UQRatio(converted_item, filtered_key)/100
-                score = RATIO*score + (1-RATIO) * score1
-                one_res.append({
-                    'ent': ent,
-                    'mention': mention,
-                    'id': ent['neoId'],
-                    'score': score,
-                    'source': 'rule'
-                })
+                for cand_name in cand_names:
+                    # 该实体为英文而问的有汉语或相反
+                    if contain_chinese(cand_name) and not contain_chinese(ent_name) or contain_english(
+                            cand_name) and not contain_english(ent_name):
+                        continue
+                    RATIO = 0.5
+                    score = cosine_word_similarity(cand_name, ent_name_rewrite)
+                    score1 = fuzz.UQRatio(cand_name, ent_name_rewrite)/100
+                    score = RATIO*score + (1-RATIO) * score1
+                    one_res.append({
+                        'ent': ent,
+                        'mention': mention,
+                        'id': ent['neoId'],
+                        'score': score,
+                        'source': 'rule'
+                    })
             one_res.sort(key=lambda x: x['score'], reverse=True)
             for a_res in one_res[:3]:
                 if a_res['score'] > config.simi_ths:
@@ -142,7 +150,13 @@ class RuleLinker():
             # 去除"服务"字段的影响
             return word.replace('服务', '')
 
-    def filter_q_entity(self, item):
+    def convert_mention2ent(self, mention) -> list:
+        ent_names = self.mention2ent.get(mention, None)
+        if ent_names is not None:
+            return ent_names
+        return [mention.replace('服务', '')]
+
+    def is_not_entity(self, item):
         for wd in config.airport.filter_words:
             if wd in item:
                 return True
@@ -150,17 +164,18 @@ class RuleLinker():
             if wd == item:
                 return True
         # or not is_contain_chinese(item):
-        if re.search(r'(时间|地点|位置|地方|收费|价格|限制|电话)', item) is not None:
+        if re.search(r'(时间|地点|位置|地方|收费|价格|限制|电话)', item) is not None\
+                and item not in self.mention2ent:
             return True
         return False
 
-    def filter_key(self, item):
-        item = item.split('(')[0].split('（')[0].lower()
-        if '服务' in item and item != '服务':
-            item = item.replace('服务', '')
-        if item in {'柜台', '其他柜台', '行李', '咨询'}:
-            item = ''
-        return item
+    def rewrite_ent_name(self, ent_name):
+        ent_name = ent_name.split('(')[0].split('（')[0].lower()
+        if '服务' in ent_name and ent_name != '服务':
+            ent_name = ent_name.replace('服务', '')
+        if ent_name in {'柜台', '其他柜台', '行李', '咨询'}:
+            ent_name = ''
+        return ent_name
 
 
 class BertLinker():
@@ -229,7 +244,7 @@ class CommercialLinker():
                             }
                             id2ent[ent_id] = ent
         res = list(id2ent.values())
-        if '买' in sent or '卖' in sent:
+        if '买' in sent or '卖' in sent or '吃' in sent:
             for ent in res:
                 ent['score'] += 0.3
         return res
