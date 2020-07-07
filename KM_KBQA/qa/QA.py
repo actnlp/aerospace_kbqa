@@ -195,6 +195,8 @@ class QA():
                 for constr_name, constr_val in non_empty_constr:
                     if fuzz.UQRatio(constr_val[0], ans['entity']) >= 60:
                         ans['link_score'] -= 0.3
+                    else:
+                        ans['constr_score'] += -0.2
 
     def generate_natural_ans(self, qa_res: dict, id2linked_ent):
         linked_ent = id2linked_ent[qa_res['id']]
@@ -295,8 +297,8 @@ class QA():
         link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag)
         logger.debug('链接结果: '+str(link_res[:10]))
         # 4. 处理列举类型
-        # is_list = check_list_questions(sent, self.rule_linker.link)
-        is_list = False
+        is_list = check_list_questions(sent, link_res)
+        # is_list = False
         logger.debug('是否列举: '+str(is_list))
         # 5. 非列举型匹配关系 extract relations, match+bert
         rel_match_res = self.extract_rel(sent, sent_cut, link_res)

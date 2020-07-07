@@ -57,7 +57,7 @@ QCLS_PATH = os.path.join(model_path, 'check_kbqa_model.pt')
 logger = logging.getLogger('qa')
 formatter = logging.Formatter(
     '%(asctime)s %(filename)s:%(lineno)d %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 # ch = logging.StreamHandler()
 # ch.setFormatter(formatter)
 # ch.setLevel(logging.INFO)
