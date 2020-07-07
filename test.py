@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 from KM_KBQA.config import config
 from KM_KBQA.qa.QAFull import QAFull
-from KM_KBQA.qa import QA
+from KM_KBQA.qa.QA import QA
 
 TEST_FILE_DIR = 'test/'
 TEST_RESULT_DIR = os.path.join(TEST_FILE_DIR, 'result')
@@ -13,12 +13,15 @@ if not os.path.isdir(TEST_RESULT_DIR):
     os.mkdir(TEST_RESULT_DIR)
 
 
-def test_qa(fname):
+def test_qa(fname, use_full=True):
     if not os.path.isfile(fname):
         fname = os.path.join(TEST_FILE_DIR, fname)
     with open(fname, 'r', encoding='utf-8') as f:
         quesitons = [line.strip() for line in f]
-    qa = QAFull()
+    if use_full:
+        qa = QAFull()
+    else:
+        qa = QA()
     ans = [qa.answer(q) for q in tqdm(quesitons)]
     ans_text = ['\n'.join(map(lambda x:x['natural_ans'], a[:3])) for a in ans]
     ans_df = pd.DataFrame({'question': quesitons, 'answer top3': ans_text})
@@ -37,11 +40,12 @@ def test_qa(fname):
 
 
 if __name__ == "__main__":
-    # test_file = 'KM_KBQA/res/all_single_rel_cls_raw.txt'
-    # test_qa(test_file)
-    # test_file = 'commercial.txt'
-    # test_qa(test_file)
-    test_file = 'debug_q0702.txt'
-    test_qa(test_file)
-    # test_er(test_file)
+    test_files = [
+        # 'commercial.txt',
+        # 'kbqa.txt',
+        'test_refuse.txt',
+        'refuse.txt'
+    ]
+    for test_file in test_files:
+        test_qa(test_file, use_full=False)
     # QA.test_qa()
