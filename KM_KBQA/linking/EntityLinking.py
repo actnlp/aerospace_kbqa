@@ -1,158 +1,303 @@
-import pdb
+import logging
+import os
 import re
+from functools import lru_cache
 
-from fuzzywuzzy import fuzz
+from fuzzywuzzy import fuzz, process
 
+from ..BertEntityRelationClassification.BertERClsPredict import \
+    predict as BertERCls
+from ..common import AsyncNeoDriver
+from ..common.HITBert import cosine_word_similarity
 from ..config import config
-from ..common import LTP, AsyncNeoDriver
+from .LinkUtil import retrieve_mention
 
-# logging.basicConfig(level=logging.INFO)
-entity_pattern = r'《(.+)》|<(.+)>|“(.+)”|"(.+)"|\'(.+)\''
-entity_set = None
-
-
-def jaccard(a, b):
-    a = set(a)
-    b = set(b)
-    return len(a & b) / len(a | b)
+logger = logging.getLogger('qa')
+exception_subgenre = {'临时身份证办理'}
 
 
-def generate_ngram(seq, max_size=6, min_size=1, ignore_w=['服务']):
-    for n in range(min_size, max_size + 1):
-        for j in range(len(seq) - n + 1):
-            # delete word consists of two single token or in ignore_w
-            cur_w = ''.join(seq[j:j + n])
-            if len(cur_w) <= 1:
-                if cur_w in ['丢', '住', '吃', '喝', '换', '停']:
-                    yield (cur_w)
-                continue
-            if '服务' == cur_w:
-                continue
-            for ig_w in ignore_w:
-                if ig_w in cur_w:
-                    yield (''.join(cur_w.split(ig_w)))
-            # if len(list(filter(lambda x: x in cur_w, ignore_w))) > 0:
-            #     continue
-            # if ''.join(seq[j:j + n]) in ignore_w:
-            #     continue
-            if n == 2 and len(seq[j]) == 1 and len(seq[j + 1]) == 1 and seq[j] != '几': continue
-            yield (cur_w)
+def contain_chinese(s):
+    s = s.replace('-', '').lower()
+    if s in {'wifi', 'atm', 'vip', 'kfc', 'ktv'}:
+        return True
+    for c in s:
+        if ('\u4e00' <= c <= '\u9fa5'):
+            return True
+    return False
 
 
-def merge_ngram(cut_tokens):
-    # obtain all air_lexicon
-    air_lexicons = []
-    with open(config.AIR_LEXICON_PATH, 'r') as f:
-        for line in f:
-            air_lexicons.append(line.split()[0])
-    # match and merge tokens
-    pos_list = LTP.pos_tag_tokens(cut_tokens)
-    merged_list = []
-    for air_lexicon in air_lexicons:
-        for i, token_i in enumerate(cut_tokens):
-            for j, token_j in enumerate(cut_tokens[i + 1:]):
-                if len(token_i) <= 1 or len(token_j) <= 1 or pos_list[i] == '' or pos_list[
-                    j + i + 1] == '' or '机场' in token_i or '机场' in token_j:
-                    continue
-                new_token_ij, new_token_ji = token_i + token_j, token_j + token_i
-                for new_token in [new_token_ij, new_token_ji]:
-                    score = fuzz.ratio(air_lexicon, new_token)
-                    if score > 70:
-                        if new_token not in merged_list and token_i not in air_lexicons and token_j not in air_lexicons:
-                            merged_list.append(new_token)
-    return merged_list
+def contain_english(s):
+    return bool(re.search('[A-Za-z]', s))
 
 
-def retrieve_ngram(sent):
-    # n-gram extraction
-    cut_tokens = LTP.customed_jieba_cut(sent, config.STOP_WORD_PATH)
-    n_gram_list = list(generate_ngram(cut_tokens, 1))
-    # merge two token if the combined one is similar to the entity in the air_lexicon
-    merged_list = merge_ngram(n_gram_list)
-    return n_gram_list + merged_list
+def load_ent_alias(fname):
+    ent2alias = {}
+    if os.path.isfile(fname):
+        logger.info('load entity alias file %s' % fname)
+        with open(fname, 'r', encoding='utf-8') as f:
+            for line in f:
+                ent, alias = line.split(':')
+                alias = [a.strip() for a in alias.split(',')]
+                ent2alias[ent] = alias
+    return ent2alias
 
 
-def retrieve_rule(sent):
-    # retrieve special tokens
-    mentions = map(lambda x: next(filter(lambda l: l != '', x)),
-                   re.findall(entity_pattern, sent))
-    return mentions
-
-
-retrieve_funcs = [retrieve_rule, retrieve_ngram]
-
-
-def recognize_entity(sent, merge=True):
-    retrieve_res = [func(sent) for func in retrieve_funcs]
-    if merge:
-        mention_set = set()
-        mention_set.update(*retrieve_res)
-        mention_list = list(mention_set)
-        return mention_list
-    else:
-        return retrieve_res
-
-
-class FeatureVectorizer():
-    def __init__(self, bert_ranker=None):
-        self.bert_ranker = bert_ranker
-
-    def vectorize(self, sent, mention_list, retrieve_res):
-        vectors = []
-        if self.bert_ranker:
-            _, bert_res = self.bert_ranker.rank(sent, mention_list)
-            for m, s in zip(mention_list, bert_res):
-                # mention source
-                vec = [1 if m in rtr_set else 0 for rtr_set in retrieve_res]
-                vec.append(jaccard(m[0], sent))  # jaccard distance
-                vec.append(m[1])  # mention location
-                vec.append(s[0])
-                vectors.append(vec)
-        else:
-            for m in mention_list:
-                # mention source
-                vec = [1 if m in rtr_set else 0 for rtr_set in retrieve_res]
-                vec.append(jaccard(m[0], sent))  # jaccard distance
-                vec.append(m[1])  # mention location
-                vectors.append(vec)
-        return vectors
-
-
-keep_keys = ['name', 'label', 'neoId', 'taglist']
-
-
-class Linker():
-    def __init__(self, hangxin=False, driver=None):
-        if driver:
-            self.driver = driver
-        else:
-            if not hangxin:
-                self.driver = AsyncNeoDriver.AsyncNeoDriver()
+def make_mention2ent(ent2alias):
+    mention2ent = {}
+    for ent, alias in ent2alias.items():
+        for mention in alias:
+            if mention in mention2ent:
+                # logger.warning('指称映射冲突：%s -> [%s, %s]' %
+                            #    (mention, mention2ent[mention], ent))
+                mention2ent[mention].append(ent)
             else:
-                self.driver = AsyncNeoDriver.AsyncNeoDriver(
-                    server_address=r'http://10.1.1.30:7474',
-                    entity_label='Instance1')
+                mention2ent[mention] = [ent]
+    return mention2ent
 
-    def rank(self, sent):
-        pass
 
-    def exist_mention(self, cand_mention):
-        if_exist = list(map(lambda x: x.result(),
-                            map(self.driver.exist_name,
-                                cand_mention)))
-        # logging.info(if_exist)
-        mention_list = list(map(lambda x: x[1],
-                                filter(lambda x: x[0],
-                                       zip(if_exist, cand_mention))))
-        return mention_list
+class RuleLinker():
+    def __init__(self, driver=None):
+        if driver is None:
+            self.driver = AsyncNeoDriver.get_driver(name='default')
+        else:
+            self.driver = driver
+        self.load_all_entities()
+        ent2alias = load_ent_alias(config.ENT_ALIAS_PATH)
+        self.mention2ent = make_mention2ent(ent2alias)
+
+    def is_special_entity(self, ent_dict):
+        return ent_dict['entity_label'] == 'Genre' \
+            and (
+            '类' in ent_dict['name']
+            or '航空公司' in ent_dict['name']
+            or '行李安检' in ent_dict['name']
+        )
+
+    def load_all_entities(self, entity_labels=['Instance', 'SubGenre', 'Genre']):
+        all_entities = []
+        for entity_label in entity_labels:
+            tmp_entities = self.driver.get_all_entities(entity_label).result()
+            for e in tmp_entities:
+                e['entity_label'] = entity_label
+            tmp_entities = [e for e in tmp_entities
+                            if not self.is_special_entity(e)]
+            all_entities += tmp_entities
+        self.id2ent = {x['neoId']: x for x in all_entities}
+        self.ent_names = {x['name'] for x in all_entities}
+
+    # @lru_cache(maxsize=128)
+    def link(self, sent, sent_cut, pos_tag, limits=None):
+        # use bert embedding to fuzzy match entities
+        # mention_list = recognize_entity(sent)
+        mention_list = retrieve_mention(sent_cut, pos_tag)
+        if mention_list == []:
+            return []
+        logger.debug('指称: ' + str(mention_list))
+        # self.sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
+        # print('cut:', self.cut)
+        res = []
+        for mention in mention_list:
+            mention = mention.lower()
+            one_res = []
+            if self.is_not_entity(mention):
+                continue
+            # cand_name = self.convert_abstract_verb(
+            #     mention, sent, limits)
+            cand_names = self.convert_mention2ent(mention)
+            for ent in self.id2ent.values():
+                # for ent_name in self.ent_names:
+                ent_name = ent['name']
+                ent_name_rewrite = self.rewrite_ent_name(ent_name)
+                if ent_name_rewrite == '':
+                    continue
+                for cand_name in cand_names:
+                    # 该实体为英文而问的有汉语或相反
+                    if contain_chinese(cand_name) and not contain_chinese(ent_name) or contain_english(
+                            cand_name) and not contain_english(ent_name):
+                        continue
+                    RATIO = 0.5
+                    score = cosine_word_similarity(cand_name, ent_name_rewrite)
+                    score1 = fuzz.UQRatio(cand_name, ent_name_rewrite)/100
+                    score = RATIO*score + (1-RATIO) * score1
+                    one_res.append({
+                        'ent': ent,
+                        'mention': mention,
+                        'id': ent['neoId'],
+                        'score': score,
+                        'source': 'rule'
+                    })
+            one_res.sort(key=lambda x: x['score'], reverse=True)
+            for a_res in one_res[:3]:
+                if a_res['score'] > config.simi_ths:
+                    res.append(a_res)
+        res.sort(key=lambda x: x['score'], reverse=True)
+        return res
+
+    def convert_abstract_verb(self, word, sent, limits):
+        convert_dict = config.ABSTRACT_DICT
+        if word in convert_dict:
+            # TODO ** 和词典严重耦合的硬编码 **
+            if word == '换':
+                if limits is not None and limits['币种'] != '' or '货币' in sent or '外币' in sent:
+                    return convert_dict.get(word)[0]
+                elif '尿' in sent:
+                    return convert_dict.get(word)[1]
+                else:
+                    return word
+            # if wd == '换':
+            #     if '货币' or '外币'
+            return convert_dict[word]
+        else:
+            # 去除"服务"字段的影响
+            return word.replace('服务', '')
+
+    def convert_mention2ent(self, mention) -> list:
+        ent_names = self.mention2ent.get(mention, None)
+        if ent_names is not None:
+            return ent_names
+        return [mention.replace('服务', '')]
+
+    def is_not_entity(self, item):
+        for wd in config.airport.filter_words:
+            if wd in item:
+                return True
+        for wd in config.airport.remove_words:
+            if wd == item:
+                return True
+        # or not is_contain_chinese(item):
+        if re.search(r'(时间|地点|位置|地方|收费|价格|限制|电话)', item) is not None\
+                and item not in self.mention2ent:
+            return True
+        return False
+
+    def rewrite_ent_name(self, ent_name):
+        ent_name = ent_name.split('(')[0].split('（')[0].lower()
+        if '服务' in ent_name and ent_name != '服务':
+            ent_name = ent_name.replace('服务', '')
+        if ent_name in {'柜台', '其他柜台', '行李', '咨询'}:
+            ent_name = ''
+        return ent_name
+
+
+class BertLinker():
+    def __init__(self, driver=None):
+        if driver is None:
+            self.driver = AsyncNeoDriver.get_driver(name='default')
+        else:
+            self.driver = driver
+
+    def link(self, sent, sent_cut=None, pos_tag=None):
+        _, _, ent_type_top3 = BertERCls(sent)
+        # print(ent_type_top3)
+        instances_top3 = [self.driver.get_instance_of_genre(ent_type, genre='SubGenre') +
+                          (self.driver.get_entities_by_name(ent_type).result()
+                           if ent_type in exception_subgenre else [])
+                          for ent_type in ent_type_top3]
+        res = []
+        for rank, instances in enumerate(instances_top3):
+            for e in instances:
+                ent = {
+                    'ent': e,
+                    'id': e['neoId'],
+                    'mention': e['name'],
+                    'rank': rank+1,
+                    'source': 'bert',
+                    'score': 1/(rank+1) - 0.05
+                }
+                res.append(ent)
+        return res
+
+
+class CommercialLinker():
+    def __init__(self, driver=None):
+        if driver is None:
+            self.driver = AsyncNeoDriver.get_driver(name='default')
+        else:
+            self.driver = driver
+        self.content2entId = self.build_revert_index()
+        self.ban_word = {'机场'}
+
+    def link(self, sent, sent_cut, pos_tag=None):
+        id2ent = {}
+        for word in sent_cut:
+            if word in self.ban_word:
+                continue
+            content_keys = self.retrieve_content_keys(word)
+            for content, score in content_keys:
+                ent_ids = self.content2entId[content]
+                score /= 100
+                if score > 0.5:
+                    for ent_id in ent_ids:
+                        e = self.driver.get_entity_by_id(ent_id).result()[0]
+                        if '服务内容' in e:
+                            e.pop('服务内容')
+                        if ent_id in id2ent:
+                            old_score = id2ent[ent_id]['score']
+                            id2ent[ent_id]['score'] = max(score, old_score)
+                        else:
+                            ent = {
+                                'ent': e,
+                                'mention': word,
+                                'id': ent_id,
+                                'score': score,
+                                'source': 'commercial',
+                                'content': content
+                            }
+                            id2ent[ent_id] = ent
+        res = list(id2ent.values())
+        if '买' in sent or '卖' in sent or '吃' in sent:
+            for ent in res:
+                ent['score'] += 0.3
+        return res
+
+    def build_revert_index(self):
+        entities = self.driver.get_entities_by_genre('Instance').result()
+        # entities += self.driver.get_entities_by_genre('SubGenre').result()
+        content2entId = {}
+        for ent in entities:
+            ent_id = ent['neoId']
+            content_str = ent.get('服务内容', '').replace('服务', '')
+            content = content_str.split(';')
+            for c in content:
+                if c == '':
+                    continue
+                if c in content2entId:
+                    content2entId[c].append(ent_id)
+                else:
+                    content2entId[c] = [ent_id]
+        return content2entId
+
+    def retrieve_content_keys(self, sent):
+        # words = LTP.customed_jieba_cut(sent)
+        # sent = ''.join(words).replace('服务', '')
+        sent = sent.replace('服务', '')
+        if sent == '':
+            return []
+        res = process.extract(sent, self.content2entId.keys(),
+                              scorer=fuzz.UQRatio,
+                              limit=2)
+
+        return res
+
+
+def test_bert_linker():
+    bert_linker = BertLinker()
+    sent = '有可以玩游戏的地方吗？'
+    # sent = '东航的值机柜台在哪？'
+    res = bert_linker.link(sent)
+    print(res)
+
+
+def test_commercial_linker():
+    commercial_linker = CommercialLinker()
+    # print(commercial_linker.content2entId)
+    sent = '过了安检里面有没有书吧？'
+    # sent = '东航的值机柜台在哪？'
+    res = commercial_linker.link(sent)
+    print(res)
 
 
 if __name__ == '__main__':
-    s = ['告诉我姚明的女儿是谁？', '请问北航的校长是谁？', '陈赫和王传君共同主演的电视剧是什么？', '王传君和陈赫共同主演的电视剧是什么？',
-         '城关镇在哪？', '《线性代数》这本书的出版时间是什么？', '告诉我高等数学的出版时间是什么时候？', '告诉我中国人民大学的校长是谁？', '北京大学出了哪些哲学家？']
-    bert_model_name = 'm.25+pos+data'
-    retrieve_res = [func(sent) for func in retrieve_funcs]
-    print(retrieve_res[0])
-    print(retrieve_res[1])
-    print(retrieve_res[2])
-    print('hello')
+    # test_bert_linker()
+    test_commercial_linker()
+    # test_rule_linker()

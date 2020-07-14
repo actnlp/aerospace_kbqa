@@ -4,10 +4,10 @@ from functools import lru_cache
 
 from fuzzywuzzy import fuzz
 
-from ..common import LTP, AsyncNeoDriver
+from ..common import AsyncNeoDriver
 from ..common import Segment as seg
 from ..config import config
-from ..linking import NewLinking
+from ..linking import EntityLinking
 from .ConstraintExtractor import ConstraintExtractor
 from .ListQuestion import check_list_questions
 from .RelExtractor import BertRelExtractor, MatchRelExtractor
@@ -46,9 +46,9 @@ class QA():
 
     def __init__(self):
         self.driver = AsyncNeoDriver.get_driver()
-        self.bert_linker = NewLinking.BertLinker()
-        self.commercial_linker = NewLinking.CommercialLinker()
-        self.rule_linker = NewLinking.RuleLinker()
+        self.bert_linker = EntityLinking.BertLinker()
+        self.commercial_linker = EntityLinking.CommercialLinker()
+        self.rule_linker = EntityLinking.RuleLinker()
         self.match_extractor = MatchRelExtractor()
         self.bert_extractor = BertRelExtractor()
         self.constr_extractor = ConstraintExtractor()
@@ -118,7 +118,7 @@ class QA():
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if (ent['entity_label'] == 'SubGenre' and ent['name'] not in NewLinking.exception_subgenre)\
+            if (ent['entity_label'] == 'SubGenre' and ent['name'] not in EntityLinking.exception_subgenre)\
                     or ent['entity_label'] == 'Genre':
                 if self.rule_linker.is_special_entity(ent):
                     continue
@@ -132,7 +132,7 @@ class QA():
                         'score':linked_ent['score'],
                         'source':linked_ent['source']+' sub',
                     } for e in instances])
-            elif ent['entity_label'] == 'Instance' or ent['name'] in NewLinking.exception_subgenre:
+            elif ent['entity_label'] == 'Instance' or ent['name'] in EntityLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
 
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
@@ -277,10 +277,10 @@ class QA():
              4. 判断是否列举型
              5. 非列举型匹配关系
              6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
-             7. 匹配限制
-             8. 答案排序
-             9. 匹配机场本身相关问题
-             10. 返回答案
+             7. 匹配机场本身相关问题
+             8. 匹配限制
+             9. 答案排序
+             10. 生成自然语言答案
         '''
         logger.info('question :%s' % sent)
         # 1. 使用替换规则(预处理)

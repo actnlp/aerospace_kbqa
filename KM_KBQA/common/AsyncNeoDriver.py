@@ -35,7 +35,6 @@ default_address = r'http://10.1.1.28:7979'
 first_genre_label = 'Genre'
 second_genre_label = 'SubGenre'
 entity_label = 'Instance'
-entity_embeddings_path = './data/entity_embeddings.pkl'
 
 
 class AsyncNeoDriver():

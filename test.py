@@ -41,11 +41,12 @@ def test_qa(fname, use_full=True):
 
 if __name__ == "__main__":
     test_files = [
-        # 'commercial.txt',
-        # 'kbqa.txt',
-        'test_refuse.txt',
-        'refuse.txt'
+        'commercial.txt',
+        'kbqa_small.txt',
+        # 'test_refuse.txt',
+        # 'refuse.txt'
+        # 'wrong_refuse.txt'
     ]
     for test_file in test_files:
-        test_qa(test_file, use_full=False)
+        test_qa(test_file, use_full=True)
     # QA.test_qa()

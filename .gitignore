@@ -5,3 +5,4 @@ KM_KBQA/models/*
 KM_KBQA/res/*
 *.log
 test/result/*
+*.xlsx
