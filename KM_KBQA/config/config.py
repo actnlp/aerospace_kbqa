@@ -7,7 +7,7 @@ model_path = os.path.join(project_dir, 'models')
 
 LEX_PATH = os.path.join(project_dir, 'lexicons')
 STOP_WORD_PATH = os.path.join(LEX_PATH, 'stopwords.txt')
-AIR_LEXICON_PATH = os.path.join(LEX_PATH, 'air_lexicon.txt')
+AEROSPACE_LEXICON_PATH = os.path.join(LEX_PATH, 'aerospace_lexicon.txt')
 ENT_ALIAS_PATH = os.path.join(project_dir, 'res', 'ent_alias.txt')
 
 ABSTRACT_DICT = {'丢': '失物招领', '取款机': 'atm', '存款机': 'atm', '存取款机': 'atm', '提款机': 'atm', '取钱': '银行', 'kfc': '肯德基', '加油': '加油站', '乘机手续': '值机柜台',
@@ -21,7 +21,7 @@ ABSTRACT_DICT = {'丢': '失物招领', '取款机': 'atm', '存款机': 'atm', 
 ABS_REL_DICT = {'几点': '时间', '地址': '地点', '地方': '地点', '几楼': '地点', '位置': '地点', '怎么走': '地点', '地点': '地点', '时间': '时间', '价格': '价格', '收费': '价格', '收费标准': '价格',
                 '联系电话': '联系电话', '电话': '电话', '联系方式': '联系方式'}
 
-LIST_WORD_LIST = ['有', '哪些', '几个', '可以']
+LIST_WORD_LIST = ['有', '哪些', '几个', '可以', '介绍']
 FILTER_NODE_LABELS = ['行李安检', '普通行李', '航空公司',
                       '电池', '剧毒物品', '非易燃物品', '放射性物品', '易燃易爆物品']
 

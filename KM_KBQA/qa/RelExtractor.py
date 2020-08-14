@@ -43,8 +43,8 @@ class MatchRelExtractor(AbstractRelExtractor):
             self.driver = get_driver()
         else:
             self.driver = driver
-        self.remove_prop = {'subname', 'description',
-                            'label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'entity_label'}
+        self.remove_prop = {'subname', 'description','label', 'taglist', 'neoId', 'keyId', 'id', 'score', 'rel', 'hidden', 'entity_label',
+                            '一级类型','二级类型'}
 
     def normalize_prop(self, prop):
         if '地点' in prop:
@@ -57,8 +57,17 @@ class MatchRelExtractor(AbstractRelExtractor):
         ratio = 1.0
         if '时间' in prop and '时间' in word or '时间' in prop and '几点' in word:
             ratio = 1.5
-        if '地址' in word and '地点' in prop or '地点' in prop and '地方' in word or '地点' in prop and '几楼' in word or '怎么走' in word and '地点' in prop or '位置' in word and '地点' in prop:
+
+        # if '地址' in word and '地点' in prop or '地点' in prop and '地方' in word or '地点' in prop and '几楼' in word or '怎么走' in word and '地点' in prop or '位置' in word and '地点' in prop:
+        place_words = ['地址','地方','怎么走','位置']
+        place_flag = False
+        for w in place_words:
+            if w in word:
+                place_flag = True
+                break
+        if '地点' in prop and place_flag:
             ratio = 1.5
+
         if '联系' in prop and '电话' in word or '电话' in prop and '联系' in word:
             ratio = 1.5
         money = ['价格', '费', '钱']
@@ -73,11 +82,12 @@ class MatchRelExtractor(AbstractRelExtractor):
                     limits=None,
                     thresh=config.prop_ths):
         ent = linked_ent['ent']
-        mention = linked_ent.get('mention', ent['name'])
-        # extract all prop， 限制支持一个
+        mention = linked_ent.get('mention', ent['name'])  # 在link中抽取mention entity name
+        # extract all prop， 限制支持一个？
         props_dict = {}
 
         for prop, value in ent.items():
+            # 去除不需要的属性，如id等
             if prop not in self.remove_prop:
                 props_dict[prop] = str(value)
 
@@ -104,9 +114,11 @@ class MatchRelExtractor(AbstractRelExtractor):
             lambda x: x not in cand_name and '机场' not in x and x not in limit_list, cut_words))
         '''
         rest_words = [
-            w for w in sent_cut if w not in mention and '机场' not in w]
+            w for w in sent_cut if w not in mention]  #  and '机场' not in w
         props_set = list(props_dict.keys())
         props_set.remove('name')
+        if '名称' in props_set:# zsh
+            props_set.remove('名称')
         # cal prop rel similarity
         res = []
         used_pairs = set()
@@ -114,7 +126,7 @@ class MatchRelExtractor(AbstractRelExtractor):
         for prop in props_set:
             old_prop = prop
             for word in rest_words:
-                prop = prop.replace('服务', '')
+                # prop = prop.replace('服务', '')
                 cos_score = cosine_word_similarity(
                     word, self.normalize_prop(prop))
                 text_score = fuzz.UQRatio(word, prop)/100

@@ -1,17 +1,21 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 13 10:08:36 2020
+
+@author: DELL
+"""
 import os
-
-import jieba
-import jieba.posseg as pseg
-
+from ltp import LTP
 from ..config.config import LEX_PATH
+ltp = LTP(path = "base")
 
-jieba.load_userdict(os.path.join(LEX_PATH, 'air_lexicon.txt'))
-jieba.enable_paddle()
-
+ltp.init_dict(path=os.path.join(LEX_PATH, 'air_lexicon.txt'))
 
 def cut(sent):
-    return list(jieba.cut(sent, cut_all=False))
-
+    segment, _ = ltp.seg([sent])
+    return segment[0]
 
 def pos_cut(sent):
-    return list(zip(*pseg.cut(sent)))
+    segment, hidden = ltp.seg([sent])
+    pos = ltp.pos(hidden)
+    return [tuple(segment[0]), tuple(pos[0])]

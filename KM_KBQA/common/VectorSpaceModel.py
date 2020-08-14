@@ -14,7 +14,6 @@ class VectorSpaceModel():
     def _most_similar(self, doc, sim_func, topn=3):
         v = encode(doc)
         scores = sim_func(v[None, :], self.vectors)
-        # print(scores)
         sort_idx = torch.argsort(scores, descending=True)
         res = [self.docs[idx] for idx in sort_idx[:topn]]
         return res

@@ -112,9 +112,6 @@ def multitask_fit(model, training_iter, eval_iter, num_epoch, pbar, num_train_st
         for step, batch in enumerate(training_iter):
             batch = tuple(t.to(device) for t in batch)
             tr_idx, input_ids, input_mask, segment_ids, output_mask, label_ids, ent_ids, rel_ids = batch
-            # print("input_id", input_ids)
-            # print("input_mask", input_mask)
-            # print("segment_id", segment_ids)
             slot_filling_output, ent_cls_output, rel_cls_output = model(
                 input_ids, segment_ids, input_mask, batch_idx=step)
             slot_filling_output, ent_cls_output, rel_cls_output = slot_filling_output.cpu(

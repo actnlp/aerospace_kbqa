@@ -34,7 +34,7 @@ def replace_word(sent, stop_list, rpl_list):
 
 
 class QA():
-    stop_list = ['吗', '里面']
+    stop_list = ['吗', '里面','什么意思']
     rpl_list = [('在哪儿', '的地点'),
                 ('在哪里', '的地点'),
                 ('在哪', '的地点'),
@@ -42,7 +42,11 @@ class QA():
                 ('哪里', '地点'),
                 ('哪有', '地点'),
                 ('属于', '在'),
-                ('vip', '贵宾')]
+                ('vip', '贵宾'),
+                ('我国', '中国'),
+                ('什么是', '定义'),
+                ('什么叫做', '定义'),
+                ('机型', '飞机型号')]
 
     def __init__(self):
         self.driver = AsyncNeoDriver.get_driver()
@@ -53,31 +57,32 @@ class QA():
         self.bert_extractor = BertRelExtractor()
         self.constr_extractor = ConstraintExtractor()
 
+
     def preprocess(self, sent):
-        '''
+        """
             返回(处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag)
             问句预处理：
             1. 分词前替换规则
             2. 分词, pos tag
             3. 分词后替换规则：停用词，特殊词
-        '''
-        # 分词前替换规则
+        """
+        # 分词前替换规则：过滤掉停用词，替换抽象词汇    如'在哪儿'表示'的地点'
         sent_replaced = replace_word(sent, QA.stop_list, QA.rpl_list)
         # 分词
-        sent_cut, pos_tag = seg.pos_cut(sent_replaced)
+        sent_cut, pos_tag = seg.pos_cut(sent_replaced)  # pos_cut：list(zip(*pseg.cut(sent))) pos_tag：词性标注
         # 特殊词处理
         sent_cut_pro = []
         pos_tag_pro = []
         for word, tag in zip(sent_cut, pos_tag):
             if len(word) > 2 and word[-1] == '费':
-                sent_cut_pro.append(word[:-1])
+                sent_cut_pro.append(word[:-1])  # 去除'费'，增加cut集合 费用
                 sent_cut_pro.append('费用')
                 pos_tag_pro.append(tag)
-                pos_tag_pro.append(tag)
+                pos_tag_pro.append(tag)  # 费用与word[-1] 同词性
             else:
                 sent_cut_pro.append(word)
                 pos_tag_pro.append(tag)
-        # 去除停用词
+        # 去除停用词(特殊词处理后)
         sent_cut = []
         pos_tag = []
         for word, tag in zip(sent_cut_pro, pos_tag_pro):
@@ -101,27 +106,31 @@ class QA():
                     id2linked_ent[neoId] = linked_ent
                     link_res.append(linked_ent)
 
-        bert_res = self.bert_linker.link(sent)
-        # logger.info('bert链接: %s' % str(bert_res))
-        commercial_res = self.commercial_linker.link(sent, sent_cut)
-        # logger.info('商业链接: %s' % str(commercial_res))
-        rule_res = self.rule_linker.link(sent, sent_cut, pos_tag)
-        # logger.info('规则链接: %s' % str(rule_res))
+        # bert_res = self.bert_linker.link(sent)  # zsh 航空尝试问答无训练数据，暂不用
+        # print('bert链接: %s' % str(bert_res))
+
+        # commercial_res = self.commercial_linker.link(sent, sent_cut)  # 注释掉 zsh
+        # print('商业链接: %s' % str(commercial_res))
+
+        rule_res = self.rule_linker.link(sent, sent_cut, pos_tag)  # bert embedding to fuzzy match entities
+        logger.debug('规则链接: %s' % str(rule_res))
         link_res = rule_res
         id2linked_ent = {linked_ent['id']: linked_ent
                          for linked_ent in link_res}
+
         # merge bert res
-        merge_link_res(bert_res, id2linked_ent)
+        # merge_link_res(bert_res, id2linked_ent) # zsh
+
         # merge commecial res
-        merge_link_res(commercial_res, id2linked_ent)
+        # merge_link_res(commercial_res, id2linked_ent) # 注释掉 zsh
+
         # 获取具体实体
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if (ent['entity_label'] == 'SubGenre' and ent['name'] not in EntityLinking.exception_subgenre)\
-                    or ent['entity_label'] == 'Genre':
-                if self.rule_linker.is_special_entity(ent):
-                    continue
+            if ent['entity_label'] in ['SubGenre','SubGenre_child' 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
+                # if self.rule_linker.is_special_entity(ent):  # 注释掉 zsh
+                #     continue
                 instances = self.get_instances(
                     ent['name'], ent['entity_label'], 'Instance')
                 if instances is not None:
@@ -130,9 +139,9 @@ class QA():
                         'mention': linked_ent.get('mention', e['name']),
                         'id':e['neoId'],
                         'score':linked_ent['score'],
-                        'source':linked_ent['source']+' sub',
+                        'source':linked_ent['source']+' sub',  # source 是指是bert结果，还是规则匹配结果
                     } for e in instances])
-            elif ent['entity_label'] == 'Instance' or ent['name'] in EntityLinking.exception_subgenre:
+            elif ent['entity_label'] == 'Instance':  # or ent['name'] in EntityLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
 
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
@@ -140,6 +149,7 @@ class QA():
             ent['id']: ent
             for ent in link_res_extend}
         # if ent['ent']['label'] == 'Instance'}
+        #print(link_res_extend)
         return link_res_extend, id2linked_ent
 
     def get_instances(self, parent_name, parent_label, instance_label):
@@ -157,6 +167,7 @@ class QA():
                 sent_cut, linked_ent)
             rel_match_res += rel_matched
             # bert 提取关系
+            """ 
             rel_bert_res = self.bert_extractor.extract_rel(sent, linked_ent)
             for bert_rel in rel_bert_res:
                 for match_rel in rel_matched:
@@ -165,6 +176,7 @@ class QA():
                         match_rel['rel_source'] += ' bert'
                     else:
                         rel_match_res.append(bert_rel)
+            """
         return rel_match_res
 
     def match_constraint(self, qa_res, constraint, id2linked_ent):
@@ -177,8 +189,6 @@ class QA():
                 match_res = self.constr_extractor.match_constraint(
                     constraint, linked_ent)
             except:
-                print(constraint)
-                print(linked_ent)
                 traceback.print_exc()
 
             ans['constr_score'] = 0
@@ -205,15 +215,12 @@ class QA():
         cand_name = qa_res['mention']
 
         natural_ans = ''
-        # ans_name = ent_name if fuzz.token_sort_ratio(
-        # ' '.join(cand_name), ' '.join(ent_name)) < 80 else cand_name
         ans_name = ent_name
 
         airline_ans = ''
-        if '航司代码' in ent:
-            airline_value = ent['航司代码']
-            airline_ans = '，办理%s航司业务' % airline_value
-
+        # if '航司代码' in ent:
+        #     airline_value = ent['航司代码']
+        #     airline_ans = '，办理%s航司业务' % airline_value
         if 'rel_score' not in qa_res:
             ans_list = []
             ans_list.append('您好，机场内有%s' % ans_name)
@@ -223,8 +230,8 @@ class QA():
                     ans_list.append('营业时间是%s' % rel_val)
                 if '地点' == rel:
                     ans_list.append('位置在%s' % rel_val)
-                if '价格' in rel or '收费' in rel:
-                    ans_list.append('价格为%s' % rel_val)
+                # if '价格' in rel or '收费' in rel:
+                #     ans_list.append('价格为%s' % rel_val)
                 if '电话' in rel or '联系' in rel:
                     ans_list.append('电话是%s' % rel_val)
 
@@ -239,9 +246,24 @@ class QA():
             #     ans = '您好，机场内有%s，营业时间是%s' % (ans_name, loc_prop_value)
             # else:
             #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
-            natural_ans = '，'.join(ans_list)
-            natural_ans += airline_ans
-            return natural_ans
+            if not natural_ans:
+                prop_desc = []
+                for prop in ent.keys():
+                    if prop in ["name","名称","neoId","entity_label"]:
+                        continue
+                    info = ent[prop]
+                    if "[" in info:
+                        info = eval(info)
+                        info = str("、".join(info))
+                    desc = "%s是%s" % (prop, info)
+                    if desc not in prop_desc:
+                        prop_desc.append(desc)
+                natural_ans = '您好，您询问的是%s，具体信息如下：%s' % (ent_name, "，".join(prop_desc))
+                return natural_ans
+            else:
+                natural_ans = '，'.join(ans_list)
+                natural_ans += airline_ans
+                return natural_ans
         else:
             rel = qa_res['rel_name']
             rel_val = qa_res['rel_val']
@@ -272,34 +294,35 @@ class QA():
         '''
             问答流程：
              1. 使用替换规则修改问句并分词
-             2. 规则提取限制
-             3. 三种linker提取实体，合并排序
+             2. 提取限制条件：时间、地点、航空公司等
+             3. 三种linker提取实体，合并排序：bert 商业 规则（航空常识只用到了规则）
              4. 判断是否列举型
              5. 非列举型匹配关系
              6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
-             7. 匹配机场本身相关问题
-             8. 匹配限制
-             9. 答案排序
-             10. 生成自然语言答案
+             7. 匹配限制
+             8. 答案排序
+             9. 生成自然语言答案
         '''
         logger.info('question :%s' % sent)
         # 1. 使用替换规则(预处理)
         # sent = replace_word(sent, self.stop_list, self.rpl_list)
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
-        sent, sent_cut, pos_tag = self.preprocess(sent)
+        sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
         logger.debug('cut :'+str(sent_cut))
 
-        # 2. extract constaints
+        # 2. 提取限制条件:时间、地点、航空公司等
         constr_res = self.constr_extractor.extract(sent)
         logger.debug('限制: '+str(constr_res))
 
         # 3. link: 使用多种linker，合并结果
         link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag)
         logger.debug('链接结果: '+str(link_res[:10]))
-        # 4. 处理列举类型
-        is_list = check_list_questions(sent, link_res)
+
+        # 4. 处理列举类型：问句询问某实体是否存在或存在数量
+        is_list = check_list_questions(sent, link_res)  # 提及具体的属性（如时间等）则False
         # is_list = False
         logger.debug('是否列举: '+str(is_list))
+
         # 5. 非列举型匹配关系 extract relations, match+bert
         rel_match_res = self.extract_rel(sent, sent_cut, link_res)
         logger.debug('关系匹配: '+str(rel_match_res[:10]))
@@ -307,7 +330,7 @@ class QA():
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         # qa_res {'id','mention','entity','link_score','rel_name','rel_val','rel_score','constr_name','constr_val'}
         qa_res = []
-        LINK_THRESH = 0.8
+        LINK_THRESH = 0.85
         REL_THRESH = 0.8
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list:
@@ -330,10 +353,15 @@ class QA():
                         'id': linked_ent['id'],
                         'mention': linked_ent.get('mention', linked_ent['ent']['name']),
                         'entity': linked_ent['ent']['name'],
+                        'rel_name': '定义',
+                        'rel_val': linked_ent['ent']['定义'],
                         'link_score': linked_ent['score'],
+                        'rel_score': 1.2,
+                        'rel_source': 'match'
                     })
 
         # 7. 匹配机场本身相关的问题
+        """
         if len(qa_res) == 0 and '机场' in sent:
             airport_ent = self.driver.get_entities_only_by_name(
                 config.airport.name)[0]
@@ -348,6 +376,7 @@ class QA():
             airport_rel_match = self.extract_rel(
                 sent, sent_cut, [linked_airport])
             qa_res.extend(airport_rel_match)
+        """
 
         # 8. 匹配限制
         if any(map(lambda x: x != '', constr_res.values())):
@@ -362,8 +391,7 @@ class QA():
         natural_ans = []
         filtered_qa_res = []
         for res in qa_res:
-            n_ans = self.generate_natural_ans(
-                res, id2linked_ent)
+            n_ans = self.generate_natural_ans(res, id2linked_ent)
             if n_ans not in natural_ans:
                 res['natural_ans'] = n_ans
                 natural_ans.append(n_ans)

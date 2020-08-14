@@ -30,7 +30,7 @@ headers = {'Authorization': 'bmVvNGo6MTIzNDU2',
            'Accept': 'application/json; charset=UTF-8',
            'Content-Type': 'application/json'}
 
-default_address = r'http://10.1.1.28:7979'
+default_address = r'http://10.1.1.30:7979'
 
 first_genre_label = 'Genre'
 second_genre_label = 'SubGenre'
@@ -102,14 +102,11 @@ class AsyncNeoDriver():
         return self.process_result(result)
 
     async def get_entities_by_property_async(self, property, value):
-        # print('\n\nget_entity\n\n: ', property, value)
         result = await self.execute_async('match (n) where n.%s="%s" return n,id(n)' %
                                           (property, value))
         return self.process_result(result)
 
     async def get_all_entities_async(self, entity_label, filter_labels):
-        # print('\n\nget_entity\n\n: ', property, value)
-        # print('match (n:%s) return n' % (entity_label))
         processed_filters = ''
         for filter_label in filter_labels:
             processed_filters += 'not n.label contains \'%s\' and ' % (
@@ -120,7 +117,6 @@ class AsyncNeoDriver():
             processed_filters = 'where ' + processed_filters
         result = await self.execute_async('match (n:%s) %s return n, id(n)' %
                                           (entity_label, processed_filters))
-        # print('entities number:', len(result['data']))
         return self.process_result(result)
 
     def get_all_entities(self, entity_label, filter_label=[]):
@@ -142,7 +138,6 @@ class AsyncNeoDriver():
             print("CALL db.index.fulltext.queryNodes('%s','%s') yield node,score return node,id(node),score" % (
                 self.fuzzy_index, name))
             result = await self.execute_async("CALL db.index.fulltext.queryNodes('%s','%s') yield node,score return node,id(node),score" % (self.fuzzy_index, name))
-            # print('\nfuzzy_result: ', result)
             try:
                 res = []
                 thresh = 1.5
@@ -168,7 +163,6 @@ class AsyncNeoDriver():
                 r = await self.get_entities_by_property_async('name', name)
                 r = list(filter(lambda x: x['name']
                                 != '黄花机场' and x['name'] != '机场', r))
-                # print('\n\nget_entitie_by_name_exact: ', r)
                 self.entity_name_cache[name] = r
                 for entity in r:
                     neoId = entity['neoId']
@@ -227,9 +221,9 @@ class AsyncNeoDriver():
             arrow1 = '<'
         else:
             arrow2 = '>'
-        res = await self.execute_async('match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return distinct m, id(m)'
-                                       % (f_genre, arrow1, arrow2, c_genre, f_name))
-        # print('match (n:%s)%s-[r]-%s(m:%s) where n.name = \'%s\' return m, id(m)'% (f_genre, arrow1, arrow2, c_genre, f_name))
+        neo4j = 'match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return distinct m, id(m)'% (f_genre, arrow1, arrow2, c_genre, f_name)
+        res = await self.execute_async(neo4j)
+        print(neo4j)
         # res = [x['name'] for x in result]
         # res = list(map(lambda x: tuple(x['row']), result['data']))
         # self.relation_cache[query_tuple] = res
@@ -273,10 +267,10 @@ class AsyncNeoDriver():
         return asyncio.run_coroutine_threadsafe(
             self.get_relations_by_id_async(id, l_label, r_label, direction), self.loop)
 
-    async def get_labels_by_name_async(self, name):
-        result = await self.execute_async('match (n) where n.name = \'%s\' return labels(n), id(n)' % (name))
+    async def get_labels_by_name_async(self, name, type = "Instance"):
+        sql = 'match (n:%s) where n.名称="%s"  or n.名称=~".*%s.*" return labels(n), id(n)' % (type, name, name)
+        result = await self.execute_async(sql)
         res = list(map(lambda x: x['row'], result['data']))
-
         return res
 
     def get_labels_by_name(self, name):
@@ -388,8 +382,9 @@ class AsyncNeoDriver():
 
     @lru_cache(maxsize=256)
     def get_instance_of_genre(self, genre_name, genre='SubGenre'):
-        result = self.execute(
-            'match (n:Instance)-[:属于]->(m:%s {name:"%s"}) return distinct n,id(n)' % (genre, genre_name)).result()
+        # neo4j_sql = 'match (n:Instance)-[:属于]->(m:%s {name:"%s"}) return distinct n,id(n)' % (genre, genre_name)
+        neo4j_sql = 'match (n:Instance)-[:属于]->(m {name:"%s"}) return distinct n,id(n)' % ( genre_name)  # zsh 航空版问答的类名为SubGenre|SubGenre_child，所以直接找genre_name下的节点，不给m设置类型了
+        result = self.execute(neo4j_sql).result()
         result = self.process_result(result)
         return result
 

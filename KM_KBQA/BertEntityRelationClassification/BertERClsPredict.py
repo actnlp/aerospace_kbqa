@@ -12,9 +12,9 @@ pretrained_bert_path = 'KM_KBQA/models/bert-base-chinese.bin'
 pretrained_vocab_path = 'KM_KBQA/models/vocab.txt'
 pretrained_config_path = 'KM_KBQA/models/bert_config.json'
 
-BertModel.pretrained_model_archive_map['bert-base-chinese'] = pretrained_bert_path
-BertTokenizer.pretrained_vocab_files_map['vocab_file']['bert-base-chinese'] = pretrained_vocab_path
-BertConfig.pretrained_config_archive_map['bert-base-chinese'] = pretrained_config_path
+# BertModel.pretrained_model_archive_map['bert-base-chinese'] = pretrained_bert_path
+# BertTokenizer.pretrained_vocab_files_map['vocab_file']['bert-base-chinese'] = pretrained_vocab_path
+# BertConfig.pretrained_config_archive_map['bert-base-chinese'] = pretrained_config_path
 
 global_tokenizer = None
 global_model = None
@@ -24,7 +24,7 @@ def get_tokenizer():
     global global_tokenizer
     if global_tokenizer is None:
         # global_tokenizer = BertTokenizer(vocab_file=args.VOCAB_FILE)
-        global_tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
+        global_tokenizer = BertTokenizer.from_pretrained(pretrained_bert_path)
     return global_tokenizer
 
 
@@ -73,7 +73,7 @@ def predict(sent):
 
     ent_string = args.ENT_LABELS[ent_top1.item()]
     ent_top3_string = [args.ENT_LABELS[ent_top3[0][0].item(
-    )], args.ENT_LABELS[ent_top3[0][1].item()], args.ENT_LABELS[ent_top3[0][2].item()]]
+        )], args.ENT_LABELS[ent_top3[0][1].item()], args.ENT_LABELS[ent_top3[0][2].item()]]
     rel_string = args.REL_LABELS[rel_top1.item()]
 
     return ent_string, rel_string, ent_top3_string

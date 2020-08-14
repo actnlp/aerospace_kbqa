@@ -1,6 +1,6 @@
 import logging
 import os
-import re
+import re, time
 from functools import lru_cache
 
 from fuzzywuzzy import fuzz, process
@@ -13,7 +13,9 @@ from ..config import config
 from .LinkUtil import retrieve_mention
 
 logger = logging.getLogger('qa')
-exception_subgenre = {'临时身份证办理'}
+
+
+# exception_subgenre = {'临时身份证办理'}
 
 
 def contain_chinese(s):
@@ -36,7 +38,7 @@ def load_ent_alias(fname):
         logger.info('load entity alias file %s' % fname)
         with open(fname, 'r', encoding='utf-8') as f:
             for line in f:
-                ent, alias = line.split(':')
+                ent, alias = line.split(': ')
                 alias = [a.strip() for a in alias.split(',')]
                 ent2alias[ent] = alias
     return ent2alias
@@ -47,12 +49,23 @@ def make_mention2ent(ent2alias):
     for ent, alias in ent2alias.items():
         for mention in alias:
             if mention in mention2ent:
-                # logger.warning('指称映射冲突：%s -> [%s, %s]' %
-                            #    (mention, mention2ent[mention], ent))
                 mention2ent[mention].append(ent)
             else:
                 mention2ent[mention] = [ent]
     return mention2ent
+
+
+#  获取所有实体的所有名称，包括所有别名 zsh
+def get_entity_all_names(all_entities):
+    all_entities_tmp = []
+    for x in all_entities:
+        names = x['名称']
+        if "[" in names:  # list 类型的名称，说明有别名
+            names = eval(names)
+            all_entities_tmp += [name for name in names]
+        else:
+            all_entities_tmp.append(names)
+    return all_entities_tmp
 
 
 class RuleLinker():
@@ -67,13 +80,13 @@ class RuleLinker():
 
     def is_special_entity(self, ent_dict):
         return ent_dict['entity_label'] == 'Genre' \
-            and (
-            '类' in ent_dict['name']
-            or '航空公司' in ent_dict['name']
-            or '行李安检' in ent_dict['name']
-        )
+               and (
+                   '类' in ent_dict['name']
+                   # or '航空公司' in ent_dict['name']
+                   # or '行李安检' in ent_dict['name']
+               )
 
-    def load_all_entities(self, entity_labels=['Instance', 'SubGenre', 'Genre']):
+    def load_all_entities(self, entity_labels=['Instance', 'SubGenre', 'SubGenre_child', 'Genre']):
         all_entities = []
         for entity_label in entity_labels:
             tmp_entities = self.driver.get_all_entities(entity_label).result()
@@ -83,19 +96,19 @@ class RuleLinker():
                             if not self.is_special_entity(e)]
             all_entities += tmp_entities
         self.id2ent = {x['neoId']: x for x in all_entities}
-        self.ent_names = {x['name'] for x in all_entities}
+        self.ent_names = get_entity_all_names(all_entities)
 
-    # @lru_cache(maxsize=128)
+        # @lru_cache(maxsize=128)
+
     def link(self, sent, sent_cut, pos_tag, limits=None):
         # use bert embedding to fuzzy match entities
         # mention_list = recognize_entity(sent)
         mention_list = retrieve_mention(sent_cut, pos_tag)
+        logger.debug('指称: ' + str(mention_list))
         if mention_list == []:
             return []
-        logger.debug('指称: ' + str(mention_list))
-        # self.sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
-        # print('cut:', self.cut)
         res = []
+        mention_list.append("商飞")
         for mention in mention_list:
             mention = mention.lower()
             one_res = []
@@ -103,22 +116,29 @@ class RuleLinker():
                 continue
             # cand_name = self.convert_abstract_verb(
             #     mention, sent, limits)
-            cand_names = self.convert_mention2ent(mention)
+            cand_names = self.convert_mention2ent(mention)  # entity别名设置
             for ent in self.id2ent.values():
                 # for ent_name in self.ent_names:
+                if 'name' not in ent:
+                    continue
                 ent_name = ent['name']
                 ent_name_rewrite = self.rewrite_ent_name(ent_name)
                 if ent_name_rewrite == '':
                     continue
                 for cand_name in cand_names:
                     # 该实体为英文而问的有汉语或相反
+                    # 原因：当时用bert encode以后进行相似度匹配的时候，输入的实体或者图谱中的实体有英文的话有时语义不相近bert也会给出较高的值，所以过滤掉只有一方出现英文的情况
                     if contain_chinese(cand_name) and not contain_chinese(ent_name) or contain_english(
-                            cand_name) and not contain_english(ent_name):
+                        cand_name) and not contain_english(ent_name):
                         continue
+
                     RATIO = 0.5
                     score = cosine_word_similarity(cand_name, ent_name_rewrite)
-                    score1 = fuzz.UQRatio(cand_name, ent_name_rewrite)/100
-                    score = RATIO*score + (1-RATIO) * score1
+                    score1 = fuzz.UQRatio(cand_name, ent_name_rewrite) / 100
+                    if [mention,ent['name']] == ['商飞',"飞行（轮档）小时"]:
+                        logger.debug("余弦相似度 "+str(score))
+                        logger.debug("fuzz模糊字符串匹配 "+str(score1))
+                    score = RATIO * score + (1 - RATIO) * score1
                     one_res.append({
                         'ent': ent,
                         'mention': mention,
@@ -127,6 +147,14 @@ class RuleLinker():
                         'source': 'rule'
                     })
             one_res.sort(key=lambda x: x['score'], reverse=True)
+            if mention=="商飞":
+                logger.debug(one_res[:1])
+                for a_res in one_res[:3]:
+                    if a_res['ent']['name'] == "中国商用飞机有限责任公司":
+                        logger.debug(str(a_res))
+                for a_res in one_res:
+                    if a_res['ent']['name'] == "中国商用飞机有限责任公司":
+                        logger.debug(str(a_res))
             for a_res in one_res[:3]:
                 if a_res['score'] > config.simi_ths:
                     res.append(a_res)
@@ -154,28 +182,22 @@ class RuleLinker():
     def convert_mention2ent(self, mention) -> list:
         ent_names = self.mention2ent.get(mention, None)
         if ent_names is not None:
+            if not isinstance(ent_names, list):
+                ent_names = [ent_names]
             return ent_names
         return [mention.replace('服务', '')]
 
     def is_not_entity(self, item):
-        for wd in config.airport.filter_words:
-            if wd in item:
-                return True
-        for wd in config.airport.remove_words:
-            if wd == item:
-                return True
-        # or not is_contain_chinese(item):
-        if re.search(r'(时间|地点|位置|地方|收费|价格|限制|电话)', item) is not None\
-                and item not in self.mention2ent:
+        if re.search(r'(时间|地点|位置|地方|收费|价格|限制|电话)', item) is not None \
+            and item not in self.mention2ent:
             return True
-        return False
 
     def rewrite_ent_name(self, ent_name):
-        ent_name = ent_name.split('(')[0].split('（')[0].lower()
-        if '服务' in ent_name and ent_name != '服务':
-            ent_name = ent_name.replace('服务', '')
-        if ent_name in {'柜台', '其他柜台', '行李', '咨询'}:
-            ent_name = ''
+        ent_name = ent_name.split('(')[0].split('（')[0].lower()  # 中英文括号前面的部分
+        # if '服务' in ent_name and ent_name != '服务':  # zsh
+        #     ent_name = ent_name.replace('服务', '')
+        # if ent_name in {'柜台', '其他柜台', '行李', '咨询'}:
+        #     ent_name = ''
         return ent_name
 
 
@@ -187,8 +209,7 @@ class BertLinker():
             self.driver = driver
 
     def link(self, sent, sent_cut=None, pos_tag=None):
-        _, _, ent_type_top3 = BertERCls(sent)
-        # print(ent_type_top3)
+        _, _, ent_type_top3 = BertERCls(sent)  # get input_ids, input_mask and segment_ids from sent
         instances_top3 = [self.driver.get_instance_of_genre(ent_type, genre='SubGenre') +
                           (self.driver.get_entities_by_name(ent_type).result()
                            if ent_type in exception_subgenre else [])
@@ -200,9 +221,9 @@ class BertLinker():
                     'ent': e,
                     'id': e['neoId'],
                     'mention': e['name'],
-                    'rank': rank+1,
+                    'rank': rank + 1,
                     'source': 'bert',
-                    'score': 1/(rank+1) - 0.05
+                    'score': 1 / (rank + 1) - 0.05
                 }
                 res.append(ent)
         return res

@@ -100,6 +100,15 @@ class ConstraintExtractor():
 
         return ret
 
+    def check_airport(self, sent):
+        airlines = ['敦煌国际机场', '北京首都机场']  # 找类型是机场的
+        ret = []
+        for airline in airlines:
+            if airline in sent:
+                ret.append(airline)
+
+        return ret
+
     def check_price(self, sent):
         prices = ['免费']
         ret = []
@@ -109,28 +118,34 @@ class ConstraintExtractor():
         return ret
 
     def extract(self, sent):
-        sent = self.preprocess(sent)
-        constr = {'时间': '', '地点': '', '币种': '', '银行': '', '航空公司': '', '价格': ''}
+        sent = self.preprocess(sent)  # 一～十 替换成 阿拉伯数字
+        constr = {'时间': '', '地点': ''}  # , '币种': '', '银行': '', '航空公司': '',  '价格': '', '机场': '',
         time_check = self.check_time(sent)
         loc_check = self.check_location(sent)
         cur_check = self.check_currency(sent)
         bank_check = self.check_bank(sent)
         price_check = self.check_price(sent)
         airline_check = self.check_airline(sent)
+        # airport_check = self.check_airport(sent)
         if time_check is not None and len(time_check) > 0:
             constr['时间'] = time_check
         if loc_check is not None and len(loc_check) > 0:
             constr['地点'] = loc_check
-        if cur_check is not None and len(cur_check) > 0:
-            constr['币种'] = cur_check
-        if bank_check is not None and len(bank_check) > 0:
-            constr['银行'] = bank_check
-        if airline_check is not None and len(airline_check) > 0:
-            constr['航空公司'] = airline_check
-        if price_check is not None and len(price_check) > 0:
-            constr['价格'] = price_check
-        if time_check is None and loc_check is None and cur_check is None and bank_check is None and airline_check is None and price_check is None:
-            return None
+        # if cur_check is not None and len(cur_check) > 0:
+        #     constr['币种'] = cur_check
+        # if bank_check is not None and len(bank_check) > 0:
+        #     constr['银行'] = bank_check
+        # if airline_check is not None and len(airline_check) > 0:
+        #     constr['航空公司'] = airline_check
+        # if airport_check is not None and len(airport_check) > 0:  # zsh
+        #     constr['机场'] = airport_check
+        # if price_check is not None and len(price_check) > 0:
+        #     constr['价格'] = price_check
+        for check in [time_check,loc_check,cur_check,bank_check,airline_check,price_check]:
+            if check is None:
+                return None
+        # if time_check is None and loc_check is None and cur_check is None and bank_check is None and airline_check is None and price_check is None:
+        #     return None
 
         return constr
 
