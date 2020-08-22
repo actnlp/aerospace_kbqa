@@ -2,6 +2,9 @@ import logging
 import traceback
 from functools import lru_cache
 
+import time
+
+
 from fuzzywuzzy import fuzz
 
 from ..common import AsyncNeoDriver
@@ -253,6 +256,7 @@ class QA():
                         continue
                     info = ent[prop]
                     if "[" in info:
+                        print(info)
                         info = eval(info)
                         info = str("、".join(info))
                     desc = "%s是%s" % (prop, info)
@@ -303,30 +307,44 @@ class QA():
              8. 答案排序
              9. 生成自然语言答案
         '''
+        start =time.clock()
         logger.info('question :%s' % sent)
+        end = time.clock()
+        print('模型启动： %s Seconds'%(end-start))
+        start = end
         # 1. 使用替换规则(预处理)
         # sent = replace_word(sent, self.stop_list, self.rpl_list)
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
         logger.debug('cut :'+str(sent_cut))
-
+        end = time.clock()
+        print('分词： %s Seconds'%(end-start))
+        start = end
         # 2. 提取限制条件:时间、地点、航空公司等
         constr_res = self.constr_extractor.extract(sent)
         logger.debug('限制: '+str(constr_res))
-
+        end = time.clock()
+        print('提取限制： %s Seconds'%(end-start))
+        start = end
         # 3. link: 使用多种linker，合并结果
         link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag)
         logger.debug('链接结果: '+str(link_res[:10]))
-
+        end = time.clock()
+        print('实体链接： %s Seconds'%(end-start))
+        start = end
         # 4. 处理列举类型：问句询问某实体是否存在或存在数量
         is_list = check_list_questions(sent, link_res)  # 提及具体的属性（如时间等）则False
         # is_list = False
         logger.debug('是否列举: '+str(is_list))
-
+        end = time.clock()
+        print('处理列举类： %s Seconds'%(end-start))
+        start = end
         # 5. 非列举型匹配关系 extract relations, match+bert
         rel_match_res = self.extract_rel(sent, sent_cut, link_res)
         logger.debug('关系匹配: '+str(rel_match_res[:10]))
-
+        end = time.clock()
+        print('关系匹配： %s Seconds'%(end-start))
+        start = end
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         # qa_res {'id','mention','entity','link_score','rel_name','rel_val','rel_score','constr_name','constr_val'}
         qa_res = []
@@ -349,16 +367,24 @@ class QA():
             for linked_ent in link_res:
                 if linked_ent['id'] not in match_rel_ent_ids \
                         and linked_ent['score'] >= LINK_THRESH:
-                    qa_res.append({
-                        'id': linked_ent['id'],
-                        'mention': linked_ent.get('mention', linked_ent['ent']['name']),
-                        'entity': linked_ent['ent']['name'],
-                        'rel_name': '定义',
-                        'rel_val': linked_ent['ent']['定义'],
-                        'link_score': linked_ent['score'],
-                        'rel_score': 1.2,
-                        'rel_source': 'match'
-                    })
+                    if ('定义' in linked_ent['ent'].keys()):
+                        qa_res.append({
+                            'id': linked_ent['id'],
+                            'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                            'entity': linked_ent['ent']['name'],
+                            'rel_name': '定义',
+                            'rel_val': linked_ent['ent']['定义'],
+                            'link_score': linked_ent['score'],
+                            'rel_score': 1.2,
+                            'rel_source': 'match'
+                        })
+                    else:
+                        qa_res.append({
+                            'id': linked_ent['id'],
+                            'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                            'entity': linked_ent['ent']['name'],
+                            'link_score': linked_ent['score']
+                        })
 
         # 7. 匹配机场本身相关的问题
         """
@@ -386,7 +412,9 @@ class QA():
         qa_res = self.rank_ans(qa_res)
         qa_res = qa_res[:10]
         logger.debug('答案: '+str(qa_res))
-
+        end = time.clock()
+        print('答案排序：%s Seconds'%(end-start))
+        start = end
         # 10. 生成自然语言答案
         natural_ans = []
         filtered_qa_res = []
@@ -397,7 +425,9 @@ class QA():
                 natural_ans.append(n_ans)
                 filtered_qa_res.append(res)
         logger.info('自然语言答案: '+str(natural_ans))
-
+        end = time.clock()
+        print('答案生成： %s Seconds'%(end-start))
+        start = end
         return filtered_qa_res
 
 

@@ -17,13 +17,13 @@ def check_list_questions(sent, link_res):
     #                 ret = True
     #     return ret
     def has_rel_word(sent):
-        rel_word = ['时间', '几点', '地址', '地方', '几楼',
+        rel_word = ['有', '时间', '几点', '地址', '地方', '几楼',
                     '怎么走', '位置', '电话', '联系', '价格', '费', '钱']
         return any(map(lambda word: word in sent, rel_word))
 
-    has_rel = has_rel_word(sent)
-    if has_rel:
-        return False
+    #has_rel = has_rel_word(sent)
+    #if has_rel:
+    #    return False
     # for mention in mention_list:
     #     # if has_rel_word(mention, '地点') or has_rel_word(mention, '时间') or has_rel_word(mention, '电话') or has_rel_word(mention, '价格'):
     #     #     has_rel = True
@@ -39,6 +39,6 @@ def check_list_questions(sent, link_res):
         # 查找是否有一个listword在句子里面
         for list_word in config.LIST_WORD_LIST:
             word_loc = sent.find(list_word)
-            if word_loc >= 0 and word_loc < min_start and not has_rel:
+            if word_loc >= 0 and word_loc < min_start:
                 return True
     return False

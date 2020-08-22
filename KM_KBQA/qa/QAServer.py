@@ -4,7 +4,7 @@ import logging
 import traceback
 
 from aiohttp import web
-
+import aiohttp_cors
 from .QAFull import QAFull
 
 parser = argparse.ArgumentParser()
@@ -41,9 +41,21 @@ async def answer(request):
 
 def run_server():
     server = web.Application()
-    server.add_routes(routes)
-    web.run_app(server, port=args.local_port)
 
+    cors = aiohttp_cors.setup(server, defaults={
+        "*": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*",
+        )
+    })
+    resource = cors.add(server.router.add_resource("/"))
+    # cors.add(server.router.add_resource("/"))
+    cors.add(resource.add_route("GET", answer))
+    # app.router.add_route('GET', '/', getIndex)
+
+    # server.add_routes(routes)
+    web.run_app(server, port=args.local_port)
 
 if __name__ == "__main__":
     run_server()

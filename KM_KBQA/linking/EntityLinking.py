@@ -61,10 +61,10 @@ def get_entity_all_names(all_entities):
     for x in all_entities:
         names = x['名称']
         if "[" in names:  # list 类型的名称，说明有别名
-            names = eval(names)
+            names = eval(names.split(";;;")[0])
             all_entities_tmp += [name for name in names]
         else:
-            all_entities_tmp.append(names)
+            all_entities_tmp.append(names.split(";;;")[0])
     return all_entities_tmp
 
 
@@ -104,22 +104,93 @@ class RuleLinker():
         # use bert embedding to fuzzy match entities
         # mention_list = recognize_entity(sent)
         mention_list = retrieve_mention(sent_cut, pos_tag)
+        #mention_list.append("中国航空公司")
+        is_list = False
+        if '哪些' in mention_list:
+            is_list = True
         logger.debug('指称: ' + str(mention_list))
         if mention_list == []:
             return []
         res = []
-        mention_list.append("商飞")
+        country_list = ['俄罗斯','挪威','美国','蒙古','泰国']
+        if is_list:
+            if all([word in mention_list for word in ['中国','航空公司']]):
+                for ent in self.id2ent.values():
+                    if '类别' not in ent:
+                        continue
+                    if ent['类别'] == '国内航空公司':
+                        print(ent['name'])
+                        res.append({
+                                'ent': ent,
+                                'mention': ''.join(['中国','航空公司']),
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
+            elif any([word in mention_list for word in country_list]) and '航空公司' in mention_list:
+                word = [word for word in mention_list if word in country_list][0]
+                print(word)
+                for ent in self.id2ent.values():
+                    flag = False
+                    if '类别' not in ent:
+                        continue
+                    if ent['类别'] == '国外航空公司':
+                        if '别名' in ent and any([word in name for name in eval(ent['别名'])]):
+                            flag = True
+                        if '公司名称' in ent and word in ent['公司名称']:
+                            flag = True
+                        if flag:
+                            print(ent['name'], ent)
+                            res.append({
+                                    'ent': ent,
+                                    'mention': '国外航空公司',
+                                    'id': ent['neoId'],
+                                    'score': 1.5,
+                                    'source': 'rule'})
+            return res
+                
         for mention in mention_list:
             mention = mention.lower()
             one_res = []
-            if self.is_not_entity(mention):
+            if not contain_chinese(mention):
+                search_list = []
+                if '机场' in mention_list:
+                    search_list = ['机场三字码', 'ICAO机场代码']
+                elif '航空公司' in mention_list:
+                    search_list = ['IATA代码', 'ICAO代码']
+                for ent in self.id2ent.values():
+                    if (len(search_list) == 0) or (not any([key in ent for key in search_list])):
+                        continue
+                    ent_iata = ''
+                    ent_icao = ''
+                    ent_three = ''
+                    ent_icao_a = ''
+                    if 'IATA代码' in ent:
+                        ent_iata = ent['IATA代码']
+                    if 'ICAO代码' in ent:
+                        ent_icao = ent['ICAO代码']
+                    if '机场三字码' in ent:
+                        ent_three = ent['机场三字码']
+                    if 'ICAO机场代码' in ent:
+                        ent_icao_a = ent['ICAO机场代码']
+                    if mention.upper() == ent_iata or mention.upper() == ent_icao or \
+                    mention.upper() == ent_three or mention.upper() == ent_icao_a:
+                        res.append({
+                                'ent': ent,
+                                'mention': mention,
+                                'id': ent['neoId'],
+                                'score': 2.5,
+                                'source': 'rule'})
                 continue
+            if self.is_not_entity(mention):
+                    continue
             # cand_name = self.convert_abstract_verb(
             #     mention, sent, limits)
             cand_names = self.convert_mention2ent(mention)  # entity别名设置
             for ent in self.id2ent.values():
                 # for ent_name in self.ent_names:
                 if 'name' not in ent:
+                    continue
+                if '机场' not in mention and (ent['类别']=='国外机场' or ent['类别']=='国内机场'):
                     continue
                 ent_name = ent['name']
                 ent_name_rewrite = self.rewrite_ent_name(ent_name)
@@ -135,9 +206,6 @@ class RuleLinker():
                     RATIO = 0.5
                     score = cosine_word_similarity(cand_name, ent_name_rewrite)
                     score1 = fuzz.UQRatio(cand_name, ent_name_rewrite) / 100
-                    if [mention,ent['name']] == ['商飞',"飞行（轮档）小时"]:
-                        logger.debug("余弦相似度 "+str(score))
-                        logger.debug("fuzz模糊字符串匹配 "+str(score1))
                     score = RATIO * score + (1 - RATIO) * score1
                     one_res.append({
                         'ent': ent,
@@ -147,14 +215,6 @@ class RuleLinker():
                         'source': 'rule'
                     })
             one_res.sort(key=lambda x: x['score'], reverse=True)
-            if mention=="商飞":
-                logger.debug(one_res[:1])
-                for a_res in one_res[:3]:
-                    if a_res['ent']['name'] == "中国商用飞机有限责任公司":
-                        logger.debug(str(a_res))
-                for a_res in one_res:
-                    if a_res['ent']['name'] == "中国商用飞机有限责任公司":
-                        logger.debug(str(a_res))
             for a_res in one_res[:3]:
                 if a_res['score'] > config.simi_ths:
                     res.append(a_res)
