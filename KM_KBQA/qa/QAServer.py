@@ -27,7 +27,7 @@ async def answer(request):
             q = request.query['q']
             if q.strip():
                 res = qa.answer(q)
-                res = [r['natural_ans'] for r in res[:3]]
+                res = {'问题':q, '答案':[r['natural_ans'] for r in res[:3]]}
             else:
                 res = ["输入问题q参数不能为空"]
         else:
