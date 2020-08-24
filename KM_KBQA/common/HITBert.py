@@ -44,10 +44,10 @@ def encode(sent):
 
 
 def encode_batch(sents):
-    encode_tensors = hit_tokenizer.batch_encode_plus(sents,
-                                                     add_special_tokens=True,
-                                                     return_tensors='pt',
-                                                     padding = True)
+    encode_tensors = hit_tokenizer.encode_plus(sents,
+                                               add_special_tokens=True,
+                                               return_tensors='pt',
+                                               pad_to_max_length=True)
     input_ids = encode_tensors['input_ids']
     lengths = torch.from_numpy(np.array([input_ids.shape[1] for _ in range(input_ids.shape[0])])) 
 # padding_mask = get_padding_mask(lengths)  # transformers==2.3.0

@@ -119,7 +119,6 @@ class RuleLinker():
                     if '类别' not in ent:
                         continue
                     if ent['类别'] == '国内航空公司':
-                        print(ent['name'])
                         res.append({
                                 'ent': ent,
                                 'mention': ''.join(['中国','航空公司']),
@@ -128,7 +127,7 @@ class RuleLinker():
                                 'source': 'rule'})
             elif any([word in mention_list for word in country_list]) and '航空公司' in mention_list:
                 word = [word for word in mention_list if word in country_list][0]
-                print(word)
+                #print(word)
                 for ent in self.id2ent.values():
                     flag = False
                     if '类别' not in ent:
