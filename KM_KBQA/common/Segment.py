@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 13 10:08:36 2020
 
-@author: DELL
-"""
 import os
 from ltp import LTP
 from ..config.config import LEX_PATH
 ltp = LTP(path = "base")
 
-ltp.init_dict(path=os.path.join(LEX_PATH, 'air_lexicon.txt'))
+ltp.init_dict(path=os.path.join(LEX_PATH, 'aerospace_lexicon.txt'))
 
 def cut(sent):
     segment, _ = ltp.seg([sent])

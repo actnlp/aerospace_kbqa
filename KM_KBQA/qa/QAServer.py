@@ -23,11 +23,12 @@ def dump(data):
 @routes.get('/')
 async def answer(request):
     try:
+        answers,q = [],''
         if 'q' in request.query:
             q = request.query['q']
             if q.strip():
-                res = qa.answer(q)
-                res = {'问题':q, '答案':[r['natural_ans'] for r in res[:3]]}
+                answers = qa.answer(q)
+                res = {'answers':answers,'question':q}
             else:
                 res = ["输入问题q参数不能为空"]
         else:

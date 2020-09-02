@@ -37,7 +37,7 @@ def replace_word(sent, stop_list, rpl_list):
 
 
 class QA():
-    stop_list = ['吗', '里面','什么意思']
+    stop_list = ['吗', '里面', '-']
     rpl_list = [('在哪儿', '的地点'),
                 ('在哪里', '的地点'),
                 ('在哪', '的地点'),
@@ -47,8 +47,18 @@ class QA():
                 ('属于', '在'),
                 ('vip', '贵宾'),
                 ('我国', '中国'),
+                ('国内', '中国'),
+                ('功能', '作用'),
+                ('什么意思', '定义'),
                 ('什么是', '定义'),
                 ('什么叫做', '定义'),
+                ('每小时多少公里', '速度'),
+                ('坐多少人', '容量'),
+                ('失事的几率', '事故率'),
+                ('英语', '英文名'),
+                ('飞多高', '高度'),
+                ('有多重', '重量'),
+                ('烧什么油', '燃料'),
                 ('机型', '飞机型号')]
 
     def __init__(self):
@@ -59,6 +69,7 @@ class QA():
         self.match_extractor = MatchRelExtractor()
         self.bert_extractor = BertRelExtractor()
         self.constr_extractor = ConstraintExtractor()
+        self.frontend = FrontendAdapter()
 
 
     def preprocess(self, sent):
@@ -92,7 +103,11 @@ class QA():
             if word not in stopwords and word != ' ':
                 sent_cut.append(word)
                 pos_tag.append(tag)
-
+        special_entity = ['不正常航班', "航班+1天", "航空服务专业"]
+        for word in special_entity:
+            if word in sent:
+                sent_cut.append(word)
+                pos_tag.append("n")
         return sent_replaced, sent_cut, pos_tag
 
     # @lru_cache(maxsize=128)
@@ -131,7 +146,7 @@ class QA():
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if ent['entity_label'] in ['SubGenre','SubGenre_child' 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
+            if ent['entity_label'] in ['SubGenre','SubGenre_child', 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
                 # if self.rule_linker.is_special_entity(ent):  # 注释掉 zsh
                 #     continue
                 instances = self.get_instances(
@@ -315,35 +330,23 @@ class QA():
         # sent = replace_word(sent, self.stop_list, self.rpl_list)
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
-        logger.debug('cut :'+str(sent_cut))
-        #end = time.clock()
-        #print('分词： %s Seconds'%(end-start))
-        #start = end
+        logger.debug('cut :' + str(sent_cut))
+
         # 2. 提取限制条件:时间、地点、航空公司等
         constr_res = self.constr_extractor.extract(sent)
-        logger.debug('限制: '+str(constr_res))
-        #end = time.clock()
-        #print('提取限制： %s Seconds'%(end-start))
-        #start = end
+        logger.debug('限制: ' + str(constr_res))
+
         # 3. link: 使用多种linker，合并结果
         link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag)
-        logger.debug('链接结果: '+str(link_res[:10]))
-        #end = time.clock()
-        #print('实体链接： %s Seconds'%(end-start))
-        #start = end
+        logger.debug('链接结果: ' + str(link_res[:10]))
         # 4. 处理列举类型：问句询问某实体是否存在或存在数量
         is_list = check_list_questions(sent, link_res)  # 提及具体的属性（如时间等）则False
-        # is_list = False
-        logger.debug('是否列举: '+str(is_list))
-        #end = time.clock()
-        #print('处理列举类： %s Seconds'%(end-start))
-        #start = end
+        logger.debug('是否列举: ' + str(is_list))
+
         # 5. 非列举型匹配关系 extract relations, match+bert
         rel_match_res = self.extract_rel(sent, sent_cut, link_res)
-        logger.debug('关系匹配: '+str(rel_match_res[:10]))
-        #end = time.clock()
-        #print('关系匹配： %s Seconds'%(end-start))
-        #start = end
+        logger.debug('关系匹配: ' + str(rel_match_res[:10]))
+
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         # qa_res {'id','mention','entity','link_score','rel_name','rel_val','rel_score','constr_name','constr_val'}
         qa_res = []
@@ -353,9 +356,9 @@ class QA():
         if is_list:
             qa_res.extend([{
                 'id': linked_ent['id'],
-                'mention':linked_ent.get('mention', linked_ent['ent']['name']),
-                'entity':linked_ent['ent']['name'],
-                'link_score':linked_ent['score'],
+                'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                'entity': linked_ent['ent']['name'],
+                'link_score': linked_ent['score'],
             } for linked_ent in link_res])
         else:
             # 删掉关系匹配的结果中，匹配结果不高的部分
@@ -374,7 +377,7 @@ class QA():
                             'rel_name': '定义',
                             'rel_val': linked_ent['ent']['定义'],
                             'link_score': linked_ent['score'],
-                            'rel_score': 1.2,
+                            'rel_score': 0.8,
                             'rel_source': 'match'
                         })
                     else:
@@ -410,10 +413,8 @@ class QA():
         # 9. 答案排序
         qa_res = self.rank_ans(qa_res)
         qa_res = qa_res[:10]
-        logger.debug('答案: '+str(qa_res))
-        #end = time.clock()
-        #print('答案排序：%s Seconds'%(end-start))
-        #start = end
+        logger.debug('答案: ' + str(qa_res))
+
         # 10. 生成自然语言答案
         natural_ans = []
         filtered_qa_res = []
@@ -423,16 +424,105 @@ class QA():
                 res['natural_ans'] = n_ans
                 natural_ans.append(n_ans)
                 filtered_qa_res.append(res)
-        logger.info('自然语言答案: '+str(natural_ans))
-        #end = time.clock()
-        #print('答案生成： %s Seconds'%(end-start))
-        #start = end
-        return filtered_qa_res
+        logger.info('自然语言答案: ' + str(natural_ans))
+        # end = time.clock()
+        # print('答案生成： %s Seconds'%(end-start))
+        # start = end
+        return self.frontend.decorate(filtered_qa_res[:3])
 
 
 class FrontendAdapter():
     def __init__(self):
-        driver = AsyncNeoDriver.get_driver()
+        self.driver = AsyncNeoDriver.get_driver()
+
+    def decorate_one(self, qa_res):
+        '''
+        Args:
+            qa_res: {
+                'id': '', 主题实体id
+                'mention': '',
+                'entity': '',
+                'rel_name': '', 关系名
+                'rel_val'： '', 关系值
+                'constr_name': '', 限制名
+                'constr_val': '', 限制值
+                'natural_ans': '', 自然语言答案
+           }
+
+        Return:
+            decoreated: {
+                'answers': '',
+                'nodes': [
+                    {
+                        'name':
+                        'id':
+                        'property':{},
+                        'type':
+                        'is_ans':
+                    }
+                ],
+                'edges': [
+                    {
+                        'source': 111,
+                        'target': 112,
+                        'name': '',
+                        'is_ans': ''
+                    }
+                ],
+            }
+        '''
+        answer = qa_res['natural_ans']
+        nodes = []
+        edges = []
+        global_id = 0
+
+        def make_node(neoId, name, is_ans):
+            nonlocal global_id
+            if neoId >= 0:
+                ent_type = self.driver.get_label_by_id(neoId).result()[0]
+                ent_prop = self.driver.get_props_by_id(neoId, ent_type).result()
+            else:
+                ent_type = 'Property'
+                ent_prop = {}
+            res = {
+                'name': name,
+                'id': global_id,
+                'neoId': neoId,
+                'property': ent_prop,
+                'type': ent_type,
+                'is_ans': is_ans
+            }
+            global_id += 1
+            return res
+
+        def make_edge(src, tgt, name, is_ans):
+            return {
+                'source': src['id'],
+                'target': tgt['id'],
+                'name': name,
+                'is_ans': is_ans,
+            }
+
+        topic_ent = make_node(int(qa_res['id']), qa_res['entity'], 'answer_entity')
+        ans_ent = make_node(-1, qa_res['rel_val'], 'answer_property_value')
+        nodes.append(topic_ent)
+        nodes.append(ans_ent)
+
+        edges.append(make_edge(topic_ent, ans_ent, qa_res['rel_name'], 'answer_property'))
+
+        if 'constr_name' in qa_res:
+            constr_ent = make_node(-1, qa_res['constr_val'], 'answer_restriction_value')
+            nodes.append(constr_ent)
+            edges.append(make_edge(topic_ent, constr_ent, 'answer_restriction'))
+
+        return {
+            'answers': answer,
+            'nodes': nodes,
+            'edges': edges
+        }
+
+    def decorate(self, all_qa_res):
+        return [self.decorate_one(res) for res in all_qa_res]
 
 
 def test_qa():
