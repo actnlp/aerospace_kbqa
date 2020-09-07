@@ -103,7 +103,7 @@ class QA():
             if word not in stopwords and word != ' ':
                 sent_cut.append(word)
                 pos_tag.append(tag)
-        special_entity = ['不正常航班', "航班+1天", "航空服务专业"]
+        special_entity = ['不正常航班', "航班+1天", "航空服务专业",'航空公司代办'] # 这些词语分词后仍分开，需添加该规则
         for word in special_entity:
             if word in sent:
                 sent_cut.append(word)
@@ -504,11 +504,15 @@ class FrontendAdapter():
             }
 
         topic_ent = make_node(int(qa_res['id']), qa_res['entity'], 'answer_entity')
-        ans_ent = make_node(-1, qa_res['rel_val'], 'answer_property_value')
-        nodes.append(topic_ent)
-        nodes.append(ans_ent)
+        logger.debug('qa_res: ' + str(qa_res))
+        if 'rel_val' in qa_res:
+            ans_ent = make_node(-1, qa_res['rel_val'], 'answer_property_value')
+            nodes.append(topic_ent)
+            nodes.append(ans_ent)
 
-        edges.append(make_edge(topic_ent, ans_ent, qa_res['rel_name'], 'answer_property'))
+            edges.append(make_edge(topic_ent, ans_ent, qa_res['rel_name'], 'answer_property'))
+        else:
+            nodes.append(topic_ent)
 
         if 'constr_name' in qa_res:
             constr_ent = make_node(-1, qa_res['constr_val'], 'answer_restriction_value')

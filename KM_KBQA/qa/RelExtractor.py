@@ -59,13 +59,13 @@ class MatchRelExtractor(AbstractRelExtractor):
             ratio = 1.5
 
         # if '地址' in word and '地点' in prop or '地点' in prop and '地方' in word or '地点' in prop and '几楼' in word or '怎么走' in word and '地点' in prop or '位置' in word and '地点' in prop:
-        place_words = ['地址','地方','怎么走','位置']
+        place_words = ['地址', '地点', '总部', '位置']
         place_flag = False
         for w in place_words:
             if w in word:
                 place_flag = True
                 break
-        if '地点' in prop and place_flag:
+        if place_flag:  # '地点' in prop and
             ratio = 1.5
 
         if '联系' in prop and '电话' in word or '电话' in prop and '联系' in word:
@@ -82,7 +82,7 @@ class MatchRelExtractor(AbstractRelExtractor):
                     limits=None,
                     thresh=config.prop_ths):
         ent = linked_ent['ent']
-        mention = linked_ent.get('mention', ent['name'])  # 在link中抽取mention entity name
+        mention = linked_ent.get('mention', ent['name'])  # 链接结果中该实体的指代名称
         # extract all prop， 限制支持一个？
         props_dict = {}
 
@@ -114,15 +114,16 @@ class MatchRelExtractor(AbstractRelExtractor):
             lambda x: x not in cand_name and '机场' not in x and x not in limit_list, cut_words))
         '''
         rest_words = [
-            w for w in sent_cut if w not in mention]  #  and '机场' not in w
+            w for w in sent_cut if w not in mention]  # 除了指代以外的其他分词（在这些词中找关系）
         props_set = list(props_dict.keys())
+
         props_set.remove('name')
-        if '名称' in props_set:# zsh
+        if '名称' in props_set:
             props_set.remove('名称')
+
         # cal prop rel similarity
         res = []
         used_pairs = set()
-
         for prop in props_set:
             old_prop = prop
             for word in rest_words:
