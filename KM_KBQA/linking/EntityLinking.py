@@ -104,14 +104,14 @@ class RuleLinker():
         # use bert embedding to fuzzy match entities
         # mention_list = recognize_entity(sent)
         mention_list = retrieve_mention(sent_cut, pos_tag)
-        is_list = False
-        if '哪些' in mention_list:
-            is_list = True
-        logger.debug('指称: ' + str(mention_list))
         if mention_list == []:
             return []
+        is_list = False
+        if '哪些' in mention_list or '哪几个' in mention_list :
+            is_list = True
+        logger.debug('指称: ' + str(mention_list))
         res = []
-        country_list = ['俄罗斯', '挪威', '美国', '蒙古', '泰国']
+        country_list = ['俄罗斯','挪威','美国','蒙古','泰国', '韩国']
         if is_list:
             if all([word in mention_list for word in ['中国', '航空公司']]):
                 for ent in self.id2ent.values():
@@ -121,12 +121,17 @@ class RuleLinker():
                         res.append({
                             'ent': ent,
                             'mention': ''.join(['中国', '航空公司']),
+                            'rel_name': '类别',
+                            'rel_val': '中国航空公司',
                             'id': ent['neoId'],
                             'score': 1.5,
                             'source': 'rule'})
             elif any([word in mention_list for word in country_list]) and '航空公司' in mention_list:
+                for c in country_list:
+                    if c in mention_list:
+                        country = c
+                        continue
                 word = [word for word in mention_list if word in country_list][0]
-                # print(word)
                 for ent in self.id2ent.values():
                     flag = False
                     if '类别' not in ent:
@@ -137,15 +142,17 @@ class RuleLinker():
                         if '公司名称' in ent and word in ent['公司名称']:
                             flag = True
                         if flag:
-                            print(ent['name'], ent)
                             res.append({
                                 'ent': ent,
                                 'mention': '国外航空公司',
+                                'rel_name': '类别',
+                                'rel_val': country+'航空公司',
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
-            return res
-
+            if (len(res) != 0):
+                return res
+                
         for mention in mention_list:
             mention = mention.lower()
             one_res = []
@@ -153,7 +160,7 @@ class RuleLinker():
                 search_list = []
                 if '机场' in mention_list:
                     search_list = ['机场三字码', 'ICAO机场代码']
-                elif '航空公司' in mention_list:
+                elif '航空公司' in mention_list or '航空' in mention_list:
                     search_list = ['IATA代码', 'ICAO代码']
                 for ent in self.id2ent.values():
                     if (len(search_list) == 0) or (not any([key in ent for key in search_list])):
@@ -184,8 +191,6 @@ class RuleLinker():
             # cand_name = self.convert_abstract_verb(
             #     mention, sent, limits)
             cand_names = self.convert_mention2ent(mention)  # entity别名设置
-            logger.debug('cand_names: %s' % str(cand_names))
-
             for ent in self.id2ent.values():
                 # for ent_name in self.ent_names:
                 if 'name' not in ent:
