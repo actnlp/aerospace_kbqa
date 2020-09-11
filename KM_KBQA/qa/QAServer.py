@@ -28,7 +28,10 @@ async def answer(request):
             q = request.query['q']
             if q.strip():
                 answers = qa.answer(q)
-                res = {'answers':answers,'question':q}
+                print("answer", answers)
+                answer0 = answers[0]
+                answer1 = answers[1]
+                res = {'answers':answer0,'question':q,'查找到的结果数':answer1}
             else:
                 res = ["输入问题q参数不能为空"]
         else:

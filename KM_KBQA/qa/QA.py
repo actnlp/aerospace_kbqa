@@ -141,7 +141,6 @@ class QA():
 
         # merge commecial res
         # merge_link_res(commercial_res, id2linked_ent) # 注释掉 zsh
-
         # 获取具体实体
         link_res_extend = []
         for linked_ent in link_res:
@@ -226,78 +225,88 @@ class QA():
                     else:
                         ans['constr_score'] += -0.2
 
-    def generate_natural_ans(self, qa_res: dict, id2linked_ent):
+    def generate_natural_ans(self, qa_res: dict, id2linked_ent, flag):
         linked_ent = id2linked_ent[qa_res['id']]
         ent = linked_ent['ent']
         ent_name = ent['name']
         cand_name = qa_res['mention']
-
+#######################################
+        ent_name = qa_res['mention']
+        true_entity = qa_res['entity']
+#######################################
         natural_ans = ''
         ans_name = ent_name
 
         airline_ans = ''
+        if flag == 0:
+            natural_ans = '您好，%s有%s' % (ans_name, true_entity)
+            natural_ans += airline_ans
+            return natural_ans
+        else:
+        
         # if '航司代码' in ent:
         #     airline_value = ent['航司代码']
         #     airline_ans = '，办理%s航司业务' % airline_value
-        if 'rel_score' not in qa_res:
-            ans_list = []
-            ans_list.append('您好，机场内有%s' % ans_name)
-            # 列举类，找出时间和地点
-            for rel, rel_val in ent.items():
-                if '时间' in rel:
-                    ans_list.append('营业时间是%s' % rel_val)
-                if '地点' == rel:
-                    ans_list.append('位置在%s' % rel_val)
-                # if '价格' in rel or '收费' in rel:
-                #     ans_list.append('价格为%s' % rel_val)
-                if '电话' in rel or '联系' in rel:
-                    ans_list.append('电话是%s' % rel_val)
+        
+            if 'rel_score' not in qa_res:
+                ans_list = []
+                ans_list.append('您好，机场内有%s' % ans_name)
+                # 列举类，找出时间和地点
+                for rel, rel_val in ent.items():
+                    if '时间' in rel:
+                        ans_list.append('营业时间是%s' % rel_val)
+                    if '地点' == rel:
+                        ans_list.append('位置在%s' % rel_val)
+                    # if '价格' in rel or '收费' in rel:
+                    #     ans_list.append('价格为%s' % rel_val)
+                    if '电话' in rel or '联系' in rel:
+                        ans_list.append('电话是%s' % rel_val)
 
-            # ans = '您好，机场内有%s，办理%s航司业务，位置在%s，营业时间是%s，价格为%s，电话是%s' % (ans_name, airline_value, loc_prop_value, time_prop_value, price_prop_value, tel_prop_value)
+                # ans = '您好，机场内有%s，办理%s航司业务，位置在%s，营业时间是%s，价格为%s，电话是%s' % (ans_name, airline_value, loc_prop_value, time_prop_value, price_prop_value, tel_prop_value)
 
-            # 加话术
-            # if (time_prop_value == '' or time_prop_value == '暂无') and (loc_prop_value == '' or loc_prop_value == '暂无'):
-            #     ans = '您好，机场内有%s' % (ans_name)
-            # elif time_prop_value == '' or time_prop_value == '暂无':
-            #     ans = '您好，机场内有%s，位置在%s' % (ans_name, loc_prop_value)
-            # elif loc_prop_value == '' or loc_prop_value == '暂无':
-            #     ans = '您好，机场内有%s，营业时间是%s' % (ans_name, loc_prop_value)
-            # else:
-            #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
-            if not natural_ans:
-                prop_desc = []
-                for prop in ent.keys():
-                    if prop in ["name","名称","neoId","entity_label"]:
-                        continue
-                    info = ent[prop]
-                    if "[" in info:
-                        info = eval(info)
-                        info = str("、".join(info))
-                    desc = "%s是%s" % (prop, info)
-                    if desc not in prop_desc:
-                        prop_desc.append(desc)
-                natural_ans = '您好，您询问的是%s，具体信息如下：%s' % (ent_name, "，".join(prop_desc))
-                return natural_ans
+                # 加话术
+                # if (time_prop_value == '' or time_prop_value == '暂无') and (loc_prop_value == '' or loc_prop_value == '暂无'):
+                #     ans = '您好，机场内有%s' % (ans_name)
+                # elif time_prop_value == '' or time_prop_value == '暂无':
+                #     ans = '您好，机场内有%s，位置在%s' % (ans_name, loc_prop_value)
+                # elif loc_prop_value == '' or loc_prop_value == '暂无':
+                #     ans = '您好，机场内有%s，营业时间是%s' % (ans_name, loc_prop_value)
+                # else:
+                #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
+                if not natural_ans:
+                    prop_desc = []
+                    for prop in ent.keys():
+                        if prop in ["name","名称","neoId","entity_label"]:
+                            continue
+                        info = ent[prop]
+                        if "[" in info:
+                            info = eval(info)
+                            info = str("、".join(info))
+                        desc = "%s是%s" % (prop, info)
+                        if desc not in prop_desc:
+                            prop_desc.append(desc)
+                    natural_ans = '您好，您询问的是%s，具体信息如下：%s' % (ent_name, "，".join(prop_desc))
+                    return natural_ans
+                else:
+                    natural_ans = '，'.join(ans_list)
+                    natural_ans += airline_ans
+                    return natural_ans
             else:
-                natural_ans = '，'.join(ans_list)
+                rel = qa_res['rel_name']
+                rel_val = qa_res['rel_val']
+                # 话术生成
+                if '地点' in rel:
+                    natural_ans = '您好，%s在%s' % (ans_name, rel_val)
+                elif '时间' in rel:
+                    natural_ans = '您好，%s的服务时间是%s' % (ans_name, rel_val)
+                elif rel in {'客服电话', '联系电话', '联系方式'}:
+                    natural_ans = '您好，%s的客服电话是%s' % (ans_name, rel_val)
+                elif rel == '手续费' or '价格' in rel or '收费' in rel:
+                    natural_ans = '您好，%s的收费标准是%s' % (ans_name, rel_val)
+                else:
+                    natural_ans = '您好，%s的%s是%s' % (ans_name, rel, rel_val)
                 natural_ans += airline_ans
                 return natural_ans
-        else:
-            rel = qa_res['rel_name']
-            rel_val = qa_res['rel_val']
-            # 话术生成
-            if '地点' in rel:
-                natural_ans = '您好，%s在%s' % (ans_name, rel_val)
-            elif '时间' in rel:
-                natural_ans = '您好，%s的服务时间是%s' % (ans_name, rel_val)
-            elif rel in {'客服电话', '联系电话', '联系方式'}:
-                natural_ans = '您好，%s的客服电话是%s' % (ans_name, rel_val)
-            elif rel == '手续费' or '价格' in rel or '收费' in rel:
-                natural_ans = '您好，%s的收费标准是%s' % (ans_name, rel_val)
-            else:
-                natural_ans = '您好，%s的%s是%s' % (ans_name, rel, rel_val)
-            natural_ans += airline_ans
-            return natural_ans
 
     def rank_ans(self, qa_res):
         for ans in qa_res:
@@ -354,6 +363,7 @@ class QA():
         REL_THRESH = 0.8
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list:
+            print("列举类型")
             qa_res.extend([{
                 'id': linked_ent['id'],
                 'mention': linked_ent.get('mention', linked_ent['ent']['name']),
@@ -361,6 +371,7 @@ class QA():
                 'link_score': linked_ent['score'],
             } for linked_ent in link_res])
         else:
+            print("不是列举类型")
             # 删掉关系匹配的结果中，匹配结果不高的部分
             qa_res.extend([rel_res for rel_res in rel_match_res
                            if rel_res['rel_score'] >= REL_THRESH and
@@ -410,25 +421,60 @@ class QA():
         if any(map(lambda x: x != '', constr_res.values())):
             self.match_constraint(qa_res, constr_res, id2linked_ent)
 
-        # 9. 答案排序
-        qa_res = self.rank_ans(qa_res)
-        qa_res = qa_res[:10]
-        logger.debug('答案: ' + str(qa_res))
 
-        # 10. 生成自然语言答案
-        natural_ans = []
-        filtered_qa_res = []
-        for res in qa_res:
-            n_ans = self.generate_natural_ans(res, id2linked_ent)
-            if n_ans not in natural_ans:
-                res['natural_ans'] = n_ans
-                natural_ans.append(n_ans)
-                filtered_qa_res.append(res)
-        logger.info('自然语言答案: ' + str(natural_ans))
-        # end = time.clock()
-        # print('答案生成： %s Seconds'%(end-start))
-        # start = end
-        return self.frontend.decorate(filtered_qa_res[:3])
+        if is_list:
+            # 10. 生成自然语言答案
+            natural_ans = []
+            filtered_qa_res = []
+            ent_name = qa_res[0]['mention']
+            cnt = len(qa_res)
+            ans_name = ent_name
+            natural_ans = '您好，%s有' % (ans_name)
+            true_entity = ""
+            for res in qa_res:
+            #######################################
+                #true_entity = res['entity']
+        #######################################
+                natural_ans = ''
+                airline_ans = ''
+                true_entity = true_entity + res['entity'] +'、'
+                
+            natural_ans += true_entity
+                
+            ###########################################
+            n_ans = natural_ans[:-1]
+            res['natural_ans'] = n_ans
+           
+            filtered_qa_res.append(res)
+            
+                    
+            logger.info('自然语言答案: ' + str(natural_ans))
+            # end = time.clock()
+            # print('答案生成： %s Seconds'%(end-start))
+            # start = end
+            print("最后筛选答案", filtered_qa_res)
+            return self.frontend.decorate(filtered_qa_res, cnt)
+        else:
+            # 9. 答案排序
+            qa_res = self.rank_ans(qa_res)
+            qa_res = qa_res[:10]
+            logger.debug('答案: ' + str(qa_res))
+
+            # 10. 生成自然语言答案
+            natural_ans = []
+            filtered_qa_res = []
+            for res in qa_res:
+                n_ans = self.generate_natural_ans(res, id2linked_ent, 1)
+                if n_ans not in natural_ans:
+                    res['natural_ans'] = n_ans
+                    natural_ans.append(n_ans)
+                    filtered_qa_res.append(res)
+            logger.info('自然语言答案: ' + str(natural_ans))
+            # end = time.clock()
+            # print('答案生成： %s Seconds'%(end-start))
+            # start = end
+            print("最后筛选答案", filtered_qa_res)
+            return self.frontend.decorate(filtered_qa_res[:3], 3)
 
 
 class FrontendAdapter():
@@ -521,12 +567,13 @@ class FrontendAdapter():
 
         return {
             'answers': answer,
-            'nodes': nodes,
-            'edges': edges
+            #'nodes': nodes,
+            #'edges': edges
+            #'搜寻到的结果数': cnt,
         }
 
-    def decorate(self, all_qa_res):
-        return [self.decorate_one(res) for res in all_qa_res]
+    def decorate(self, all_qa_res, cnt):
+        return [[self.decorate_one(res) for res in all_qa_res], cnt]
 
 
 def test_qa():

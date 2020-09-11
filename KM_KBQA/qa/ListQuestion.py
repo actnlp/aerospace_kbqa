@@ -36,9 +36,10 @@ def check_list_questions(sent, link_res):
     if len(link_res) > 0:
         min_start = min(map(lambda ent: sent.find(ent.get('mention', '')),
                             link_res))
+        print("min_start:", min_start)
         # 查找是否有一个listword在句子里面
         for list_word in config.LIST_WORD_LIST:
             word_loc = sent.find(list_word)
-            if word_loc >= 0 and word_loc < min_start:
+            if word_loc >= 0:
                 return True
     return False

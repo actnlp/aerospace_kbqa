@@ -14,6 +14,7 @@ from .LinkUtil import retrieve_mention
 
 logger = logging.getLogger('qa')
 
+q = open("location.txt", 'a', encoding="utf-8")
 
 # exception_subgenre = {'临时身份证办理'}
 
@@ -42,6 +43,11 @@ def load_ent_alias(fname):
                 alias = [a.strip() for a in alias.split(',')]
                 ent2alias[ent] = alias
     return ent2alias
+
+
+
+
+
 
 
 def make_mention2ent(ent2alias):
@@ -78,6 +84,8 @@ class RuleLinker():
         ent2alias = load_ent_alias(config.ENT_ALIAS_PATH)
         self.mention2ent = make_mention2ent(ent2alias)
 
+
+
     def is_special_entity(self, ent_dict):
         return ent_dict['entity_label'] == 'Genre' \
                and (
@@ -100,21 +108,38 @@ class RuleLinker():
 
         # @lru_cache(maxsize=128)
 
+    def load_location(self, tname):
+        location = []
+        if os.path.isfile(tname):
+            logger.info('load location file %s' % tname)
+            with open(tname, 'r', encoding='utf-8') as f:
+                for line in f:
+                    location.append(line.strip('\n'))
+        return location
+
+
     def link(self, sent, sent_cut, pos_tag, limits=None):
         # use bert embedding to fuzzy match entities
         # mention_list = recognize_entity(sent)
         mention_list = retrieve_mention(sent_cut, pos_tag)
+        print("mention_list", mention_list)
         if mention_list == []:
             return []
         is_list = False
-        if '哪些' in mention_list or '哪几个' in mention_list :
+        if '哪些' in mention_list or '哪几个' in mention_list or '几个' in mention_list:
             is_list = True
         logger.debug('指称: ' + str(mention_list))
         res = []
         country_list = ['俄罗斯','挪威','美国','蒙古','泰国', '韩国']
-        if is_list:
-            if all([word in mention_list for word in ['中国', '航空公司']]):
+        ############################################
+        Headquaters_location = self.load_location(config.HEADQUATERS_LOCATION)
+        province = self.load_location(config.PROVINCE)
+        city = self.load_location(config.CITY)
+        ############################################
+        if is_list:#分国内航空公司，国外航空公司，航空公司和机场分具体国家，省份，城市
+            if any([word in mention_list for word in ['国内','中国']]) and '航空公司' in mention_list:
                 for ent in self.id2ent.values():
+
                     if '类别' not in ent:
                         continue
                     if ent['类别'] == '国内航空公司':
@@ -150,6 +175,58 @@ class RuleLinker():
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
+            ##############################################
+            elif any([word in Headquaters_location for word in mention_list]) and "航空公司" in mention_list:
+                for word in mention_list:
+                    if word in Headquaters_location:
+                        head_l = word
+                for ent in self.id2ent.values():
+                    if '总部地点' not in ent:
+                        continue
+                    if ent['总部地点'] == head_l:
+                        res.append({
+                            'ent': ent,
+                            'mention': ''.join([head_l, '航空公司']),
+                            'rel_name': '总部地点',
+                            'rel_val': head_l + '航空公司',
+                            'id': ent['neoId'],
+                            'score': 1.5,
+                            'source': 'rule'})
+            ################################################
+            elif any([word in province for word in mention_list]) and "机场" in mention_list:
+                for word in mention_list:
+                    if word in province:
+                        pro = word
+                for ent in self.id2ent.values():
+                    if '省份' not in ent:
+                        continue
+                    if ent['省份'] == pro:
+                        res.append({
+                            'ent': ent,
+                            'mention': ''.join([pro, '的机场']),
+                            'rel_name': '省份',
+                            'rel_val': pro + '的机场',
+                            'id': ent['neoId'],
+                            'score': 1.5,
+                            'source': 'rule'})
+            ################################################
+            elif any([word in city for word in mention_list]) and "机场" in mention_list:
+                for word in mention_list:
+                    if word in city:
+                        ci = word
+                for ent in self.id2ent.values():
+                    if '所在城市' not in ent:
+                        continue
+                    if ent['所在城市'] == ci:
+                        res.append({
+                            'ent': ent,
+                            'mention': ''.join([ci, '的机场']),
+                            'rel_name': '所在城市',
+                            'rel_val': ci + '的机场',
+                            'id': ent['neoId'],
+                            'score': 1.5,
+                            'source': 'rule'})
+            ################################################
             if (len(res) != 0):
                 return res
                 

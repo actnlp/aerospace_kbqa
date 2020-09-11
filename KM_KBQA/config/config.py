@@ -10,6 +10,12 @@ STOP_WORD_PATH = os.path.join(LEX_PATH, 'stopwords.txt')
 AEROSPACE_LEXICON_PATH = os.path.join(LEX_PATH, 'aerospace_lexicon.txt')
 ENT_ALIAS_PATH = os.path.join(project_dir, 'res', 'ent_alias.txt')
 
+####################################总部地点、省份、所在城市
+HEADQUATERS_LOCATION = os.path.join(project_dir, 'res/list_txt', 'Headquaters_location.txt')
+PROVINCE = os.path.join(project_dir, 'res/list_txt', 'province.txt')
+CITY = os.path.join(project_dir, 'res/list_txt', 'city.txt')
+####################################
+
 ABSTRACT_DICT = {'丢': '失物招领', '取款机': 'atm', '存款机': 'atm', '存取款机': 'atm', '提款机': 'atm', '取钱': '银行', 'kfc': '肯德基', '加油': '加油站', '乘机手续': '值机柜台',
                  '住': '酒店', '住宿': '酒店', '吃': '餐厅', '吃饭': '餐厅', '餐饮': '餐厅', '开水': '饮水处', '剪发': '理发店', '剪头发': '理发店', '喂奶': '母婴室',
                  '热水': '饮水处', '插电': '充电', '换': ['货币兑换', '母婴室'], '兑换': '货币兑换', '厕所': '卫生间', '胶囊': '睡眠', '打包': '行李打包', '寄存': '行李寄存',
