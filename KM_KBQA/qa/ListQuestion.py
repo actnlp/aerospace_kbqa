@@ -33,10 +33,18 @@ def check_list_questions(sent, link_res):
     #         or has_rel_word(mention, '电话') \
     #         or has_rel_word(mention, '价格')
 
-    if len(link_res) > 0:
+    # 是否是可以回答的列举类问题
+    def list_able_content(sent):
+        flag = False
+        for word in config.LIST_CONTENT_LIST:
+            if word in sent:
+                flag = True
+                break
+        return flag
+
+    if len(link_res) > 0 and list_able_content(sent):
         min_start = min(map(lambda ent: sent.find(ent.get('mention', '')),
                             link_res))
-        print("min_start:", min_start)
         # 查找是否有一个listword在句子里面
         for list_word in config.LIST_WORD_LIST:
             word_loc = sent.find(list_word)

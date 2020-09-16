@@ -16,6 +16,8 @@ from .ConstraintExtractor import ConstraintExtractor
 from .ListQuestion import check_list_questions
 from .RelExtractor import BertRelExtractor, MatchRelExtractor
 
+logger = logging.getLogger('qa')
+
 
 def load_stopwords(fname):
     with open(fname, 'r', encoding='utf-8') as f:
@@ -24,32 +26,17 @@ def load_stopwords(fname):
 
 
 stopwords = load_stopwords(config.STOP_WORD_PATH)
-aerospace_lexicons = set()
-with open(config.AEROSPACE_LEXICON_PATH, 'r') as f:
-    for line in f:
-        aerospace_lexicons.add(line.split()[0])
-# 问题中包含民航高频关键实体词的阈值空值
-max_sent_len_contain_freq = 12    # 句子最短长度
-max_threshold_contain_freq = 1.8  # final_score 在[1, 1.8]之间
-min_threshold_contain_freq = 1
-
-logger = logging.getLogger('qa')
 
 
 def replace_word(sent, stop_list, rpl_list, special_rules):
     # 过滤词汇
     for stop in stop_list:
         sent = sent.replace(stop, '')
-
+    print("停用词以后 ",sent)
     # 替换实体或属性名称
     for replace in rpl_list:
         sent = sent.replace(replace[0], replace[1])
-
-    code_word = ['三字码','三字代码']  # IATA是航司的二字码，机场的三字码
-    for word in code_word:
-        if word in sent:
-            en_name = 'IATA' if '机场' in sent else 'ICAO'
-            sent = sent.replace(word,en_name)
+    print("替换实体或属性名称后 ",sent)
 
     for rules in special_rules:
         keywords = rules[0]
@@ -60,7 +47,21 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
                 flag = False
                 break
         if flag:
-            sent = sent+ name
+            for word in keywords:
+                sent = sent.replace(word,"")
+            sent= sent+name
+    print("特殊规则后 ",sent)
+
+    # strong_rules = [['时间', "定义"]]
+    # for rule in strong_rules:
+    #     both = True
+    #     for word in rule:
+    #         if word not in sent:
+    #             both = False
+    #     if both:
+    #         sent = sent.replace(rule[1],"")
+    # print("删除定义后 ",sent)
+
     return sent
 
 
@@ -72,21 +73,18 @@ class QA():
                 ('航司', '航空公司'),
                 ('属于', '在'),
                 ('vip', '贵宾'),
-                ('我国', '国内'),
-                # ('国内', '中国'),
+                ('我国', '中国'),
+                ('国内', '中国'),
                 ('功能', '作用'),
                 ('哪个航空公司', '公司名称'),
-                ('哪家航空公司', '公司名称'),
                 ('什么航空公司', '公司名称'),
                 ('什么公司', '公司名称'),
                 ('哪个公司', '公司名称'),
                 ('每小时多少公里', '速度'),
                 ('坐多少人', '容量'),
                 ('失事的几率', '事故率'),
-                ('英文是', '外文名'),
-                ('英文名是', '外文名'),
                 ('英语', '外文名'),
-                ('英文', '外文名'),
+                ('英文名', '外文名'),
                 ('飞多高', '高度'),
                 ('有多大', '面积'),
                 ('分为', '分类'),
@@ -97,27 +95,22 @@ class QA():
                 ('播音', '波音公司'),
                 ('二字码', 'IATA代码'),
                 ('二字代码', 'IATA代码'),
-                ('四字码', 'ICAO代码'),
-                ('四字代码', 'ICAO代码'),
+                ('三字码', 'ICAO代码'),
+                ('三字代码', 'ICAO代码'),
                 ('功用', '作用'),
                 ('不足', '缺点'),
                 ('哪年成立的', '成立时间'),
-                ('什么时候建的', '成立时间'),
-                ('什么时间建的', '成立时间'),
-                ('建成', '成立时间'),
                 ('什么时候成立', '成立时间'),
                 ('时候', '时间'),
                 ('机型', '飞机型号'),
-                ('是怎么回事', '定义'),
                 ('什么意思', '定义'),
                 ('什么是', '定义'),
-                ('什么叫', '定义'),
                 ('是什么', '定义'),
                 ('什么叫做', '定义')]
     special_rules = [
-        [("航班", "不正常"), "不正常航班"],
-        [("机场", "ICAO"), "机场三字码"],
-        [("公司", "价格"), "造价"],
+        [("航班","不正常"),"不正常航班"],
+        [("机场","ICAO"),"机场三字码"],
+        [("公司","价格"),"造价"],
     ]
 
     def __init__(self):
@@ -141,8 +134,10 @@ class QA():
         """
         # 分词前替换规则：过滤掉停用词，替换抽象词汇    如'在哪儿'表示'的地点'
         sent_replaced = replace_word(sent, QA.stop_list, QA.rpl_list, QA.special_rules)
+        print("sent_replaced",sent_replaced)
         # 分词
         sent_cut, pos_tag = seg.pos_cut(sent_replaced)  # pos_cut：list(zip(*pseg.cut(sent))) pos_tag：词性标注
+
         # 特殊词处理
         sent_cut_pro = []
         pos_tag_pro = []
@@ -156,48 +151,28 @@ class QA():
                 sent_cut_pro.append(word)
                 pos_tag_pro.append(tag)
 
-        if '机场' in sent and '面积' in sent_replaced and '航站楼面积' not in sent_cut_pro:
-            sent_cut_pro.append('航站楼面积')
-            pos_tag_pro.append('n')
-        if '成立' in sent_replaced and '时间' in sent_replaced and '成立时间' not in sent_cut_pro:
-            sent_cut_pro.append('成立时间')
-            pos_tag_pro.append('n')
-
-        ent_list = []
-        for word in aerospace_lexicons:
-            word = str(word)
-            if (word in sent or word in sent_replaced) and word not in sent_cut_pro:
-                sent_cut_pro.append(word)
-                pos_tag_pro.append('n')
-                ent_list.append(word)
-
-        # 去除英文分词错误
-        # 如：分词中既有IATA，又有IA。如果删除句子中的IATA后，不存在IA字符串，说明IA是分词错误，需要删除
-        for word,sup_word in config.SPECIAL_ENGLISH_IN_SEGMENT.items(): # eg：{'IATA':['AT', 'IA', 'ATA', 'TA']}
-            if word in sent_cut_pro and any([sup in sent_cut_pro for sup in sup_word]):  # 分词中既有IATA，又有IA或ATA
-                temp = sent.replace(word,"")
-                if any([sup in temp for sup in sup_word]) is False:  # 删除IATA后，句子中不再有IA或ATA，删除IA和ATA
-                    for sup in sup_word:
-                        if sup in sent_cut_pro:
-                            pos_tag_pro.pop(sent_cut_pro.index(sup))
-                            sent_cut_pro.remove(sup)
-
         # 去除停用词(特殊词处理后)
         sent_cut = []
         pos_tag = []
         for word, tag in zip(sent_cut_pro, pos_tag_pro):
-            if word not in stopwords and word != ' ' and word not in sent_cut:
-                # 如何某个词 in 实体名字符串 中，则算作不精准分词，删除
-                str_in_ent_name = False
-                for ent in ent_list:
-                    if word in ent and word != ent:
-                        str_in_ent_name = True
-                        break
-                if str_in_ent_name:
-                    continue
-
+            if word not in stopwords and word != ' ':
                 sent_cut.append(word)
                 pos_tag.append(tag)
+
+        if '机场' in sent and '面积' in sent_replaced and '航站楼面积' not in sent_cut:
+            sent_cut.append('航站楼面积')
+            pos_tag.append('n')
+        if '成立' in sent_replaced and '时间' in sent_replaced and '成立时间' not in sent_cut:
+            sent_cut.append('成立时间')
+            pos_tag.append('n')
+
+        # all_ent_name = list(pd.read_csv(config.AEROSPACE_LEXICON_PATH, sep=" ", header=None, error_bad_lines=False)[
+        #                         0])
+        for word in self.rule_linker.ent_names:
+            word = str(word)
+            if word in sent or word in sent_replaced and word not in sent_cut:
+                sent_cut.append(word)
+                pos_tag.append('n')
         return sent_replaced, sent_cut, pos_tag
 
     # @lru_cache(maxsize=128)
@@ -231,6 +206,7 @@ class QA():
 
         # merge commecial res
         # merge_link_res(commercial_res, id2linked_ent) # 注释掉 zsh
+
         # 获取具体实体
         link_res_extend = []
         for linked_ent in link_res:
@@ -315,100 +291,105 @@ class QA():
                     else:
                         ans['constr_score'] += -0.2
 
-    def generate_natural_ans(self, qa_res: dict, id2linked_ent, flag):
+    def generate_natural_ans(self, qa_res: dict, id2linked_ent):
         linked_ent = id2linked_ent[qa_res['id']]
         ent = linked_ent['ent']
         ent_name = ent['name']
         cand_name = qa_res['mention']
-        # ent_name = qa_res['mention']  # 答案术语用问题中的mention回答。【考虑到mention会提取错误的问题，暂时把该功能去除】
-        true_entity = qa_res['entity']
+
         natural_ans = ''
         ans_name = ent_name
+
         airline_ans = ''
-        if flag == 0:
-            natural_ans = '您好，%s有%s' % (ans_name, true_entity)
-            natural_ans += airline_ans
-            return natural_ans
-        else:
-            if 'rel_score' not in qa_res:
-                ans_list = []
-                ans_list.append('您好，机场内有%s' % ans_name)
-                # 列举类，找出时间和地点
-                for rel, rel_val in ent.items():
-                    if '时间' in rel:
-                        ans_list.append('营业时间是%s' % rel_val)
-                    if '地点' == rel:
-                        ans_list.append('位置在%s' % rel_val)
-                    # if '价格' in rel or '收费' in rel:
-                    #     ans_list.append('价格为%s' % rel_val)
-                    if '电话' in rel or '联系' in rel:
-                        ans_list.append('电话是%s' % rel_val)
+        # if '航司代码' in ent:
+        #     airline_value = ent['航司代码']
+        #     airline_ans = '，办理%s航司业务' % airline_value
+        if 'rel_score' not in qa_res:
+            ans_list = []
+            ans_list.append('您好，机场内有%s' % ans_name)
+            # 列举类，找出时间和地点
+            for rel, rel_val in ent.items():
+                if '时间' in rel:
+                    ans_list.append('营业时间是%s' % rel_val)
+                if '地点' == rel:
+                    ans_list.append('位置在%s' % rel_val)
+                # if '价格' in rel or '收费' in rel:
+                #     ans_list.append('价格为%s' % rel_val)
+                if '电话' in rel or '联系' in rel:
+                    ans_list.append('电话是%s' % rel_val)
 
-                # ans = '您好，机场内有%s，办理%s航司业务，位置在%s，营业时间是%s，价格为%s，电话是%s' % (ans_name, airline_value, loc_prop_value, time_prop_value, price_prop_value, tel_prop_value)
+            # ans = '您好，机场内有%s，办理%s航司业务，位置在%s，营业时间是%s，价格为%s，电话是%s' % (ans_name, airline_value, loc_prop_value, time_prop_value, price_prop_value, tel_prop_value)
 
-                # 加话术
-                # if (time_prop_value == '' or time_prop_value == '暂无') and (loc_prop_value == '' or loc_prop_value == '暂无'):
-                #     ans = '您好，机场内有%s' % (ans_name)
-                # elif time_prop_value == '' or time_prop_value == '暂无':
-                #     ans = '您好，机场内有%s，位置在%s' % (ans_name, loc_prop_value)
-                # elif loc_prop_value == '' or loc_prop_value == '暂无':
-                #     ans = '您好，机场内有%s，营业时间是%s' % (ans_name, loc_prop_value)
-                # else:
-                #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
-                if not natural_ans:
-                    prop_desc = []
-                    for prop in ent.keys():
-                        if prop in ["name","名称","neoId","entity_label"]:
-                            continue
-                        info = ent[prop]
-                        if "[" in info:
-                            info = eval(info)
-                            info = str("、".join(info))
-                        desc = "%s是%s" % (prop, info)
-                        if desc not in prop_desc:
-                            prop_desc.append(desc)
-                    natural_ans = '您好，您询问的是%s，具体信息如下：%s' % (ent_name, "，".join(prop_desc))
-                    return natural_ans
-                else:
-                    natural_ans = '，'.join(ans_list)
-                    natural_ans += airline_ans
-                    return natural_ans
+            # 加话术
+            # if (time_prop_value == '' or time_prop_value == '暂无') and (loc_prop_value == '' or loc_prop_value == '暂无'):
+            #     ans = '您好，机场内有%s' % (ans_name)
+            # elif time_prop_value == '' or time_prop_value == '暂无':
+            #     ans = '您好，机场内有%s，位置在%s' % (ans_name, loc_prop_value)
+            # elif loc_prop_value == '' or loc_prop_value == '暂无':
+            #     ans = '您好，机场内有%s，营业时间是%s' % (ans_name, loc_prop_value)
+            # else:
+            #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
+            if not natural_ans:
+                prop_desc = []
+                for prop in ent.keys():
+                    if prop in ["name","名称","neoId","entity_label"]:
+                        continue
+                    info = ent[prop]
+                    if info[0]=="[":
+                        info = eval(info)
+                        info = str("、".join(info))
+                    desc = "%s是%s" % (prop, info)
+                    if desc not in prop_desc:
+                        prop_desc.append(desc)
+                natural_ans = '您好，您询问的是%s，具体信息如下：%s' % (ent_name, "，".join(prop_desc))
+                return natural_ans
             else:
-                rel = qa_res['rel_name']
-                rel_val = qa_res['rel_val']
-                if rel_val == ans_name:  # 答案术语使用mention，如：FM是mention，答案为FM的公司名称是上海航空股份有限公司
-                    ans_name = qa_res['mention']
-                # 话术生成
-                if '地点' in rel:
-                    natural_ans = '您好，%s在%s' % (ans_name, rel_val)
-                else:
-                    natural_ans = '您好，%s的%s是%s' % (ans_name, rel, rel_val)
+                natural_ans = '，'.join(ans_list)
                 natural_ans += airline_ans
                 return natural_ans
+        else:
+            rel = qa_res['rel_name']
+            rel_val = qa_res['rel_val']
+            # 话术生成
+            if '地点' in rel:
+                natural_ans = '您好，%s在%s' % (ans_name, rel_val)
+            # elif '时间' in rel:
+            #     natural_ans = '您好，%s的服务时间是%s' % (ans_name, rel_val)
+            elif rel in {'客服电话', '联系电话', '联系方式'}:
+                natural_ans = '您好，%s的客服电话是%s' % (ans_name, rel_val)
+            # elif rel == '手续费' or '价格' in rel or '收费' in rel:
+            #     natural_ans = '您好，%s的收费标准是%s' % (ans_name, rel_val)
+            else:
+                natural_ans = '您好，%s的%s是%s' % (ans_name, rel, rel_val)
+            natural_ans += airline_ans
+            return natural_ans
 
-    def rank_ans(self, qa_res, sent):
+    def rank_ans(self, qa_res):
         for ans in qa_res:
-            # # 各步骤分值相加
-            # ans['final_score'] = ans.get('constr_score', 0) + \
-            #     ans['link_score'] + \
-            #     ans.get('rel_score', 0)
-            # 各步骤分值相乘
-            ans['final_score'] = ans.get('constr_score', 1) * \
-                ans['link_score'] * \
-                ans.get('rel_score', 1)
+            ans['final_score'] = ans.get('constr_score', 0) + \
+                ans['link_score'] + \
+                ans.get('rel_score', 0)
         qa_res.sort(key=lambda ans: ans['final_score'], reverse=True)
-        # score相同，mention是问题子串的排在前面
-        for i in range(len(qa_res)):
-            if qa_res[i]['mention'] in sent:
-                if qa_res[i]['final_score'] == qa_res[i-1]['final_score']:
-                    if qa_res[i-1]['mention'] in sent and len(qa_res[i]['mention']) > len(qa_res[i-1]['mention']):
-                        temp = qa_res[i].copy()
-                        qa_res[i] = qa_res[i-1]
-                        qa_res[i-1] = temp
+        # qa_res = [ans for ans in qa_res if ans['final_score'] >= 0.6]
         return qa_res
 
+    def not_kbqa_question(self,question):
+        for word in config.NO_AIR_QUESTION_WORDS:
+            if word in question:
+                return "非民航问题"
+        for word in config.CQA_QUESTION_WORDS:
+            if word in question:
+                return "非KBQA问题"
+        return False
+
+    def contain_freq_word(self,question):
+        for word in config.FREQENT_WORDS:
+            if word in question:
+                return True
+        return False
+
     def answer(self, sent):
-        """
+        '''
             问答流程：
              1. 使用替换规则修改问句并分词
              2. 提取限制条件：时间、地点、航空公司等
@@ -419,8 +400,12 @@ class QA():
              7. 匹配限制
              8. 答案排序
              9. 生成自然语言答案
-        """
+        '''
+        #start =time.clock()
         logger.info('question :%s' % sent)
+        #end = time.clock()
+        #print('模型启动： %s Seconds'%(end-start))
+        #start = end
         # 1. 使用替换规则(预处理)
         # sent = replace_word(sent, self.stop_list, self.rpl_list)
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
@@ -444,8 +429,9 @@ class QA():
         logger.debug('关系匹配: ' + str(rel_match_res[:10]))
 
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
+        # qa_res {'id','mention','entity','link_score','rel_name','rel_val','rel_score','constr_name','constr_val'}
         qa_res = []
-        LINK_THRESH = 0.8
+        LINK_THRESH = 0.85
         REL_THRESH = 0.8
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list:
@@ -464,7 +450,7 @@ class QA():
             for linked_ent in link_res:
                 if linked_ent['id'] not in match_rel_ent_ids \
                         and linked_ent['score'] >= LINK_THRESH:
-                    if '定义' in linked_ent['ent'].keys():
+                    if ('定义' in linked_ent['ent'].keys()):
                         qa_res.append({
                             'id': linked_ent['id'],
                             'mention': linked_ent.get('mention', linked_ent['ent']['name']),
@@ -502,71 +488,54 @@ class QA():
         """
 
         # 8. 匹配限制
-        # if any(map(lambda x: x != '', constr_res.values())):
-        #     self.match_constraint(qa_res, constr_res, id2linked_ent)
+        if any(map(lambda x: x != '', constr_res.values())):
+            self.match_constraint(qa_res, constr_res, id2linked_ent)
 
-        if is_list:
-            # 10. 生成自然语言答案
-            natural_ans = []
+        # 9. 答案排序
+        qa_res = self.rank_ans(qa_res)
+        qa_res = qa_res[:10]
+        logger.debug('答案: ' + str(qa_res))
+
+        # 10. 生成自然语言答案
+        natural_ans = []
+        filtered_qa_res = []
+        for res in qa_res:
+            n_ans = self.generate_natural_ans(res, id2linked_ent)
+            if n_ans not in natural_ans:
+                res['natural_ans'] = n_ans
+                natural_ans.append(n_ans)
+                filtered_qa_res.append(res)
+        logger.info('自然语言答案: ' + str(natural_ans))
+        # end = time.clock()
+        # print('答案生成： %s Seconds'%(end-start))
+        # start = end
+
+        # 11 对包含常见民航词语（飞机、飞行、航空）的问题进行阈值控制
+        max_sent_len_contain_freq = 12
+        max_threshold_contain_freq = 1.8
+        min_threshold_contain_freq = 1.8
+        aver_final_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
+        if self.contain_freq_word(sent) \
+            and min_threshold_contain_freq <= aver_final_score <= max_threshold_contain_freq \
+            and len(sent) > max_sent_len_contain_freq:
             filtered_qa_res = []
-            ent_name = qa_res[0]['mention']
-            cnt = len(qa_res)
-            ans_name = ent_name
-            natural_ans = '您好，%s有' % (ans_name)
-            true_entity = ""
-            for res in qa_res:
-                natural_ans = ''
-                airline_ans = ''
-                true_entity = true_entity + res['entity'] +'、'
 
-            natural_ans += true_entity
-            n_ans = natural_ans[:-1]
-            _res = dict()
-            _res['natural_ans'] = n_ans
-            filtered_qa_res.append(_res)
-            # logger.info('自然语言答案: ' + str(natural_ans))
-            # end = time.clock()
-            # print('答案生成： %s Seconds'%(end-start))
-            # start = end
-            return self.frontend.decorate(filtered_qa_res, cnt)
-        else:
-            # 9. 答案排序
-            qa_res = self.rank_ans(qa_res,sent)
-            qa_res = qa_res[:10]
-            logger.debug('答案: ' + str(qa_res))
+        return self.frontend.decorate(filtered_qa_res[:3])
 
-            # 10. 生成自然语言答案
-            natural_ans = []
-            filtered_qa_res = []
-            for res in qa_res:
-                n_ans = self.generate_natural_ans(res, id2linked_ent, 1)
-                if n_ans not in natural_ans:
-                    res['natural_ans'] = n_ans
-                    natural_ans.append(n_ans)
-                    filtered_qa_res.append(res)
-            logger.info('自然语言答案: ' + str(natural_ans))
-
-            # 11 对包含常见民航词语（飞机、飞行、航空）的问题进行阈值控制
-            aver_final_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
-            if self.contain_freq_word(sent) \
-                and min_threshold_contain_freq <= aver_final_score <= max_threshold_contain_freq \
-                and len(sent) > max_sent_len_contain_freq:
-                filtered_qa_res = []
-            return self.frontend.decorate(filtered_qa_res[:3], -1)  # -1表示非列举类问题
-
-    def contain_freq_word(self, question):
-        for word in config.FREQUENT_WORDS:
-            if word in question:
-                return True
-        return False
+        # # kbqa threshold test
+        # final_score = [{item['natural_ans']:item['final_score']} for item in filtered_qa_res[:3]]
+        # mean_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
+        # final_score = final_score + [{None: 0}] * (3-len(final_score))
+        # final_score.append(mean_score)
+        # return final_score
 
 
 class FrontendAdapter():
     def __init__(self):
         self.driver = AsyncNeoDriver.get_driver()
 
-    def decorate_one(self, qa_res,cnt):
-        """
+    def decorate_one(self, qa_res):
+        '''
         Args:
             qa_res: {
                 'id': '', 主题实体id
@@ -600,7 +569,7 @@ class FrontendAdapter():
                     }
                 ],
             }
-        """
+        '''
         answer = qa_res['natural_ans']
         nodes = []
         edges = []
@@ -633,17 +602,8 @@ class FrontendAdapter():
                 'is_ans': is_ans,
             }
 
-        # 列举类
-        list_flag = False
-        if cnt != -1:
-            list_flag = True
-        if list_flag:
-            return {
-                'answers': '搜寻到的结果数:{}  {} '.format(cnt,answer)
-            }
-
         topic_ent = make_node(int(qa_res['id']), qa_res['entity'], 'answer_entity')
-        # logger.debug('qa_res: ' + str(qa_res))
+        logger.debug('qa_res: ' + str(qa_res))
         if 'rel_val' in qa_res:
             ans_ent = make_node(-1, qa_res['rel_val'], 'answer_property_value')
             nodes.append(topic_ent)
@@ -664,8 +624,8 @@ class FrontendAdapter():
             'edges': edges
         }
 
-    def decorate(self, all_qa_res, cnt):
-        return [self.decorate_one(res,cnt) for res in all_qa_res]
+    def decorate(self, all_qa_res):
+        return [self.decorate_one(res) for res in all_qa_res]
 
 
 def test_qa():

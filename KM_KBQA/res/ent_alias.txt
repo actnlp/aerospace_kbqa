@@ -1,686 +1,6464 @@
-肯尼亚航空: 肯尼亚
-真航空: 韩国真,韩国真航空
-亚洲航空公司: 亚洲航空,亚航
-德国汉莎航空股份公司: 汉莎航空,汉莎
-春秋航空日本: 春秋
-法国航空公司: AF,法国航空,法航
-马来西亚航空公司: 马来西亚航空,马航
-土耳其航空公司: 土耳其航空,土耳其
-土耳其货运航空公司: 土耳其货运航空,土耳其货运
-巴拉圭航空公司: 巴拉圭地区航空,巴拉圭地区
-波兰航空公司: 波兰,波兰航空
-胜安航空公司: 胜安,胜安航空
-敦煌国际机场: 敦煌机场
-赛义德易卜拉欣王子机场: 赛义德·易卜拉欣王子国际机场
-德罗什岛机场: 德罗什机场
-鸡西兴凯湖机场: 兴凯湖机场
-阿尔皮纳郡地区机场: 阿尔皮纳机场
-威尼斯马可·波罗国际机场: 马可波罗机场
-特克萨卡纳机场: 特克萨卡纳地方机场
-达尼丁国际机场: 达尼丁机场
-西部航空有限责任公司: 西部,西部航空
-广西北部湾航空有限责任公司: 北部湾航空
-海南航空股份有限公司: 海航,海南航空
-乔莫·肯雅塔国际机场: 内罗毕机场
-东营胜利机场: 实里达机场
-关岛A.B.WonPat国际机场: 关岛机场
-金奈国际机场: 金奈机场
-黄金机场: 赣州黄金机场
-关岛A.B.WonPat国际机场: 埃弗里特
-太原武宿国际机场: 武宿机场
-平壤机场: 平壤顺安国际机场
-科珀斯科里斯蒂国际机场: 科珀斯科里斯蒂机场
-永州零陵机场: 零陵机场
-安大略机场: 安大略国际机场
-突尼斯机场: 苏梅岛机场
-朝阳川机场: 延吉朝阳川国际机场
-罗家机场: 景德镇罗家机场
-昌北机场: 南昌昌北国际机场
-朱诺机场: 朱诺国际机场
-佳木斯东郊机场: 东郊机场
-南苑机场: 北京南苑机场
-遥墙机场: 济南遥墙国际机场
-华盛顿杜勒斯国际机场: 杜勒斯机场
-奥什机场: 奇科机场
-成都航空有限公司: 成都,成都航空
-云南祥鹏航空有限责任公司: 祥鹏,祥鹏航空
-北京首都航空有限公司: 首都航空,首都
-龙江航空有限公司: 龙江航空
-福州航空有限责任公司: 福州航空
-中国东方航空有限公司: 东方航空,东航
-幸福航空: 幸福
-重庆航空有限公司: 重庆航空,重庆
-中国南方航空股份有限公司: 南方航空
-浙江长龙航空有限公司: 长龙航空
-九元航空有限公司: 九元,九元航空
-华夏航空股份有限公司: 华夏,华夏航空
-泰国航空: 泰航
-春秋航空股份有限公司: 春秋,春秋航空
-金鹏航空公司: 金鹏,RayaAirways
-云南红土航空股份有限公司: 红航,红土航空,红土航
-长荣航空股份有限公司: 长荣航空,长荣
-卡拉奇机场: 卡拉奇真纳国际机场
-魁北克机场: 魁北克让·勒萨热国际机场
-圣路易斯机场: 兰伯特—圣路易斯国际机场
-榆林榆阳机场: 榆阳机场
-达勒姆国际机场: 罗利机场
-太空城（SpaceCity）: 休斯顿哈比机场
-雅温得国际机场: 雅温得机场
-诺克斯威尔机场: 诺克斯维尔机场
-六盘水月照机场: 苏厄德机场
-滨海机场: 天津滨海国际机场
-让·保尔·马拉: 马拉
-路易斯维尔机场: 斯坦迪福德机场,路易斯威尔机场
-池州九华山机场: 九华山机场
-印第安纳波利斯机场: 印第安那波利斯国际机场
-波特兰喷气机机场: 缅因-波特兰机场
-浦那机场: 浦那国际机场
-塔什干机场: 塔什干尤日内机场
-梳邦国际机场: 吉隆坡梳邦机场
-坎布里亚郡机场: 约翰斯顿机场
-吴哥机场: 吴哥窟机场
-库利亚布: 吴哥窟机场
-长水机场: 昆明长水国际机场
-辛辛那提机场: 辛辛那提国际机场
-西双版纳机场: 西双版纳嘎洒国际机场
-巴林国际机场: 巴林机场
-南阳姜营机场: 姜营机场
-拉萨贡嘎国际机场: 贡嘎机场
-温哥华国际机场: 温哥华机场
-六盘山机场: 固原机场
-加格达奇机场: 加格达奇嘎仙机场
-潍坊机场: 潍坊南苑机场
-蒙巴萨国际机场: 莫伊国际机场
-大兴机场: 北京大兴国际机场
-匹兹堡机场: 匹兹堡国际机场
-青莱机场: 清莱机场
-阿里亚皇后机场: 安曼阿利亚皇后机场
-锡亚尔科特机场: 锡亚尔科特国际机场
-卢萨卡机场: 卢萨卡国际机场
-伊春林都机场: 林都机场
-萨那国际机场: 萨那机场
-普吉国际机场: 普吉机场
-普吉国际机场: 拉各斯机场
-巴西利亚机场: 巴西利亚国际机场
-梅肯机场: 路易斯－威尔逊机场
-里昂机场: 里昂圣埃克絮佩里机场
-尼雷尔国际机场: 达累斯萨拉姆机场
-菲利普比拉德机场: 罗阿坦机场
-安塔那那利佛机场: 塔那那利弗伊瓦图机场
-金门尚义: 金门航空站
-高崎机场: 厦门高崎国际机场
-金湾机场: 珠海金湾国际机场
-吉达阿卜杜勒—阿齐兹国王国际机场: 阿卜杜勒-阿齐兹国王机场
-努瓦克肖特机场: 武夷山机场
-舟山普陀山机场: 普陀山机场
-奥尔比亚机场: 奥比亚机场
-南郊机场: 绵阳南郊机场
-米兰李罗德机场: 利纳特机场
-萨尔斯堡机场: 萨尔茨堡机场
-塞班国际机场: 塞班机场
-迈诺特国际机场: 迈诺特机场
-迈诺特机场: 山海关机场
-大水泊机场: 威海国际机场
-格林斯博罗机场: 信风航空公司
-哈瓦那机场: 哈瓦那何塞马蒂机场
-布卢梅瑙机场: 绵阳南郊机场
-卡利亚里机场: 卡利阿里机场
-成都双流国际机场: 双流机场
-佛罗伦萨-佩雷托拉亚美利哥·韦斯普奇国际机场: 佛罗伦撒机场
-瑙鲁国际机场: 瑙鲁岛国际机场
-国家公园机场: 大峡谷机场
-栎社机场: 宁波栎社国际机场
-米苏拉机场: 约翰逊贝尔机场
-广汉机场: 杜阿拉机场
-林肯地方机场: LNK
-雅典国际机场: 雅典机场
-桃花源机场: 常德桃花源机场
-澳门机场: 澳门国际机场
-纽埃国际机场: 哈南机场
-济洲机场: 济州机场
-苏城机场: 苏城门户机场
-大邱国际机场: 大邱机场
-费耶特维尔地方机场: 费耶特维尔机场
-泉州晋江国际机场: 晋江机场
-苏福尔斯机场: 苏福尔斯地区机场
-斯潘塞地方机场: 斯潘塞机场
-塞舌尔国际机场: 塞舌尔机场
-亚庇国际机场: 亚庇机场
-贝尔法斯特市机场: 乔治·贝斯特贝尔法斯特城市机场
-郑州新郑国际机场: 新郑机场
-圣胡安路易斯·穆尼奥斯·马林国际机场: 圣胡安机场
-香格里拉机场: 迪庆香格里拉机场
-重庆万州五桥机场: 五桥机场
-霍希库塔科机场: 霍希库塔科国际机场
-秦皇岛北戴河机场: 秦皇岛北戴河国际机场
-拉巴斯机场: 拉巴斯埃尔阿托机场
-思茅机场: 普洱（思茅）机场机
-肯尼迪机场: 纽约约翰·菲茨杰拉德·肯尼迪国际机场
-迈尔斯城机场: 迈尔斯城地方机场
-朗勃拉邦机场: 琅勃拉邦国际机场
-梅州机场: 长岗岌机场
-圣胡安路易斯·穆尼奥斯·马林国际机场: 苏莱曼尼亚机场
-伯明翰机场: 伯明翰国际机场
-长治王村机场: 王村机场
-沈阳桃仙国际机场: 桃仙机场
-迪比克机场: 迪比克地方机场
-巴拉科阿机场: 巴拉科阿古斯塔沃利索机场
-布达佩斯机场: 布达佩斯李斯特•费伦茨国际机场
-齐齐哈尔三家子机场: 三家子机场
-那霸国际机场: 那霸机场
-哈尔格萨机场: 法兰克福哈恩机场
-檀香山国际机场: 火奴鲁鲁机场
-圣玛丽亚公共机场: 圣玛丽娅机场
-得梅因机场: 德梅因机场
-圣弗朗西斯科: 三藩市,旧金山机场
-和平机场: 日喀则和平机场
-史密斯堡地方机场: 史密斯堡机场
-克久拉霍机场: 法兰克福哈恩机场
-长沙黄花国际机场: 长沙黄花机场
-法兰克福国际机场: 法兰克福机场
-瑞安机场: 巴吞鲁日机场
-纽卡斯尔机场: 黄果树机场
-武汉天河国际机场: 天河机场
-伯灵顿机场: 仙台机场
-长春龙嘉国际机场: 龙嘉机场
-的黎波里机场: 的黎波里国际机场
-中川机场: 兰州中川国际机场
-奥兰多桑福德机场: 桑福德机场
-盘龙机场: 博乐机场
-博鳌机场: 博鳌国际机场
-樟宜机场: 新加坡樟宜国际机场
-科利佐沃机场: 叶卡捷琳堡机场
-贵阳龙洞堡国际机场: 龙洞堡机场
-宝安机场: 深圳宝安国际机场
-奥马哈机场: 奥马哈国际机场
-拉塔基亚机场: 巴西勒·阿萨德国际机场
-布里奇敦国际机场: 布里奇敦
-成田国际机场: 成田机场
-蒙克顿国际机场: 蒙克顿机场
-阿拉山口机场: 博乐机场
-潘泰莱里亚机场: 潘泰莱里亚岛机场
-科摩罗航空: 科摩罗国际航空,科摩罗
-新加坡酷航航空公司: 酷航
-UPS快递: UPS
-复兴航空: 复兴
-美国西北航空公司: 美西北,美国西北航空
-阿提哈德航空: 阿联航
-乌拉尔航空公司: 乌拉尔,乌拉尔航空
-老挝航空: 老挝
-阿鲁巴皇家航空公司: 阿鲁巴航空
-厄立特里亚航空: 厄立特里亚
-北欧航空公司: 北欧,北欧国际航空
-三义机场: 丽江三义国际机场
-艾因国际机场: 艾因机场
-伊斯兰堡机场: 伊斯兰堡贝娜齐尔·布托国际机场
-班加罗尔机场: 班加罗尔国际机场
-希思罗机场: 伦敦希思罗国际机场
-瓦科机场: 瓦科地区机场
-兰萨罗特市机场: 兰萨罗特机场
-利隆圭国际机场: 利隆圭机场
-里斯本机场: 福冈机场
-格雷希尔公园机场: 格雷希尔国际公园机场
-斯卡圭地方机场: 斯卡圭机场
-华沙机场: 华沙-奥肯切弗里德里克·肖邦机场
-黑河机场: 黑河瑷珲机场
-青山机场扩建工程: 青山机场
-首都机场: 北京首都国际机场
-威奇塔瀑布市机场: 威奇托福尔斯机场
-阿马里洛机场: 里克·哈兹班德阿马里洛国际机场
-乌兰察布集宁机场: 阿巴斯港机场
-伦敦城市机场: 伦敦城机场
-多巴哥岛国际机场: 多巴哥岛机场
-张家口机场: 张家口宁远机场
-布拉格瓦茨拉夫・哈维尔国际机场: 布拉格机场
-锡吉里耶: 张家界荷花国际机场
-罗阿诺克机场: 罗阿诺克地方机场
-卑尔根Flesland机场: 卑尔根机场
-北郊机场: 洛阳北郊机场
-四川航空股份有限公司: 川航,四川航空
-乌鲁木齐航空有限责任公司: 乌航,乌鲁木齐航空
-山东航空股份有限公司: 山航,山东航空
-天津航空有限责任公司: 天航,天津航空,天津航
-瑞丽航空有限公司: 瑞丽航空,瑞航
-奥凯航空有限公司: 奥凯,奥凯航空
-东海航空有限公司: 东海航空
-上海航空股份有限公司: 上航,上海航空
-深圳航空有限责任公司: 深圳航空,深航
-厦门航空有限公司: 厦航,厦门航空
-白塔埠机场: 连云港白塔埠机场
-高坪机场: 南充高坪机场
-鞍山机场: 腾鳌机场
-张家界荷花国际机场: 荷花机场
-黄石区域机场: 科迪机场
-河东机场: 银川河东国际机场
-水牛城机场: 奥尔堡机场
-米切尔将军国际机场: 米切尔机场
-天水麦积山机场: 麦积山机场
-贝尔普伯尔尼机场: 贝尔普机场
-铜仁凤凰国际机场: 凤凰机场
-美兰机场: 海口美兰国际机场
-班吉机场: 班吉姆波科机场
-阿斯马拉机场: 阿斯马拉国际机场
-哈尔滨太平国际机场: 太平机场
-保安营机场: 兰斯机场
-安康富强机场: 安康机场
-三亚凤凰国际机场: 凤凰机场
-石见机场: 岩见机场
-玉龙机场: 赤峰玉龙机场
-伊尔施机场: 和田机场
-杜兰戈·拉普拉塔机场: 杜兰戈机场
-佛山沙堤机场: 沙堤机场,佛山机场
-清迈机场: 清迈国际机场
-孟买迪拜机场: 孟买机场
-布特米尔机场: 萨拉热窝国际机场
-广州白云国际机场: 白云机场
-廊曼国际机场: 旧曼谷国际机场
-大阪关西国际机场: 关西机场
-苏南硕放国际机场: 苏南硕放机场
-石家庄正定国际机场: 正定机场
-大理机场: 奠边府机场
-乔治·布什机场: 太空城（SpaceCity）
-重庆江北国际机场: 江北机场
-布兰太尔奇莱卡国际机场: 布兰太尔机场
-拉克鲁丝机场: 拉克鲁丝地方机场
-怀化芷江机场: 芷江机场
-禄口机场: 南京禄口国际机场
-塔林机场: 塔林伦纳特·梅里国际机场
-阿姆斯特丹机场: 荷兰阿姆斯特丹国际机场
-豌豆岛直升机场: 赫尔辛基直升机场
-西雅图机场: 西雅图-塔科马国际机场
-蒙彼利埃机场: 蒙彼利埃地中海机场
-抚远机场: 抚远东极机场
-惠州平潭机场: 惠州机场
-拉雷多国际机场: 南京禄口国际机场
-曼德勒国际机场: 曼德勒机场
-乞力马扎罗山机场: 乞力马扎罗机场
-巴尔的摩机场: 巴尔的摩国际机场
-埃尔·帕索机场: 埃尔帕索机场
-三城市机场: 三连机场
-布鲁塞尔国家机场: 布鲁塞尔机场
-菜坝机场: 宜宾菜坝机场
-凯恩斯机场: 凯恩斯国际机场
-开罗国际机场: 开罗机场
-路桥机场: 台州路桥机场
-卡尔马机场: 卡尔玛机场
-纽瓦克机场: 纽华克自由国际机场，EWR
-马累国际机场: 马累机场
-奥斯汀国际机场: 奥斯汀机场
-通化三源浦机场: 通化机场
-拉杜尔: 伊宁机场
-科斯塔内机场: 科斯塔那机场
-淮安涟水机场: 涟水机场
-尤马国际机场: 玉马机场
-开普敦国际机场: 开普敦机场
-维拉港鲍尔费尔德机场: 维拉港机场
-天吉泰机场: 巴彦淖尔天吉泰机场
-哥伦比亚地区机场: 哥伦比亚机场
-萧山机场: 杭州萧山国际机场
-德特内里费机场: 特内里费机场
-洛杉矶机场: 洛杉矶国际机场
-安东尼奥－D388马赛奥机场: 安东尼奥马赛奥机场
-弗拉格斯塔夫机场: 费拉格斯塔夫机场
-斯科茨布拉夫郡机场: 斯科茨布拉夫机场
-上海浦东国际机场: 浦东机场
-贝尔格莱德机场: 贝尔格来德机场
-热那亚机场: 热那亚—西塞斯特里克里斯托弗·哥伦布国际机场
-坎昆机场: 切图马尔国际机场
-伦敦卢顿机场: 阿姆利则机场
-咸阳机场: 西安咸阳国际机场
-冠豸山机场: 龙岩冠豸山机场
-法明顿地方机场: 法明顿机场
-虹桥机场: 上海虹桥国际机场
-青岛流亭国际机场: 流亭机场
-斯德哥尔摩阿兰达国际机场: 斯德哥尔摩机场
-圣地亚哥: 圣迭戈机场
-英迪拉·甘地国际机场: 德里机场
-尼古劳·洛巴托总统国际机场: 科摩罗机场
-柯克斯维尔地方机场: 柯克斯维尔机场
-普莱桑斯国际机场: 毛里求斯机场
-金海国际机场: 金海机场
-拉伯克机场: 拉伯克国际机场
-新潟机场: 新泻机场
-泰德·史蒂文斯安克雷奇国际机场: 安克雷奇国际机场
-羽田机场: 东京羽田国际机场
-费城国际机场: 费城机场
-费城国际机场: 清化市
-蒙得维的亚Carrasco机场: 卡拉斯科国际机场
-米德堡: 比隆机场
-泰德·史蒂文斯安克雷奇国际机场: 圣保罗孔戈尼亚斯机场
-自由港机场: 弗里波特国际机场
-穆罕默德机场: 卡萨布兰卡机场
-的里雅斯特机场: 里雅斯特机场
-克勒蒙菲朗机场: 克莱蒙费朗机场
-关公机场: 运城关公机场
-伊比萨岛机场: 伊比萨机场
-什里夫波特机场: 什里夫波特地区机场
-伍德郡机场: 伍德县机场
-厄斯特松德机场: 三女河机场
-海浪机场: 牡丹江海浪国际机场
-日照山字河机场: 拜县机场
-米林机场: 林芝米林机场
-阿尔及尔胡阿里·布迈丁机场: 阿尔及尔机场
-阿克拉机场: 科托卡国际机场
-什里夫波特机场: 德雷斯顿机场
-萨克拉门托国际机场: 萨克拉门托大都会机场
-阿布扎比机场: 阿布扎比国际机场
-仁川机场: 日照山字河机场
-圣伊莎贝尔机场: 马拉博机场
-张掖机场: 张掖甘州机场
-河市机场: 那不勒斯机场
-奔牛机场: 常州奔牛国际机场
-新舟机场: 遵义新舟机场
-特温福尔斯城郡机场: 特温福尔斯机场
-鹰县机场: 范尔机场
-利马机场: 豪尔赫查韦斯国际机场
-温州龙湾国际机场: 龙湾机场
-圣乔治机场: 圣乔治地方机场
-拉瓜迪机场: 拉瓜迪亚机场
-恩施许家坪机场: 许家坪机场
-两江机场: 桂林两江国际机场
-新贝德福德机场: 新贝尔福特机场
-柳州白莲机场: 白莲机场
-菲乌米奇诺机场: 罗马菲乌米奇诺机场
-乌鲁木齐地窝堡机场: 乌鲁木齐地窝堡国际机场
-大庆萨尔图机场: 萨尔图机场
-里加机场: 里加国际机场
-揭阳潮汕机场: 揭阳潮汕国际机场
-曲阜机场: 济宁曲阜机场
-克拉根福机场: 维哥机场
-堪萨斯城机场: 堪萨斯城地方区机场
-长洲岛机场: 圣罗莎机场
-大连周水子国际机场: 周水子机场
-鹿港机场: 布拉德福德机场
-庐山机场: 九江庐山机场
-法莱奥洛国际机场: 阿皮亚机场
-盐湖城国际机场: 盐湖城机场
-呼和浩特白塔国际机场: 白塔机场
-中部国际机场: 名古屋中部国际机场
-韦恩堡地方巴厄机场: 韦恩堡国际机场
-乔治城OwenRoberts国际机场: 乔治城国际机场
-渥太华机场: 渥太华麦克唐纳—卡蒂埃国际机场
-梅克内斯机场: 福特法机场
-圣多美岛机场: 圣多美机场
-长乐机场: 福州长乐国际机场
-特克斯和凯科斯群岛国际机场: 普罗维登西亚莱斯国际机场
-宜昌三峡机场: 三峡机场
-科纳克里格贝西亚机场: 科纳克里机场
-麦卡伦机场: 拉斯维加斯麦卡伦国际机场
-南通兴东国际机场: 兴东机场
-金兰机场: 金兰国际机场
-曹家堡机场: 西宁曹家堡机场
-朝阳机场: 阿克苏机场
-麦德林何塞·玛丽亚·科尔多瓦国际机场: 麦德林机场
-喀布尔机场: 喀布尔国际机场
-浪头机场: 海于格松机场
-南洋机场: 盐城南洋国际机场
-波哥大埃尔多拉国际机场: 波哥大Eldorado机场
-黄金海岸机场: 麦卡伦国际机场
-二里半机场: 包头二里半机场
-巴罗达机场: 瓦多达拉（巴罗达）机机场
-新桥机场: 合肥新桥国际机场
-阿布贾国际机场: 阿布贾机场
-哈拉雷国际机场: 哈拉雷机场
-斯里巴加湾机场: 文莱斯里巴加湾国际机场
-贝鲁特拉菲克·哈里里国际机场: 贝鲁特机场
-波德戈里察机场: 填写人物波德戈里察机场中文名或其中文译名
-马德拉丰沙尔克里斯蒂亚诺·罗纳尔多机场: 马德拉岛机场
-阿米尔卡－卡布拉尔国际机场: 阿米尔卡-卡布拉尔国际机场
-田阳机场: 百色巴马机场
-静冈国际机场: 静冈机场
-赛乌苏机场: 二连浩特赛乌苏国际机场
-香港国际机场: 赤鱲角机场
-坎皮纳斯国际机场: 坎皮纳斯机场
-交河机场: 吐鲁番交河机场
-维多利亚机场: 卢班戈机场
-悉尼金斯福德·史密斯国际机场: 悉尼机场
-扬斯敦机场: 扬斯顿机场
-克拉斯诺尔斯克机场: 克拉斯诺亚尔斯克机场
-斯普林菲尔德机场: 布兰森地区机场
-黄山屯溪国际机场: 屯溪机场
-斯卡特航空公司: 斯卡特,斯卡特航空
-全日本空输株式会社: 全日空航空,全日空
-泰国东方航空: 泰国东方
-美国航空: 美航
-墨西哥西部航空公司: 墨西哥西部,墨西哥西部航空
-英国航空公司: 英航,英国航空
-极地货运航空公司: 极地货运航空,极地货运
-柏林航空: 柏林
-阿拉斯加航空公司: 阿拉斯加航空
-西藏航空有限公司: 西藏航空,西藏
-阿拉伯联合酋长国航空公司（阿联酋航空公司）: 阿航,阿联酋航空
-河北航空有限公司: 河北航空,河北
-上海吉祥航空有限公司: 吉祥航空,吉祥
-青岛航空股份有限公司: 青岛,青岛航空
-长安航空有限责任公司: 长安,长安航空
-江西航空投资有限公司: 江西航空
-昆明航空有限公司: 昆明航空,昆航
-大新华航空有限公司: 大新华航空,大新华
-华信航空股份有限公司: 华信,华信航空
-香港快运航空: 香港快运
-JSC"BekAir: JSC"BekAir",BekAir
-柬埔寨巴戎航空有限公司: 柬埔寨巴戎航空
-空中世界航空: 空中世界,空中世界-乌克兰航空公司
-釜山航空: 釜山
-海参崴航空: 海参崴
-济州航空: 济州
-澳洲航空: 澳洲,澳大利亚快达航空公司
-TAP葡萄牙航空: TAP
-达美航空: 达美,三角洲航空
-美国大陆航空公司: 大陆,大陆航空
-维珍航空: 维珍
-中国联合航空有限公司: 中国联航,中联航,联合航空
-伊朗航空: 伊朗
-阿里亚纳阿富汗航空公司: 阿里亚纳阿富汗航空,阿富汗
-亚特兰大冰岛航空: 冰岛亚特兰大航空,亚特兰大
-菲鹰航空: 菲律宾
-约旦皇家航空: 约旦皇家
-沙特阿拉伯航空: 沙特航空
-匈牙利航空公司: 匈牙利,匈牙利航空
-澳门航空: 澳门
-菲律宾航空: 菲航
-坦桑尼亚精密航空公司: 精密,精密航空
-芬兰航空公司: 芬航,芬兰航空
-印度航空公司: 印度航空,印度
-乌克兰航空公司: 乌克兰航空,乌克兰
-泰国都市航空: 都市航空,泰国都市
-立荣航空公司: 立荣,立荣航空
-中国国际航空股份有限公司: 中国国航,国航
-俄罗斯普尔科沃航空公司: 普尔科沃航空,普尔科沃
-新加坡航空: 新航
-台湾虎航: 法国国内
-意大利航空: 意大利
-印度快线航空公司: 印尼城市快线航空
-阿斯塔纳航空公司: 阿斯塔纳航空,哈萨克斯坦
-海湾航空: 海湾
-冰岛航空: 冰岛
-安哥拉航空公司: 安哥拉航空,安哥拉
-坦桑尼亚航空公司: 坦桑尼亚航空
-飞鸟航空（泰国皇雀航空）: 飞鸟航空,飞鸟
-哈萨克斯坦国际航空: 哈萨克斯坦
-日本航空公司: 日航,日本航空
-韩国大韩航空公司（大韩航空株式会社）: 大韩,大韩航空
-顺丰航空: 顺丰
-奥地利航空: 奥航
-泰国亚洲航空: 泰国亚洲航空公司,泰亚航
-埃及航空: 埃及
-津巴布韦航空: 津巴布韦国家航空公司,津巴布韦
-A-7攻击机: Corsair
-香料航空公司: 印度香料航空
-挪威航空: 挪威
-智利航空: 智利
-俄罗斯雅库特航空公司: 雅库特航空
-远东航空: 远东
-中国飞龙专业航空公司: 飞龙专业航空,飞龙航空
-易斯达航空公司: 易斯达,易斯达航空
-塔希提航空: 塔希提
-蓝色航空: BucharestBăneasa
-高丽航空公司: 高丽航空
-国泰航空有限公司: 国泰航空,国泰
-越南航空: 越南
-塞内加尔共和国: 塞内加尔
-南非航空: 南非
-新西兰航空公司: 新西兰,新西兰航空
-世界航天: 世界航空,世界航
-中华航空股份有限公司: 中华,中华航空
-精神航空公司: 精神航空
-以色列航空: 以色列
-萨哈林航空: 萨哈林
-卡塔尔航空公司: 卡塔尔,卡塔尔航空
-赤塔航空公司: 赤塔航空,赤塔
-鲲鹏航空有限公司: 鲲鹏,鲲鹏航空
-韩亚航空公司: 韩亚航空,韩亚
-湄公航空: 湄公
-中国货运航空: 中货航
-荷兰皇家航空公司: 荷兰皇家航空,荷兰皇家
-长青国际航空: 长青国际
-北欧航空公司: 北欧,北欧航空
-加拿大航空: 加航
-斯里兰卡航空公司: 斯里兰卡,斯里兰卡航空,斯里拉卡航空
-国泰港龙航空: 国泰港龙,港龙,港龙航空
-旅行航空公司: 旅行,旅行航空
-阿尔及利亚航空: 阿尔及利亚
-香港航空有限公司: 香港航空,港航
-爱尔兰航空公司: 爱尔兰航空
-美国联合航空: 美联航
-曼谷航空: 曼谷
-埃塞俄比亚航空: 埃塞俄比亚
-蒙古民用航空: 蒙古航空民用,蒙古
-易易紫: 易秋兰,婷儿,Niki,紫宝贝
-俄罗斯洲际航空: 全禄航空
-利得国际航空公司: 利得国际航空,利得航空
-汤普森航空公司: 汤普森航空,汤普森
-阿塞拜疆航空货运公司: SilkWay,阿塞拜疆航空货运
-埃及休闲航空公司: 埃及休闲
-AirasiaAirline: 印尼亚洲航空
-UkraineInternationalAirlines: 乌克兰国际航空
-德国汉亚航空公司: 汉亚航空,汉亚
-SimpliflyDeccan: Simplifly德干
-维德勒航空公司: 维德勒航空
-马达加斯加航空公司: 马达加斯加,马达加斯加航空
-嘉鲁达印尼航空公司(印度尼西亚): 嘉鲁达印尼,嘉鲁达印尼航空公司,鹰航
-天翼亚洲航空公司: 天翼,天翼亚洲航空
-南非鹈鹕航空: 鹈鹕,鹈鹕航空
-StarAir: 明星航空公司
-阿拉比亚航空: 阿拉伯航空
-Tunisair: 突尼斯航空
-NationalAirServices(NAS): 国家航空服务公司
-卢森堡货运国际航空公司: 卢森堡,卢森堡货运航空
-MalindoAir: 马印航空
-ATAAirlines: 美国泛航航空公司
-OmniAirInternational: 全能国际航空
-澳大利亚欣丰虎航空有限公司: 澳洲虎航
-尼奥斯航空: 尼奥斯航空公司
-NordicAirlink(FlyNordic): 北欧飞行航空
-SaudiGulfAirlines: saudigulf
-WestJetEncoreLtd.: WestJetEncore
-TransaviaFrance: 法国泛航航空
-JC（柬埔寨）国际航空: JC航空,JC国际航空,柬埔寨景成国际航空
-SkyRegionalAirlines: SkyRegional
-AirCairo: 卡里奥航空公司
-I-Fly航空公司: I-Fly航空,I-Fly
-泰国越捷航空公司: 泰国越捷航空
-laoskyway航空公司: Kyrgyz航空公司
-英国国际直升机航空: 英国国际直升机
-美国西南航空公司: SouthwestAirlines
-伏尔加第聂伯航空公司: 伏尔加第聂伯,伏尔加第聂伯航空
-SudanAirways: 苏丹航空
-巴基斯坦蓝色航空公司: 蓝色航空公司
-HOP!航空公司: 法航所属航空
-FrontierAirlines: 边疆航空
-土耳其MNG航空公司: 土耳其MNB航空公司
-MountCookAirlines: MountCook
-尼泊尔皇家航空公司: 尼泊尔皇家航空,尼泊尔皇家
-塞拉太平洋航空公司: 塞拉太平洋,塞拉太平洋航空
-TranStar航空公司: TranStar航空
-TUIfly: 哈帕克－劳埃德快运航空
-Jambojet: jambojet
-克拉斯诺雅茨克航空: 克拉斯,克拉斯航空
-MahanAirlines: 马汉航空
-澜湄航空（柬埔寨）股份有限公司: 澜湄航空,澜媚航空
-捷星太平洋航空: 捷星太平洋
-诺斯达航空公司: 诺斯达,诺斯达航空
-加雷姆航空: 斯加雷姆航空,俄罗斯加雷姆航空
-Yanair: 乌克兰燕航空
-吉尔吉斯斯坦航空公司: 吉尔吉斯斯坦,吉尔吉斯斯坦航空
-SriwijayaAir: 三佛齐航空
-ScottAir: 斯科特航空
-诺德文德航空公司: 诺德文德,诺德文德航空
-玻利维亚航空公司: 玻利维亚航空
-TradewindsAirlines: 信风航空
-ArikAir: 阿利克航空
-BritishAirtours航空公司: BritishAirtours航空
-SkyWings: 天空之翼航空公司
-AZUL-LinhasAereasBrasileiras: LinhasAereasBrasileiras
-飞龙航空公司: 飞龙航空,飞龙
-ThaiSmileAirwaysCompanyLimited: 泰国微笑航空
-德威航空公司: 德威航空,德威
-EznisAirwaysCo.Ltd.: 伊斯尼斯航空
-AtlasGlobalAirlines: Atlasglobal
-缅甸航空公司: 缅甸航空
-施莱纳航空公司公司: 施莱纳航空
-TulipAir: 郁金香航空
-ShaheenAir: 沙欣航空公司
-柬埔寨洞里萨航空: 洞里萨航空,洞里萨
-空桥货运航空公司: 空桥货运航空,空桥货运
-塔吉克斯坦航空公司: 塔吉克斯坦,塔吉克斯坦航空
-太阳之翼航空公司: SunwingAirlines
-布拉森斯区域航空公司: 布拉森斯,布拉森斯区域航空
-巴伐利亚: 巴伐利亚航空,BPA
-Globus航空公司: Globus航空,Globus
-斯凯威航空公司: 斯凯威航空,斯凯威
-乌兹别克斯坦航空公司: 乌兹别克斯坦,乌兹别克斯坦航空
-SmartLynx: SmartLynx航空公司
-Zip: ZIP航空
-AzmanAirServicesLimited: 阿兹曼航空
-马尔代夫美佳航空公司: 西伯利亚泛空,美佳航空
-安琪航空公司: 安琪,安琪航空
-云南英安航空公司: 英安航空
-Aeromar: 大湖航空
-TransafrikInternational: 泛非国际航空
-蒙古航空公司: 蒙古,蒙古航空
-卢森堡意大利航空公司: 卢森堡意大利航空
-OLTExpressGermany: OLT航空公司
-泰国新时代航空公司: 泰国新时代航空
-柬埔寨百善航空公司: 百善航空公司
-西伯利亚航空公司: 西伯利亚,西伯利亚航空
-HelittLíneasAéreas: Helitt航空
-SkyserviceAirlines: 服务航空公司
-伊朗旅行航空公司: 伊朗旅行,伊朗航空旅行
-香港华民航空: 香港,香港华民
-TransliftAirways: 泛空运航空公司
-匈奴航空公司: 蒙古,匈奴航空
-基什航空航空公司: 基什航空航空
-印尼城市快线航空公司: 印尼城市快线航空,印度尼西亚城市快线航空
-SkyAirline: 天空航空公司
-BigSkyAirlines: 大天空航空公司
-VAirCorporation: 威航,台湾威航空
-TransTravelAirlines: 美国海外航空
-文莱皇家航空公司: 文莱皇家航空,文莱皇家
-索蒙航空公司: 索蒙,索蒙航空
-塞内加尔航空公司: TRANSAIR
-伊拉克航空公司: 伊拉克航空,伊拉克
-SunCountryAirlines: 阳光之乡航空
-日本货运航空公司: 日本货运航空,日本货运
-MayaIslandAir: 马雅岛航空公司
-Bukovyna航空公司: Bukovyna航空
-BoraJet航空公司: BoraJet,BoraJet航空
-AirTahitiNui（THT）: 大溪地航空（THT）
-AircompanySomonAirLLC: 索门航空公司
-津巴布韦AvientAviation航空公司: AvientAviation航空,AvientAviation
-宿务太平洋航空公司: 宿务太平洋航空,宿务太平洋
-巴西: 巴西航空
-伊朗阿斯曼航空公司: 阿斯曼,伊朗阿斯曼航空
-加勒比之星航空有限公司: 加勒比之星航空,加勒比之星
-VirginAmerica: 维珍美国航空
-KLMCityhopper航空: 荷兰皇家航空城市短途公司
-土库曼斯坦航空: 土库曼斯坦
-AeroLogic货运: AeroLogic货运航空
+肯尼亚航空: 肯尼亚,KQA,KQ
+美国动力: DYA,American Dynamics,2D
+真航空: JNA,Jin Air,LJ,大韩航空公司,韩国真航空,韩国真
+亚洲航空公司: AK,亚航,亚洲航空,AXM
+德国汉莎航空股份公司: 汉莎,汉莎航空,DLH,LH
+美国航空运输协会: American Air Transport Association,ATA,XD
+春秋航空日本: 春秋,IJ,SJO
+法国航空公司: AF,法国航空,AFR,法航
+马来西亚航空公司: MAS,马航,MH,马来西亚航空
+土耳其航空公司: Turkish Airlines,TK,土耳其航空,THY,土耳其
+土耳其货运航空公司: 土耳其货运航空,9T,RUN,土耳其货运
+加兹伯罗马航空公司: 4G
+克罗地亚航空: OU,Croatia Airlines d.d
+巴拉圭航空公司: REP,巴拉圭地区航空,Lineas Aereas Paraguayas,巴拉圭地区,P7
+波兰航空公司: Polish Airlines,波兰,波兰航空,LO,LOT
+胜安航空公司: SLK,SILKAIR,胜安,Silk Air,MI,胜安航空
+TMA: TL
+可提供业载: available payload
+敦煌国际机场: DNH,Dunhuang Mogao International Airport,敦煌机场,ZLDH
+赛义德易卜拉欣王子机场: 莫罗尼国际机场,FMCH,HAH,مطار الأمير سعيد إبراهيم الدولي‎；Aéroport International Prince Said Ibrahim；Prince Said Ibrahim International Airport,赛义德·易卜拉欣王子国际机场
+德罗什岛机场: Desroches Airport,德罗什机场,DES,FSDR
+鸡西兴凯湖机场: Jixi Xingkaihu Airport,ZYJX,兴凯湖机场,JXA
+德之岛机场: TKN,RJKN
+阿尔皮纳郡地区机场: Alpena County Regional Airport,APN,阿尔皮纳机场,KAPN
+威尼斯马可·波罗国际机场: Aeroporto internazionale di Venezia-Tessera “Marco Polo”（意大利语）、Venice Marco Polo International Airport（英语）,LIPZ,VCE,马可波罗机场
+特克萨卡纳机场: KTXK,TXK,特克萨卡纳地方机场,Texarkana Regional Airport
+里士满机场: RID,KRID,Richmond International Airport
+坦帕机场: KTPA,TAMPA International Airport,TPA
+蓝田机场: ZULZ,LZO,Luzhou Lantian Airport
+黑匣子: black box,航空飞行记录器
+飞行规则: Flight basic rules of the People's Republic of China
+山西航空有限责任公司: Shan Xi Airlines,中国最小航空公司,HAINAN,海南航空,HU,山西航空
+达尼丁国际机场: Dunedin International Airport,DUD,达尼丁机场,NZDN
+民航基础设施建设基金: Public funds
+大气层: atmosphere
+飞行区等级: Airfield area class
+航班: flight number;scheduled flight
+迎角: Angle of attack
+机场: Airport
+空风切变: wind shear
+锋面: Frontal surface
+对流层: troposphere
+福冈机场: 日文:福岡空港，英文:Fukuoka Airport,FUK,RJFF
+堪萨斯城机场: KMKC,MKC,堪萨斯城地方区机场
+西部航空有限责任公司: SWN,西部,PT
+广西北部湾航空有限责任公司: Guangxi Beibu Gulf Airlines,GX,北部湾航空,CBG,浪花/SPRAY
+海南航空股份有限公司: 海航,海南航空,HU,海南/HAINAN,Hainan Airlines Company Limited,CHH
+飞机动力装臵: The aircraft propulsion system
+巴塔机场: BSG,FGBT
+德令哈机场: Haixi Delingha Airport,ZLDL,HXD
+乔莫·肯雅塔国际机场: NBO,HKJK,内罗毕机场,Jomo Kenyatta International Airport（JKIA）
+旭川机场: AKJ,RJEC
+东营胜利机场: Dongying Shengli Airport,DOY,ZSDY,实里达机场
+关岛A.B.WonPat国际机场: GUM,PGUM,关岛机场,Antonio B. Won Pat International Airport
+金奈国际机场: Chennai International Airport,金奈机场,VOMM,MAA
+黄金机场: Ganzhou Gold Airport,ZSGZ,KOW,赣州黄金机场
+别洛亚尔斯克: USHQ,EYK
+实里达机场: WSSL,XSP
+卡萨布兰卡机场: CAS,Casablanca Mohammed V International,GMMC
+埃弗里特: PAE,Antonio B. Won Pat International Airport,KPAE
+太原武宿国际机场: ZBYN,TYN,武宿机场,Taiyuan Wusu International Airport
+温莎机场: Windsor International Airport,YQG,CYQG
+平壤机场: Pyongyang Sunan International Airport,平壤顺安国际机场,平壤首都机场,ZKPY,FNJ
+锡林浩特机场: ZBXH,Xilinhot Airport,XIL
+科珀斯科里斯蒂国际机场: KCRP,Corpus Christi International Airport,CRP,科珀斯科里斯蒂机场
+永州零陵机场: ZGLG,零陵机场,LLF
+安大略机场: Ontario International Airport,安大略国际机场,ONT,KONT
+马公机场: Magong Airport,RCQC,MZG
+圣乔治机场: St. George Municipal Airport,KSGU,SGU,圣乔治地方机场
+突尼斯机场: 苏梅岛机场,Tunis - Carthage International Airport,DTTA,TUN
+朝阳川机场: YNJ,Yanji Chaoyangchuan International Airport（英），연길조양천국제공항（朝）,ZYYJ,延吉朝阳川国际机场
+罗家机场: ZSJD,景德镇罗家机场,Jingdezhen Luojia Airport,JDZ
+昌北机场: 南昌昌北国际机场,KHN,ZSCN,Nanchang Changbei International Airport
+帕特里克空军基地: KCOF,Patrick AFB,COF
+奇科机场: Chico Municipal Airport,KCIC,CIC
+朱诺机场: PAJN,朱诺国际机场,JNU
+佳木斯东郊机场: 东郊机场,Jiamusi Dongjiao International Airport,ZYJM,JMU
+乌里扬诺夫斯克机场: ULV,UWLL,Ulyanovsk Vostochny Airport
+基林机场: KGRK,GRK,Skylark Field
+南苑机场: ZBNY,Beijing Nanyuan Airport,NAY,北京南苑机场
+布鲁金斯机场: BKX
+霍利克劳斯机场: Holy Cross Airport,HCR,PAHC
+遥墙机场: Jinan Yaoqiang International Airport,ZSJN,TNA,济南遥墙国际机场
+莫比尔机场: Mobile Downtown Airport,KBFM,BFM
+苏梅岛机场: USM,Samui Airport,VTSM
+华盛顿杜勒斯国际机场: Washington Dulles International Airport,杜勒斯机场,IAD,KIAD
+西郊机场: XXJ,ZBBB
+沧源佤山机场: ZPCW,Cangyuan Washan Airport,CWJ
+奥什机场: UAFO,OSS,Osh International Airport,奇科机场
+维罗纳机场: VRN,LIPX,Aeroporto di Verona
+成都航空有限公司: 成都,成都航空,EU,CHENGDU AIRLINES CO.,LTD.（英文简称:CHENGDU AIRLINES）,锦绣/United Eagle,UEA
+云南祥鹏航空有限责任公司: 8L,LUCKY AIR,Lucky Air CO.,LTD,祥鹏航空,祥鹏,LKE,859
+北京首都航空有限公司: 898,首都航空,神鹿/Capital Jet,BEIJING CAPITAL AIRLINES CO., LTD.,CBJ,JD
+龙江航空有限公司: 龙江航空,LT,SNG
+福州航空有限责任公司: FZA,涌泉/STRAIT AIR,FU,海南航空股份有限公司,福州航空,Fuzhou Airlines Co,.LTD
+中国东方航空有限公司: 东航,东航/CHINA EASTERN,MU,China Eastern Airlines Corporation Limited,东方航空,CES
+幸福航空: 幸福,JOY,JR,Joyair
+重庆航空有限公司: 重庆,OQ,CHONGQING,重庆航空,Chongqing Airlines Co., Ltd,CQN,中国南方航空股份有限公司
+中国南方航空股份有限公司: 南航,CSN,China Southern Airlines Company Limited,南方/China Southern,CZ,南方航空
+浙江长龙航空有限公司: Zhejiang Loong Airlines Co., Ltd.,GJ,CDC,华龙/Hualong,长龙航空
+九元航空有限公司: JYH,9 Air Co.,Ltd.,九元航空,如意,九元,AQ
+华夏航空股份有限公司: China Express Airlines Co., Ltd.,G5,华夏航空,HXA,华夏
+泰国航空: TG,泰航,THA,Thai Airways International
+春秋航空股份有限公司: Spring Airlines Co,.LTD,春秋,春秋航空,CQH,9C,春秋国旅,AIR SPRING(国内直接呼春秋)
+金鹏航空公司: 金鹏航空,Suparna Airlines Company Limited,YZR,RayaAirways,Y8
+云南红土航空股份有限公司: 红航,A6,红土航空,红土航,HTU
+长荣航空股份有限公司: EVA Airways Corporation,BR,EVA,长荣航空,长荣
+泗水机场: 朱安达国际机场,Banda Udara Internasional Juanda,SUB,WRSJ
+卡拉奇机场: OPKC,KHI,卡拉奇真纳国际机场
+朗维尤机场: KLS,East Texas Regional Airport,KKLS
+马祖北竿机场: IATA:MFK；ICAO:RCMT,RCMT,MFK
+科克机场: ORK,EICK
+魁北克机场: 魁北克让·勒萨热国际机场,YQB,Québec (City) Jean Lesage International Airport,CYQB
+爱丁堡机场: 英语:Edinburgh Airport低地苏格兰语:Port-adhair Dhùn Èideann,EDI,EGPH
+圣路易斯机场: SKIP,Lambert-St. Louis International Airport,圣路易斯机场、兰伯特机场,兰伯特—圣路易斯国际机场,IPI
+榆林榆阳机场: Yulin Yuyang Airport,UYN,榆阳机场,ZLYL
+万鸦老机场: MDC,WAMM
+带广机场: OBO,RJCB
+彼尔姆机场: PEE,USPP,BolshoyeSavinoAirport
+达勒姆国际机场: 罗利机场,KRDU,Raleigh-Durham International Airport,RDU
+群山机场: RKJK,군산공항,KUV
+萨尔瓦多国际机场: ComalapaInternationalAirport,SAL,MSLP
+希门尼斯港机场: PJM,Puerto Jiménez Airport,MRPJ
+太空城（SpaceCity）: HOU,KHOU,休斯顿哈比机场
+比萨机场: PSA,LIRP
+雅温得国际机场: YAO,雅温得机场,YaoundéAirport,FKKY
+沃特福德机场: Aerfort Phort Láirge,EIWF,WAT
+山口宇部机场: RJDC,UBJ
+湛江机场: Zhanjiang Airport,ZGZJ,ZHA
+劳顿地方机场: KLAW,LAW,Lawton-Fort Sill Regional Airport
+诺克斯威尔机场: TYS,KTYS,诺克斯维尔机场,McGhee Tyson Airport
+慕尼黑机场: EDDM,MUC
+夏延机场: Cheyenne Regional Airport,CYS,KCYS
+南库里尔斯克: DEE,YXCM
+六盘水月照机场: ZUPS,Liupanshui Yuezhao Airport,LPF
+苏厄德机场: SWD
+金瓯机场: VVCM,CAH,CA MAU AIRPORT
+温尼伯机场: CYWG,Winnipeg James Armstrong Richardson International Airport,YWG
+阿克塔机场: ACV,KACV
+罗切斯特机场: Greater Rochester International Airport,EGTO,RCS
+滨海机场: Tianjin Binhai International Airport,TSN,ZBTJ,天津滨海国际机场
+让·保尔·马拉: 马拉,KMMV,MMV
+恒春机场: HCN,RCKW
+路易斯维尔机场: 路易斯威尔机场,斯坦迪福德机场,SDF,KSDF
+池州九华山机场: JUH,ZSJH,九华山机场,Chizhou Jiuhuashan Airport
+兰开斯特机场: LNS,KLNS,Lancaster Airport
+印第安纳波利斯机场: Indianapolis International Airport,印第安那波利斯国际机场,IND,KIND
+波特兰喷气机机场: PWM,KPWM,缅因-波特兰机场
+浦那机场: PNQ,Pune International Airport,浦那国际机场,VAPO
+桑福德机场: SFM
+塔什干机场: UTTT,TAS,(乌兹别克语:Toshkent Xalqaro Aeroporti，俄语:Международный Аэропорт Ташкента）,塔什干尤日内机场
+恩厄尔霍尔姆机场: AGH,ESTA,Engel Holm Airport
+阿丰索佩纳机场: CWB,Afonso Pena Airport,SBCT
+梳邦国际机场: WMSA,SZB,吉隆坡梳邦机场,Sultan Abdul Aziz Shah Airport
+坎布里亚郡机场: John Murtha Johnstown-Cambria County Airport,JST,约翰斯顿机场,KJST
+吴哥机场: REP,VDSR,Angkor International Airport,吴哥窟机场
+库利亚布: UTDK,TJU,吴哥窟机场
+井冈山机场: ZSGS,JGS,Jinggangshan Airport
+布琼布拉机场: HBBA,Bujumbura International Airport,BJM
+高松机场: TAK,RJOT,TAKAMATSU Airport
+新西伯利亚机场: Novosibirsk Tolmachevo Airport,OVB,UNNT
+科迪亚克机场: PADQ,Kodiak Airport,ADQ
+长水机场: ZPPP,Kunming Changshui International Airport,昆明长水国际机场,KMG
+巨港机场: WIPP,Sultan Mahmud Badaruddin II Airport,PLM
+阿斯特拉罕机场: URWA,ASF,Narimanovo Airport
+辛辛那提机场: KCVG,Cincinnati/Northern Kentucky International Airport,辛辛那提国际机场,CVG
+西双版纳机场: ZPJH,JHG,西双版纳嘎洒国际机场,Xishuangbanna Gasa International Airport
+巴林国际机场: BAH,OBBI,مطار البحرين الدولي‎,巴林机场
+南阳姜营机场: 姜营机场,NNY,ZHNY,Nanyang Jiangying Airport
+百慕大国际机场: TXKF,L.F. Wade International Airport,BDA
+拉萨贡嘎国际机场: Lhasa Kongga International Airport,LXA,贡嘎机场,ZULS
+库斯科机场: SPZO,CUZ
+拉奈岛机场: LNY,PHNY,LānaʻiAirport,拉奈机场
+温哥华国际机场: CYVR,Vancouver International Airport,温哥华机场,YVR
+合艾机场: HDY,VTSS,Hat Yai International Airport
+阿斯图里亚斯机场: Asturias Airport,OVD,LEAS
+六盘山机场: Guyuan Liupanshan Airport,GYU,固原机场,ZLGY
+腓特烈港机场: 德语:Flughafen Friedrichshafen,博登湖机场（Bodensee-Airport）,EDNY,FDH
+加格达奇机场: 加格达奇嘎仙机场,Jiagedaqi Gaxian Airport,JGD,ZYJD
+霍夫机场: Hof International Airport,HOQ,EDQM
+喀山机场: KZN,UWKD,鞑靼斯坦语:Qazan Xalıqara Hawalimanı
+潍坊机场: ZSWF,潍坊南苑机场,Weifang Nanyuan Airport,WEF
+蒙巴萨国际机场: 莫伊国际机场,HKMO,Mombasa Moi International Airport,MBA
+台东机场: Taitung Airport,TTT,RCQS
+克兰布鲁克机场: YXC,CYXC
+维鲁维鲁国际机场: SLVR,VVI,Viru Viru International Airport
+大兴机场: 北京大兴国际机场,ZBAD,Beijing Daxing International Airport,PKX
+摩加迪沙国际机场: HCMM,MGQ,Mogadishu International Airport
+匹兹堡机场: Pittsburgh International Airport,PIT,匹兹堡国际机场,KPIT
+奥格登斯堡机场: OGS,KOGS
+青莱机场: VTCT,ท่าอากาศยานเชียงราย,CEI,清莱机场
+阿尔汉格斯克机场: ARH,ULAA,Arkhangelsk Airport
+阿里亚皇后机场: 安曼阿利亚皇后机场,AMM,Queen Alia International Airport,OJAI
+锡亚尔科特机场: SKT,锡亚尔科特国际机场,OPST,سیالکوٹ بین الاقوامی ہوائی اڈا
+罗阿坦机场: MHRO,RTB
+哈纳机场: PHHN,HNM,Hana Airport
+帕兰加国际机场: EYPA,Tarptautinis Palangos oro uostas,PLQ
+卢萨卡机场: 卢萨卡国际机场,LUN,Lusaka International Airport,FLLS
+奥斯陆机场: OSL,ENGM,Oslo Airport, Gardermoen
+伊春林都机场: Yichun Lindu Airport,ZYLD,林都机场,LDS
+西蒙斯诺特机场: EWN,Simmons Nott Airport,KEWN
+萨那国际机场: OYSN,SAH,萨那机场,Sana'a International Airport
+大章克兴机场: GJT,KGJT
+普吉国际机场: Phuket International Airport,拉各斯机场,DNMM,LOS
+巴西利亚机场: BSB,巴西利亚国际机场,SBBR,Brasília International Airport
+梅肯机场: MCN,Middle Georgia Regional Airport,KMCN,路易斯－威尔逊机场
+萨格勒布机场: ZAG,LDZA,Zračna luka Zagreb/Zagreb Airport
+考卡西亚机场: SKCU,Caucasia Airport or Juan H. White Airport,CAQ
+列日机场: LGG,法语:Aéroport de Liège,EBLG
+里昂机场: 里昂圣埃克絮佩里机场,LFLL,Aéroport Lyon Saint-Exupéry,LYS
+尼雷尔国际机场: DAR,Julius Nyerere International Airport,HTDA,达累斯萨拉姆机场
+莱比锡机场: Leipzig/Halle Airport,EDDP,LEJ
+宫古机场: ROMY,MMY,平假名:みやこくうこう；英文Miyako Airport
+菲利普比拉德机场: TOP,KTOP,罗阿坦机场,Philip Billard Municipal Airport
+亚历山大机场: El Nouzha Airport,ALY,HEAX
+安塔那那利佛机场: 塔那那利弗伊瓦图机场,TNR,FMMI
+金门尚义: Kinmen Airport,KNH,RCBS,金门航空站
+高崎机场: XMN,ZSAM,Xiamen Gaoqi International Airport,厦门高崎国际机场
+昆西机场: KMQI,Quincy Regional Airport,MQI
+金湾机场: ZGSD,Zhuhai Jinwan Airport,ZUH,珠海金湾国际机场
+哥伦比亚机场: CAE,KCAE,Columbia Metropolitan Airport
+白沙瓦机场: PEW,OPPS
+庄内机场: SYO,RJSY
+马德里机场: MAD,Aeropuerto de Madrid-Barajas,LEMD
+安德鲁斯空军基地: KADW,ADW
+克利夫兰机场: KCLE,Cleveland Hopkins International Airport,CLE
+吉达阿卜杜勒—阿齐兹国王国际机场: King Abdulaziz International Airport,阿卜杜勒-阿齐兹国王机场,OEJN,JED
+科科拉机场: KOK,Kokkola Airport,EFKK
+努瓦克肖特机场: NKC,GQNN
+武夷山机场: WUS,ZSWY
+舟山普陀山机场: 普陀山机场,Zhoushan Putuoshan Airport,HSN,ZSZS
+函馆机场: RJCH,HKD
+布兰森: BKG,KBBG
+奥尔比亚机场: LIEO,奥比亚机场,Olbia-Costa Smeralda Airport,OLB
+南郊机场: ZUMY,Mianyang Nanjiao Airport,MIG,绵阳南郊机场
+圣巴巴拉机场: SBA,KSBA,SantaBarbaraMunicipalAirport
+米兰李罗德机场: 利纳特机场,Aeroporto di Milano-Linate,LIN,LIML
+萨尔斯堡机场: SZG,LOWS,SalzburgAirportW.A.Mozart,萨尔茨堡机场
+福德机场: IMT,KIMT,Ford Airport
+塞班国际机场: PGSN,塞班机场,SPN
+布拉瓦约机场: Joshua Mqabuko Nkomo International Airport,FVBU,BUQ
+托莱多机场: TOW,SBTD
+图森机场: TUS,KTUS
+麦库克机场: MCK,McCook Regional Airport,KMCK
+迈诺特国际机场: MOT,Minot International Airport,KMOT,迈诺特机场
+迈诺特机场: 山海关机场,SHP,Minot International Airport,ZBSH
+大水泊机场: Weihai International Airport,威海国际机场,ZSWH,WEH
+基辅机场: Boryspil International Airport,UKKK,IEV
+马普托机场: MPM,FQMA
+史密瑟斯机场: CYYD,YYD,Smithers Airport
+格林斯博罗机场: GSO,KGSO,信风航空公司
+于默奥机场: ESNU,Ume&aring; Airport,UME
+哈瓦那机场: Havana Jose Marti International Airport/Aeropuerto José Martí,HAV,哈瓦那何塞马蒂机场,MUHA
+北本德机场: North Bend Municipal Airport,KOTH,OTH
+布卢梅瑙机场: BNU,绵阳南郊机场,SSBL
+奥克兰机场: Oakland International Airport（美国）  Auckland International Airport（新西兰）,OAK,KOAK
+乌法机场: UFA,UWUU,МеждународныйаэропортУфа
+大分机场: Oita Airport,RJFO,OIT
+七美机场: RCCM,Qimei Airport,CMJ
+卡利亚里机场: 卡利阿里机场,Cagliari Elmas Airport,CAG,LIEE
+奥古斯托塞萨尔桑迪诺机场: MGA,MNMG,Aeropuerto Internacional Augusto C. Sandino
+贝尔莫潘机场: BCV,Belmopan Airport
+成都双流国际机场: ZUUU,双流机场,CTU,Chengdu Shuangliu International Airport
+夏洛特敦机场: YYG,Charlottetown Airport,CYYG
+卡尔斯塔德机场: KSD,ESOK,Karlstad
+佛罗伦萨-佩雷托拉亚美利哥·韦斯普奇国际机场: 佛罗伦撒机场,FLR,Aeroporto Internazionale di Firenze-Peretola "Amerigo Vespucci",LIRQ
+太子港国际机场: Port Au Prince Toussaint Louverture International Airport,PAP,MTPP
+奥古斯塔机场: AUG,KAUG,Augusta State Airport
+科苏梅尔机场: Cozumel International Airport,MMCZ,CZM
+瑙鲁国际机场: INU,瑙鲁岛国际机场,Nauru International Airport,ANYN
+衡阳南岳机场: Hengyang Nanyue Airport,ZGHY,HNY
+国家公园机场: KGCN,大峡谷机场,GCN
+贝尔贝克机场: UKS,UKFB
+大急流城机场: GPZ,Grand Rapids Gerald R Ford International Airport,KGPZ
+栎社机场: Ningbo Lishe International Airport,NGB,ZSNB,宁波栎社国际机场
+楠普拉机场: NAMPULA,FQNP,APL
+宜春明月山机场: Yichun Mingyueshan Airport,ZSYC,YIC
+穆拉宾机场: YMMB,MBW
+米苏拉机场: 约翰逊贝尔机场,KMSO,MSO
+富蕴机场: Fuyun Koktokay Airport,FYN,ZWFY
+普雷斯科特机场: ErnestA.LoveField,KPRC,PRC
+广汉机场: 杜阿拉机场,中国民航飞行学院,ZUGH,GHN
+马亚马亚机场: FCBB,BZV,Maya Maya Airport
+林肯地方机场: KLNK,Lincoln Airport,LNK
+雅典国际机场: 雅典机场,Athens Eleftherios Venizelos Airport,ATH,LGAV
+欧克莱尔机场: KEAU,EAU,Chippewa Valley Regional Airport
+桃花源机场: ZGCD,常德桃花源机场,Changde Taohuayuan Airport,CGD
+澳门机场: 澳门国际机场,VMMC,MFM,英:Macao International Airport葡:Aeroporto Internacional de Macau
+纽埃国际机场: NIUE,Niue International Airport,IUE,哈南机场
+斯图加特机场: STR,EDDS,Flughafen Stuttgart
+杰克逊霍勒机场: JAC,KJAC
+弗卢勒机场: FRO,ENFL,Flor&oslash; Airport
+米拉贝尔机场: YMX,CYMX,Montréal-Mirabel International Airport
+三池渊机场: YJS
+济洲机场: 济州机场,제주국제공항,RKPC,CJU
+瓦拉纳西机场: VNS,Varanasi Airport,VIBN
+苏城机场: Sioux Gateway Airport,SUX,KSUX,苏城门户机场
+金斯敦机场: MKJP,KIN,Norman Manley International Airport
+义乌机场: Yiwu Airport,YIW,ZSYW
+杜阿拉机场: DLA,Aéroport international de Douala,FKKD
+阿拉木图机场: UAAA,Almaty International Airport,ALA
+大邱国际机场: TAE,RKTN,韩语:대구국제공항，英语:Daegu International Airpot,大邱机场
+费耶特维尔地方机场: Fayetteville Regional Airport,KFYV,费耶特维尔机场,FYV
+荔波机场: LLB,Libo Airport,ZULB
+圣菲机场: SantaFeMunicipalAirport,SAAV,SFN
+汉密尔顿机场: Hamilton International Airport,HLZ,NZHN
+诺福克机场: KORF,ORF
+泉州晋江国际机场: Quanzhou Jinjiang International Airport,JJN,ZSQZ,晋江机场
+苏福尔斯机场: Joe Foss Field,FSD,苏福尔斯地区机场,KFSD
+锡达城机场: KCDC,Cedar City Regional Airport,CDC
+雅西机场: Iaşi International Airport,LRIA,IAS
+卡斯珀机场: CPR,Natrona County International Airport,KCPR
+营口兰旗机场: Yingkou Lanqi Airport,YKH,ZYYK
+科威特国际机场: KWI,OKBK
+昭通机场: Zhaotong Airport,ZPZT,ZAT
+斯潘塞地方机场: Spencer Municipal Airport,KSPW,SPW,斯潘塞机场
+卡鲁普机场: Karup,KRP,EKKA
+汤斯维尔机场: YBTL,TSV
+塞舌尔国际机场: 塞舌尔机场,FSIA,SEZ,Seychelles International Airport
+苏圣玛丽机场: SaultSte.MarieAirport,YAM,CYAM
+亚庇国际机场: 亚庇机场,BKI,WBKK,Kota Kinabalu Airport
+贝尔法斯特市机场: George Best Belfast City Airport,EGAC,BHD,乔治·贝斯特贝尔法斯特城市机场
+都柏林机场: Dublin International Airport,EIDW,DUB
+郑州新郑国际机场: Zhengzhou Xinzheng International Airport,ZHCC,CGO,新郑机场
+秋田机场: Akita Airport,RJSK,AXT
+圣胡安路易斯·穆尼奥斯·马林国际机场: 苏莱曼尼亚机场,ISU,Luis Muñoz Marín International Airport/Aeropuerto Internacional Luis Muñoz Marín,ORSU
+香格里拉机场: ZPDQ,迪庆香格里拉机场,Diqing Shangrila Airport,DIG
+重庆万州五桥机场: Wanzhou Wuqiao Airport,五桥机场,ZUWX,WXN
+武端机场: BXU,RPWE
+维也纳国际机场: LOWW,VIE,Flughafen Wien-Schwechat
+霍希库塔科机场: Kutako International Airport,FYWH,WDH,霍希库塔科国际机场
+秦皇岛北戴河机场: ZBDH,Qinhuangdao Beidaihe Airport,BPE,秦皇岛北戴河国际机场
+伊丽莎白港机场: PLZ,FAPE
+拉巴斯机场: 拉巴斯埃尔阿托机场,SLLP,LPB
+思茅机场: 普洱（思茅）机场机,SYM,ZPSM,Puer Simao Airport
+肯尼迪机场: 纽约约翰·菲茨杰拉德·肯尼迪国际机场,JFK,John F. Kennedy International Airport,纽约肯尼迪机场,KJFK
+横田空军基地: Yokota Air Base,RJTY,OKO
+库车机场: KCA,ZWKC
+下诺夫哥罗德机场: UWGG,GOJ,Strigino Airport
+伊利机场: KELO,Yining Airport,LYU
+科米索机场: Comiso Airport/Magliocco Aerodromo,CIY,LICB
+贝克利机场: BKW,KBKW,Raleigh County Memorial Airport
+迈尔斯城机场: MLS,迈尔斯城地方机场,KMLS,Miles City Municipal Airport
+斯塔万格机场: ENZV,Stavanger Airport, Sola,SVG
+朗勃拉邦机场: 琅勃拉邦国际机场,LPQ,VLLB,Luang Prabang Airport
+梅州机场: ZGMX,Meizhou Meixian Airport,长岗岌机场,MXZ
+亚罗士打机场: Sultan Abdul Halim Airport,WMKA,AOR
+伯明翰机场: EGBB,伯明翰国际机场,BHX,Birmingham International Airport
+扎兰屯成吉思汗机场: NZL,ZBZL
+长治王村机场: ZBCZ,Changzhi Wangcun Airpor,CIH,王村机场
+长崎机场: NGS,RJFU
+阿什维尔地区机场: KAVL,AVL,Asheville Regional Airport
+种子岛机场: RJFG,TNE,Tanegashima Airport
+沈阳桃仙国际机场: 桃仙机场,ZYTX,SHE,Shenyang Taoxian International Airport
+迪比克机场: DBQ,迪比克地方机场,KDBQ,향도하다 더 그램 공항
+通辽机场: ZBTL,Tongliao Airport,TGO
+巴拉科阿机场: 巴拉科阿古斯塔沃利索机场,MUBA,BCA
+布达佩斯机场: BUD,布达佩斯李斯特•费伦茨国际机场,LHBP,Budapest Liszt Ferenc Nemzetközi Repülőtér
+齐齐哈尔三家子机场: 三家子机场,ZYQQ,Qiqihar Sanjiazi Airport,NDG
+广岛机场: HIJ,Hiroshima Airport,RJOA
+里贾纳机场: CYQR,YQR,Regina International Airport
+巴兰基亚机场: Ernesto Cortissoz International Airport,SKBQ,BAQ
+那霸国际机场: NAH,WAMH,那霸机场,Naha International Airport
+哈尔格萨机场: HGA,HCMH,法兰克福哈恩机场
+檀香山国际机场: HNL,火奴鲁鲁机场,PHNL
+圣玛丽亚公共机场: SMX,KSMX,圣玛丽娅机场,Aeropuerto Internacional Juan Santamaría
+松兹瓦尔机场: Sundsvall-H&auml;rn&ouml;sand Airport,ESNN,SDL
+女满别机场: RJCM,MMB
+安庆天柱山机场: AQG,Anqing Tianzhushan Airport,ZSAQ
+得梅因机场: KDSM,DSM,德梅因机场
+克拉克斯堡机场: North Central West Virginia Airport,KCKB,CKB
+圣弗朗西斯科: SFO,三藩市,KSFO,旧金山机场
+林茨机场: LNZ,LOWL
+卢克空军基地: LUF,KLUF
+利耶帕亚机场: EVLA,LPX
+扎恩德里加机场: SMJP,Rīgas Starptautiskā Lidosta,PBM
+戈代/伊迪多勒机场: HAGO,GDE
+麦考尔－洛佩兹机场: LRT2,CIO
+塞利巴比机场: GQNS,SEY
+坎波国际机场: CZS,SBCZ
+纽波特机场: KNOP,ONP,NewportNews/WilliamsburgInternationalAirport
+皎漂机场: VYKP,KYP
+塔马塔夫机场: FMMT,TMM
+基图伊贝水上飞机机场: KKB
+麦尔维尔哈尔机场: DOM,TDPD
+和平机场: 日喀则和平机场,Shigatse Heping Airport,ZURK,RKZ
+台南机场: Tainan Airport,RCNN,TNN
+屋久岛机场: RJFC,KUM
+香农机场: SNN,EINN
+关丹机场: WMKD,KUA
+史密斯堡地方机场: KFSM,Fort Smith Regional Airport,FSM,史密斯堡机场
+法兰克福哈恩机场: EDFH,Frankfurt-Hahn Airport,HHN
+克久拉霍机场: 法兰克福哈恩机场,Khajuraho Airport,VAKJ,HJR
+因斯布鲁克机场: Innsbruck Kranebitten Airport,LOWI,INN
+长沙黄花国际机场: 长沙黄花机场,ZGHA,Changsha Huanghua International Airport,CSX
+罗托鲁阿机场: RotoruaAirport,ROT,NZRO
+法兰克福国际机场: 法兰克福机场,EDDF,FRA,Frankfurt Airport
+谢莱夫特奥机场: ESNS,Skellefte&aring Airport,SFT
+詹姆斯敦机场: JMS,KJMS
+霍巴特机场: HBR,KHBR,Hobart International Airport
+瑞安机场: KBTR,BTR,巴吞鲁日机场
+伏尔加格勒机场: URWW,VOG
+屏东机场: RCDC,PIF
+坦佩雷机场: TMP,EFTP
+大西洋城国际机场: KACY,ACY,ACY,KACY,ACY
+纽卡斯尔机场: 黄果树机场,AVA,TKPN
+武汉天河国际机场: ZHHH,WUH,天河机场,Wuhan Tianhe International Airport
+仙台机场: RJSS,SDJ
+伯灵顿机场: KBRL,仙台机场,BRL
+博洛尼亚机场: LIPE,BLQ,Aeroporto di Bologna-Guglielmo Marconi
+长春龙嘉国际机场: Changchun Longjia International Airport,CGQ,龙嘉机场,ZYCC
+的黎波里机场: TIP,HLLT,TIP,HLLT,的黎波里国际机场
+中川机场: ZGC,兰州中川国际机场,ZLAN,Lanzhou Zhongchuan International Airport
+福江机场: Fukue Airport,FUJ,RJFE
+奥兰多桑福德机场: 桑福德机场,SFB,KSFB
+埃罗斯机场: Eros Airport,ERS,FYWE
+盘龙机场: 博乐机场,GYS,Guangyuan Panlong Airport,ZUGU
+博鳌机场: 博鳌国际机场,BAR,ZJQH,Qionghai Boao Airport
+樟宜机场: SIN,新加坡樟宜国际机场,Singapore Changi Airport,WSSS
+科利佐沃机场: USSS,叶卡捷琳堡机场,Аэропорт Кольцово,SVX
+贵阳龙洞堡国际机场: ZUGY,Guiyang Longdongbao International Airport,龙洞堡机场,KWE
+八丈岛机场: 平假名:はちじょうじまくうこう 英文:Hachijojima Airport),HAC,RJTH
+彭德尔顿机场: EasternOregonRegionalAirport,PDT,KPDT
+宝安机场: 深圳宝安国际机场,SZX,ZGSZ,Shenzhen Bao'an International Airport
+帕克斯机场: YPKS,Parkes Airport,PKE
+奥马哈机场: OMA,Eppley Airfield Airport,奥马哈国际机场,KOMA
+萨斯卡通机场: YXE,CYXE
+巴库比纳机场: UBBB,Heydar Aliyev International Airport,GYD
+拉塔基亚机场: 巴西勒·阿萨德国际机场,LTK,OSLK
+布里奇敦国际机场: 布里奇敦,TBPB,BGI
+雷丁机场: KRDD,ReddingMunicipalAirport,RDD
+成田国际机场: NRT,Narita International Airport,成田机场,RJAA
+蒙克顿国际机场: CYQM,YQM,蒙克顿机场
+阿拉山口机场: 博乐机场,Bole Alashankou Airport,ZWBL,BPL
+马尼拉机场: RPLL,MNL
+潘泰莱里亚机场: 潘泰莱里亚岛机场,LICG,PantelleriaAirport,PNL
+喀麦隆航空公司: UY,Cameroon Airlines
+捷星亚洲: 3K,JSA
+科摩罗航空: GG,科摩罗国际航空,HAH,科摩罗
+新加坡酷航航空公司: Scoot Airways,SCO,酷航,TR
+巴基斯坦航空: PK
+UPS快递: 5X,UPS
+复兴航空: 复兴,GE,TransAsia Airways,TNA,TransAsia
+美国西北航空公司: 美国西北航空,美西北,NWA,Northwest,NW,Northwest Airlines Corporation
+迪拜航空公司: FDB,FZ
+阿提哈德航空: ETD,Etihad,Etihad Airways,EY,阿联航
+乌拉尔航空公司: 乌拉尔,SVR,Ural Airlines,U6,乌拉尔航空
+白俄罗斯航空公司: Belavia Belarusian Airlines,B2
+老挝航空: Lao Aviation,老挝,QV,LAO
+阿鲁巴皇家航空公司: RYL,V5,阿鲁巴航空
+厄立特里亚航空: B8,ERT,厄立特里亚
+北欧航空公司: SK,SAS,北欧航空,Scandinavian Airlines Systems,北欧
+环欧航空公司: HE,Trans European Airlines
+三义机场: 丽江三义国际机场,ZPLJ,Lijiang Sanyi International Airport,LJG
+艾因国际机场: OMAL,AAN,艾因机场
+尤里卡机场: CYEU,YEU
+马拉加机场: AGP,LEMG,Pablo Ruiz Picasso Airport
+朱巴机场: HSSJ,JUB,Juba International Airport
+范登堡空军基地: KVBG,VBG
+伊斯兰堡机场: Islamabad International Airport,OPRN,ISB,伊斯兰堡贝娜齐尔·布托国际机场
+中卫沙坡头机场: ZHY,Zhongwei Shapotou Airport,ZLZW
+班加罗尔机场: 班加罗尔国际机场,Bengaluru International Airport,VOBL,BLR
+希思罗机场: Heathrow Airport,伦敦希思罗国际机场,EGLL,LHR
+阿迪苏马尔默机场: SOC,WRSQ,Adnan Menderes Airport
+瓦科机场: ACT,瓦科地区机场,KACT
+兰萨罗特市机场: 兰萨罗特机场,GCRR,ACE,Lanzarote Airport
+桑德贝机场: CYQT,Thunder Bay Airport,YQT
+利隆圭国际机场: Lilongwe International Airport,LLW,FWLI,利隆圭机场
+昌都邦达机场: Qamdo Bangda Airport,ZUBD,BPX
+圣保罗岛机场: SNP,PASN,St. Paul Island Airport
+珀斯国际机场: EGPT,PSL,Perth International Airport
+里斯本机场: Lisbon Portela Airport,福冈机场,LPPT,LIS
+格雷希尔公园机场: KGPI,格雷希尔国际公园机场,FCA,Glacier Park International Airport
+斯卡圭地方机场: Skagway Airport,PAGY,斯卡圭机场,SGY
+华沙机场: 华沙-奥肯切弗里德里克·肖邦机场,EPWA,WAW
+驼峰机场: Tenchong Tuofeng Airport,ZPTC,TCZ
+萨尔布吕肯机场: EDDR,SCN,Flughafen Saarbrücken
+黑河机场: ZYHE,HEK,Heihe Aihui Airport,黑河瑷珲机场
+阿坝红原机场: ZUHY,AHJ,Aba Hongyuan Airport
+圣安东尼奥机场: SVSA,SVZ,SanAntonioInternationalAirport
+大福克斯机场: KGFK,GFK
+青山机场扩建工程: 青山机场,XIC,ZUXC
+南特机场: NTE,LFRS,Aéroport de Nantes-Atlantique
+迪拜机场: OMDB,DXB,Dubai International Airport
+基苏木机场: Kisumu Airport,HKKI,KIS
+纳塔尔机场: :Augusto Severo Airport,SBNT,NAT
+北京首都国际机场: PEK,首都机场,ZBAA,Beijing Capital International Airport
+尤金机场: EUG,Eugene Airpor,KEUG
+大岛机场: RJTO,OIM
+西黄石机场: WYS,KWYS,Yellowstone Airport
+择捉岛: BVV
+威奇塔瀑布市机场: Sheppard AFB,威奇托福尔斯机场,KSPS,SPS
+达尔文机场: DRW,YPDN
+阿马里洛机场: AMA,Amarillo International Airport,里克·哈兹班德阿马里洛国际机场,KAMA
+塔城机场: Tacheng Airport,ZWTC,TCG
+乌兰察布集宁机场: UCB,ZBWL,Ulanqab Tsining Airport
+圣约翰机场: YSJ,CYSJ,Saint John Airport
+沃特敦机场: KATY,Watertown Regional Airport,ATY
+伦敦城市机场: EGLC,伦敦城机场,London City Airport,LCY
+波尔多机场: Bordeaux - Mérignac Airport,BOD,LFBD
+巴里机场: BRI,LIBD,Palese Macchie Airport
+纳什维尔机场: BNA,KBNA,Nashville International Airport
+阿尔维斯尧尔机场: AJR,ESNX,Arvidsjaurflygplats
+多巴哥岛国际机场: TTCP,Crown Point International Airport,TAB,多巴哥岛机场
+比亚里茨机场: Biarritz - Anglet - Bayonne Airport,LFBZ,BIQ
+奥尻机场: OIR,RJEO
+波士顿机场: BOS,General Edward Lawrence Logan International Airport,KBOS
+张家口机场: ZQZ,张家口宁远机场,Zhangjiakou Ningyuan Airport,ZBZJ
+特隆赫姆机场: ENVA,TRD,Trondheim Airport, V&aelig;rnes
+波兹南机场: POZ,EPPO,Poznań-Ławica Airport
+马塞卢机场: MSU,FXMM
+锦州湾国际机场: ZYJZ,Jinzhou Jinzhouwan Airport,JHZ
+富吉机场: VVQN,UIH
+亚穆苏克罗机场: Yamoussoukro Airport,ASK,DIYO
+小松机场: KMQ,RJNK
+阿巴坎机场: UNAA,Abakan International Airport,ABA
+格林贝机场: KGRB,GRB
+罗萨里奥机场: RSJ,ROSARIO Airport
+布拉格瓦茨拉夫・哈维尔国际机场: 布拉格机场,LKPR,PRG,Václav Havel Airport Prague
+约夫机场: DKR,GOOY,Dakar Yoff International Airport
+罗瓦涅米机场: EFRO,RVN
+马林迪机场: Malindi Airport,HKML,MYD
+汉诺威机场: EDDV,HAJ,Hanover/Langenhagen International Airport
+莲姜国际机场: S渀 bay Liên Kh渁最,VVDL,DLI
+锡吉里耶: GIU,张家界荷花国际机场,VCCS
+埃尔科机场: KEKO,Elko Regional Airport,EKO
+奥尔堡机场: AAL,Aalborg Airport,EKYT
+罗阿诺克机场: 罗阿诺克地方机场,ROA,KROA,Roanoke Regional Airport
+玛丽港机场: EFMA,Mariehamns Flygplats,MHQ
+宁蒗泸沽湖机场: ZPNL,NLH,Ninglang Luguhu Airport
+阿勒泰机场: Altay Airport,ZWAT,AAT
+阿斯塔纳机场: UACC,TSE,Nursultan Nazarbayev International Airport
+荷马机场: PAHO,HOM,Homer
+卑尔根Flesland机场: 卑尔根机场,BGO,ENBR
+北郊机场: LYA,Luoyang Beijiao Airport,洛阳北郊机场,ZHLY
+四川航空股份有限公司: 四川航空,川航,CSC,3U,Sichuan Airlines Co., Ltd
+乌鲁木齐航空有限责任公司: 乌鲁木齐航空,CUH[4],乌航,楼兰/Loulan,UQ[4],海南航空股份有限公司,Urumqi Airlines Co. Ltd.
+桂林航空: GT,AIR GUILIN,CGH
+山东航空股份有限公司: 山东SHANDONG,Shandong Airlines CO., LTD.,山东航空,CDG,山航,SC
+天津航空有限责任公司: 渤海Bohai,天津航,Tianjin Airlines,GS,天津航空,GCR,天航
+瑞丽航空有限公司: SENDI,瑞航,瑞丽航空,RLH,DR,Ruili Airlines
+奥凯航空有限公司: BK,Okay Airways Company Limited,奥凯,奥凯航空,OKA
+东海航空有限公司: EPA,DZ,东海航空
+上海航空股份有限公司: Shanghai Airlines co., LTD,上航,CSH,上海航空,FM,中国东方航空股份有限公司,上航/Shanghai Air
+深圳航空有限责任公司: Shenzhen Airlines,深航,ZH,深圳航空,CSZ
+厦门航空有限公司: 白鹭/XIAMEN AIR,厦门航空,厦航,XIAMEN AIR,CXA,MF
+法鲁机场: Faro Airport,FAO,LPFR
+白塔埠机场: 连云港白塔埠机场,LYG,Lianyungang Baitabu Airport,ZSLG
+杰克逊维尔机场: KOAJ,OAJ
+三宅岛机场: MYE,RJTQ
+高坪机场: NAO,南充高坪机场,ZUNC,Nanchong Gaoping Airport
+纳尔逊机场: Nelson Airport,NSN,NZNS
+鞍山机场: 腾鳌机场,AOG,Anshan Teng'ao Airport,ZYAS
+张家界荷花国际机场: ZGDY,Zhangjiajie Hehua International Airport,DYG,荷花机场
+罗得岛迪亚戈拉斯国际机场: Κρατικός Αερολιμένας Ρόδου, "Διαγόρας",LGRP,RHO
+黄石区域机场: 科迪机场,COD,KCOD
+河东机场: INC,ZLIC,Yinchuan Hedong International Airport,银川河东国际机场
+水牛城机场: BUF,KBUF,奥尔堡机场
+米切尔将军国际机场: General Mitchell International Airport，MKE,KMKE,MKE,米切尔机场
+雷克雅未克国内机场: Reykjavík Airport,BIRK,RKV
+布卢明顿机场: KBMG,BMG,Monroe County Airport
+天水麦积山机场: 麦积山机场,THQ,ZLTS,Tianshui Maijishan Airport
+贝尔普伯尔尼机场: LSZB,贝尔普机场,BRN,Flughafen Bern
+设拉子机场: فرودگاه بین المللی شهید آيت‌الله دستغیب,SYZ,OISS
+铜仁凤凰国际机场: 凤凰机场,ZUTR,TEN,Tongren Fenghuang Airport
+墨尔本国际机场: Melbourne International Airport,MLB,KMLB
+美兰机场: ZJHK,海口美兰国际机场,HAK,Haikou Meilan International Airport
+伊胡机场: IHU
+班吉机场: 班吉姆波科机场,FEFF,BGF,Bangui M'Poko International Airport
+三明沙县机场: SQJ,Sanming Shaxian Airport,ZSSM
+加尔各答机场: VECC,CCU
+拉罗马纳机场: La Romana International Airport,LRM,MDLR
+阿斯马拉机场: 阿斯马拉国际机场,ASM,Asmara International Airport,HHAS
+哈尔滨太平国际机场: Harbin Taiping International Airport,HRB,ZYHB,太平机场
+保安营机场: 兰斯机场,PZI,Panzhihua Baoanying Airport,ZUZH
+花土沟机场: HTT,Haixi Huatugou Airport,ZLHX
+金浦国际机场: RKSS,GMP,김포국제공항
+安康富强机场: Ankang Fuqiang Airport,ZLAK,安康机场,AKA
+三亚凤凰国际机场: 凤凰机场,ZJSY,SYX,Sanya  Phoenix International Airport
+台湾桃园国际机场: TPE,Taiwan Taoyuan International Airport,RCTP
+石见机场: RJOW,岩见机场,IWJ
+玉龙机场: 赤峰玉龙机场,ZBCF,CIF,Chifeng Yulong Airport
+茨城机场: RJAH,IBR
+伊尔施机场: Arxan Yi'ershi Airport,ZBES,和田机场,YIE
+纽伦堡机场: EDDN,NUE
+杜兰戈·拉普拉塔机场: KDRO,DRO,Durango-La Plata County Airport,杜兰戈机场
+格尔木机场: Geermu Airport,GOQ,ZLGM
+佛山沙堤机场: 沙堤机场,Foshan Shadi Airport,佛山机场,FUO,ZGFS
+波城机场: PUF,LFBP,PyreneesAirport
+兰斯机场: LFSR,Reims Airport,RHE
+清迈机场: 泰语:ท่าอากาศยานเชียงใหม่，英语:Chiang Mai International Airport,清迈国际机场,VTCC,CNX
+孟买迪拜机场: Chatrapati Shivaji International Airport,BOM,VABB,孟买机场
+南竿机场: LZN,RCFG,Nankan Airport
+浦项机场: KPO,韩语:포항공항；英语:Pohang Airport,RKTH
+布特米尔机场: Salajevo International Airport,萨拉热窝国际机场,LQSA,SJJ
+冈山机场: RJOB,OKJ
+广州白云国际机场: Guangzhou Baiyun International Airport,CAN,ZGGG,白云机场,广州机场
+苏加诺－哈达国际机场: CGK,WIII
+廊曼国际机场: DMK,旧曼谷国际机场
+大阪关西国际机场: RJBB,关西机场,Kansai International Airport,KIX
+查尔斯顿机场: KCRW,CRW,Charleston International Airport
+俾斯麦机场: BIS,KBIS
+和田机场: Hetian Airport,HTN,ZWTN
+苏南硕放国际机场: 苏南硕放机场,ZSWX,Sunan Shuofang International Airport,WUX
+巴马科机场: GABS,BKO,Senou International Airport
+辛菲罗波尔机场: SIP,SIMFEROPOL Airport,UKFF
+石家庄正定国际机场: SJW,ZBSJ,正定机场,Shijiazhuang Zhengding International Airport
+阿比林机场: ABI,KABI
+阿尔托纳机场: AOO,KAOO,Altoona Airport
+米里机场: MYY,WBGR
+大理机场: ZPDL,奠边府机场,DLU,Dali Airport
+梅明根: EDJA,Mei Minggen,FMM
+都灵机场: TRN,Aeroporto di Torino-Caselle,LIMF
+第聂伯罗彼得罗夫斯克机场: DNK,Dnipropetrovsk International Airport,UKDD
+兰格尔机场: WAPL,LUV,Wrangell Airport
+乔治·布什机场: IAH,Houston George Bush Intercontinental Airport,KIAH,太空城（SpaceCity）
+吕梁大武机场: LLV,ZBLL,Lvliang Dawu Airport
+哈里斯堡机场: MDT,Capital City Airport,KMDT
+重庆江北国际机场: Chongqing Jiangbei International Airport,江北机场,ZUCK,CKG
+布兰太尔奇莱卡国际机场: 布兰太尔机场,BLZ,Chileka International Airport,FWCL
+巴库机场: UBBB,Heydar Aliyev International Airport,BAK
+拉克鲁丝机场: La Crosse Municipal Airport,拉克鲁丝地方机场,KLSE,LSE
+怀化芷江机场: HJJ,ZGCJ,芷江机场,Huaihua Zhijiang Airport
+禄口机场: Nanjing Lukou International Airport,NKG,南京禄口国际机场,ZSNJ
+堪培拉机场: Canberra International Airport,YSCB,CBR
+塔林机场: TLL,塔林伦纳特·梅里国际机场,EETN,Tallinn
+朗塞斯顿机场: Launceston Airport,YMLT,LST
+奠边府机场: DIEN BIEN AIRPORT,DIN,VVDB
+勒克瑙机场: VILK,LKO,Amausi Airport
+望安机场: 马公航空站,WOT,RCWA,Wangan Airport
+雷恩机场: LFRN,RNS,RennesSaintJacquesAirport
+阿姆斯特丹机场: 荷兰语:Amsterdam Luchthaven Schiphol英语:Amsterdam Airport Schiphol,荷兰阿姆斯特丹国际机场,EHAM,AMS
+帕福斯国际机场: Διεθνής Αερολιμένας Πάφου,LCPH,PFO
+格兰德岛机场: Central Nebraska Regional Airport,KGRI,GRI
+豌豆岛直升机场: EFHE,HEN,赫尔辛基直升机场,Hernesaaren helikopterikenttä
+西雅图机场: 西雅图-塔科马国际机场,SEA,Seattle-Tacoma International Airport,KSEA
+贝尔法斯特机场: EGAA,Belfast International Airport,BFS
+胡占德机场: Khujand Airport,LBD,UTDL
+蒙彼利埃机场: LFMT,Aéroport Montpellier Mediterranée,MPL,蒙彼利埃地中海机场
+抚远机场: Fuyuan Dongji Airport,ZYFY,抚远东极机场,FYJ
+惠州平潭机场: 惠州机场,Huizhou Pingtan Airport,HUZ,ZGHZ
+拉雷多国际机场: Laredo International Airport,KLRD,南京禄口国际机场,LRD
+亚基马机场: YKM,KYKM,Yakima Air Terminal
+曼德勒国际机场: Mandalay International Airport,MDL,曼德勒机场,VYCZ
+卢布尔雅那机场: LJLJ,LJU,Brnik Airport
+塞维利亚机场: LEZL,Aeropuerto de Sevilla,SVQ
+圣保罗机场: S&atilde;o Paulo,SBGR,GRU
+霍布斯机场: Lea County Regional Airport,HOB,KHOB
+乞力马扎罗山机场: 乞力马扎罗机场,Kilimanjaro International Airport,HTKJ,JRO
+帕罗机场: Paro Airport,VQPR,PBH
+巴尔的摩机场: KBWI,BWI,Baltimore-Washington International Thurgood Marshall Airport,巴尔的摩国际机场
+埃尔·帕索机场: ELP,KELP,埃尔帕索机场,El Paso International Airport
+孔敬机场: VTUK,Khon Kaen Airport,KKC
+西南佛罗里达地区机场: Southwest Florida Regional Airport,KRSW,RSW
+艾斯利普机场: Long Island MacArthur Airport,ISP,KISP
+三连机场: KPSC,PSC
+布鲁塞尔国家机场: 英文:Brussels Airport；荷兰文:Luchthaven Brussel-Nationaal；法文:Aéroport de Bruxelles-National.,BRU,布鲁塞尔机场,EBBR
+菜坝机场: Yibin Caiba Airport,宜宾菜坝机场,YBP,ZUYB
+艾恩德霍芬机场: Eindhoven,EHEH,EIN
+阿迪苏特吉普托机场: Adisutjipto Airport,JOG,WIIJ
+帕果帕果国际机场: NSTU,PPG
+小石城机场: Little Rock National Airport,KLIT,LIT
+龙目国际机场: LOP,WADL
+布拉茨克机场: BTK,:Bratsk Airport,UIBB
+凯恩斯机场: CNS,YBCS,凯恩斯国际机场,Cairns International Airport
+开罗国际机场: CAI,HECA,Cairo International Airport,开罗机场
+坎卢普斯机场: Kamloops Airport,CYKA,YKA
+杜布罗夫尼克机场: DBV,Dubrovnik Airport,LDDU
+路桥机场: ZSLQ,HYN,Taizhou Luqiao Airport,台州路桥机场
+索非亚机场: LBSF,SOF,Летище София,LetishteSofiya
+巴伦西亚机场: SVVA,VLN
+卡尔马机场: ESMQ,卡尔玛机场,KLR,Kalmar
+纽瓦克机场: Newark Liberty International Airport,EWR,KEWR,纽华克自由国际机场，EWR
+休伦机场: KHON,Huron Regional Airport,HON
+瓦伦西亚机场: Valencia Airport,VLC,LEVC
+中标津机场: RJCN,SHB
+马累国际机场: VRMM,马累机场,MLE,Velana International Airport
+奉德机场: VVBM,BMV
+奥斯汀国际机场: 奥斯汀机场,KAUS,AUS,Austin-Bergstrom International Airport
+通化三源浦机场: 通化机场,TNH,ZYTN,Tonghua Sanyuanpu Airport，
+诺福克岛机场: Norfolk Island Airport,YSNF,NLK
+科希策机场: LZKZ,KSC
+庆阳机场: IQN,ZLQY,Qingyang Xifeng Airport
+下地岛机场: SHI,RORS,Shimojishima Airport
+巴克乌机场: LRBC,Bacau International Airport,BCM
+曼海姆机场: EDFM,Mannheim City Airport,MHG
+圣杜蒙特机场: SBRJ,SDU
+阿雅克肖机场: LFKJ,AJA,Ajaccio - Campo dell'Oro Airport
+哈尔科夫机场: HRK,UKHH,Kharkiv International Airport
+萨尼亚机场: YZR,CYZR,Sarnia (Chris Hadfield) Airport
+伊宁机场: YIN,ZWYN,Yining Airport
+拉杜尔: LTU,伊宁机场
+锡特卡机场: PASI,SIT,Sitka Rocky Gutierrez Airport
+奥兰多机场: MCO,KMCO
+科斯塔内机场: KSN,UAUU,科斯塔那机场,Kostanay Airport
+克拉玛依机场: ZWKM,Kelamayi Airport,KRY
+喀纳斯机场: KJI,ZWKN,Burqin Kanasi Airport
+汉堡机场: Hamburg Airport,EDDH,HAM
+淮安涟水机场: ZSSH,涟水机场,HIA,Huaian Lianshui International Airport
+特勒斯机场: Terrace Airport,CYXT,YXT
+谢里登机场: KSHR,Sheridan County Airport,SHR
+尤马国际机场: KNYL,YUM,玉马机场
+石垣机场: ROIG,平假名:いしがきくうこう 英文:Ishigaki Airport,ISG
+奥卢机场: OUL,EFOU
+阿斯彭机场: ASE,KASE
+开普敦国际机场: Cape Town International Airport,开普敦机场,FACT,CPT
+埃德蒙顿机场: CYEG,YEG,Edmonton International Airport
+维拉港鲍尔费尔德机场: 维拉港机场,VLI,NVVV,Bauerfield International Airport
+特伦顿机场: Trenton-Mercer Airport,CYTR,YTR
+瓦萨机场: Vaasa Airport,VAA,EFVA
+科罗尔机场: Palau International Airport,ROR,PTRO
+利韦利亚机场: Daniel Oduber Quiros International Airport,MRLB,LIR
+天吉泰机场: Bayannur Tianjitai Airport,巴彦淖尔天吉泰机场,ZBYZ,RLK
+哥伦比亚地区机场: Columbia Regional Airport,KCOU,哥伦比亚机场,COU
+萧山机场: Hangzhou International Airport,杭州萧山国际机场,ZSHC,HGH
+德特内里费机场: 特内里费机场,Tenerife,TCI
+洛杉矶机场: Los Angeles International Airport,洛杉矶国际机场,LSQ,SCGE
+埃里温机场: Zvartnots International Airport,EVN,UGEE
+拉马尔机场: LAA,KLAA,Lamar Municipal Airport
+安东尼奥－D388马赛奥机场: MUCU,Antonio Maceo International Airport,安东尼奥马赛奥机场,SCU
+恩德培机场: EBB,Entebbe International Airport,HUEN
+道奇城地方机场: DDC,Dodge City Regional Airport,KDDC
+临汾乔李机场: LFQ,Linfen Yaodu Airport,ZBLF
+嘉峪关机场: ZLJQ,JGN,Jiayuguan Airport
+弗拉格斯塔夫机场: FLG,KFLG,费拉格斯塔夫机场,Flagstaff Pulliam Airport
+里约热内卢机场: SBGL,GIG
+潘普洛纳机场: Pamplona Airport,PNA,LEPP
+多森机场: DHN,Dothan Regional Airport,KDHN
+斯科茨布拉夫郡机场: 斯科茨布拉夫机场,KBFF,Western Nebraska Regional Airport,BFF
+上海浦东国际机场: Shanghai Pudong International Airport,PVG,ZSPD,浦东机场
+富山机场: TOY,RJNT
+查德隆机场: KCDR,CDR,Chadron Municipal Airport
+费尔班克斯机场: PAFA,FAI
+贝尔格莱德机场: Belgrade Nikola Tesla Airport/Аеродром Никола Тесла Београд,LYBE,贝尔格来德机场,BEG
+滑铁卢机场: KALO,Waterloo Regional Airport,ALO
+尼斯机场: NCE,LFMN
+曼萨尼约机场: ZLO,MMZO,MANZANILLO S. MAESTRA
+热那亚机场: 热那亚—西塞斯特里克里斯托弗·哥伦布国际机场,GOA,LIMJ,Genoa-Narcissus Telikeli Christopher Columbus International Airport,热那亚国际机场
+坎昆机场: 切图马尔国际机场,CUN,MMUN
+伦敦卢顿机场: 阿姆利则机场,EGGW,LTN,London Luton Airport
+久米岛机场: UEO,ROKJ
+咸阳机场: 西安咸阳国际机场,Xi'an Xianyang International Airport,ZLXY,XIY
+科托努机场: DBBB,ICotonou Cadjehoun Airport,COO
+青森机场: AOJ,Aomori Airport,RJSA
+冠豸山机场: ZSLO,龙岩冠豸山机场,LCX,Longyan Guanzhaishan Airport
+怡保机场: WMKI,IPH
+法明顿地方机场: FMN,Four Corners Regional Airport,KFMN,法明顿机场
+虹桥机场: ZSSS,上海虹桥国际机场,Shanghai Hongqiao International Airport,SHA
+青岛流亭国际机场: ZSQD,TAO,流亭机场,Qingdao Liuting International Airport
+斯德哥尔摩阿兰达国际机场: BMA,斯德哥尔摩机场,ESSB
+棕榈泉国际机场: KPSP,Palm Springs International Airport,PSP
+爱德华空军基地: KEDW,Edwards Air Force Base,EDW
+波来古机场: VVPK,PXU
+阿姆利则机场: ATQ,VIAR,Amritsar - Raja Sansi International Airport
+日内瓦机场: Geneva Intl Airport,LSGG,GVA
+圣地亚哥: KSAN,圣迭戈机场,SAN
+杜尚别机场: DYU,UTDD,Dushanbe Airport
+默特尔比奇机场: KMYR,MYR
+乌海机场: ZBUH,WUA,Wuhai Airport
+莫雷利亚机场: MLM,General Francisco J. Mujica International Airport,MMMM
+霍尼亚拉国际机场: HIR,AGGH,Honiara International Airport
+车里雅宾斯克机场: CEK,USCC
+汉中城固机场: HZG,ZLHZ,Hanzhong Chenggu Airport
+毕节飞雄机场: Bijie Feixiong Airport,BFJ,ZUBJ
+英迪拉·甘地国际机场: DEL,德里机场,Indira Gandhi International Airport,VIDP
+瓜亚基尔机场: GYE,SEGU,Aeropuerto Internacional José Joaquín de Olmedo
+阿伯丁地方机场: ABR,KABR,Aberdeen Municipal Airport
+尼古劳·洛巴托总统国际机场: Dili Presidente Nicolau Lobato International Airport,DIL,科摩罗机场,WPDL
+哈科特港机场: PHC,DNPO
+柯克斯维尔地方机场: 柯克斯维尔机场,IRK,KIRK,Kirksville Regional Airport
+黑角机场: FCPP,PNR
+瓜拉丁加奴机场: Sultan Mahmud Airport,TGG,WMKN
+贝尔莫潘伯利兹国际机场: Philip S. W. Goldson International Airport,BZE
+普莱桑斯国际机场: 毛里求斯机场,FIMP,MRU
+金海国际机场: 김해국제공항,RKPK,金海机场,PUS
+拉伯克机场: 拉伯克国际机场,LBB,KLBB,Lubbock Preston Smith International Airport
+喀什机场: KHG,ZWSH,Kashgar International Airport
+科隆机场: MPEJ,Cologne Bonn Airpor,ONX
+新潟机场: 新泻机场,KIJ,RJSN
+泰德·史蒂文斯安克雷奇国际机场: ANC,安克雷奇国际机场,PANC
+阿尔盖罗机场: LIEA,Fertilia Airport,AHO
+羽田机场: HND,东京羽田国际机场,Tokyo International Airport,RJTT
+锡达拉皮兹机场: KCID,CID,The Eastern Iowa Airport
+怀特霍斯机场: YXY,CYXY,Erik Nielsen Whitehorse International Airport
+帕尔马机场: PMF,LIMP
+纽黑文机场: KHVN,HVN
+费城国际机场: PHL,清化市,KPHL
+蒙得维的亚Carrasco机场: SUMU,Montevideo Carrasco International Airport,MVD,卡拉斯科国际机场
+神农架机场: Shennongjia Airport,ZHSN,HPG
+比隆机场: BLL,Billund Airport,EKBI
+米德堡: 比隆机场,KFME,FME
+乔治王子城机场: YXS,CYXS,Prince George Airport
+博代博: UIKB,ODO
+天草机场: Amauksa Airport,AXJ,RJDA
+自由港机场: 弗里波特国际机场,Grand Bahama International Airport,FPO,MYGF
+法阿国际机场: NTAA,PPT
+穆罕默德机场: CMN,GMMN,Casablanca Mohammed V International,卡萨布兰卡机场
+的里雅斯特机场: LIPQ,Friuli Venezia Giulia Airport,TRS,里雅斯特机场
+克勒蒙菲朗机场: Clermont-Ferrand Auvergne Airport,LFLC,CFE,克莱蒙费朗机场
+坎皮纳斯国际机场: 坎皮纳斯机场,SBKP,Viracopos-Campinas International Airport,VCP
+尚贝里机场: CMF,LFLB
+神户机场: UKB,RJBE,Kobe Airport
+木浦机场: MPK,RKJM
+临沧机场: LNJ,ZPLC,Lincang Airport
+蔚山机场: USN,Ulsan Airport,RKPU
+麦迪逊机场: Dane County Regional Airport,MSN,KMSN
+关公机场: ZBYC,YCU,Yuncheng Zhangxiao Airport,运城关公机场
+宫崎机场: RJFM,Miyazaki Airport,KMI
+格拉斯哥机场: Glasgow International Airport,GLA,EGPF
+伊比萨岛机场: 伊比萨机场,LEIB,Ibiza Airport,IBZ
+纳杰夫: NJF,ORNI
+卡利姆诺斯岛: JKL,LGKY
+多特蒙德机场: Dortmund Airport,DTM,EDLW
+什里夫波特机场: 德雷斯顿机场,EDDC,Shreveport Regional Airport,DRS
+伍德郡机场: KPKB,伍德县机场,PKB,Mid-OhioValleyRegionalAirport
+三女河机场: ZBSN,TVS
+林雪平机场: LPI,ESSL
+海浪机场: Mudanjiang Hailang International Airport,ZYMD,MDG,牡丹江海浪国际机场
+日照山字河机场: Rizhao Shanzihe Airport,PYY,VTCI
+米林机场: LZY,林芝米林机场,ZUNZ,Nyingchi Mainling Airport
+阿尔及尔胡阿里·布迈丁机场: 阿尔及尔机场,DAAG,ALG,Algiers Houari Boumediene Airport
+芒特甘比尔机场: YMTG,MGB,Mount Gambier Airport
+阿尔伯克基机场: ABQ,Albuquerque International Airport,KABQ
+格林维尔机场: GLH,Mid-Delta Regional Airport
+凯奇坎国际机场: PAKT,Ketchikan International Airport,KTN
+阿克拉机场: ACC,科托卡国际机场,DGAA,Kotoka International Airport
+厄斯特松德机场: ZBSN,TVS,三女河机场
+萨克拉门托国际机场: 萨克拉门托大都会机场,KSMF,萨克拉门托机场、沙加缅度机场,Sacramento International Airport,SMF
+阿布扎比机场: OMAA,AUH,阿布扎比国际机场,Abu Dhabi International Airport
+东伦敦机场: ELS,East London Airport),FAEL
+仁川机场: RKSI,인천국제공항,日照山字河机场,ICN
+圣伊莎贝尔机场: 马拉博机场,Malabo Airport或Saint Isabel Airport,FGSL,SSG
+稻城亚丁机场: Daocheng Yading Airport,DCY,ZUDC
+宿雾机场: Mactan-Cebu International Airport,CEB,RPVM
+张掖机场: 张掖甘州机场,Zhangye Ganzhou Airport,ZLZY,YZY
+河市机场: 那不勒斯机场,ZUDX,Dazhou Heshi Airport,DAX
+奔牛机场: ZSCG,Changzhou Benniu International Airport,CZX,常州奔牛国际机场
+乌兰巴托机场: Chinggis Khaan International Airport,ULN,ZMUB,成吉思汗国际机场
+埃文斯维尔机场: EVV,Evansville Regional Airport
+新舟机场: ZUZY,遵义新舟机场,Zunyi Xinzhou Airport,ZYI
+那不勒斯机场: KAPF,APF,意大利语:Aeroporto Internazionale di Napoli 英语:Naples International Airport
+特温福尔斯城郡机场: TWF,特温福尔斯机场,KTWF
+鹰县机场: 范尔机场,KEGE,Eagle County Regional Airport,EGE
+利马机场: LIM,豪尔赫查韦斯国际机场,SPIM
+博伊西机场: Boise Airport/Boise Air Terminal/Gowen Field,BOI,KBOI
+布里斯班机场: YBBN,Brisbane Airport,BNE
+温州龙湾国际机场: 龙湾机场,ZSWZ,WNZ,Wenzhou Longwan International Airport
+侯赛因国王国际机场: Aqaba King Hussein International Airport,OJAQ,AQJ
+马歇尔机场: MLL,PADM,Baltimore/Washington International Thurgood Marshall Airport
+拉瓜迪机场: LaGuardia Airport,拉瓜迪亚机场,KLGA,LGA
+哥本哈根机场: EKCH,Copenhagen Kastrup Airport,CPH
+恩施许家坪机场: 许家坪机场,ZHES,ENH,Enshi Xujiaping Airport
+阿卡普尔科国际机场: ACA,MMAA
+维多利亚瀑布机场: VFA,Victoria Falls Airport,FVFA
+衢州机场: JUZ,Quzhou Airport,ZSJU
+两江机场: Guilin Liangjiang International Airport,ZGKL,KWL,桂林两江国际机场
+新贝德福德机场: KEWB,新贝尔福特机场,EWB,New Bedford Regional Airport
+锡比乌机场: LRSB,SBZ,Sibiu International Airport
+柳州白莲机场: ZGZH,LZH,白莲机场,Liuzhou Bailian Airport
+甘南夏河机场: ZLXH,Gannan Xiahe Airport,GXH
+菲乌米奇诺机场: FCO,LIRF,Aeroporto internazionale di Roma-Fiumicino “Leonardo da Vinci”,罗马菲乌米奇诺机场
+乌鲁木齐地窝堡机场: 乌鲁木齐地窝堡国际机场,ZWWW,URC,Urumchi Diwopu International Airport
+米卢斯机场: MLH,LFSB
+波特兰国际机场: PDX,KPDX,Portland International Airport
+大馆能代机场: ONJ,RJSR
+达拉机场: 博伦厄机场,BLE,Dala Airport,ESSD
+大庆萨尔图机场: 萨尔图机场,ZYDQ,Daqing Sartu Airport,DQA
+钏路机场: RJCK,KUH
+里加机场: EVRA,里加国际机场,RIX,Rīgas Starptautiskā Lidosta
+圣约翰斯机场: YYT,St John's International Airport,CYYT
+维哥机场: VGO,LEVX,Vigo-Peinador Airport
+马翁机场: Mahon Airport,FBMN,MUB
+揭阳潮汕机场: SWA,ZGOW,揭阳潮汕国际机场,Jieyang Chaoshan International Airport
+毕尔巴鄂机场: BIO,Bilbao Airport,LEBB
+花莲机场: RCYU,HUN
+曲阜机场: ZSJG,Jining Qufu Airport,JNG,济宁曲阜机场
+海得拉巴机场: VOHS,HYD
+圣罗莎机场: Santa Rosa Airport,RSA,SAZR
+桑兹皮特机场: CYZP,Sandspit Airport,YZP
+佐贺机场: HSG,RJFS
+克拉根福机场: 维哥机场,KLU,LOWK
+拉特兰机场: Rutland Southern Vermont Regional Airport,KRUT,RUT
+巴度弗斯机场: BDU,Bardufoss Airport,ENDU
+连科兰: LLK,UBBL
+长洲岛机场: ZGWZ,圣罗莎机场,WUZ
+杰克逊机场: Jackson Hole Airport,KJAN,JAN
+弗林特机场: FNT,KFNT,Bishop International Airport
+乌兰浩特机场: Ulanhot Yileleeteuk Airport,ZBUL,HLH
+哥伦布机场: CSG,KCSG
+大连周水子国际机场: Dalian Zhoushuizi International Airport,周水子机场,DLC,ZYTL
+布拉德福德机场: KBFD,Leeds Bradford International Airport,BFD
+鹿港机场: 布拉德福德机场,DHB
+马斯基根机场: KMKG,MKG,Muskegon County Airport
+克拉克机场: DiosdadoMacapagalInternationalAirport,CRK,RPLC
+庐山机场: Jiujiang Lushan Airport,九江庐山机场,ZSJJ,JIU
+图尔库机场: EFTU,TKU
+法莱奥洛国际机场: NSFA,APW,Faleolo International Airport,阿皮亚机场
+阳光海岸机场: MCY,Sunshine Coast Airport,YBSU
+尼亚美机场: Niamey Airport,NIM,DRRN
+马赛机场: MRS,Aéroport de Marseille Provence,LFML
+盐湖城国际机场: SLC,盐湖城机场,KSLC,Salt Lake City International Airport
+黎平机场: ZUNP,Liping Airport,HZH
+呼和浩特白塔国际机场: ZBHH,HET,白塔机场,Hohhot Baita International Airport
+琼斯伯勒机场: JONESBORO Airport,KJBR,JBR
+中部国际机场: NGO,Chubu Centrair International Airport,名古屋中部国际机场,RJGG
+斯普林菲尔德机场: 布兰森地区机场,KSGF,Springfield-Branson National Airport,SGF
+韦恩堡地方巴厄机场: Fort Wayne International Airport,FWA,韦恩堡国际机场,KFWA
+乔治城OwenRoberts国际机场: Owen Roberts International Airport,MWCR,GCM,乔治城国际机场
+基希讷乌机场: KIV,Chisinau International Airport,LUKK
+渥太华机场: 渥太华国际机场,YOW,CYOW,渥太华麦克唐纳—卡蒂埃国际机场
+福特法机场: TFFF,Lamentin International Airport,FDF
+梅克内斯机场: GMFM,福特法机场,MEK
+鹿特丹机场: VliegveldZestienhoven,EHRD,RTM
+纳奈莫机场: CYCD,NanaimoAirport,YCD
+圣多美岛机场: FPST,圣多美机场,TMS,S&atilde;o Tomé International Airport
+嘉手纳空军基地: DNA,RODN
+蒙斯特机场: Münster Osnabrück International Airport,FMO,EDDG
+小仓机场: Kitakyushu Airport,KKJ,RJFR
+福岛机场: FKS,RJSF
+那拉提机场: ZWNL,Nalati Airport,NLT
+曼彻斯特机场: EGCC,MAN
+巴利亚多利德机场: VLL
+迈阿密机场: Miami International Airport,KMIA,迈阿密国际机场,MIA
+哥德堡机场: GOT,Gothenburg-Landvetter Airport,ESGG
+长乐机场: FOC,Fuzhou Changle International Airport,福州长乐国际机场,ZSFZ
+光州机场: RKJB,MWX,광주공항
+康定机场: KGT,Ganzi Kangding Airport,ZUKD
+塔尔萨机场: KTUL,Tulsa International Airport,TUL
+特克斯和凯科斯群岛国际机场: PLS,普罗维登西亚莱斯国际机场,MBPV
+斯科普里机场: LWSK,SKP
+蒙罗维亚罗伯茨国际机场: Roberts International Airport,ROB
+伍斯特机场: ORH,KORH,Worcester Regional Airport
+宜昌三峡机场: YIH,三峡机场,ZHYC,Yichang Sanxia Airport
+科纳克里格贝西亚机场: 科纳克里机场,Gbessia Airport,CKY,GUCY
+烟台蓬莱国际机场: YNT,ZSYT,Yantai Penglai International Airport
+大马士革机场: DAM,OSDI
+麦卡伦机场: LAS,KLAS,Las Vegas McCarran International Airport,拉斯维加斯麦卡伦国际机场
+黄龙机场: Jiuzhai Huanglong Airport,ZUJZ,JZH
+史密斯堡机场: CYSM,YSM,Fort Smith Regional Airport
+蒂米什瓦拉机场: Traian Vuia International Airport,LRTR,TSR
+南通兴东国际机场: ZSNT,Nantong Xingdong International Airport,兴东机场,NTG
+南宁吴圩国际机场: NNG,Nanning Wuxu International Airport,ZGNN
+长白山机场: ZYBS,Baishan Changbaishan Airport,NBS
+昆莎机场: NGQ,ZUAL,Nagri Gunsa Airport
+岘港机场: DAD,DA NANG AIRPORT,VVDN
+金兰机场: CXR,VVCR,金兰国际机场
+金边机场: PNH,VDPP,Phnom Penh International Airport
+波尔图机场: LPPR,OPO,Oporto - Francisco de Sá Carneiro Airport
+库尔勒机场: Korla Airport,ZWKL,KRL
+曹家堡机场: ZLXN,西宁曹家堡机场,XNN,XINING CAOJIAPU INTERNATIONAL AIRPORT
+巴塞罗那机场: LEBL,BCN,Barcelona Airport
+阿克苏机场: AKU,Aksu Wensu Airport,ZWAK
+朝阳机场: ZYCY,CHG,阿克苏机场
+图卢兹机场: Aéroport Toulouse - Blagnac,LFBO,TLS
+麦德林何塞·玛丽亚·科尔多瓦国际机场: MDE,SKRG,麦德林机场
+喀布尔机场: 喀布尔国际机场,دکابل نړیوال هوایی ډګ,OAKB,KBL
+雷阿尔城: CQM,LERL,Pozuelo de Don Gil
+浪头机场: Dandong Langtou Airport,DDG,ZYDD
+希洛机场: PHTO,ITO
+南洋机场: YNZ,Yancheng Nanyang International Airport,ZSYN,盐城南洋国际机场
+波哥大埃尔多拉国际机场: 波哥大Eldorado机场,BOG,SKBO
+金斯顿机场: CYGK,E.T. Joshua Airport,YGK
+麦卡伦国际机场: Las Vegas McCarran International Airport,MFE,KMFE
+黄金海岸机场: YBCG,麦卡伦国际机场,Gold Coast Airport,OOL
+艾哈迈达巴德机场: VAAH,AMD
+阿什哈巴德机场: ASB,UTAA,Ashgabat Airport
+迪尔莱克机场: YVZ,Deer Lake Airport,CYVZ
+格但斯克机场: EPGD,GDN,Gdansk Lech Walesa Airport
+阿伯丁机场: ABZ,EGPD,Aberdeen Municipal Airport
+卢克索国际机场: LXR,HELX
+二里半机场: 包头二里半机场,ZBOW,Baotou Donghe Airport,BAV
+埃尔迈拉地区机场: KELM,Elmira Corning Regional Airport,ELM
+保山云瑞机场: ZPBS,Baoshan Yunrui Airport,BSD
+海于格松机场: HAU,ENHD
+巴罗达机场: VABO,BDQ,瓦多达拉（巴罗达）机机场,Vadodara Airport
+黑德兰港机场: YPPD,PHE,PortHedlandInternationalAirport
+甘尼森机场: Gunnison-Crested Butte Regional Airport,KGUC,GUC
+新桥机场: HFE,ZSOF,Hefei Xinqiao International Airport,合肥新桥国际机场
+阿布贾国际机场: Nnamdi Azikiwe International Airport,ABV,DNAA,阿布贾机场
+福成机场: ZGBH,BHY,Beihai Fucheng Airport
+安科纳机场: Falconara Airport,AOI,LIPY
+巴克斯代尔空军基地: BAD,KBAD
+西哈努克国际机场: Sihanouk international airport,KOS,VDSV
+哈拉雷国际机场: HRE,FVHA,哈拉雷机场
+斯里巴加湾机场: Brunei International Airport,WBSB,BWN,文莱斯里巴加湾国际机场
+马尔本萨机场: 意大利语:Aeroporto di Milano Malpensa，英语:Milan Malpensa Airport,MXP,LIMC
+贝鲁特拉菲克·哈里里国际机场: Beirut Rafic Hariri International Airport,BEY,贝鲁特机场,OLBA
+雅库茨克机场: YKS,UEEE
+波德戈里察机场: TGD,Podgorica Airport,填写人物波德戈里察机场中文名或其中文译名,LYPG
+熊本机场: KMJ,RJFT
+克里斯蒂亚诺·罗纳尔多机场: 马德拉岛机场,马德拉机场,Madeira Funchal Cristiano Ronaldo International Airport,LPMA,FNC
+阿米尔卡－卡布拉尔国际机场: SID,GVAC,阿米尔卡-卡布拉尔国际机场,Aeroporto Internacional Amílcar Cabral
+罗斯托夫机场: АэропортРостов-на-Дону,Rostov-on-DonAirport,ROV,URRR
+法赫德国王机场: OEDF,مطار ملك فهد دولي‎,DMM
+育空堡机场: PFYU,Fort Yukon Airport,FYU
+田阳机场: 百色巴马机场,Baise Bama Airport,ZGBS,AEB
+静冈国际机场: 静冈机场,RJNS,FSZ,Shizuoka Airport
+基律纳机场: ESNQ,Kiruna Airport,KRN,挪威航空公司
+艾利斯斯普林斯机场: ASP,YBAS
+赛乌苏机场: ERL,二连浩特赛乌苏国际机场,Erlianhot Saiwusu Airport,ZBER
+丽水机场: Lishui Airport,RKJY,RSU
+金昌金川机场: JIC,ZLJC,Jinchang Jinchuan Airport
+香港国际机场: VHHH,赤鱲角机场,HKG,Hong Kong International Airport
+迪克森机场: UODD,DKS
+交河机场: 吐鲁番交河机场,TLQ,Turpan Jiaohe Airport,ZWTL
+瓦加杜古机场: OUA,DFFD
+开普吉拉多机场: KCGI,CGI
+阿尔塔机场: ALF,ENAT,Alta Airport
+金曼机场: Kingman Airport,IGM,KIGM
+萨德伯里机场: YSB,Sudbury Airport,CYSB
+西棕榈滩机场: KPBI,West Palm Beach International Airport,PBI
+巴塞尔机场: EuroAirport Basel-Mulhouse-Freiburg,LFSB,BSL
+佩克斯: PEV,LHPP
+怀特曼空军基地: 美国空军,Whiteman Air Force Base,SZL,KSZL
+科纳机场: KOA,PHKO
+维多利亚机场: SDD,卢班戈机场,Victoria International Airport,FNUB
+悉尼金斯福德·史密斯国际机场: KSNY,悉尼机场,SNY
+黑斯廷斯机场: HGS,GFHA,Hastings Municipal Airport
+不来梅机场: EDDW,BRE
+扬斯敦机场: 扬斯顿机场,Youngstown-Warren Regional Airport,KYNG,YNG
+克拉斯诺尔斯克机场: KRASNOYARSK,UNKL,克拉斯诺亚尔斯克机场,KJA
+且末机场: Qiemo Airport,IQM,ZWCM
+纳纽基机场: NYK,Hawke’s Bay Airport,HKNY
+尤西米纳斯机场: IPN,SBIP
+皮克顿机场: PCN,Nelson Airport,NZPN
+贝尔哥罗德机场: EGO,UUOB
+瓦蒂机场: CEM3,YLE,Bengkulu Fatmawati Soekarno Airport
+斯瓦科普蒙德机场: SWP,FYSM
+龙达机场: RRA
+斯卡蒙贝水上飞机基地: SCM,PACM
+史蒂芬斯郡机场: KBKD,BKD,Trondheim Airport, V&aelig;rnes
+洛佩兹岛机场: S31,LPS
+特柳赖德机场: KTEX,TEX
+奥朗: RGO,ZZ07
+坎达武机场: NFKD,KDV
+黄山屯溪国际机场: 屯溪机场,ZSTX,Huangshan Tunxi International Airport,TXN
+默克莱机场: MQX,HAMK
+伊尼希尔岛机场: EIIR,INQ
+威尔克斯－巴里机场: WBW,KWBW,Palese Macchie Airport
+维德威克机场: ASI,Stavanger Airport, Sola
+曼德里奥机场: ILO,RPVI,Izmir Adnan Menderes Airport
+大草原城机场: YQU,CYQU
+贝勒加德机场: LIG,LFBL
+巴雷拉斯机场: SNBR,BRA
+特洛姆皮罗机场: “三字代码”，,SRZ,El Calafate
+德大加那利机场: GCLP,Aeropuerto de Gran Canaria,LPA
+萨默赛德机场: YSU,CYSU
+卡西江吉特直升机机场: BGCH,JCH
+奥孔贾机场: OKN,FOGQ
+贝洛纳机场: BNY
+布朗菲尔德地方机场: KSDM,SDM,Aberdeen Municipal Airport
+卡鲁帕诺机场: CUP,SVCP
+图克托亚克图克机场: CYUB,YUB
+圣乔治岛机场: TGPY,Point Saline International Airport,STG
+芒特麦克金利机场: PAIN,MCL
+纳拉布莱机场: NAA,YNBR
+杜鲁斯国际机场: KDLH,DLH
+贝杜里机场: YBIE,BEU
+维克机场: BIKF,OHR,KEFLAVíK INTERNATIONAL AIRPORT/Keflavíkurflugvöllur
+奥格勒机场: Osh International Airport,OGL,SYGO
+科斯塔布拉瓦机场: GRO,Pablo Ruiz Picasso Airport,LEGE
+格威鲁机场: RotoruaAirport,FVTL,GWE
+圣路易机场: GOSS,Lambert-St. Louis International Airport,圣路易斯机场、兰伯特机场,XLS
+胡兹达尔机场: KDD,OPKH
+约阿尼纳机场: LGIO,IOA
+迈因蒂拉努机场: MXT,FMMO
+新普利茅斯机场: NPL,NZNP
+海伊里弗机场: CYHY,YHY
+罗伯瓦尔机场: CYRJ,YRJ
+哥打基纳巴卢港机场: ZWR
+威廉姆斯港机场: CCA6,YWM
+雷索卢特机场: CYRB,YRB
+凡德格拉夫机场: KTCL,TCL
+希姆庞提加机场: PKU,WIBB
+司班德林: ETAD,SPM
+阿图奥纳机场: AUQ,NTMN
+培兰机场: BEL,Haikou Meilan International Airport,SBBE
+梅乌肯机场: VNE,LFRV
+恩特扎姆机场: LFST,SXB
+拉夫桑詹机场: RJN,OIKR
+麦克米恩郡机场: MMI,KMMI
+桑德维肯机场: GVX,ESSK
+圣马里机场: ISC
+奥博克机场: Obock,OBC,HDOB
+科内尔机场: OBN,EGEO
+国家机场: CRM,RPVF
+巴纳克机场: ENNA,LKL
+伊拉姆机场: IIL,OICI
+瓦尔肯堡机场: EHVB,LID
+帕洛阿尔托机场: PAO,KPAO
+芬德利机场: KFDY,Pittsburgh International Airport,FDY
+伊戈里亚机场: JIK,LGIK
+苏比克贝国际机场: SFS,RPLB
+开普多塞特机场: CYTE,YTE
+斯托诺威机场: EGPO,SYY
+古德伯机场: CDP,VOCP,Goodland Municipal Airport
+博帕尔机场: BHO,VABP
+锡永机场: SIR,LSGS
+穆迪空军基地: VAD,KVAD
+卡纳瓦利机场: MRD,SVMD
+赫恩登机场: KORL,ORL
+古尔雷特（雷鲍德）机场: MCU,LFLT
+考梅勒－恩维克辛机场: POX,LFPT
+埃尔蒂格雷机场: ELX
+斯图尔机场: ENSO,SRP
+伯利兹地方机场: TZA
+布洛克岛机场: KBID,BID
+阿维尔机场: LFJR,ANE
+阿尔塔米拉机场: ATM,SBHT
+马卡帕机场: MCP,SBMQ
+特拉华郡机场: MIE
+乌斯季伊利姆斯克机场: UIBS,UIK
+克罗文郡机场: BRD,KBRD
+霍斯金斯机场: AYHK,HKN
+切斯特菲尔德因莱特机场: YCS,CYCS
+米诺空军基地: MIB,2007 United States Air Force nuclear weapons incident,KMIB
+欧申尼克港机场: PRL
+第乌机场: VA1P,DIU
+博奎阿机场: TVSB,BQU
+莫亚莱机场: OYL,HKMY
+巴多莱特机场: BDT,FZFD
+墨西拿机场: FAMS,MEZ
+古莲机场: ZYMH,Mohe Gulian Airport,OHE
+良乌机场: NYU,VBNU,Bagan Nyaung Oo Airport
+布拉克特机场: KPOC,POC
+特鲁斯奥康西昆西斯地方机场: TCS,KTCS
+萨蒙机场: KSMN,SMN,Naknek Airport
+江陵机场: RKNN,KAG
+卡恩莫尔机场: GWY,EICM
+哥打巴卢机场: KBU,WRBK,Kota Kinabalu International Airport
+雅罗斯拉夫尔机场: IAR,UUDL
+阿瓦岛机场: TNCA,AUA
+吴圩机场: NNG,Nanning Wuxu International Airport,ZGNN
+波里斯珀尔机场: UKBB,KBP
+可可纳特岛机场: YCCT,CNC
+奥沙瓦地方机场: CYOO,YOO
+因纳港机场: YWH,CYWH
+迈杜古里机场: MIU,DNMA
+怀特曼机场: KWHP,WHP
+达兰扎德加德机场: ZMDZ,DLZ
+曼皮库尼机场: WMP,FMNP
+瑟克尔市机场: Pashkovsky Airport,IRC,PACR
+梅利塔机场: DTTJ,DJE
+迪灵机场: PADE,DRG
+休达直升机机场: JCU,GECT
+马丁斯堡机场: MRB,KMRB
+阿夫奥克斯机场: INS,KINS
+万博机场: FNHU,NOV
+达维斯郡机场: KOWB,OWB
+拉乔雷拉机场: LCR
+洛辛吉机场: LDLO,LSZ
+诺斯比里特湖机场: CKQ3,YNO
+瑟切尔特机场: YHS
+难府机场: NNT,VTCN,Nan Nakhon Airport
+梅特洛波特机场: CLC
+道格拉斯地方机场: Charlotte - Douglas International Airport,DGL,KDGL
+约瑟夫施塔尔机场: PJON,JON
+塔迈阿密机场: TMB,KTMB,Miami Seaplane Base
+马诺科塔克水上飞机基地: KMO,PAMB
+卡门博机场: FZMA,BKY
+特尼恩特－维达尔机场: BBA,SCBA
+罗斯卡诺斯机场: MUGT,GAO
+布雷诺克斯机场: LFNB,MEN
+梅迪斯机场: LFCY,RYN
+维茨温代机场: YWHI,WSY
+劳德代尔机场: KFLL,FLL
+莱克西德湖村机场: KLKP,LKP
+夏赫雷－科德机场: OIFS,CQD
+圣地亚哥地方机场: STI,MDST
+古达米斯机场: HLTD,LTD
+阿瑟镇机场: MYCA,ATC
+若奥－苏阿苏纳机场: CPV,SBKG
+贝贾亚机场: “三字代码”,BJA,African airport three characters code,DAAE
+格拉德福克斯空军基地: RDR,KRDR
+斯威夫特卡伦特机场: YYN,CYYN
+法斯特弗莱特机场: FFA,KFFA
+努库希瓦机场: NTMD,NHV
+卡雷瓦机场: CHT,NZCI
+瑟文沙里夫机场: OPSN,SYW
+帕珀拉卡塞尔机场: LIBR,BDS
+麦克默里堡机场: CYMM,YMM
+河内机场: HAN,VVNB,Hanoi Noi Bai International Airport
+大巴里尔岛机场: GBZ,NZGB,Grcat Barrier Island
+多洛雷斯镇机场: SAOD,VDR
+梅奥姆巴机场: FOOY,MYB
+伯斯尼机场: PSI,OPPI
+费尔克军用机场: FAF,KFAF
+克加利姆国际机场: KGP,USRK
+马沙尔机场: MRX,OIAM
+莫洛凯机场: PHMK,MKK
+里弗赛德－弗拉鲍勃机场: RIR,KRIR
+伦敦斯坦德机场: STN,EGSS
+格里芬－桑德斯基机场: KSKY,SKY
+布查南机场: CCR,KCCR
+联合铁路公司: ZUN,KZUN
+拉巴特机场: GMME,RBA
+不来梅港机场: BRV,EDWB
+马洛洛莱莱机场: PTF,NFFO
+卡尔巴里机场: YKBR,KAX
+阿拉珀霍郡机场: KAPA,APA
+布塔里塔里机场: NGTU,Tazhong Airport,BBG
+泽西States机场: Jerome County Airport,EGJJ,JER
+莫尔德机场: MQN,Molde lufthavn，ARO,ENRA
+戈梅利机场: UMGG,GME,Gomelavia
+曼德利特萨拉机场: FMNX,WMA
+塔尔图机场: EETU,TAY
+科尔特机场: KCFD,CFD
+费尔兹伯+D2417爵梅莫里阿尔机场: POF,KPOF
+斯罗灵菲尔德国际机场: ISN,KISN
+第戎机场: DIJ,LFSD
+里奥阿查机场: RCH,SKRH
+博纳旺蒂尔机场: CYVB,YVB
+基戈马机场: “三字代码”,TKQ,African airport three characters code,HTKA
+西维利机场: Large area fast iron B line,KSAA,SAA,RERB
+弗米利恩机场: YVG,CYVG
+弗朗斯维尔/蒙格机场: FOON,MVB
+昌圭诺拉机场: CHX,MPCH
+蒙特卡洛直升机机场: LNMC,MCM
+阿科拉机场: VAAK,AKD
+阿劳卡机场: AUC,SKUC
+卡博恩郡机场: PUC,KPUC
+米拉马雷机场: LIPR,RMI
+兰巴萨机场: NFNL,LBS,Barcelona Airport
+巴拉科沃机场: BWO,UWSB
+普利茅斯机场: PYM,KPYM
+瓦拉博岛机场: YWBS,SYU
+米尔德里德湖机场: NML
+乔科达机场: CKH,UESO
+帕尔马斯机场: SBPJ,Aeropuerto de Gran Canaria,PMW
+坤甸机场: WIOO,PNK
+伏尔克尔机场: UDE
+巴登维尔机场: CYKZ,YKZ
+诺思水上飞机基地: NSB
+博尔德地方机场: WBU,KBDU
+罗尔维克机场: ENRM,RVK
+卡门贝机场: HRZA,KME
+库马机场: OOM,YCOM
+科克斯巴扎尔机场: VGCB,CXB
+阿米代尔机场: “三字代码”,European airport three characters code,YARM,ARM
+弗兰克－帕里斯机场: MUHG,HOG
+塔法拉奥伊机场: TAF,DAOL
+奥尔岛机场: AUL
+马卡斯机场: XMS,SEMC
+刚果镇机场: MYAK,COX,Pointe Noire Airport
+圣路易斯波托西机场: MMSP,SLP
+德尔内机场: ANR,EBAW,Edmonton International Airport
+斯卡恩机场: ENSK,SKN
+瓦洛普斯航空中心: KWAL,WAL
+巴卡里尼机场: GRS,LIRS
+托芒贡机场: TMG,WBKM
+巴哈瓦尔布尔机场: OPBW,بہاول پو,BHV
+瑟克特夫卡尔机场: UUYY,SCW
+麦克格雷斯机场: PAMC,MCG
+埃尔蒙多夫空军基地: EDF,PAED
+欧克特维尔机场: LEH,LFOH
+伊万诺－弗兰科夫斯克机场: IFO,UKLI
+比米齐机场: KBJI,BJI
+苏尔雷纳索菲亚机场: TFS,GCTS
+拉杜阿尼机场: LDO
+麦克弗森堡机场: ZFM,CZFM
+圣伊莎贝尔里奥内格罗: SWTP,IRZ
+刘易斯敦地方机场: LWT,KLWT
+恩里克－马雷克机场: DAV,MPDA
+拉杰斯机场: TER,LPLA
+沃尔夫波因特国际机场: KOLF,OLF
+芒特艾萨机场: ISA,YBMA
+曼扎机场: FMSJ,MJA
+戈尔哈布尔机场: VAKP,KLH
+奥图机场: SKOT,OTU
+格拉德－史密斯机场: CYB,MWCB
+讷瓦布沙阿机场: WNS,OPNH
+恰赫巴哈尔机场: OIZC,ZBR
+科米诺直升机机场: JCO
+博格机场: BOY,DFOO,Alexandria Borg el Arab Airport
+格雷格尔凯伊班达机场: HRYR,KGL
+伯茨菲尤尔机场: BJF,ENBS
+雷德迪尔机场: CYQF,YQF
+库克山机场: NZGT,Nelson Airport,MON
+奇格尼克贝机场: KBW
+拉默齐亚泰尔默机场: SUF,LICA
+拉克阿格里奥机场: SELA,La Crosse Municipal Airport,LGQ
+麦克圭勒机场: SJI,RPVS
+圭亚那城机场: CGU
+沃伊塔佩机场: WTP
+达德考利尔机场: KTNT,TNT
+维明吉机场: YNC,CYNC
+金岛机场: KNS,YKII
+萨特纳机场: VIST,TNI
+丹伯里机场: DXR,KDXR
+马洪机场: LEMH,MAH
+萨罕德机场: ACP,OITM
+青蓬机场: VTSE,CJM
+雷夫卡机场: LEV,NFNB
+阿黑机场: AHE,Nagri Gunsa Airport,NTHE
+罗图马岛机场: NFNR,RTA
+苏阿拉拉机场: DWB,FMNO
+普拉斯基郡机场: KSME,SME
+旺阿雷机场: NZWR,WRE
+斯尼罗机场: UKLL,LWO
+特拉机场: Lisbon Portela Airport,TEA,MHTE
+安伯里机场: HDAM,JIB
+洛亚干机场: BAG,RPUB,Sultan Syarif Kasim II Airport
+恩非达: NBE,DTNZ
+亨德尔森空港机场: HSH,KHND
+马尼西机场: XMH,NTGI
+莫皮蒂机场: NTTP,MAU
+阿努拉德普勒机场: KACJ,ACJ
+卢阿诺机场: FBM,FZQA
+奇波瓦郡机场: CIU,KCIU
+沃尔特－迪斯尼乐园机场: DWS
+昂基瓦机场: Chengdu Tianfu International Airport,VPE,FNGI
+卡塞尔－卡尔登机场: KSF,EDVK
+奥林匹亚坝机场: YOLD,OLP
+伊瓦格机场: “三字代码”，,IBE,SKIB,El Calafate
+阿根内斯机场: FAAG,AGZ
+莱维斯顿机场: KLWS,LWS
+恰纳克机场: NAQ,BGQQ
+拉诺圣胡安机场: MMTG,TGZ
+纳桑机场: SQH,VVNS
+卢姆贾塔机场: RUM,VNRT
+考德威尔－莱特机场: KCDW,CDW
+耶利瓦勒机场: ESNG,GEV
+斯塔灵斯机场: ISO,KISO
+查亚普拉机场: WAJJ,DJJ
+弗罗茨瓦夫机场: EPWR,WRO
+凯尔德拉机场: KDL,EEKA
+哈得孙贝机场: CYHB,YHB
+米利诺基特机场: MLT,KMLT
+莫尔莱机场: MXN,LFRU
+维杰亚瓦达机场: VGA,VOBZ
+梅里尔－梅格斯机场: KCGX,CGX
+麦夸里港机场: YPMQ,PQQ,Brisbane Airport
+安塔机场: ATA,SPHZ,ท่าอากาศยานนานาชาติสุวรรณภูมิ
+文斯机场: KLOM,BBX
+哈马尔机场: HMR,“三字代码”，,ENHA,El Calafate
+坎布里奇贝机场: YCB,CYCB
+扬迪纳机场: Yangzhou Taizhou International Airport,AGGY,XYA
+阿肯色西北地区机场: XNA,KXNA
+拉法尔布埃尔纳将军机场: MMMZ,MZT
+海雷斯机场: TLN,Aeropuerto de Madrid-Barajas,LFTH
+莱克埃委拉机场: YLEV,LEL
+拉罗谢尔机场: LFBH,LRH
+佛雷斯特希尔机场: YSWG,WGA
+比斯塔特－帕克斯机场: CPS
+蒙特雷半岛机场: General Mariano Escobedo International Airport,MRY,KMRY
+凯斯勒空军基地: BIX,KBIX
+伊科尼机场: YVA,FMCN,Imam Khomeini International Airport
+索科托机场: DNSO,SKO
+拉弗里亚机场: SVLF,LFR
+安齐拉纳纳/阿拉查特机场: FMNA,DIE
+布林格兰德机场: FDE
+帕特泊恩机场: PAD,EDLP
+谢博顿机场: SHT,Xuzhou Guanyin International Airport,YSHT
+邦德堡机场: BDB,YBUD
+赖普尔机场: RPR,VARP
+圣卡洛斯机场: SQL,KSQL
+日托米尔机场: UKKV,ZTR
+史蒂芬斯波因特机场: STE,KSTE
+彼得伯勒机场: YPQ,CYPQ
+利吉耶普机场: LIK
+希尔贝机场: SYB
+希尔空军基地: KHIF,HIF
+伊里亚姆纳机场: ILI,PAIL
+奇班加机场: FOOT,TCH
+托尔尼奥机场: KEM,EFKE
+特龙贝塔斯机场: TMT,SBTB
+马塔加米机场: YNM,CYNM
+索拉诺港机场: BSC,SKBS
+恰耶－考尔克机场: CUK
+科罗机场: SVCR,CZE
+博林奎恩机场: BQN,TJBQ
+卡胡卢伊机场: OGG,PHOG
+加罗机场: GGR
+塔姆因机场: MMTN,TSL
+弗雷什沃特贝机场: KFPR,FRP
+阿罗赖岛机场: AIS,NGTR
+洛吉克吉奥机场: HKLK,LKG
+皮奇特里－德卡尔布机场: KPDK,PDK
+设得兰群岛机场: EGPB,LSI
+拉布拉克机场: LAQ,HLLQ
+拉卡勒拉机场: ZCL,MMZC
+林肯德洛斯苏瑟斯机场: RDS
+奥克斯纳德机场: KOXR,OXR
+达博里姆机场: GOI,VAGO
+巴贝罗斯机场: BAZ,SWBC
+斯利特缪特机场: PASL,SLQ
+马丘比丘机场: MFT
+里延机场: OYRN,RIY
+索罗卡巴机场: SOD,SDCO
+阿拉机场: RAE,Bole Alashankou Airport,OERR
+科沃拉巴士车站: QVY,EFUT
+宾德拉彻堡机场: BYU,EDQD
+尤里马瓜斯机场: YMS,SPMS
+比斯克拉机场: BSK,DAUB
+马扎里沙里夫机场: OAMS,MZR
+安达帕机场: 朱安达国际机场,FMND,ZWA,Banda Udara Internasional Juanda
+伯利兹城PhilipS国际机场: MZBZ,BZE
+克劳德布瑞克: KFE,YFDF
+勒莱泽特机场: PTP,TFFR
+埃克西翁因雷特水上飞机基地: EXI
+希恩机场: SKE,ENSN
+格塞尔镇机场: SAZV,VLG
+拉波机场: Bora Bora Airport,OZC,RPMO
+泰特伯勒机场: KTEB,TEB
+洛斯阿拉莫斯机场: LAM,KLAM
+莫莫特机场: AYMO,MAS
+斯里亚克机场: SLD,LZSL
+阿鲁伊茨普帕阿机场: BGAP,LLU
+波尔塔瓦机场: PLV,UKHP
+阿德列尔索奇机场: AER,URSS
+拉希迪耶机场: ERH,GMFK
+科万机场: MGCB,CBV
+迪埃斯空军基地: KDYS,DYS
+圣皮埃尔－德拉瑞乌尼翁机场: ZSE,FMEP
+伊尔马约基机场: SJY,EFSI
+塞杜纳机场: CED,YCDU
+布莱克提克尔机场: YBI,CCE4
+大特克岛机场: GDT,MBGT
+努伊克苏特机场: PAQT,NUI
+加兹登地方机场: KGAD,GAD
+善德: DSO
+伊瓜苏机场: SARI,IGR
+穆兰巴赫机场: MOV,YMRB
+梅特兰机场: YMND,MTL
+拉马普机场: Mactan-Cebu International Airport,NVSL,LPM
+雷素卢申堡机场: CYFR,YFR
+朗挪罗依机场: LNE,NVSO
+朗伊罗阿机场: RGI,NTTG
+因佩里亚郡机场: KIPL,IPL
+科尔多瓦机场: LEBA,ODB
+伊丹机场: Osaka International  Airport,RJOO,ITM
+门提齐阿里机场: VBS,LIPO
+阿拉克绍斯机场: LGRX,GPA
+夏洛特郡机场: KPGD,PGD,Charlotte/Douglas International Airport
+保罗阿方索机场: SBUF,PAV
+索纳里机场: VEJS,IXW
+桑德罗斯机场: SAQ,MYAN
+吕伐登机场: EHLW,LWR
+阿贝马马环礁机场: NGTB,AEA
+塞尔菲尔德机场: KSES,Darfield,SES
+里穆斯基机场: CYXK,YXK
+吉朗机场: GEX,YGLG
+休斯地方机场: HUS,PAHU
+古瓦哈蒂机场: VEGT,GAU
+顺町机场: RJSC,GAJ
+科罗伊塞特直升机机场: JCA
+威尔坎尼亚机场: WIO,YWCA
+斯利纳加机场: Srinagar Airport,SXR,VISR
+绍斯当斯机场: KIW,FLSO
+温斯德雷赫特机场: WOE,EHWO
+布埃纳文图拉机场: SKBU,BUN
+穆昂乌本机场: UBP,VTUU
+科布多机场: Chinggis Khaan International Airport,ZMKD,HVD,成吉思汗国际机场
+列伊达: ILD,LEDA
+查塔姆水上飞机基地: CYM
+黎逸机场: ROI,VTUV
+拉克阿根蒂诺机场: SAWA,ING
+萨玛拉机场: KUF,UWWW
+莫埃利岛机场: NWA,FMCI
+圣若昂达丽: JDR
+莫辛布瓦－达普拉亚机场: FQMP,MZB
+斯特朗赛机场: EGER,SOY
+阿兰萨斯郡机场: RKP,KRKP
+哈伊勒机场: OEHL,King Abdulaziz International Airport,HAS
+莱克城: KLCQ,LCQ
+提林库特机场: OATN,TII
+马拉松简易机场: MTH,KMTH
+伊莎贝拉国际机场: MDJB,JBQ
+费图伊塔机场: FTI,NSFQ
+卡龙加机场: KGJ,FWKA
+巴尼亚卢卡机场: BNX,LQBK
+塔卡卡机场: NZTK,Nelson Airport,KTF
+塔拉拉机场: TYL,SPYL
+达布莱宗机场: VNTJ,TPJ
+恩扎基机场: SPZA,NZA
+坎恩菲尔德机场: DCF,TDCF
+吉姆利机场: YGM,CYGM
+纽约佩恩机场: ZYP
+维罗朗机场: YIP,KYIP
+科尔武岛（亚速群岛）机场: CVU,LPCR
+加特机场: GHT,TIP,HLLT,HLGT
+安托法加斯塔机场: SCFA,ANF
+布桑加机场: Busuanga Airport,USU,RPVV
+希科里机场: KHKY,HKY,Seletar Airport
+维特努姆机场: KOSH,OSH
+芒特豪特哈姆机场: MHU,YHOT
+图姆灵塔尔机场: TMI,VNTR
+乌韦阿机场: NWWV,UVE
+杰克逊郡机场: Jackson Hole Airport,KMFR,MFR
+泰拉机场: Lisbon Portela Airport,KOCF,OCF
+喀土穆机场: KRT,Khartoum International Airport,HSSS
+奥拉帕机场: ORP,FBOR
+佩奇机场: PGA,KPGA
+安巴通德拉扎卡机场: FMMZ,WAM
+穆扎法拉巴德机场: MFG,OPMF
+博加斯机场: BOJ,LBBG
+奥里希米纳机场: ORX,SNOX
+莫比尔地方机场: Mobile Downtown Airport,MOB,KMOB
+格拉兹机场: LOWG,Graz,GRZ
+戈巴机场: GOB,HAGB
+塔卡罗阿机场: NTKR,TKX
+法加里机场: FGI,NSFI
+杰弗逊城梅莫里阿尔机场: JEF,KJEF
+耶洛奈夫机场: CYZF,YZF
+万瑟空军基地: KEND,END
+阿纳克图乌克机场: PAKP,AKP
+许温凯机场: EFHV,HYV
+奥尔巴尼堡机场: YFA,CYFA,Albany International Airport
+马朗机场: MLG,WIAS
+巴姆劳里机场: IXD,VIAL
+斯基亚索斯机场: JSI,LGSK
+姆坎机场: MUNI,MUQ
+埃农泰基厄机场: EFET,ENF
+奥卡斯岛机场: ESD,KORS
+马拉卡勒机场: HSSM,MAK
+贝勒沃格机场: ENBV,BVG
+乌里希机场: ULI
+奎尼拉维尼亚机场: NTT,NFTP
+塞莫尔－约翰逊空军基地: GSB,KGSB
+唐卡斯特谢菲尔德罗宾汉机场: EGCN,DSA
+普埃布拉机场: PBC,MMPB
+邦达利贝机场: YDT,CZBB
+金三角地区机场: GTR,KGTR
+埃尔卡拉法特机场: FTE,El Calafate Airport
+托马斯维尔机场: MGR
+莱城机场: LML
+科莫克斯机场: CYQQ,YQQ
+基科里机场: KRI,AYKK
+卡拉克斯机场: LLA,ESPA
+纳拉伯机场: NURN,NUR
+花园城市机场: GCK,Shihezi Huayuan Airport,KGCK
+本努机场: OPBN,BNP
+土库曼巴希机场: KRW,UTAK
+罗德里格兹机场: TIJ,MMTJ
+拉梅奇哈普机场: VNRC,RHP
+梅吉特岛机场: Q30,MJB
+洛哈机场: SETM,Aeropuerto Internacional Mariscal Sucre,LOH
+库库塔机场: SKCC,CUC
+瓦布什机场: YWK,CYWK,St John's International Airport
+萨马纳: AZS,MDCY
+诺特罗斯罗德奥斯机场: TFN,GCXO
+维沙卡帕特南机场: VTZ,VEVZ
+哈迪港机场: YZT,CYZT
+苏拉耶尔机场: SLF,OESL
+汤森港机场: TWD
+哈派: Ha'apai Group,NFTL,HPA
+厄尔坎机场: LCEN,ECN
+蓬塔莱希机场: PMO,LICJ
+波里机场: EFPO,POR,Faa'a International Airport
+北大年机场: VTSK,PAN
+费拉岛机场: AGGF,FRE
+佛罗里达西北海滩国际机场: ECP,KECP
+格雷特尔－威尔明顿机场: ILG,KILG
+帕姆代尔空军42基地: PMD,KPMD
+西乌纳机场: SIU,MNSI
+扎达尔机场: LDZD,ZAD
+拉什特机场: OIGG,RAS
+惠斯勒机场: YWS,CAE5
+普拉兰岛机场: PRI,FSPP
+罗兹机场: LCJ,EPLL
+卡尼昂兰兹机场: CNY,KCNY
+雷西斯滕西亚机场: SARE,RES
+伦格港机场: BDH,OIBL,PortHedlandInternationalAirport
+马里波萨: KRMY,RMY
+特罗尔海坦机场: ESGT,THN
+大不里士机场: فرودگاهبینالمللیتبریز,TBZ,OITT
+吉尔伯特菲尔德机场: KGIF,GIF
+昆嵩机场: Kunming Changshui International Airport,KON
+马赫空军基地: RIV,KRIV
+卡科尔托克直升机机场: BGJH,JJU
+利萨拉机场: LIQ,FZGA
+科夫斯港机场: YCFS,CFS
+梅莫里阿尔机场: HOT,KHOT
+塔拉珀阿机场: TPC,SETR
+胡尔茨弗雷德机场: HLF,ESSF
+康科德机场: CON
+迪兹富勒机场: DEY,OIAD
+瓜廖尔机场: VIGR,GWL
+赤塔机场: UIAA,HTA
+因拜马代机场: SYIB,IMB
+海空军机场/阿尔文卡伦达尔: KNBG,NBG
+希尔科夫机场: CZSW,ZSW
+穆索尼机场: YMO,Medan Kuala Namu International Airport,CYMO
+首都城市机场: KFFT,FFT
+劳雷尔哈蒂斯堡机场: PIB,KPIB
+克孜勒奥尔达机场: KZO,UAOO
+克雷格考夫机场: NVSF,CCV
+滑铁卢地区机场: YKF,CYKF
+斯威特沃特郡机场: KRKS,RKS
+基西杜古机场: KSI,GUKU
+埃利姆机场: PFEL,ELI
+达塔达瓦伊机场: DTD,WALJ
+法扎巴德机场: FBD,OAFZ
+基德姜机场: TNJ,WIDN
+林斯机场: Alliance Municipal Airport,LIP,SBLN
+鲁古姆果德机场: VNRK,RUK
+特皮克机场: TPQ,MMEP
+安娜机场: NTGA,AAA
+乌波卢角机场: UPP,PHUP
+包鲁: JTC,SJTC
+塔瓦乌克斯机场: LFGJ,DLE
+坦迪尔机场: TDL,SAZT
+首都城机场: LAN,KLAN
+纳珀卡机场: LRCL,CLJ
+沙克贝机场: YSHK,ICotonou Cadjehoun Airport,MJK
+怀特芒廷机场: WMO,PAWM
+布朗伍德机场: BWD
+埃斯孔迪多港机场: PXM,MMPS
+普罗斯派克特克里克机场: PAPR,PPC
+迈阿密大学机场: OXD
+蒙蒂斯克拉鲁斯机场: MOC,SBMK
+拉马卡扎机场: YTM,CYFJ
+塔马利机场: DGLE,TML,Tamale Airoport
+贝克湖机场: CYBK,YBK
+卡特班克机场: KCTB,CTB
+埃代岛机场: EGED,EOI,Eday
+伯雷加德－帕里什机场: KDRI,DRI
+巴塘机场: Yushu Bangtang Airport,YUS,ZLYS
+埃克斯茅斯湾机场: EXM
+奥尔莫克机场: OMC,RPVO
+根德斯兰德斯机场: BUG,FNBG
+加斯马塔岛机场: GMI
+埃内维塔克岛机场: PKMA,ENT
+埃尔比希亚机场: SVVG,VIG
+斯昆机场: YSCO,NSO
+提尔斯特卢普机场: AAR,EKAH
+瑟斯佩德斯机场: BYM,MUBY
+伊洛林机场: DNIL,ILR
+韦斯卡: LEHC,HSK
+桑巴瓦机场: FMNS,SVB
+特尔诺波尔机场: UKLT,TNL
+康科迪亚机场: COC,SAAC
+阿方索挽阿拉贡机场: CLO,SKCL
+比弗福尔斯机场: BFP,KBFP
+HerveyBayAirport: YHBA,HVB
+卡劳阿里机场: CAF,SWCA
+卢伊科普机场: WVB,FYWB,Los Angeles International Airport
+圣克鲁斯机场: STU,SBSC
+胡梅拉机场: HUE,HAHU
+柯林斯堡/拉夫兰地方机场: FNL,KFNL,Fort Collins - Loveland Municipal Airport
+桑布机场: SAX
+多伦多岛机场: CYTZ,YTZ
+比格克里克机场: BGK
+比尔空军基地: BAB,KBAB
+阿亚库乔港机场: SVPA,PYH
+尼尔莱里特因阿特机场: CNP,BGCO
+富纳富提环礁国际机场: FUN,NGFU
+阿瓜斯克拉勒斯机场: OCV,SKOC
+图什比机场: TYF,ESST
+木龙机场: ZMMN,MXV
+福朗卡机场: FRC,SIMK
+埃拉特机场: LLET,ETH
+马塔莫罗斯机场: MMMA,MAM
+帕加迪安机场: PAG,RPMP
+赫克特尔机场: KFAR,FAR
+根约瑟－耶内兹机场: GYM,MMGM
+阿利塔克水上飞机基地: ALZ
+埃灵登机场: KEFD,EFD
+胡珀贝机场: HPB,PAHP
+丹巴德机场: VEDB,DBD
+瓦尔考斯机场: VRK,Varkaus,EFVR
+苏恰瓦机场: LRSV,SCV
+阿里克西翁机场: LGHL,PKH
+贾纳德机场: TAI,OYTZ
+钱迪加机场: IXC,VICG
+塞莱比－皮奎机场: FBSP,PKW
+迪斯莱克机场: CYDL,Smithers Airport,YDL
+穆拉费努贝机场: FMMR,TVA
+纳雄耐尔港机场: PNB,SBPN
+撒波拉得奥里文卡: OLC,SDCG
+阿雷格里港机场: SBPA,POA
+萨加莱机场: SGJ,Alamosa - San Luis Valley Regional/Bergman Airfield
+维提安加机场: WTZ,Jomo Kenyatta International Airport（JKIA）,NZWT
+埃德蒙顿地方机场: CYXD,Edmonton International Airport,YXD
+圣克拉拉机场: MUSC,SNU
+库因达机场: CDA,YCOO
+加雷芒特帕纳瑟机场: XGB
+托兰斯机场: KTOA,TOA
+达尔本丁机场: OPDB,DBA
+孟萨机场: VYMS,MOG
+菲利波斯机场: KZI,LGKZ
+阿尔巴塔克斯机场: LIET,TTB
+里奥翁多机场: SANH,Mahon Airport,RHD
+杰克逊维尔海空军机场: KNIP,NIP
+雷诺兹地方机场: KJXN,JXN
+罗马机场: YROM,RMA,Aeroporto internazionale di Roma-Fiumicino “Leonardo da Vinci”
+凯拉尼亚里弗机场: KEZ
+加沙城国际机场: GZA,LVGZ
+格恩济机场: GCI,EGJB,Gatwick Airport
+博阿维斯塔机场: BVB,SBBV
+巴里奥斯港机场: PBR,MGPB
+科科达机场: KKD
+布莱斯维尔空军基地: BYH,KBYH
+图雷阿机场: TLE,FMST
+朗巴蒂机场: LNC
+坦博霍拉诺机场: WTA,FMMU,Imam Khomeini International Airport
+艾伯特王子城机场: CYPA,YPA
+欧埃德伊拉拉机场: HME,DAUH
+阿伦敦机场: KABE,ABE
+阿尔本加机场: LIMG,ALL
+塔朱拉机场: HDTJ,TDJ
+弗纳尔机场: KVEL,VEL
+奇绍尔姆机场: HIB,KHIB
+皮尔逊机场: CYYZ,帕尔森机场,YYZ,Toronto Pearson International Airport
+瓦德瑟机场: VDS,ENVD
+佛尔米里翁郡机场: KDNV,DNV
+卡纳角机场: MDPC,PUJ
+因尼斯费尔机场: YIFL,IFL
+希俄斯机场: JKH,LGHI
+扎兰季机场: OAZJ,ZAJ
+奥尔加湾水上飞机基地: KOY
+庞卡城机场: PNC,KPNC
+温多拉机场: YWDH,WNR
+科姆博尔查机场: HADC,DSE
+韦斯特波特机场: NZWS,WSZ
+纳塔什昆机场: CYNA,YNA
+旺德尔布姆机场: FAWB,PRY
+巴姆机场: BXR,OIKM
+伍伦贡机场: YWOL,WOL
+米尔福德桑德机场: MFN,NZMF
+提科机场: TKC,FKKC
+尼奥尔机场: LFBN,NIT
+卡皮托里奥机场: FLA,SKFL
+圣克劳德地方机场: STC,KSTC
+蓬塔波朗国际机场: SBPP,PMG
+图拉基机场: TREU,TLG
+伊农戈机场: Dominique Sakombi Inongo,FZBA,INO
+卡潘达机场: KNP,FNCP
+苏基机场: SKC
+埃奥梅机场: AIE
+琅纳姆塔机场: VLLN,LXG
+赫尔辛基－马尔米机场: HEM,EFHF
+丹尼尔机场: Aeropuerto Internacional Juan Santamaría,DNL,KDNL
+格雷特尔皮奥里斯机场: PIA,KPIA
+雷文斯索普机场: RVT,YNRV
+帕尔萨巴德机场: OITP,PFQ
+赫雷拉机场: MDHE,HEX
+格利姆塞岛机场: GRY,BIGR
+凯里奥瓦利机场: KRV
+特提阿洛阿岛机场: TTI,NTTE
+但马机场: RJBT,TJH
+北罗纳德赛机场: NRL,EGEN,Ronald Reagan Washington National Airport
+格里德机场: PBF,KPBF
+达沃机场: Davao International Airport,RPMD,DVO
+萨比萨比机场: GSS
+康斯坦扎机场: COZ,MDCZ
+维拉加佐恩机场: SKVG,VGZ
+索内加昂机场: VANP,NAG
+默热沃机场: MVV,LFHM
+维尔京戈尔达岛机场: TUPW,Virgin Gorda,VIJ
+安齐拉贝机场: FMME,ATJ
+西圣安东尼奥机场: OES,SAVN,SanAntonioInternationalAirport
+莱昂机场: LELN,LEN
+扎姆比尔机场: DMB,UADD
+北极湾城机场: YAB,CJX7
+邦热苏斯?达拉帕机场: SBLP,LAZ
+彼得罗巴甫洛夫斯克机场: UACP,PPK
+希戈内拉海空军基地机场: LICZ,NSY
+奥马鲁机场: NZOU,OAM
+伊克斯普雷斯机场: TOL,KTOL
+阿塔格机场: OYAT,AXK
+约克顿机场: CYQV,YQV
+伊托考托米特机场: BGSC,OBY
+库尔斯克机场: UUOK,URS
+姆特瓦拉机场: 莫罗尼国际机场,مطار الأمير سعيد إبراهيم الدولي‎；Aéroport International Prince Said Ibrahim；Prince Said Ibrahim International Airport,MYW,HTMT
+圣诞岛机场: PLCH,CXI
+克拉伦斯港机场: PAPC,KPC
+弗鲁克普拉茨机场: AGE,EDWG
+班达奈拉机场: NDA
+米利岛机场: MLIP,MIJ
+戈兹纳罗斯机场: YGO,CYGO
+阿拉莫戈多地方机场: KALM,ALM,Alamogordo White Sands Regional Airport
+里查兹贝机场: RCB,FARB
+卡农空军基地: KCVS,CVS
+塔蒂特利克机场: TEK
+萨莫比佛机场: CJV7,SUR
+乌鲁阿潘机场: MMPN,UPN
+凯里郡机场: EIKY,KIR
+比尤特机场: Butte Bert Mooney Airport,KBTM,BTM
+萨利纳机场: KSLN,SLN
+马撒葡萄园岛机场: Martha's Vineyard,KMVY,MVY
+西奈山机场: SKV,HESC
+布拉戈维申斯克机场: BQS,UHBB
+达什特纳兹机场: OINZ,SRY
+日利纳机场: ILZ,LZZI
+法拉波瓦机场: PHW,FAPH
+夏波军用机场: KLRO,LRO
+乔利埃特地方机场: JOT,KJOT
+坎姆波格朗德国际机场: SBCG,CGR
+法尔恰尔德空军基地: SKA,KSKA
+罗宾斯空军基地: KWRB,WRB
+加蒂诺机场: CYND,YND
+库居阿克机场: CYVP,YVP,Akron-Canton Regional Airport
+塔卡波托机场: NTGT,TKP
+伯奇克里克机场: KBC
+坦坦机场: GMAT,TTA
+卢博莫机场: FCPL,DIS,Mombasa Moi International Airport
+贝洛机场: FMML,BMD
+巴马加机场: ABM,YBAM,Baise Bama Airport
+图古尔特机场: TGR,DAUK
+安德森机场: KAND,AND
+谢尔沃特机场: CYAW,YAW
+奥佐纳机场: Leipzig/Halle Airport,KOZA,OZA
+乌特史密斯空军基地: OSC,KOSC
+莱鲁阿机场: RVV,NTAV
+乌纳机场: UNA,SBTC
+保拉格拉水库机场: KDZ
+比米尼群岛国际机场: BIM,MYBS
+马拉巴机场: Calicut International Airport,SBMA,MAB
+麦克卡尔机场: KMYL,MYL
+南加各斯国际机场: MBSC,XSC
+阿特劳机场: GUW,UATG
+马辰机场: BDJ,WRBB
+圣马丁约瑟机场: SAWS,JSM
+库里亚机场: KUC,NGKT
+维多利亚－达孔基斯塔机场: SBQV,VDC
+祥波切机场: SYH,VNSB
+圣米歇尔机场: PAMK,SMK
+图尔坎机场: SETU,Tours Val de Loire Airport,TUA
+图尔恰机场: TCE,LRTC
+纳西切万机场: UBBN,NAJ
+格里菲斯机场: GFF,YGTH
+皮阿尔科机场: POS,TTPP
+布拉干萨－保利斯塔机场: SBBP,BJP
+巴博机场: WASO,BXB
+奎吉林戈克机场: KWK,PAGG
+塔克洛班机场: TAC
+莱贝尔苏尔奎维勒机场: CYLS,YLS
+苏丹塔哈挽斯亚里弗德恩机场: WIPA,DJB
+利罗斯机场: LRS,LGLE
+里奥格兰德机场: SAWE,RGA,Valley International Airport
+比亚德机场: LFBI,PIS
+乌斯季卡缅诺戈尔斯克机场: UKK
+怀恩莱特堡机场: PAFB,FBK
+米德尔顿岛中转机场: SUPE,MDO
+开普纽文汉姆机场: PAEH,EHM
+谢姆亚空军基地: SYA,PASY
+罗查姆博机场: CAY,SOCA
+西隆机场: SHL,VEBI
+弗林弗伦机场: CYFO,YFO
+埃尼杰特机场: EJT
+博冈代机场: XBG
+富勒顿地方机场: KFUL,FUL
+拉格兰机场: YBTH,BHS
+斯蒂宾斯机场: WBB
+沃杰机场: WTE,N36
+密歇根城机场: MGC,KMGC
+瓦努科机场: SPNC,HUU
+阿格蒂岛机场: VOAT,AGX
+阿雷西沃机场: TJAB,ARE
+桑德波因特地方机场: PASD,SDP
+伊万诺沃机场: UUBI,IWA
+科阿里机场: SWKO,Nagri Gunsa Airport,CIZ
+加登哈里斯郡机场: PIM,KPIM
+科恩郡机场: KIYK,IYK
+比塔姆机场: FOOB,BMM
+那牙机场: WNP,RPUN
+卡诺机场: PSO,SKPS
+瓦加尔机场: EKVG,FAE,Gatwick Airport
+博克拉机场: VNPK,PKR
+Narsarsuaq机场: UAK,BGBW
+普勒图伊特机场: DNR,LFRD
+拉科鲁利亚机场: La Coru&ntilde;a Airport,LECO,LCG
+埃索拉机场: ESU,GMMI
+派帕梅莫里阿尔机场: LHV,KLHV
+卡拉韦拉斯机场: SBCV,CRQ
+埃森机场: Melbourne International Airport,ESS,EDLE
+图尔西奈城机场: ELT,HETR
+雷约恩机场: MID,MMMD
+丰泰纳机场: BOR,LFSQ,Fontaines
+布伦机场: LYN,LFLY,Paderborn/LippstadtAirport
+迪马珀机场: DMU,VEMR
+卡斯切彻瓦恩机场: ZKE,CZKE
+沃特弗隆特水上飞机基地: WFB
+帕涅韦日斯机场: EYPP,PNV
+约瑟法－卡梅约机场: LSP,SVJC
+博基巴基莫克塔机场: BMW,DATM
+格拉德温机场: GDW,KGDW
+科克伦机场: CYCN,YCN
+摩西角中转机场: Grant County International Airport,MARO,MOS
+卡珀加纳机场: CPB,SKCA
+霍尔曼机场: CYHI,YHI
+麦克金农机场: KSSI,SSI
+布连海姆机场: NZWB,BHE
+埃尔萨尔瓦多机场: ComalapaInternationalAirport,SCES,ESR
+莱阿约恩克斯机场: LFRI,EDM
+科利马机场: CLQ,MMIA
+雷乌斯机场: LERS,REU
+克内尔机场: YQZ,CYQZ
+兰塞里亚机场: HLA,FALA
+麻萨诸塞州楠塔基特机场: KACK,ACK
+罗斯机场: BEH,Stockholm-V&auml;ster&aring;s Airport,ESOW
+科伯克/韦恩机场: PAOB,OBU
+查梅尔机场: VHY,LFLV
+奥旺多机场: FCOO,FTX
+菲舍登机场: SAAR,ROS
+赫尔辛堡直升机机场: JHE
+津德尔机场: DRZR,ZND
+伊格恩－阿格拉蒙特国际机场: MUCM,CMW
+古德纽斯贝机场: GNU
+哈瓦伊里弗莱基机场: KHW,FBKR
+丹格里加机场: DGA
+安楚齐齐机场: FMNW,WAI
+圣克鲁斯岛机场: SCZ,AGGL
+马希斯机场: KSJT,SJT
+比弗机场: Eagle County Regional Airport,WBQ,PAWB
+乔普林机场: KJLN,JLN
+卡皮坦－罗尔登机场: PCL,SPCL
+狄龙贝机场: NVVD,DLY
+布拉姆博尔机场: MNI,TRPG,Bram Fischer International Airport
+考鲁内机场: SXL,EISG
+科恩机场: CUQ,YCOE
+舍夫德机场: ESGR,KVB
+博克莱克弗隆特机场: BKL,KBKL
+卡萨巴湾机场: Juancho E. Yrausquin,FLKY,ZKB
+阿帕塔基机场: APK,NTGD
+奴奴干机场: WRLF,NNX
+三泽机场: MSJ,ざいにちべいぐん,RJSM
+拉克布罗切特机场: XLB,CZWH
+巴罗岛机场: YBWX,BWB
+曼彻斯特地方机场: MHT,KMHT
+巴色机场: PKZ,VLPS
+亚历山德里亚机场: KAEX,AEX
+圣多米诺岛机场: TQR
+别德马机场: VDM,SAVV
+奇萨希比机场: CSU2,YKU
+瓜德尔机场: GWD,Gawadar International Airport,OPGD
+奇卡洛夫斯基机场: UUMU,CKL
+帕尔莫瑟尔机场: PMZ,MRPM
+维尔科姆机场: FAWM,WEL
+戈雷机场: HAGR,GOR
+曼齐尼机场: RKND,SHO
+比得哥什机场: EPBY,BZG
+南莱克塔霍机场: TVL,KTVL
+奥夫雷贡城机场: MMCN,CEN
+帕朗卡拉亚机场: WAOP,PKY
+莫里机场: MRZ,YMOR,Pablo Ruiz Picasso Airport
+曼利赫特斯普林机场: MLY,PAML
+马塔姆机场: MAX,GOSM
+库阿姆巴机场: FQCB,FXO
+罗斯福机场: TNCE,EUX
+马哈奇卡拉机场: MCX,URML
+基塔莱机场: KTL,HKKT
+维博奎机场: CYWP,YWP
+布恩郡机场: KHRO,HRO
+卡拉特哈机场: KTA,YPKA
+博斯克贝尔机场: MKBS,OCJ
+吉吉加机场: JIJ,HAJJ
+里休机场: LIH,PHLI
+阿里什机场: AAC,HEAR
+布兰顿机场: YBR,CYBR
+格雅机场: Paro Airport,GAY,VEGY
+罗尔克拉机场: VERK,Madriu-Perafita-Claror Valley,RRK
+内尔斯普雷特机场: FANS,NLP
+布鲁斯拉古纳机场: MHBL,BHG
+海恩斯地方机场: PAHN,HNS
+塞得港机场: PSD,HEPS
+阿拉善左旗机场: Alax Zuoqi Bayanhot Airport,AXF,ZBAL
+卢卡斯？里奥？维尔德: LVR,SWFE
+海德－布埃色姆机场: EDXB,HEI
+班戈机场: BGR,KBGR,班戈国际机场,Bangor International Airport
+芬肯维尔德机场: XFW,EDHI
+阿莱克纳吉克机场: 5A8,WKK
+桑阿桑阿机场: SGS,RPMN
+穆阿斯凯尔机场: DAOV,MUW
+泰格尔机场: TXL,EDDT,德语:Flughafen Berlin Brandenburg Willy Brandt 英语:Berlin Brandenburg Airport Willy Brandt
+圣安格罗机场: ENK,EGAB
+雷奥机场: REA,NTGE
+威洛格罗夫海空军机场: NXX,KNXX
+卡雷尼奥港机场: SKPC,PCR,El Dorado International Airport
+伊加尔卡机场: IAA,UOII
+别克斯机场: TJCG,VQS
+希诺普机场: OPS,Puer Simao Airport,SWSI
+考罗尼机场: SMCO,TOT
+加普拉机场: WIPR,RGT
+库亚霍加郡机场: KCGF,CGF
+基洛沃格勒机场: UKKG,KGO
+科勒尔港机场: YZS,Coral Harbour Airport,CYCZ
+斯摩棱斯克机场: UERL,俄罗斯,Smolensk Military,ULK
+阿勒马机场: CYTF,YTF
+普拉奥－拉扬拉扬机场: LAC
+库夫莱机场: AKF,HLKF
+霍恩岛机场: HID,YHID
+奥利弗布朗奇机场: OLV,KOLV
+帕尔努机场: EEPU,EPU
+斯瓦尔巴德机场: LYR,ENSB
+弗雷瑞斯机场: LFTU,FRJ
+桑纳讷机场: SDN,ENSD
+拉马塔机场: RBV,Mataveri International Airport,复活节岛机场,AGRM
+乌斯怀亚国际机场: USH,SAWH
+帕托斯德米纳斯机场: SNPD,POJ
+科洛尼亚撒米托: OLN
+纳奈莫港机场: CAC8,NanaimoAirport,ZNA
+马圭机场: VYMW,MWQ
+阿维亚特机场: CYEK,YEK
+阿内芝机场: LFRM,LME
+克拉马机场: Will Rogers World Airport,ROKR,KJP
+乌斯季玛亚: UMS,UEMU
+阿迪隆达克机场: SLK,KSLK
+里昂帕特挽迪尤火车站机场: XYD
+佩里格机场: PGX,LFBX
+查洛机场: CYCL,YCL
+圣拉斐尔机场: AFA,SAMR
+戈兹里弗机场: CZGI,ZGI
+提瓦特机场: LYTV,Heydar Aliyev International Airport,TIV
+巴茹拉机场: VNBR,BJU
+索洛维茨基: ULAS,CSH
+斯普林伯克机场: FASB,SBU
+科卡机场: Aeropuerto Internacional Mariscal Sucre,OCC,SECO
+卡尼机场: EAR
+雷姆皮拉港机场: PEU,MHPL
+西奥多机场: TDR,YTDR
+瓦丘卡堡/希拉维斯达地方机场: KFHU,FHU
+拉森水上飞机机场: PALB,KLN
+埃文帕克地方机场: AVO,KAVO
+圣凯瑟琳斯机场: YCM,CYSN
+奥兰机场: ORA,SASO
+诺克国际机场: NOC,EIKN,Roanoke Regional Airport
+杰机场: JEJ
+奥塔加米郡机场: KATW,ATW
+利物浦－约翰列农机场: EGGP,Liverpool John Lennon Airport,LPL
+圣埃伦娜机场: SNV
+亚格拉机场: 阿格拉空军基地,VIAG,AGR,Agra Kheria Airport
+阿克拉河马城机场: OKC,KOKC
+玛朗机场: VNMA,NGX
+埃文斯顿机场: KEVW,EVW
+麦克考纳尔空军基地: KIAB,IAB
+赫尔松机场: UKOH,KHE,Katowice Airport
+纳兰德拉机场: YNAR,NRA
+切尔斯基机场: UESS,CYX
+奥索尔诺机场: “三字代码”，,ZOS,El Calafate,SCJO
+卡林格机场: ESDF,RNB
+根雅维尔米纳机场: TAM,MMTM
+凯里乔机场: HKKR,KEY
+乔治空军基地: KVCV,VCV
+苏尼亚尼机场: NYI,DGSN
+克拉布马考考拉机场: CMK,FWCM
+特尔佛机场: TEF,YTEF
+美度斯机场: KBFL,BFL
+圣佩德罗机场: LaMesaInternationalAirport,BZA,MNBZ
+皮斯河机场: CYPE,YPE
+迈索尔机场: VOMY,MYQ
+圣约瑟德尔瓜机场: SKSJ,SJE
+邦瓜努机场: BGG,LTCU
+马洛埃拉普机场: MAV
+莱克穆雷机场: LMY
+福克斯港机场: YFX,CCK4
+瓦尔斯－拉纳斯机场: LFHO,OBS
+姆班姆巴纳基拉机场: AGGI,MBU
+斯托卡机场: SSJ,ENST
+马雷机场: MYP,UTAM
+布拉干萨机场: LPBG,BGC
+科隆火车站机场: QKL
+拉佛罗里达机场: Southwest Florida Regional Airport,SCSE,LSC
+科曼达恩特港: SAZB,BHI
+马克迪尔空军基地: MCF,KMCF
+波因茨诺思兰丁机场: YNL,CYNL
+普者黑机场: Wenshan Yanshan Airport,WNH,ZPWS
+布卡拉曼加机场: BGA,SKBG
+拉龙吉机场: YVC,CYVC
+瓦伦郡机场: KBWG,BWG
+海地角机场: CAP,MTCH
+藩朗机场: VVPR,PHA
+库撒莫机场: KAO,EFKS
+拉芬灵空军基地: KDLF,DLF
+基奈机场: Homer Airport,ENA,PAEN
+古晋机场: KCH,Kuching International Airport,WBGG
+阿尼亚克机场: PANI,ANI,Ted Stevens Anchorage International Airport,安克雷奇国际机场，安克拉治机场
+芒特马格尼特机场: MMG,YMOG
+约翰内斯堡机场: FAJS,JNB
+尼亚甘: NYA,USHN
+巴热机场: BGX,SBBG
+克尔维尔机场: KERV,ERV
+米雷克特机场: EPL,LFSG
+休恩登机场: YHUG,HGD
+克孜勒机场: UNKY,KYZ
+斯沃尔韦尔机场: SVJ,ENSH
+波卡特咯机场: KPIH,PIH
+阿格恩希洛机场: RJL,LELO
+萨兰斯克机场: UWPS,SKX,Sheremetyevo Alexander Pushkin International Airport
+阿克纠宾斯克机场: AKX,UATT,Sheremetyevo Alexander Pushkin International Airport
+焦特布尔机场: VIJO,JDH
+马当机场: MAG,AYMD
+格雷灵机场: Kigali International Airport,KGX
+哈尔比奇机场: CYUX,YUX
+庞德因莱特机场: YIO,CYIO
+因达斯特里尔机场: TIW,KTIW
+沙托鲁机场: LFLX,CHR
+奄美大岛机场: RJKA,ASJ
+波苏斯迪卡尔达斯机场: SBPC,POO
+奥尔特机场: NUW,KNUW
+阿旺机场: CBO,RPMC
+莫斯科地区机场: PUW,KPUW
+汤浦森机场: YTH,CYTH,Coral Harbour Airport
+卡贝萨斯港机场: MNPC,PUZ
+切斯特康提－卡尔森机场: KMQS,CTH
+阿鲁图亚机场: NTGU,AXR
+奥农格机场: ONB
+胡安惠机场: SPJI,JJI
+三歧机场: S渀 Bay Chu Lai,TMK
+维斯特桑德机场: WSX
+纳尔逊堡机场: YYE,CYYE
+圣劳伦杜马罗尼机场: SOOM,LDX
+杰基诺贝机场: JAQ
+利吉尔莫－梅莫里阿尔机场: KGVL,GVL
+达博机场: WIDS,SIQ
+费尔岛机场: EGEF,FIE
+牛顿城－郡机场: KEWK,EWK
+乔治机场: FAGG,GRJ
+达洛亚机场: DIDL,DJO
+戴德曼斯凯机场: LGI,MYLD
+查查波亚斯机场: CHH,SPPY
+科科舍塔机场: KOV,UACK
+塞蒂夫机场: “三字代码”,DAAS,QSF,African airport three characters code
+楠德德机场: VAND,NDC
+英居内机场: 英语:Edinburgh Airport 低地苏格兰语:Port-adhair Dhùn Èideann,INJ,KINJ
+谢南多阿瓦雷机场: KSHD,SHD
+迪克斯塞普特－罗萨多机场: SBMW,MVF
+查塔姆机场: CNZ3,XCM
+威廉敏娜港机场: EDWI,WVN
+诺维奇机场: EGSH,NWI
+巴度岛机场: BDD,YBAU
+拉斯阿美利加斯机场: SDQ,MDSD
+通斯滕机场: CBX5,TNS
+穆提阿拉机场: WAML,PLW
+海空军机场: KNQX,air force base,NQX
+马卡埃机场: Maya Maya Airport,MEA,SBME
+基洛夫机场: USKK,KVX
+桑托斯将军城机场: RPMR,GES
+巴托机场: BOW,KBOW
+莱苏康斯库耶机场: ULAL,LDG
+法尔伍德康姆机场: EGFH,SWS
+丹达机场: TDG,RPMW
+瓦卡塔尼机场: WHK,NZWK
+开普格洛塞斯特机场: KCGC,CGC
+特文特机场: Münster Osnabrück International Airport,ENS,EHTW
+维拉德大学机场: CMI,KCMI
+埃尔雷尔机场: ELE
+大凯珀尔岛机场: YGKL,GKL
+卢迪亚纳机场: LUH,VILD
+里格利机场: CYWY,YWY
+拉廊机场: UNN
+伦塞里旦机场: WBGI,ODN
+圭尔马机场: DAUO,ELU
+皮内姆恩德机场: PEF,EDCP
+与那国岛机场: OGN,ROYN
+雅克机场: JQE,MPJE
+奥兹恩基水上飞机基地: KOZ
+马斯特里赫特/亚琛机场: EHBK,MST
+马尔科夫: KVM,UHMO
+居廷机场: EDCG,GTI
+仰光机场: Yangon International Airport,RGN,VYYY
+默卡讷瑟拉姆机场: MKS,HAMA
+安巴图迈因蒂机场: AMY
+霍拉巴马德机场: OICK,KHD
+BaltraAirport: SEGS,GPS
+瓦尔多机场: ENSS,VAW
+科罗萨尔机场: CZH
+坦加卢马机场: KTAN,TAN
+普雷圭卡机场: GVSN,SNE
+特立尼达机场: MUTD,TND
+查尔斯维尔国际机场: CTL,YBCV
+佩德罗－胡安卡巴雷罗机场: SGPJ,PJC
+伊勒奈默杜: IRUF,IRU
+华欣机场: HHQ,VTPH
+津岛机场: RJDT,TSJ
+佛尔内军用机场: KTBN,TBN,俄罗斯,Smolensk Military
+萨莫拉机场: ZMM,MMZM
+巴门达机场: FKKV,BPC
+巴耶里?机场: WSAP,QPG
+兹拉马机场: KDRM,DRM,Bozeman - Gallatin Field Airport
+凯恩图尔机场: SYKA,KAI
+姆富韦机场: MFU,FLMF
+纽曼机场: ZNE,YNWN,Newman
+莱斯布里奇机场: YQL,CYQL
+哈里博顿机场: Xuzhou Guanyin International Airport,DUC,KDUC
+埃阔克机场: KEK
+塔宾机场: PDG,WIPT
+旺阿努伊机场: WAG,NZWU
+宾图卢机场: BTU,WBGB
+阿库坦机场: KQA
+兰佩杜萨机场: LMP,LICD
+布雷斯特机场: BES,LFRB
+奥涅达郡机场: KRHI,RHI
+塔里机场: YTRE,Tazhong Airport,TRO
+肖肖克特兰机场: OAX,MMOX
+德黑兰机场: THR,OIII,Imam Khomeini International Airport
+阿托伊菲机场: AGAT,ATD
+新明斯特机场: EUM,EDHN
+斯库库扎机场: FASZ,SZK
+廷克尔空军基地: KTIK,air force base,TIK
+帕特逊空军基地: FFO,美国在北大西洋的空军基地,KFFO,Lajes Airport
+萨拉瓦内机场: RVE,SKSA
+戈勒克布尔机场: VEGK,GOP
+布劳顿岛机场: CYVM,YVM
+贝拉贝拉机场: ZEL,CYJQ
+阿图罗梅里诺博尼特兹机场: SCL,Arturo Merino Benitez International Airport,SCEL
+居茶机场: WMKE,KTE
+特纳基斯斯普林水上飞机基地: TKE
+卡特莱克机场: CYAC,YAC
+迪格比岛机场: YPR,CYPR
+坦克雷多－托马兹法利阿机场: GPB,SBGU
+图巴拉机场: TUW
+阿尔代斯机场: ADY,FAAL
+沃赫马机场: VOH,FMNV
+阿姆博洛维机场: FMNM,MJN
+格莱斯峡湾机场: YGZ,CYGZ
+帕林廷斯机场: PIN,SWPI
+库伯佩蒂机场: YCBP,CPD
+马南扎里机场: FMSM,MNJ
+皮图菲克机场: BGTL,THU
+帕拉奇尔纳机场: PAJ,OPPC
+约翰内斯堡格兰德中心机场: GCJ,FAGC
+塔巴廷加国际机场: SBTT,Taba  International Airport,TBT
+博尔机场: BWK,LDSB
+海斯地方机场: KHYS,HYS
+丹戎马尼港: WBTM,TGC
+伯坦果德机场: VIPK,IXP
+塔比拉兰机场: TAG,RPVT
+特雷姆森机场: LFRT,SBK
+拉哈达图机场: WBKD,LDU
+乌昆达机场: UKA,HKUK
+温德机场: WDR,KWDR
+内加热机场: GXG,FNNG
+索尔特岛机场: SLX,MBSY
+科尔马－豪森机场: CMR,LFGA
+奥廖克明斯克: Olekminsk,NVSZ,OLZ
+罗纳尔兹威机场: IOM,EGNS
+阿穆尔河畔共青城机场: UHKK,KXK
+托库阿机场: AYTK,RAB,Panama City - Tocumen Airport
+萨翁林纳机场: SVL,EFSA
+富图纳岛机场: FUT,NLWF
+米苏拉塔机场: MRA
+卡尔库龙机场: YKKG,KFG
+爱德华多·戈梅斯国际机场: SBUL,UDI
+萨姆布勒机场: IXG,VABM
+Heho机场: VYHH,HEH
+胡克克里克机场: HOK,YHOO
+罗伯茨机场: GLRB,Owen Roberts International Airport,ROB
+瑙拉机场: NOA,YSNW
+布里杰堡机场: FBR,KFBR
+贝斯埃里阿机场: RIA,SBSM
+伯恩茅斯国际机场: BOH,EGHH
+霍夫登机场: HOV,ENOV
+埃努古机场: ENU,DNEN
+格罗森国际机场: LCE,MHLC
+埃尔金斯机场: KEKN,EKN
+塔纳托拉贾机场: TTR
+塔塔加尔机场: SAST,TTG
+凯特凯斯机场: KCXY,CXY
+贝弗利机场: KBVY,BVY
+莫拉瓦机场: MWB
+乌隆他尼机场: VTUD,UTH
+梅约斯机场: GVT,KGVT
+扎卡塔雷: ZTU,UBBY
+格里瑟姆空军基地: KGUS,GUS
+兰卡威机场: Langkawi International Airport,WMKL,LGK
+普拜机场: HUI,VVPB
+阿格里尼翁机场: AGQ,LGAG
+拉法拉机场: RAF,KLGA,LaGuardia Airport
+卡麦什利机场: KAC,OSKL
+马拉松机场: CYSP,YSP
+科洛尼亚机场: CYR,SUCA
+廊达尔顿机场: NNL,PANO
+雷宾斯克机场: UUBK,RYB
+乔治敦机场: GGE,Owen Roberts International Airport,KGGE
+新汉诺威郡机场: ILM,KILM,Hanover/Langenhagen International Airport
+苏卢考特机场: CYXL,YXL
+贾比鲁机场: JAB,YJAB
+伊尼什曼岛机场: IIA,EIMN
+圣卡洛斯－德巴里洛切国际机场: BRC,SAZS
+纳斯卡机场: NZC,KVQQ
+埃尔普库机场: SARF,FMA
+迪金森机场: Denver International Airport,DIK,KDIK
+利巴克机场: KLWA,LWA
+阿拉善额济纳旗机场: EJN,ZBEN,Ejinaqi Taolai Airport
+奥瓦达机场: VDA,LLOV
+亚松森SilvioPettirossi机场: ASU,SGAS
+彼德拉斯－内格拉斯机场: MMPG,PDS
+斯坦利港机场: SFAL,PSY
+谢尔布鲁克机场: YRT,CYRT
+威廉斯港机场: WPU
+拉比尔机场: GVBA,BVC
+狄龙机场: DLL,KDLL
+巴瑟斯特机场: ZBF,CZBF
+坎贝尔里弗机场: CYBL,YBL
+杜蒂戈林机场: TCR
+梅尔辛克里克机场: CIL
+斯普林希尔机场: OAG,YORG
+诺曼顿机场: NTN,YNTN
+卡加延德奥罗机场: RPML,CGY
+布尼亚机场: BUX,FZKA
+格雷特尔－罗克福德机场: RFD,KRFD
+阿雷格里－多诺特港机场: KPBX,PBX
+卡萨内机场: “三字代码”,FBKE,BBK,African airport three characters code
+埃斯佩兰斯机场: YESP,EPR
+奥利维亚港机场: CVI
+伊莱博机场: PFR,FZVS
+埃尔科岛机场: Elko Regional Airport,YELD,ELC
+甘伯尔机场: PAGM,GAM
+哈斯克佛机场: LB14,HKV
+奇利瓦克机场: CYCW,YCW
+佩塔瓦瓦机场: YWA,CYWA
+布朗萨布隆机场: CYBX,YBX
+卡加姆加机场: AYMH,HGU
+默塞德地方机场: KMCE,MCE
+奥尔巴尼机场: CVO,KCVO,Albany International Airport
+杰弗逊郡机场: KDUJ,DUJ
+伦吉国际机场: GFLL,FNA
+欧塞奇海滩机场: OSB,ORBM
+扎波罗热机场: UKDE,Minsk National Airport,OZH
+瓦拉达里斯州长市机场: GVR,SBGV
+沃特机场: WTO
+康德隆军用机场: WSD,KWSD
+库里克莱克机场: LKK
+穆龙贝机场: MXM,FMSR
+阿德来德机场: ADL,Adelaide International Airport,YPAD
+卡莱克西科国际机场: CXL,KCXL
+莫宁顿机场: YMTI,ONG
+圣格瓦伊机场: LFLS,GNB
+锡耶纳机场: LIQS,SAY
+阿内蒂乌姆机场: AUY,NVVA
+内格里尔机场: NEG,MKNG
+穆斯乔机场: CYMJ,Moose Jaw Airport,YMJ
+巴富萨姆机场: FKKU,BFX
+法哈多机场: TJFA,FAJ
+加拉杰比莱特机场: UBBQ,GBB
+奎皮尔机场: ULP,YQLP
+卡特比机场: HPH,VVCI
+菲利普斯军用机场: APG,KAPG
+班顿杜机场: FZBO,FDU
+博尔曼机场: HQM
+马凯莫机场: NTGM,MKP
+奈季兰机场: EAM,OENG
+斯德多夫机场: LLSD,SDV
+夏克埃罗维纳特机场: GSQ,HEOW
+库伦贾克机场: KUS
+圣埃吉迪奥机场: PEG,LIRZ
+鲁特塞尔克机场: YSG,CYLK
+奥罗机场: YLK,VOYK
+阿巴拉契克拉地方机场: KAAF,AAF
+皮埃尔机场: Sheppard AFB,KPIR,PIR
+阿维尼翁－曹姆机场: LFMV,AVN
+科尔德福特机场: CXF
+梅哈姆机场: ENMR,Rogue Valley International-Medford Airport,MEH
+布莱克希尔斯机场: SPF,KSPF
+马扎梅特机场: LFCK,DCM
+卡塔马卡机场: CTC,SANC
+圭里亚机场: SVGI,GUI
+泽弗希尔斯机场: ZPH,KZPH
+怀特考特机场: YZU,CYZU
+奥格斯堡－穆尔豪森机场: EDMA,AGB
+基韦斯德国际机场: EYW,KEYW
+伊丽莎白城机场: ECG,KECG
+瑟德港机场: ESCL,SOO,Hong Kong International Airport
+伊克塞尤提夫机场: SAC,KSAC
+甲描育机场: CYP,RPVC
+格伦纳伦机场: GLQ
+穆伊拉机场: FOGM,MJL
+贝尔蒙特机场: BEO,Perth International Airport,YPEC
+卡凡查机场: IQQ,SCDA
+德莱登地方机场: YHD,CYHD
+米尔迪拉机场: MQL,YMIA
+波乌恩尼图克机场: YPX,CYPX
+巴克雷地区机场: PAH,KPAH
+霍基蒂卡机场: NZHK,HKK
+斯蒂芬维尔机场: CYJT,YJT
+坎克桑特莱机场: JAF,VCCJ
+卡莱米机场: FMI,FZRF
+阿卜哈机场: AHB,OEAB
+尤里克塞尔斯机场: VIX,SBVT
+蒂加机场: NWWA,TGJ
+索拉机场: NVSC,Stavanger Airport, Sola,SLH
+桑托斯机场: SSZ,SBST
+德帕里卓机场: DEP
+兰多尔夫空军基地: KRND,RND
+巴特尔克里克机场: Kalamazoo Battle Creek International Airport,AZO,KAZO
+布里亚机场: YBOU,BQL
+维列纳机场: BVH,SBVH
+多斯高彻斯港机场: PAPB,PBV
+克勒因兹机场: FAKZ,KLZ
+约克兰丁机场: ZAC,CZAC
+霍姆斯特德空军基地: HST,KHST
+埃斯特角城机场: SULS,PDP
+凯塔苏瓦克机场: JGO,BGGN
+米纳勒尔韦尔斯机场: KMWL,MWL
+阿尔阿奇克机场: ABT,OEBA
+鲍威尔河机场: CYPW,YPW
+罗帕尔巴尔机场: YRRB,RPB
+斯托尼里弗机场: SRV
+赫鲁特方丹机场: GFY,FYGF
+布里格姆市机场: KBMC,BMC
+瓦勒斯迪尔机场: VLS,NVSV
+波音场国王郡立机场: KBFI,BFI
+圣莫尼卡机场: KSMO,SMO
+马通多机场: FQTT,TET
+佩克阿机场: SON,NVSS
+醴泉机场: RKTY,YEC
+塔克纳机场: TCQ,“三字代码”，,SPTN,El Calafate
+布劳机场: BUO,HCMV
+马尼西基岛机场: MHX,NCMH
+伊托克马机场: ITK
+阿布－辛拜勒机场: HEBL,ABS
+奥基乔比郡机场: KOBE,OBE
+布兰普顿岛机场: YBPI,BMP
+多拉杜斯机场: SSDO,DOU
+斯普林波因特机场: AXP,MYAP
+里弗顿机场: KRIW,RIW
+麦克考德空军基地: TCM,KTCM,air force base
+普林塞萨港机场: RPVP,PPS
+哈格福什机场: ESOH,HFS
+库利阿坎机场: MMCL,CUL
+沃兰机场: Lewistown Municipal Airport,KWRL,WRL
+马拉马拉机场: FAMD,AAM
+鲁鲁土岛机场: RUR,NTAR
+海沃德机场: HWD,KHWD
+法尔恰尔德国际机场: CLM,KCLM
+德布拉耶机场: ACI,EGJA
+nankaxiyasijichang: CXJ,SBCX
+阿讷西－梅塞特机场: LFLP,NCY
+罗什批南机场: RPN,LLIB
+特雷佛明机场: TFM
+布莱科尔机场: YBCK,BKQ
+芒廷瓦利基机场: MOU,PAMO
+塔多勒莱克机场: XTL,CYBQ
+提纳克机场: TIC,NNK,Naknek Airport
+古德温机场: ELD,KELD
+克利马内机场: FQQL,UEL
+伍德华德机场: CDN,KCDN
+霍洛机场: JOL,RPMJ,Ordos Ejin Horo Internatinal Airport
+弗朗西斯敦机场: FBFT,“三字代码”,African airport three characters code,FRW
+门罗市政机场: KMLU,MLU
+蛇川机场: RKPS,HIN
+格勒尼欧机场: SZZ,EPSC
+库拉索机场: CUR,TNCC
+莫斯塔尔机场: OMO,LQMO
+波因特贝克水上飞机机场: KPB
+伊斯塔巴/西华达内荷机场: MMZH,ZIH
+韦斯特曼纳群岛机场: VEY,BIVM
+帕帕斯图尔机场: PSV
+堪德里机场: KDR
+KosAirport: KGS,LGKO
+印第安芒廷空军机场: PAIM,UTO
+吉勒斯皮机场: KSEE,SEE
+库努纳拉机场: YPKU,Kununurra Airport,KNX
+麦凯堡机场: JHL
+汉考克机场: SYR,KSYR
+卢佩帕奥机场: NFTV,VAV
+落基山大都会: BJC,KBJC
+贝尔热港机场: FMNG,WPB
+普恩特格尼尔机场: GEN
+阿西亚特机场: BGEM,JEG
+马拉凯机场: SVBS,MYC
+塔马林多机场: MRCV,TNO
+埃杜阿多戈梅斯机场: Manaus - Eduardo Gomes International Airport,MAO,SBEG
+阿瓦萨机场: HALA,AWA
+威克机场: EGPC,Gatwick Airport,WIC
+哥伦布空军基地: KCBM,CBM
+马德望机场: VDBG,BBM
+伊努克爪克机场: YPH,CYPH
+摩亨朱达罗机场: MJD,OPMJ
+东34号大街直升机机场: TSS,NONE
+索克约森机场: ENSR,SOJ
+莱瑟姆机场: LTM,SYLT
+图苏斯勒－诺布尔机场: TNF,LFPN
+阿富塔拉机场: AFT,AGAF
+赫尔特瑙机场: EDHK,KEL
+科斯特罗马机场: UUBD,KMW
+塔波拉机场: “三字代码”,HTTB,African airport three characters code,TBO
+圣费利佩机场: SVSP,SFH
+凯塔亚机场: NZKT,KAT
+雷登桑机场: RDC,SNDC
+阿伯机场: RKSO,OSN
+马斯科卡机场: CYQA,YQA
+卡帕卢阿机场: PHJH,JHM
+圣彼得斯堡国际机场: KPIE,PIE
+伊利济机场: Erie International Airport,DAAP,VVZ
+塞迈里特机场: TTH,OOTH
+查愁安机场: 马公航空站,ATF,SEAM,Wangan Airport
+古斯贝机场: CYYR,Goose Bay Airport,YYR
+伊斯特梅恩机场: ZEM,CZEM
+瓦尔姆霍尔机场: KRBM,RBM
+瓜拉拉佩斯机场: REC,SBRF
+卡斯特洛里佐机场: KZS,LGKJ
+特雷西纳机场: SBTE,THE
+坦博拉卡机场: WADT,TMC
+迈亚纳机场: NGMA,Miami International Airport,MNK
+博伊古岛机场: GIC,YBOI
+维尔纽斯机场: VNO,EYVI,Tarptautinis Vilniaus Oro Uostas,维尔纽斯国际机场公司
+加奥机场: GAGO,GAQ
+努特机场: GOH,BGGH
+CiudadDelCarmenAirport: CME,MMCE
+波托维耶霍机场: Portoviejo,PVO,SEPV
+塔瓦机场: THZ,DRRT
+拉芬灵－布尔海德国际机场: IFP
+里芬纳－梅莫里阿尔机场: AIZ,KAIZ
+戈尔贡机场: GBT,OING
+查漠机场: Jomo Kenyatta International Airport（JKIA）,IXJ,VIJU
+博卡－拉顿公共机场: BCT,KBCT
+奥提斯空军基地: KFMH,FMH
+布雷斯将军机场: LAR,KLAR
+本吉－马提恩佐机场: TUC,SANT
+拉尔夫－卡尔洪机场: TAL
+邓迪机场: DND,EGPN
+罗马尼雷斯机场: EGC,LFBE
+斯旺里弗机场: CZJN,ZJN
+阿楚图珀机场: ACU
+艾奥瓦城机场: IOW,KIOW
+切尔诺夫策机场: UKLN,CWC
+拉特马拉纳机场: VCCC,RML
+安塔拉巴托机场: FMNH,ANM
+邓杜机场: FNDU,DUE
+利德国际机场: LYX,EGMD
+诺萨拉比奇机场: MRNS,NOB
+弗雷堡机场: VRU,FAVB
+阿拜昂机场: NGAB,Meythet Airport,ABF
+希尔堡: The Hillsborough disaster,KFSI,FSI
+丁城空军机场: PATC,TNC
+道格拉斯机场: Charlotte - Douglas International Airport,KCLT,CLT
+威廉堡直升机机场: FWM
+埃格林登机场: EGAE,LDY
+克鲁克德岛机场: CRI,MYCI
+昂格兰湖机场: CKB6,YAX
+荣市机场: VVVH,VII
+奥巴尔蒂亚港机场: MPOA,PUE
+齐鲁阿努曼迪迪机场: WTS,FMMX
+贾巴尔普尔机场: JLR,VAJB
+霍普辛普森港机场: YHA,CCP4
+特费机场: TFF,SBTF
+里科港机场: PUR,SLPR
+阿拉卡茄机场: AJU,SBAR
+蓬塔戈尔达机场: PND
+默林布拉机场: YMER,MIM
+卡瓦加尔机场: VLV,SVVL
+热雷米机场: MTJE,JEE
+贝拉库拉机场: QBC,CYBD
+彭林岛机场: NCPY,PYE
+阿尼瓦机场: AWD,NVVB
+巴瑟尔顿机场: YBLN,BQB
+丹戎瓦卢金机场: WAON,TJG
+阿克西翁机场: LGPZ,PVK
+希弗里弗福斯地区机场: KTVF,TVF
+卡尔加里机场: YYC,CYYC,Calgary International Airport
+布恩塔尔机场: KUU,VIBR
+塔佩米林河畔卡舒埃罗机场: CDI
+吉沃尼机场: JIW,OPJI
+乌贝拉巴机场: SBUR,UBA
+纳卡拉机场: MNC,FQNC
+梅克拉雷格机场: DAUL,LOO
+凯利空军基地: KSKF,Lackland afb,SKF
+阿尔特斯空军基地: KLTS,LTS
+卡鲁阿鲁机场: CAU,SNRU
+芽庄机场: Nha Trang Airport,NHA,VVNT
+焦拉里机场: VNCJ,HRJ
+锡蒂亚机场: JSH,LGST
+荷台达机场: OYHD,HOD
+阿蒂科肯机场: CYIB,YIB
+德莱恩机场: CYWJ,YWJ
+马尼图瓦奇机场: CYMG,YMG
+洛雷托机场: LTO,MMLT
+坎德拉机场: VAKE,IXY
+布法罗兰奇机场: BFO,FVCZ
+蓬多克卡贝机场: WIHP,PCB
+厄尔顿机场: CYXR,YXR
+黑尔戈兰岛机场: HGL,EDXH
+阿克雷里机场: AEY,BIAR
+瓦尼格拉机场: AGL,Graz Airport,LOWG
+塔姆沃思机场: TMW,YSTW
+莱蒙斯地方机场: TUP,KTUP
+霍利海德机场: EGOV,HLY
+克莱格空军基地: KSEM,SEM
+斯卡夫斯塔机场: NYO,ESKN
+伯恩霍尔姆机场: EKRN,RNN
+百慕大－杜纳斯机场: KUDD,UDD
+沃森莱克机场: CYQH,YQH
+潘特纳加尔机场: PGH,VIPT
+马拉格机场: LGS,SAMM
+普罗夫蒂夫机场: LBPD,PDV
+卢加诺机场: LSZA,LUG
+特勒斯贝机场: TCY
+海德堡机场: EDIU,HDB
+芬特贝水上飞机基地: PANR,FNR
+普图西包机场: WIOP,PSU
+卡尔帕索斯机场: AOK,LGKP
+乌阿珀机场: UAP,NTMP
+萨奇哥莱克机场: ZPB,CZPB
+坦博尔机场: MRTR,TMU
+埃尔多雷特机场: Jomo Kenyatta International Airport（JKIA）,EDL,HKEL
+马拉库塔机场: XMC,YMCO
+库尔舍维尔机场: 英语:Courchevel Airport；法语:Altiport de Courchevel,CVF,LFLJ
+斯特泽沃伊机场: UNSS,SWT
+汉班托塔机场: HBT,OEKK
+瓦尼莫机场: VAI,AYVN,Port Moresby Jacksons International Airport
+坎纳马拉机场: CMA,YCMU
+卡南加机场: FZUA,KGA
+纳祖尔机场: NDR,GMMW
+伦内尔岛机场: RNL,AGGR
+司马威机场: LSW,WITM
+因弗雷尔机场: Inverell sapphire,IVR,YIVL
+帕斯夸谷镇机场: VDP,SVVP
+伊万卡机场: BTS,LZIB
+阿克萨莫机场: JKG,ESGJ
+塞尔弗里奇空中国民警卫队基地: MTC,KMTC
+马里拉克机场: FMSD,FTU
+塔马拉岛机场: NGTM,TMN
+特拉弗斯城机场: Cherry Capital Airport,KTVC,TVC
+莫塞尔湾机场: KMY
+科赫施泰特机场: CSO,EDBC
+帕库巴机场: HUPA,PAF
+马克希莫－戈梅兹机场: AVI,MUCA
+豪岛机场: NTTO,HOI
+澜沧景迈机场: JMJ,ZPJM
+普雷斯克岛地方机场: KPQI,PQI
+莫德斯托地方机场: MOD,KMOD
+巴克兰机场: BKC,PABL
+蒙特戈梅里郡机场: KGAI,GAI
+吉勒姆机场: YGX,Cochin International Airport,CYGX
+特尼恩特－加拉尔多机场: PNT,SCNT
+耶奥维尔登机场: YEO,EGDY
+圣让机场: YJN,CYJN
+欧申里弗机场: OCA,07FA
+彭赞斯机场: PZE,EGHK
+威廉姆森郡机场: MWA,KMWA
+利特尔格兰德拉皮兹机场: CZGR,ZGR
+EvansvilleRegional机场: EVV,KEVV
+普拉森舍机场: PLJ
+库尔干机场: USUU,KRO
+派勒特波因特机场: PIP,pilotPoint,PAPN
+乌贾埃岛机场: UJAP,UJE
+里奥图尔维奥机场: RYO
+比金希尔机场: EGKB,BQH
+科斯拉耶机场: PTSA,KSA
+弗尔施泰恩费尔布鲁克机场: ETSF,FEL
+萨戈明达机场: Lake Bindegolly National Park,YTGM,XTG
+伍默拉机场: YPWR,UMR
+布鲁塞尔查勒罗伊南机场: CRL,EBCI
+卡加姆机场: AGKG,KGE
+木格具机场: PKK,VYPU
+布瓦凯机场: BYK,DIBK
+道森市机场: YDA,CYDA
+乌鲁萨巴机场: ULX
+普罗维登西亚机场: PVA,Providenciales International Airport,SKPV
+麦克阿瑟河机场: MCV,YMHU
+红鸟机场: KRBD,RBD
+阿尔缪特机场: PFKA,KUK
+阿特巴拉机场: ATB,HSAT
+博蒙特地方机场: BMT,KBMT
+米德威机场: KMDW,MDW
+埃蒙纳克机场: EMK,PAEM
+霍普代尔机场: YHO,CYHO
+辛格尔布希尔机场: IXA,VEAT
+贝尔斯金莱克机场: CNE3,XBE
+波蒂奇河机场: MMPC,PCA
+奥帕罗卡: OPF,KOPF
+埃尔果累阿机场: DAUE,ELG
+奥弗机场: OFU
+拉恩－比霍埃机场: LRT,LFRH
+维吉机场: SLU,GeorgeF.L.CharlesAirport,TLPC
+内里斯空军基地: LSV,KLSV
+萨利纳斯机场: SESA,SNC
+通贝斯机场: TBP,SPME
+塞米巴拉金斯克机场: UASS,PLX
+基克维图机场: HTLI,LDI
+利富机场: LIF,NWWL
+阿迪逊机场: ADS,KADS
+比阿特丽斯机场: BIES,BIE
+埃尔博马机场: DTTR,EBM
+弗伦奇维尔机场: WFK,KFVE
+马斯特顿机场: MRO,NZMS
+卡皮奎机场: LFRK,CFR
+奥尼昂塔地方机场: ONH
+卡洛克尔机场: HYFG,KLK
+博尔本德尔机场: PBD,VAPR
+考库拉环礁机场: NTGK,KKR
+塞格机场: EGM,AGGS
+夸克塔克机场: CYHA,YQC
+安博因港湾机场: FNPA,PBN
+尤纳拉克利特机场: UNK,PAUN
+乌兰乌德机场: UUD,UIUU
+本贝丘拉机场: BEB,EGPL
+坦巴昆达机场: TUD,GOTT
+久姆拉机场: JUM,VNJL
+卡纳尔芬机场: YCAR,CVQ
+盖梅纳机场: FZFK,GMA
+英德机场: ENE,WATE
+桑迪湖机场: Aeropuerto Internacional Augusto C. Sandino,CZSJ,ZSJ
+普拉蒂纳姆机场: PAPM,PTU
+莫鲁亚机场: MYA,YMRY
+希罗斯岛机场: JSY,LGSO
+本布里奇机场: EGHJ,BBP
+民航机场: VYSW,AKY
+米尔登霍尔机场: EGUN,MHZ
+霍纳夫尤德尔机场: BIHN,HFN
+博格埃尔阿拉伯机场: HBE,HEBA,Alexandria Borg el Arab Airport
+蒙杜机场: MQQ,FTTD
+考拉克机场: GOOK,KLC
+哈默弗斯特机场: ENHF,HFT
+埃塞机场: ENC,LFSN
+伊格尔里弗机场: EGV,KEGV
+克拉姆福什机场: ESNK,KRF
+波利安伊机场: PYJ,UERP
+德尔里奥国际机场: DRT,KDRT
+提托蒙尼提机场: REG,LICR
+瓦特里机场: LFOK,XCR
+尼奥基机场: FZBI,NIO
+戈马机场: GOM,FZNA
+阿克拉维克机场: CYKD,LAK
+格伦马丁机场: MTN,格伦·L·马丁公司,KMTN
+拉斯图拉斯机场: VTU,MUVT
+阿克伦坎通地区机场: CAK,KCAK
+瓦图尔科机场: MMBT,HUX
+马拉迪机场: MFQ,DRRM
+楚梅布机场: TSB,FYTM
+基尔隆安机场: EIIM,IOR
+达博克机场: VAUD,UDR
+维里基耶卢基机场: ULOL,VLU
+阿库里维克机场: CYKO,AKV
+马里多尔机场: MMD,ROMD
+马斯克尔肖尔斯机场: KMSL,MSL
+所罗门机场: SLJ,YSOL,Honiara International Airport
+松山机场: RJOM,MYJ,Taipei Songshan Airport
+阿拉莫萨地方机场: Alamosa - San Luis Valley Regional/Bergman Airfield,KALS,ALS
+巴米扬机场: OABN,BIN
+科达伦机场: KCOE,COE,Spokane International Airport
+塞杜沙里夫机场: SDT,OPSS
+奥克内郡机场: CEU,KCEU
+斯托尔波特机场: ENVR,VRY
+穆龙达瓦机场: MOQ,FMMV
+古农西托利机场: WIMB,GNS
+科塔帕西国际机场: LTX
+波萨达斯机场: SARP,“三字代码”，,El Calafate,PSS
+彭比纳中转机场: KPMB,PMB
+蓬塔阿雷纳斯机场: SCCI,PUQ
+达维斯－门萨恩空军基地: KDMA,DMA
+大学公园机场: KUNV,SCE
+拉帕拉机场: XRY,LEJR
+塞斯诺克机场: YCNK,CES
+马科库机场: FOOK,Seattle-Tacoma International Airport,MKU
+圣港机场: LPPS,PXO
+基西拉机场: LGKC,KIT
+格伦伍德斯普林斯海空军机场: KNBU,NBU
+吉莱斯贝机场: YGB,CYGB
+西维尔－马尔克机场: OJAM,ADJ
+沃尔库塔机场: VKT,UUYW
+奥兰治蒙德机场: OMD,FYOG
+伦顿机场: KRNT,Heathrow Airport,RNT
+佩雷拉机场: PEI,SKPE
+胡尔曼机场: HUF,KHUF
+路易吉－利多尔菲机场: LIPK,FRL
+诺里尔斯克机场: UOOO,NSK
+卡里尔苏尔机场: SCIE,CCP
+布朗比德基机场: SWQ,WADS
+隆阿纳机场: NVSG,LOD
+杜马格特机场: Dumaguete Airport,DGT,RPVD
+上奥里亚霍维察机场: GOZ,LBGO
+瓦雷机场: KHRL,HRL
+皇家空军机场: EGVA,FFD
+豪勋爵岛机场: YLHI,LDH
+季马机场: JIM,HAJM
+伯尼机场: BWT,YBUI,Aurel Vlaicu International Airport
+巴章机场: VNBG,Bazhong Enyang Airport,BJH
+帕帕韦斯特雷机场: EGEP,PPW
+南印第安湖机场: XSI,CZSN,Indianapolis International Airport
+埃尔克哈特地方机场: EKI
+让蒂尔港机场: POG,Port Gentil International Airport,FOOG
+瓦拉哈机场: WLH,NVSW
+落基山庄机场: YRM,CYRM
+特里城机场: MBS,KMBS,Kathmandu Tribhuvan International Airport
+格罗内达尔直升机机场: JGR
+乌雷机场: ULB,NVSU
+塞拉利昂机场: BGSI,Lungi International Airport,SRK
+西30号大街直升机机场: JRA,helicopterairport,KJRA
+旁纳唐机场: YXP,CYXP
+瓦乌河机场: WUU,HSWW
+伊纳瓜群岛机场: IGA,MYIG
+隆勒朗机场: WBGF,LGL
+普拉茨堡空军基地: KPBG,PBG
+考哈瓦机场: KAU,EFKA,哈瓦苏湖城城机场
+莱特宁岭机场: YLRD,LHG
+巴拉那瓜市机场: Afonso Pena Airport,PNG,SSPG
+维斯特兰特－希尔特机场: EDXW,GWT
+洛苏亚机场: LSA
+吕克瑟勒机场: ESNL,LYC
+塞拉威克机场: PASK,WLK
+萨拉机场: SSR,NVSH
+弗朗西思科－贝尔特劳机场: FBE,SSFB
+塔休华克机场: CYTQ,YTQ
+侯赛因国王机场: مطارالملك الحسين الدولي,OMF,OJMF
+圣塔安娜机场: KSNA,SNA,Los Angeles International Airport
+斯法克斯－埃尔马欧机场: SFA,DTTX
+鲍勃霍普机场: BUR,KBUR,Burbank Bob Hope Airport
+雅温得西马兰机场: Yaoundé Nsimalen International Airport,FKYS,NSI
+拉巴比甘姆比特机场: BPM,OAIX
+恩里克奥拉亚赫雷拉机场: EOH,SKMD
+雷尼纳肯机场: LWN,UDSG
+拉费尔卡布雷拉机场: GER,MUNG
+图雷拉机场: NTGY,ZTA
+马拉凯伊机场: NGMK,MZK
+密克隆机场: LFVM,Cologne Bonn Airpor,MQC
+贝尔齐机场: LYBE,Belgrade Nikola Tesla Airport/Аеродром Никола Тесла Београд,BZY
+森特勒里亚机场: KCLS,CLS
+弗莱因克劳德机场: KFCM,FCM
+彭布罗克安德地区机场: CYTA,YTA
+科尤库克机场: PFKU,KYU
+托克苏克贝机场: OOK,PAOO
+伊久吉格机场: PAIG,IGG
+廷杜夫机场: TIN,DAOF
+塞文堡机场: YER,CYER
+雅博特机场: JAT
+帕拉布尔多机场: PBO,YPBO
+法拉纳机场: GUFH,FAA
+克拉斯诺达尔机场: URKK,KRR,Krasnodar International Airport
+佛博斯空军基地: KFOE,FOE
+阿尔斯渥斯港机场: PALJ,PTA
+奥多姆克塞机场: VLOS,ODY
+东马尼托灵机场: CYEM,YEM
+卢甘斯克机场: UKCW,VSG
+格尔卡纳机场: GKN,PAGK
+纳诺塔利克机场: BGNN,JNN
+波因特萨莱恩国际机场: GND,TGPY
+马拉德城机场: KMLD,MLD
+凯诺拉机场: CYQK,YQK
+塞云机场: GXF,OYSY
+伊波塔机场: NVVI,IPA
+里维耶尔迪卢机场: YRI,CYRI
+达沙古兹机场: TAZ,UTAT
+沃瓦机场: CYXZ,YXZ
+南本德地区机场: South Bend Regional Airport,SBN,KSBN
+诺斯尔特机场: EGWU,NHT
+科维恩伯格特机场: KSU,ENKB
+沃特波特机场: ORS
+米迪火车站机场: ZYR
+别府机场: BPU
+阿拉伯联合酋长国际机场: DWC,OMDW
+提尔勒姆普特机场: HRM,DAFH
+努拉图机场: NUL,PANU
+巴拉那机场: SAAP,PRA
+内比都机场: NYT,VYEL
+代曼机场: NMB,VADN
+维塞利亚机场: Aeropuerto de Sevilla,KVIS,VIS
+法西内机场: FMNN,Faa'a International Airport,NOS
+鲁滕机场: RTG,WATG
+图库鲁伊机场: TUR,SBTU
+瓜南比机场: SNGI,GNM
+瓜比机场: SKGP,GPI
+拉里奥哈机场: SANL,IRJ
+庞伯恩机场: KEAT,EAT
+伊乌吉维克机场: YIK,CYIK
+沙普洛机场: YLD,CYLD
+贝拉机场: FQBR,BEW
+萨利纳克鲁斯机场: MM57,SCX
+麦基诺岛机场: MCD
+因阿迈纳斯机场: IAM,DAUZ
+穆拉机场: MXX,ESKM
+瓦吉尔机场: Jomo Kenyatta International Airport（JKIA）,WJR,HKWJ
+宽提科海空军机场: NYG,KNYG
+库埃纳瓦卡机场: MMCB,CVJ
+德里塔博杰机场: SMDA,DRJ
+乌斯图珀机场: UTU
+斯卡特航空公司: 斯卡特航空,VSV,斯卡特,DV
+全日本空输株式会社: ANA,全日空,All Nippon Airways Co.,Ltd.；ぜんにっぽんくうゆ,全日空航空,NH
+泰国东方航空: Orient Thai Airlines,OEA,泰国东方,OX
+美国航空: 美航,AA,AAL,American Airlines
+墨西哥西部航空公司: 墨西哥西部,墨西哥西部航空,Delta Air Lines, Inc.,JO,Delta,JAZ
+英国航空公司: BA,Speedbird（Speedbird Concorde）,英国航空,British Airways,BAW,英航
+夏威夷航空: HA,HAL
+极地货运航空公司: PO,极地货运航空,极地货运,PAC
+墨西哥航空: AM,MXA
+大西洋航空公司: RC,Atlantic Airways
+柏林航空: 柏林,Air Berlin,BER,AB
+阿拉斯加航空公司: ASA,AS,阿拉斯加航空
+吴哥航空: AKW,K6,Cambodia Angkor Air
+劳伦斯－提莫尔曼机场: KMWC,MWC
+萨埃佛机场: ESGP,GSE
+拉斯巴贾达斯机场: VER,MMVR
+马查恩加拉机场: PPN,SKPP
+米尔内机场: UERR,MJZ
+阿拉沙机场: AAX,SBAX
+普洛韦德尼亚机场: UHMD,PVS
+洛贾机场: LJA,FZVA
+维尔德曼莱克机场: OEWD,EWD
+锡马拉机场: SIF,VNSI
+俄斯特拉伐机场: Ostrava-Mosnov International Airport,LKMT,OSR
+卡尔古利机场: KGI,YPKG
+亚卡塔加中转机场: CYT,PACY
+牛津豪斯机场: CYOH,YOH
+法尔范机场: ULQ,SKUL
+卡索姆佩机场: ZKP,UESU
+内乌肯机场: Neuquén,NQN,SAZN
+维拉维拉机场: VCCW,WRZ
+布莱克利岛机场: BYW
+丘巴凯机场: MYBC,CCZ
+巴恩斯机场: BAF,KBAF
+安德劳机场: AAP,KAAP
+布伦讷于机场: Br&oslash;nderslev Kommune,BNN,ENBN
+拉贝机场: LEK,GULB
+奥比斯波县机场: SBP,KSBP
+夏洛茨维尔机场: KCHO,CHO
+格伦内格代尔机场: EGPI,ILY
+乌拉尔斯克机场: URA,UARR
+茹伊斯迪福拉机场: SDZY,IZA
+切弗里机场: YHR,CYHR
+托菲诺机场: YAZ,CYAZ
+米卡萨拉机场: MKR,YMEK
+KangerlussuaqAirport: BGSF,SFJ
+克奇机场: KHC,Phoenix Sky Harbor International Airport,UKFK
+贝济耶－维阿斯机场: BZR,LFMU
+卡亚尼机场: KAJ,EFKI
+拉杜珍伊机场: RAT,USNR
+芒特克伊斯机场: WME,YMNE
+法亚机场: FYT,FTTY
+沃基肖机场: UES,Waukesha County, Wisconsin
+乌拉瓦机场: AGAR,RNA
+拉默勒机场: LTT,Dhaka Hazrat Shahjalal International Airport,LFTZ
+库克斯港机场: KNDZ,NDZ
+巴拉莱伊机场: AGGE,BAS
+布罗谢机场: YBT,CYBT
+米尔维尔机场: KMIV,MIV
+切蒂加干机场: SYCJ,GEO
+金杜机场: KND,FZOA
+恩冈代雷机场: FKKN,NGE
+利蒙机场: MRLM,San Francisco International Airport,LIO
+斯帕雷佛恩空军机场: PASV,SVW
+安班扎机场: IVA,FMNJ
+莫图伊卡机场: MZP,NZMK
+迈马纳机场: La Romana International Airport,MMZ,OAMN
+埃斯比约机场: EKEB,EBJ
+鲍勃西克斯机场: KCEW,CEW
+摩根敦机场: KMGW,MGW
+萨勒克哈德机场: SLY,USDD
+杰克逊威尔机场: KJAX,JAX
+威里奇水上飞机基地: KWP
+卡劳帕帕机场: PHLU,LUP
+威卢纳机场: YWLU,WUN
+达维机场: VYDW,TVY
+蒙特哥贝机场: MKJS,MBJ
+胡利亚克里克机场: JCK,YJLC
+塔金机场: PAZ,MMPA
+落基山城－威尔逊机场: RWI,KRWI
+埃斯美拉达斯机场: SETN,ESM
+伯克哈勒夫机场: GMTT,TNG
+巴士拉机场: Basra International Airport,ORMM,BSR
+科尔德湖机场: YOD,CYOD
+贾赞机场: GIZ,OEGN,King Abdulaziz International Airport
+纳里扬马尔机场: NNM,ULAM
+瓦尔布雷克机场: AXA,TQPF
+弗里亚机场: FIG,GUFA
+马尔多纳多港机场: PEM,SPTU
+萨摩斯机场: SMI,LGSM
+韦斯特莫雷兰德郡机场: LBE,KLBE
+贝鲁机场: BEZ,NGBR
+博基布尔机场: BHP,VNBJ
+谢尔曼军用机场: FLV,KFLV
+马瑟空军基地: KMHR,MHR
+莱迪史密斯机场: FALY,LAY
+兰斯克鲁纳直升机机场: ESML,JLD
+博赛特机场: BOT
+奥西耶克机场: OSI,LDOS
+洛斯卡沃斯机场: MMSD,SJD
+延杜穆机场: YUE,YYND
+鲁本博塔机场: SBUG,URG
+库雷萨雷机场: URE,EEKE
+尼耶里机场: HKNI,NYE
+埃罗克机场: AIC
+罗西塔机场: RFS,MNRT
+柯克沃尔机场: EGPA,KOI
+帕尔华基机场: KPWK,PWK
+雷吉纳机场: KREI,REI
+米兰贝尔格莫机场: LIME,BGY
+理查德拉塞尔机场: KRMG,RMG
+阿克套机场: SCO,UATE
+纳帕郡机场: APC,KAPC
+古拉亚特机场: URY,OEGT
+乌尔米耶机场: OMH,OITR
+维多利亚城机场: MMCV,CVM
+麦克内尔港机场: YMP
+普拉机场: LDPL,Lubumbashi International Airport,PUY
+里奇兰地方机场: KSDY,SDY
+昌格内机场: YKN,KYKN,Nanchang Changbei International Airport
+希博伊根－梅莫里阿尔机场: KSBM,SBM
+雷耶斯机场: SLRY,REY
+索尔多特纳: SXQ
+弗莱瑟岛机场: FraserIsland,OKB,KOKB
+科托47机场: OTR,MRCC
+鲁塔角机场: ROP,PGRO
+韦吉机场: OEWJ,EJH
+戈洛文机场: PAGL,GLV
+廷森机场: MKTP,KTP
+萨尔机场: FTTA,Aeroporto Internacional Amílcar Cabral,SRH
+利伯勒尔地方机场: Liberal Municipal Airport,LBL,KLBL
+皮坎吉库姆机场: CYPM,YPM
+肯特国际机场: MSE,Shymkent International Airport,EGMH
+奎因哈加克机场: PAQH,KWN
+特瓦坎机场: MMHC,TCN
+拉布安岛机场: WBKL,LBU
+普尔杜埃大学机场: LAF,Международный Аэропорт Пулково
+伊莫卡利机场: Alfonso Bonilla Aragón International Airport,KIMM,IMM
+阿卡里瓜机场: AGV,LaGuardia Airport,SVAC
+瓦英阿普机场: WGP,WADW
+铁尔梅兹机场: TMJ,UTST
+洛斯罗克斯机场: SVRS,LRV
+特温希尔斯机场: TWA
+卡利博机场: RPVK,KLO,Kalibo International Airport
+凯拉沙哈尔机场: VEKR,IXH
+阿莱姆港机场: Cairo International Airport,RMF,HEMA
+姆祖祖机场: FWUU,ZZU
+拉埃雷克斯机场: CYRA,YRA
+劳灵斯机场: RWL,KFWL
+基拉基拉机场: AGGK,IRA
+索亚国际机场: MQT,KSAW
+拉加雷纳机场: LFBA,AGF
+巴茨军用机场: FCS,KFCS
+哥伦比亚郡机场: HCC,KCAE,Columbia Metropolitan Airport
+科尔岛机场: COL
+辛普森堡机场: YFS,CYFS
+博城机场: GFBO,KBS
+伯沃什机场: JONESBORO Airport,YDB,CYDB
+林梦机场: LMN,WBGJ
+奎托机场: SVP,FNKU
+尤格尼奥－德霍斯托斯机场: TJMZ,MAZ
+库里蒂巴机场: BFH,Afonso Pena International Airport,SBBI
+文尼察机场: UKWW,VIN
+佩韦克机场: UHMP,PWE
+曼森岛: YMU
+麦克纳里机场: KSLE,SLE
+伦敦考宾机场: LOZ,KLOZ
+阿雷根尼郡机场: AGC,KAGC
+蒙克洛瓦机场: MMMV,LOV
+舒瓦瑟尔贝机场: CHY,AGGC
+布里安斯克机场: BZK,UUBP
+查帕达－迪阿曼提纳机场: SBLE,LEC
+郡机场: BFT,KBFT
+马亚瓜纳机场: MYG,MYMM
+坦噶机场: TGT,Bujumbura International Airport,HTTG
+霍尔斯克里克机场: YHLC,HCQ
+巴布拉机场: WAMT,TTE
+皮马加机场: KPMP,PMP
+马克姆地方机场: MQB
+米洛斯机场: MLO,LGML
+伊杰吉克机场: PAII,EGX
+珀尔克军用机场: POE,KPOE
+贝尔谢巴机场: BEV,LLBS
+德拉伊斯梅尔汗机场: DSK,OPDI
+劳森军用机场: KLSF,LSF
+费德拉尔机场: PET,SBPK
+圣安德鲁斯机场: ADX,EGQL
+奥德萨中心机场: ODS,UKOO
+索户韦齐: FLSW,SLI
+凯机场: MEI,KMEI
+雷恩达尼机场: WASR,MKW
+劳伦斯维尔: Lawrenceville,LZU,KLZU
+格雷罗－尼格罗机场: MMGR,GUB
+栋古拉机场: DOG,HSDN
+拉乌尼翁机场: POP,MDPP
+波蒂奇拉普雷里机场: Portage la Prairie,YPG,CYPG
+塔布比尔机场: AYTB,TBG
+格林里弗机场: TJRV,RVR
+马鲁安采特拉机场: FMNR,WMN
+拉穆机场: Jomo Kenyatta International Airport（JKIA）,HKLU,LAU
+卡松戈－隆达机场: KGN,FZOK
+莫吉廖夫机场: UMOO,MVQ
+塞古鲁港机场: SBPS,BPS
+济金绍尔机场: ZIG,GOGG
+迈基金机场: MJE
+多宾斯空军基地: MGE,KMGE
+哈里法克斯机场: YHZ,CYHZ
+梅奥机场: CYMA,YMA
+若阿萨巴机场: JCB,SSJA
+皮斯国际机场: KPSM,PSM
+奥斯卡港机场: OSK,ESMO
+达恩利岛机场: YDNI,NLF
+舒加尔兰德地方机场: SGR,KSGR
+史密斯－雷诺兹机场: INT,KINT
+维尔森机场: WIL,HKNW
+克拉沃克机场: KLW,PAKW
+奥斯坦德机场: EBOS,OST
+洛美机场: LFW,DXXX
+阿法伊克希尔机场: AVK,ZMAH
+提格雷机场: SVST,SOM
+博尔巴机场: SWBR,RBB
+瑟克黑特机场: SKH,VNSK
+槟榔机场: PGK,WIKK
+LongIslandMacArthurAirport: KISP,ISP
+海塞卜机场: OOKB,KHS
+贝尔德灵吉机场: EKOD,ODE
+航天中心总裁机场: TIX
+帕瓦乌德机场: LFBG,CNG
+格伦塔纳机场: GTN,NZMC
+阿坎迪机场: SKAD,ACD
+庞蒂亚克机场: KPTK,PTK
+科比堡: MPHO,HOW
+考拉机场: CWT
+佩科斯城机场: KPEQ,PEQ
+布里安特军用机场: PAFR,FRN
+森格机场: WAJS,SEH
+圣玛丽斯机场: KSM,PASM
+阿马塔卡布阿国际机场: PKMJ,MAJ
+麦卡锡机场: MXY
+巴特纳机场: BLJ,DABT
+珀蓬德塔机场: EIA
+盖恩斯维尔地区机场: KGNV,GNV
+阿尔贾弗拉机场: OSDZ,DEZ
+布科巴机场: BKZ,HTBU
+纳图纳拉奈机场: NTX,WION
+彼得罗扎沃茨克机场: PES,ULPB
+努伦拜机场: Bonriki International Airport,GOV,YPGV
+圣阿格南特机场: LFDN,RCO
+诺加莱斯机场: MMNG,NOG
+霍里克机场: KRAC,RAC,Imam Khomeini International Airport
+沙功那空机场: SNO,VTUI
+贝德福德/汉斯科姆机场: KBED,BED
+居特斯洛机场: Flughafen Weeze,GUT,杜塞尔多夫机场,ETUO
+贾拉拉巴德机场: JAA,OAJL
+莫龙机场: OZP,LEMO
+芒艾亚岛机场: MGS,NCMG
+巴港机场: KBHB,BHB,Hong Kong International Airport
+雷诺机场: KRNO,Reno-TahoeInternationalAirport,RNO
+圣约翰堡机场: CYXJ,YXJ
+瓜亚拉梅林机场: GYA,SLGY
+阿姆杰尔马机场: ULDD,AMV
+瑟罗内拉机场: SEU,HTSN
+诺伍德－梅莫里阿尔机场: OWD,KOWD
+伊斯拉格兰德机场: TJIG,SIG
+阿斯托里亚机场: KAST,AST
+阿西斯港机场: SKAS,El Dorado International Airport,PUU
+欣古河畔圣费利斯机场: SXX,SNFX
+奥卡: OHH
+圣胡利安机场: ULA,SAWJ
+马雷岛机场: NWWR,MEE
+斯图鲁普机场: ESMS,MMX
+米拉米希机场: CYCH,YCH
+塔林直升机场: CHE
+法普鲁机场: PPL,VNPL
+格罗德诺机场: GNA,UMMG
+希尔顿黑德机场: KHHH,HHH
+哈密尔顿机场: YHML,Hamilton International Airport,HIA,HLT
+奎特扎尔克特尔国际机场: NLD,MMNL
+维勒尔空军基地: HHI,PHHI
+罗切斯特地方机场: Greater Rochester International Airport,KRST,RST
+帕姆普尔哈机场: PLU,SBBH
+MangaloreAirport: IXE,VOML
+罗德斯机场: LFHP,LPY
+迈沃岛机场: NVSN,MWF
+科策布机场: OTZ,PAOT
+卡谢机场: LGU,KLGU
+巴亚马雷机场: BAY,LRBM
+圣塔克鲁兹机场: LPFL,FLW
+贝特尔斯机场: PABT,BTT
+库格卢克图克机场: CYCO,YCO
+尼古尔斯基空军机场: PAKO,IKO
+米提亚罗岛机场: NCMR,MOI
+普劳佩当机场: WMPR,RDN
+阿拉莫戈多空军基地: Holloman Air Force Base,KHMN,HMN
+普次茅斯机场: PME
+诺布尔里机场: ARV,KARV
+威尔克斯-巴里国际机场: KAVP,AVP
+蒙特祖马郡机场: CEZ,KCEZ
+普卡鲁阿机场: NTGQ,PUK
+帕拉代斯岛机场: PID,MYPI
+姆马巴托国际机场: MBD,FAMM
+圣托里尼: JTR,2
+赛申机场: SIS,FASS
+博西翁机场: LFMH,Mahon Airport,EBU
+费恩机场: FNE
+吉灵庙机场: KMV,Kalemyo,VYKL
+俄亥俄郡机场: HLG
+蒂马鲁机场: NZTU,TIU
+卢卡帕机场: FNLK,LBZ
+普罗沃机场: KPVU,PVU
+侯赛因萨斯特雷纳加拉机场: BDO,WIIB
+卡托维茨机场: KTW,EPKT,Katowice Airport
+阿拉瓜伊纳机场: AUX,SWGN
+提皮机场: HATP,TIE,The Eastern Iowa Airport
+林顿昂奥瑟机场: KHRT,HRT
+霍宁登机场: EGXH,BEQ
+英帕尔地方机场: VEIM,IMF
+斯普里格－佩纳机场: GLMR,MLW
+凯加什卡机场: CTK6,ZKG
+波普拉德/塔特里机场: TAT,LZTT
+巴尔塔桑德机场: UNT,EGPW
+多尔帕机场: DOP,Montréal-Mirabel International Airport,VNDP
+阿尔塔－弗洛雷斯塔机场: SBAT,AFL
+扎切尔贝水上飞机基地: KZB
+皮科岛机场: Toronto Pearson International Airport,PIX,LPPI
+塔尔基特纳机场: TKA,PATK
+贝拉贾机场: BLG,WBGC
+兰兹角机场: LEQ,EGHC
+哈尔姆斯塔德机场: HAD,ESMT
+甲米机场: Krabi International Airport,VTSG,KBV
+马菲亚机场: HTMA,MFA
+雅浦群岛机场: PTYA,YAP
+彭萨科拉国际机场: KPNS,PNS
+打拉根机场: TRK,WALR
+维萨姆机场: KSUA,SUA
+格拉西奥萨岛机场: GRW,LPGR
+杰索尔机场: VGJR,JSR,হজরত শাহজালাল আন্তর্জাতিক বিমানবন্দর/Shahjalal International Airport
+萨彻斯港机场: YSY,CYSY
+川圹机场: Vientiane Wattay International Airport,XKH,VLXK
+高亚机场: NVSQ,ZGU
+艾伦郡机场: McAllen-Miller International Airport,AOH,KAOH
+孔基加纳克机场: KKH,PADY
+西恩富戈斯机场: MUCF,CFG,魁北克机场,Québec (City) Jean Lesage International Airport
+福贾拉国际机场: FJR,OMFJ
+卡科尔机场: OAL,MARK
+卡尔塔格机场: PAKV,KAL
+马普阿机场: MPU,NVVV
+吉塞尼机场: Kigali International Airport,GYI,HRYG
+斯特德布鲁克岛机场: KSRR,SRR
+勒罗斯机场: RRS,ENRO
+索丹屈莱机场: EFSO,SOT
+吉隆坡机场: KUL,WMKK,Kuala Lumpur International Airport
+哈里姆－佩尔达纳－库苏马机场: HLP,WIHH
+柯克兰莱克机场: Grant County International Airport,YKX,CYKX
+斯武普斯克机场: EPSK,OSP
+米安德里瓦祖机场: FMMN,ZVA
+木淡棉机场: VYMM,MNU,Izmir Adnan Menderes Airport
+切列波维茨机场: ULBC,CEE
+滕南特克里克机场: YTNK,TCA
+穆卡机场: MKM,WBGK
+昆仑岛机场: VVCS,VCS
+瓦迪哈勒法机场: WHF,HSSW
+瑙沙赫尔机场: Nauru International Airport,NSH,OINN
+德尔塔机场: DTA,General Mitchell International Airport,KDTA
+巴里萨尔机场: BZL,VGBR
+卡拉瓜亚河畔康塞桑机场: SBAA,CDJ
+恩塞纳达机场: MMES,ESE
+垒固机场: LIW,VYLK
+班布里机场: KBMQ,BMQ
+胡阿雷兹机场: MEX,MMMX
+桑德岛机场: Sandray,PMDY,MDY
+奥兰加班德机场: IXU,VAAU
+泗务机场: SBW
+迪凯特郡机场: KBGE,BGE
+拉姆地方机场: KMFD,Raleigh-Durham International Airport,MFD
+肖罗机场: SOW,KSOW
+拉里萨机场: LRA,LGLR
+费茨罗伊科罗辛机场: YFTZ,FIZ
+德尔巴乔机场: BJX,MMLO
+托科阿机场: KTOC,TOC
+肖勒斯机场: GLS,KGLS
+博多机场: ENBO,日文:福岡空港，英文:Fukuoka Airport,BOO
+埃杜阿多－戈梅斯机场: Manaus - Eduardo Gomes International Airport,IOS,SBIL
+爱德华纳普州机场: KMPV,MPV
+塞平甘机场: BPN,WRLL
+梅里特岛机场: COI
+绍空军基地: KSSC,air force base,SSC
+达尔哈特机场: KDHT,DHT
+董海机场: VDH
+诺德拉机场: LPPD,PDL
+斯科茨代尔巴士车站: ZSY,KSDL
+奎达机场: UET,OPQT
+埃尔波提洛机场: MDAB,EPS
+拉巴内勒机场: PGF,LFMP
+米尼斯特罗皮斯塔里尼机场: EZE,SAEZ
+瑟哈机场: HLLS,SEB
+乌马纳克机场: UMD,BGUM
+帕府机场: PRH,VTCP
+彼得斯堡地方机场: KPTB,PTB
+诺姆机场: PAOM,OME
+马格尼托哥尔斯克机场: USCM,MQF
+斯托尔曼塞兰德机场: SMZ,SMST
+雷维尔斯托克机场: CYRV,YRV
+奈特缪特机场: PAGT,NME
+科图拉机场: KCOT,COT
+巴托罗莫－里桑德罗机场: CAW,SBCP
+拉代西拉德岛机场: TFFA,DSD
+托图奎罗机场: TTQ,MRAO
+克里斯蒂娜城机场: KID,ESMK
+拉明集宁机场: RAM,YRNG
+瓦努阿巴拉乌机场: NFVB,瓦努阿巴拉武岛,VanuaMbalavu,VBV
+萨帕拉机场: SAHZ,APZ
+毛梅雷机场: WATC,MOF
+帕斯塔萨机场: SESM,PTZ
+斯提尤瓦特机场: KSWF,SWF
+伊斯法罕国际机场: IFN,OIFM
+HelenaRegionalAirport: KHLN,HLN
+阿索萨机场: HASO,ASO
+努瓦迪布机场: NDB,GQPP
+荷兹普鲁伊特机场: HDS,FAHS
+莱斯奎恩: LFQQ,LIL
+海曼岛机场: HIS,YHYN
+斯基罗斯机场: LGSY,SKU
+尼阿姆陶郭机场: DXNG,LRL
+康内马拉机场: NNR,EICA
+德塞阿多港机场: PUD,SAWD
+敦刻尔克机场: KDKK,DKK
+艾兰湖/加登希尔机场: YIV,CYIV
+伊尔森空军基地: EIL,PAEI
+阿莱恩斯机场: KAIA,AIA
+加菲尔德郡机场: KRIL,RIL
+科伦塞岛机场: EGEY,CSA
+希尔顿首脑机场: SAV,KSAV
+马杜赖机场: IXM,VOMD
+延布机场: Paro Airport,OEYN,YNB
+巴布谢里机场: SUI,UGSS
+马尼萨莱斯机场: SKMZ,MZL
+科贾尔尼希努机场: LRCK,CND
+科克岛机场: CCC,Miami International Airport,MUOC
+奇瓦瓦机场: Chihuahua General Roberto Fierro Villalobos International Airport,CUU,MMCU
+波罗克瓦内机场: PTG,FAPI
+索哈格机场: HMB,Karlstad,HEMK
+苏拉特古加拉特机场: STV,VASU
+尼古拉耶夫机场: NLV,UKON
+马根塔机场: GEA,NWWM
+约帕尔机场: EYP,El Dorado International Airport,SKYP
+劳伦斯机场: KLWM,LWM,General Edward Lawrence Logan International Airport
+马盖特机场: Margate Airport,MGH,FAMG
+吉大港Patenga机场: VGEG,CGP
+特雷尔机场: YZZ,CAD4
+贝塞尔机场: PABE,BET
+普林西比机场: PCP,FPPR
+天港机场: KPHX,Phoenix Sky Harbor International Airport,PHX
+加夫萨机场: GAF,Gafsa-Ksar International Airport,DTTF
+坎普尔机场: Lucknow Chaudhary Charan Singh International Airport,VIKA,KNU
+巴扎鲁托岛机场: BZB
+奥尔良机场: LFOJ,Louis Armstrong New Orleans International Airport,ORE
+丘尼卡机场: UTM,KUTA,ΚρατικόςΑερολιμέναςΘεσσαλονίκης，Kratikós Aeroliménas
+提奥内克机场: TYE
+南萨哈林斯克机场: UUS,UHSS
+安阿伯地方机场: KARB,ARB
+圣托马斯水上飞机基地: SPB,KSPB
+马布亚格岛机场: YMAA,UBB
+萨蒙王村机场: AKN,PAKN
+塔比特阿机场: NGTE,TBF
+加里宁格勒机场: UMKK,KGD
+弗尔顿国际机场: KAKR,F&HHOTEL,AKC
+布莱克浦机场: BLK,EGNH
+尼亚拉机场: HSNL,Khartoum International Airport,UYL
+德尤站机场: PIZ,PPIZ
+约阿港机场: CYHK,YHK
+加鲁阿机场: GOU,FKKR
+昆西地方机场: KUIN,Quincy Regional Airport,UIN
+费城北机场: KPNE,PNE
+恩加提机场: EGA
+门多萨机场: MDZ,SAME
+萨罗尼奇机场: LGTS,SKG
+切尔尼戈夫机场: UKRR,CEJ
+直升机机场: QFI
+萨尔蒂洛机场: SLW,MMIO
+库恩桑根机场: NRK,ESSP
+于巴郡机场: MYV,KMYV
+乌尼翁岛机场: TVSU,UNI
+克林顿机场: Little Rock National Airport,CWI,KCWI
+霍克斯湾机场: NPE,Hawke’s Bay Airport,NZNR
+图利塔机场: CZFN,ZFN
+塞里尔金机场: STT,TIST
+沃萨地方机场: AUW
+多格尔提郡机场: KABY,ABY
+柏培拉机场: BBO,HCMI,Jomo Kenyatta International Airport（JKIA）
+汉特－曼西斯特机场: USHH,HMA
+圣茅干机场: EGDG,NQY
+阿库雷机场: Reykjavíkurflugvöllur/Reykjavík Airport,DNAK,AKR
+乌伦迪机场: FAUL,ULD
+杜马德吉机场: YDMG,DMD
+新奥尔良莫桑机场: KMSY,MSY
+温顿机场: “三字代码”,YWTN,WIN,European airport three characters code
+圣约格岛机场: LPSJ,SJZ
+雷夫洛雷机场: GWO,KGWO
+梅角郡机场: KWWD,WWD
+毕晓机场: BIY,FABE
+布尤机场: KBUU,BUU
+芒特普莱森特机场: MPN,EGYP
+比特堡空军基地: EDAB,BBJ
+阿卢拉机场: ALU,HCMA
+沙利文湾机场: YTG
+坦克雷多挽内弗斯机场: CNF,SBCF
+帕马机场: NVSI,Baise Bama Airport,PBJ
+圣约翰的V.C.Bird国际机场: TAPA,ANU
+特木科机场: “三字代码”，,SCTC,El Calafate,ZCO
+埃尔博尔森机场: EHL,SAVB
+三城地区机场: KTRI,TRI
+弗尔顿郡机场: FTY,KFTY
+丘吉尔佛斯机场: ZUM,CZUM
+斯普利特机场: SPU,LDSP
+马塔迪机场: FZAM,MAT
+维琴查机场: LIPT,VIC
+莱昂斯港水上飞机基地: ORI
+中伊利诺伊区域机场: BMI,KBMI
+加利纳机场: GAL,Aeropuerto de Gran Canaria,PAGA
+坎基尔苏克机场: CYAS,YKG
+费尔南多－迪诺罗尼亚机场: FEN,SBFN
+库皮卡港机场: Phuket International Airport,BHF,VTSP
+科曼达恩特－克拉莫机场: SSER,ERM
+不拉登顿机场: KSRQ,SRQ
+图尔伯德机场: OPTU,TUK
+蓬多珀机场: PDO,WIPQ
+萨尼阿拉梅尔机场: GMTN,TTU
+勒布尔瓦特机场: LBG,LFPB
+夏马塔瓦机场: CZTM,ZTM
+克拉克夫机场: Kraków Airport,KRK,EPKK
+格瓦德汉珀尔机场: VAJM,JGA
+拉戈德尔苏尔岛机场: CYO,MUCL
+拉杰沙希机场: RJH,VGRJ
+奇普怀恩堡机场: CYPY,YPY
+利克马岛机场: FWLK,LIX
+恩特拉梅斯机场: LFOV,LVA
+蓬塔佩拉达机场: PLL
+科尔维尔湖机场: YCK,CEB3
+米那库地方机场: SBMC,MQH
+雅克巴西工程师镇机场: SAVJ,IGB
+卡姆登机场: YSCN,CDU
+阿贝歇机场: FTTC,法文:AéroportinternationaldeN'Djamena,AEH
+岩国机场: IWK,RJOI
+加隆斯机场: FNI,LFTW
+卢布林机场: LUZ,EPLB
+梨山机场: RCLS,LHN
+丹佛机场: DAN,KDAN
+拉帕尔马机场: MPLP,PLP
+霍塔机场: LPHR,HOR
+韦斯特切斯特机场: HPN,KHPN
+米加洛夫机场: UUEM,KLD
+贝尔梅霍机场: SLBJ,BJO
+凤凰威廉姆斯门户机场: AZA,KIWA
+米德康提嫩特机场: ICT,KICT
+向岛机场: RJEB,MBE
+克卢尼机场: LRCL,CZY,Kluj-Napoka International Airport
+埃利斯塔机场: ESL,URWI,Mineralnye Vody Airport
+麦克奎雷空军基地: KWRI,WRI
+杜鲁道机场: CYUL,YUL
+阿拉萨机场: HOF,OEAH
+贝卡机场: BEI,HABE
+伯兹维尔机场: “三字代码”,YBDV,BVI,European airport three characters code
+恰耶－恰佩尔机场: CYC
+北极村机场: ARC,PARC
+内瓦机场: Geneva Intl Airport,SKNV,NVA
+伊萨菲尔德机场: Springfield-Branson National Airport,BIIS,IFJ
+托努机场: TON
+卡塔拉塔斯机场: IGU,SBFI
+艾塔佩机场: ATP
+威斯康星州中部机场: CWA,KCWA
+科特拉斯机场: KSZ,ULKK,Arkhangelsk Airport
+宣化机场: TBB,VVTH,Zhangjiakou Ningyuan Airport
+CastleAirForceBase: MER,KMER
+彭蒂克顿机场: CYYF,YYF
+曼格顿地方机场: MHK,KMHK
+奥特岛机场: OUK
+霍尔顿国际机场: KHUL,HUL
+拉阿格机场: ETNL,RLG,LaGuardia Airport
+亚姆帕瓦雷机场: HDN,KHDN
+卡慕也拉机场: PHMU,MUE
+莫尔斯比港机场: POM,AYPY
+罗斯基尔德机场: EKRK,RKE
+奥托佩尼机场: Aeroportul Internaţional Bucureşti Otopeni - Henri Coandă,OTP,LROP
+特里郡机场: LNR,Kathmandu Tribhuvan International Airport,KLNR
+广岛西机场: HIW,RJBH
+西蒙－玻利维亚机场: SMR,SKSM
+雷塔巴机场: LTA,Taba  International Airport,FATZ
+阿塔机场: UCT
+爱德华里弗机场: “三字代码”,YPMP,EDR,European airport three characters code
+派勒特站机场: PQS
+法卡拉瓦机场: FAV,NTGF
+梅利利亚机场: MLN,GEML
+弗雷斯诺优胜美地机场: KFAT,FAT
+多卡里里地区机场: JDO,SBJU
+萨梅丹机场: LSZS,SMV
+卡里罗机场: RIK,MRCR
+拉奇吉亚机场: VVRG,VKG
+希拉马埃斯特拉机场: MZO,MUMZ
+达勒姆堤斯瓦利机场: EGNV,MME
+拉里贝拉机场: HALL,LLI
+夸里科姆机场: XQU
+伊塔乌巴机场: AUGS,AUB
+贡达机场: GDA
+伦杜机场: NDU,FYRU
+利拉巴里机场: IXI,VELR
+韦斯特佛尔－梅特洛机场: KCEF,CEF
+阿纳希姆莱克机场: YAA,CAJ4
+亨利罗里森机场: STX,TISX
+凯里马机场: Kaili Huangping Airport,AYKM,KMA
+梅诺米尼机场: MNM,KMNM
+诺思佩里机场: HWO,KHWO
+恩贾梅拉机场: FTTJ,NDJ
+恰赫恰兰机场: OACC,CCN
+马林加机场: SBMG,MGF
+德莫克里托斯机场: AXD,LGAL
+阿巴丹机场: ABD,OIAA
+库马西机场: KMS,Kumasi Airport,DGSI
+伏尔加机场: VGD,ULWW
+威皮姆机场: WPM
+德弗尔斯特拉克机场: GRM,KCKC
+普罗温斯敦机场: KPVC,PVC
+哈斯维克机场: HAA,Aeropuerto de Madrid-Barajas,ENHK
+达帕斯机场: CYQD,YQD
+赛伊德布尔机场: VGSD,SPD
+南帕德里岛国际机场: BRO,KBRO
+格罗兹尼机场: URMG,GRV
+伊内岛: IMI,Linejnyj
+博拉马机场: BXX
+陶波机场: NZAP,TUO
+喀加尔斯塔德机场: MJF,ENMS
+莱克讷斯机场: ENLK,LKN
+巴比莫斯特机场: EPZG,IEG
+奥巴里机场: QUB
+罗夫诺机场: UKLR,RWN
+比马机场: BMU,WADB
+诺萨普机场: NVSP,NUS
+穆索马机场: HTMU,MUZ
+恩波里亚机场: EMP
+巴桑库苏机场: BSU,FZEN
+科塔机场: VIKO,KTU
+纳埃克机场: KNEL,NEL
+昆卡机场: SECU,CUE
+班特里机场: BYT,EIBN
+莱瓦洛克机场: KLL
+沃贾机场: WJA
+莱克星顿机场: LEX,KLEX
+希米科特机场: VNST,IMK
+阿尔腾海恩机场: ACH,LSZR
+圣胡安水上飞机基地: WSJ
+印第唐: KMUI,MUI
+基斯马尤机场: KMU,HCMK
+保拉图克机场: CYPC,YPC
+康夫雷萨机场: SJHG,CFO
+德岛机场: TKS,RJOS
+巴里莫机场: OPU
+阿拉萨图巴机场: SBAU,ARU
+厄勒布鲁－博佛斯机场: ORB,ESOE
+索恩贝机场: KTB
+布鲁克斯莱克机场: BKF,KBKF
+帕罗斯机场: PAS,LGPA
+普拉亚萨马拉机场: MRSR,PLD
+罗克郡机场: KJVL,JVL,ChicagoRockfordInternationalAirport
+科卢韦齐机场: KWZ,FZQM
+帕库阿西皮机场: CYIF,YIF
+古尔本机场: GUL,YGLB
+福图纳机场: FON,MRAN
+利文斯敦机场: FLLI,LVI
+原州机场: RKNW,WJU,韩语:원주공항，英语:Wonju Airport
+贝林哈姆机场: KBLI,BLI
+艾肯地方机场: AIK,KAIK
+姆班达克机场: FZEA,MDK
+图文巴机场: TWB,YTWB
+弗雷斯卡蒂机场: MZM,LFSF
+卡纳斯机场: MRCA,Burqin Kanasi Airport,CSC
+达府机场: TKT,VTPT
+阿森斯机场: AHN,KAHN
+哈伊马角机场: OMRK,RKT,Hanover/Langenhagen International Airport
+夜丰颂机场: VTCH,HGN
+胡德堡军用机场: KHLR,HLR
+盖伦基兴机场: ETNG,GKE
+八莫机场: VYBM,BMO
+贝拉里机场: BEP,VOBI
+科科斯群岛机场: CCK,YPCC
+通布图机场: TOM,GATB
+诺诺乌蒂机场: NGTO,NON
+麦克克莱伦空军基地: MCC,KMCC
+基桑加尼机场: FZIA,FKI
+乌兰固木机场: Chinggis Khaan International Airport,ULO,成吉思汗国际机场,ZMUG
+瓦尔德雷斯机场: ENFG,VDB
+阿里坎特机场: ALC,LEAL
+爱田机场: KDAL,DAL
+加西翁卡机场: RZE,EPRZ
+卡拉马塔机场: KLX,LGKL
+加纳尔机场: KUVA,UVA
+里马塔拉: NTAM,RMT
+皮恩赫斯特－南皮恩斯机场: KSOP,SOP
+约书亚机场: SVD,TVSV
+塞拉亚: MMCY,CYW
+伊尼里达港机场: SKPD,PDA
+沃特伯里－牛津机场: KOXC,OXC
+钦博特机场: Chimbote,CHM,SPEO
+杜里机场: “三字代码”,HTIR,IRI,European airport three characters code
+贝克莫机场: YBC,CYBC
+利姆波波瓦雷机场: TLD,FBTL
+达恩机场: VNDG,DNP
+凯库拉机场: KBZ,NZKI
+肯莫尔空港机场: KEH
+巴特那机场: VEPT,PAT
+梅塞迪塔机场: PSE,TJPS
+硫黄岛机场: RJAW,IWO
+拉萨罗－卡德纳斯机场: MMLC,LZC
+比拉克机场: VRC,RPUV
+西峡谷: GCW
+珀普空军基地: POB,KPOB
+罗伯勒机场: RCE
+维拉多博尔托机场: LPAZ,SMA
+伊斯顿机场: KESN,ESN
+塔曼拉塞特机场: TMR,DAAT
+马鲁迪机场: MUR,WBGM
+纳基纳机场: CYQN,YQN
+伯克机场: Lubbock Preston Smith International Airport,YBKE,BRK
+梅斯－南希－罗莱纳机场: LFJL,ETZ
+奥里斯塔诺: FNU,LIER
+马利斯港机场: YMH,CYMH
+纳德扎博机场: LAE,AYNZ
+哈马丹机场: HDM,OIHH
+海德拉巴机场: HDD,OPKD
+星期五港机场: KFHR,FRD
+通托塔机场: NWWW,NOU
+那拉提瓦机场: 泰语:สนามบินสุวรรณภูมิ 英语:Suvarnabhumi Airport,VTSC,NAW
+弗里茨切军用机场: OAR,KOAR
+奥斯陆立格机场: ENRY,RYG,Oslo Airport, Gardermoen
+哈钦森机场: KHUT,HUT
+吉德拉尔机场: CJL,Islamabad International Airport,OPCH
+奥特劳机场: CKV,KCKV
+巴特岛机场: PABA,BTI
+塔克特纳机场: TCT
+奥阿尼机场: AJN,FMCV
+乔巴山机场: COQ,ZMCD
+明哈德军用机场: OMDM,NHD
+皮耶什佳尼机场: LZPP,PZY
+尼古拉机场: PAFS,NIB,Belgrade Nikola Tesla Airport
+威尔士机场: WAA,PAIW
+帕尔杜比采机场: PED,LKPD
+波托西机场: SLPO,POI
+特劳斯代尔机场: KTTD,TTD
+韦伯空军基地: Laredo International Airport,BGS
+普罗米奈特希尔: YPMH,PXH
+里耶卡机场: RJK,LDRI
+安德拉维达机场: LGAD,PYR
+拉布里亚机场: SWLB,LBR
+霍夫比机场: LDK,ESGL,Glacier Park International Airport
+苏达克罗克机场: SAK,BIKR
+米赞特费里机场: HAMT,MTF
+乌辛斯克机场: USK
+特拉维斯空军基地: KSUU,SUU
+苏里莫机场: VHC,FNSA
+特勒机场: Terrace Airport,PATE,TLA
+艾卢克岛机场: AIM
+普罗泰克申港机场: PPV
+哈特菲尔德机场: HTF
+普卡普卡机场: NTGP,PKP
+CLR机场: RZP,Phoenix Sky Harbor International Airport,RPSD
+穆库里机场: SNMU,MVS
+茅佩图斯机场: CER,LFRC
+蒙特瓦机场: LFRZ,SNR
+卡皮坦－瓜尔迪亚机场: SRJ,SLSB
+基瓦伊温机场: CPV8,KEW
+威廉斯湖机场: YWL,CYWL,Williamsport Regional Airport
+雷瓦尔蒂吉机场: CUF,LIMZ
+图库皮塔机场: TUV,SVTC
+伯尔尼恩孔尼机场: BKN
+班伯里机场: BUY,KBUY
+富图纳机场: FTA,NVVF
+小开曼岛机场: MWCL,LYB
+阿拉卡努克机场: AUK,PAUK
+博莱戈斯普林斯机场: BXS,KBXS
+利希尔岛机场: LNV
+莫罗泰岛机场: WAMR,OTI
+格拉夫顿机场: GFN,YGFN
+康奈兰机场: AYQ,YAYE
+黑登港机场: PTH,PAPH,Port Moresby Jacksons International Airport
+阿塞机场: ASA,HHSB
+德巴罗斯机场: SBDN,PPB
+杰伊瑟尔梅尔机场: JSA,VIJR
+巴尔特机场: BBH,EDBH
+夸贾林机场: PKWA,Honolulu International Airport,KWA
+科科瑙机场: KOLN,Nauru International Airport,KOX
+阿姆斯特朗机场: CYYW,Winnipeg James Armstrong Richardson International Airport,YYW
+圣泰雷斯角机场: CYST,YST
+波索机场: PSJ,WAMP
+芹苴机场: VVCT,VCA
+德瓦机场: DVA
+布莱克布什机场: BBS,EGLK
+卡奈马机场: SVCN,CAJ
+里韦拉机场: RVY,SURV
+安奈机场: NAI,SYAN
+奥兰芝郡机场: MGJ,Mariehamns Flygplats,KMGJ
+布里格－特洛姆波维斯基机场: SBVG,VAG
+希布加莫机场: CYMT,YMT
+索哈杰机场: QHX
+巴卡尔丁机场: YBAR,BCI
+伍拉斯顿湖机场: CZWL,ZWL
+乔治纽博利机场: AEP,SABE
+因达塞拉西耶机场: SHC
+库克敦机场: YCKN,CTN
+彭德港机场: YPT
+格林岛机场: RCGI,GNI
+埃斯塞尼阿机场: ORN,DAOO
+马里乌波尔机场: UKCM,MPW
+瓦斯帕姆机场: WSP,MNWP
+南迪机场: NAN,NFFN
+马巴鲁马机场: USI,SYMB
+圣希姆佛里恩机场: TUF,LFOT
+卡兰萨贝什机场: LRCS,CSB
+拉斯克鲁塞斯地方机场: KLRU,LRU
+考特多尔恩机场: ALJ,FAAB
+雷德蒙德机场: KRDM,RDM
+普斯科夫机场: ULOO,PKV
+巴克艾机场: BXK,KBXK
+阿卡迪亚纳地区机场: ARA,KARA
+格林伍德机场: CYZX,YZX
+印多尔机场: IDR,VAID
+帕奇姆机场: EDOP,SZW
+Tozeur–NeftaInternational机场: TOE,DTTZ
+塔希拉克机场: AGM,BGAM
+埃雷纳克机场: EAL
+沙佛尔豪斯机场: EDXF,FLF
+隆格拉普机场: RNP
+圣费里克斯多－阿拉瓜亚机场: SXO,SWFX
+候尔机场: VLHS,OUI
+蓬塔伊斯利塔机场: PBP,MRIA
+里瓦达维亚海军准将城机场: SAVC,Comodoro Rivadavia,CRD
+德里希阿斯机场: STB,SVSZ
+布里斯机场: KBCE,BCE,Brisbane Airport
+卡洛维机场: KLGC,LGC
+路易斯－洛克波特机场: KLOT,LOT
+帕拉帕拉乌穆机场: NZPP,PPQ
+乌拉基机场: USHU,URJ
+福克斯格莱西亚机场: FGL
+约什卡尔奥拉机场: UWKJ,JOK
+华希讷机场: NTTH,HUH
+巴金桑兹机场: BKH,PHBK
+瓦伦萨机场: VAL,SNVB
+格里菲斯空军基地: RME,KRME
+罗萨里奥港机场: FUE,GCFV
+LEITELOPES机场: RAO,SBRP
+里奥夸尔多机场: SAOC,RCU
+瑟特机场: “三字代码”,HLGD,African airport three characters code,SRX
+库滨岛机场: Tokyo International Airport,KUG,YKUB
+埃森多恩机场: YMEN,MEB
+沃延斯机场: EKSP,SKS,General Mitchell International Airport
+本托塔河机场: BJT
+拉姆史泰恩机场: ETAR,RMS
+纽特克机场: WWT
+杰格尔机场: BIGJ,GJR
+莫阿克乔特机场: GQPA,ATR
+SanJuan机场: SANU,UAQ,Luis Muñoz Marín International Airport/Aeropuerto Internacional Luis Muñoz Marín
+穆拉图波机场: MPP
+坎基克苏阿鲁约克机场: CYLU,XGR
+马宁格里达机场: YMGD,MNG
+马里纳迪坎波机场: LIRJ,EBA
+拉夫苏－德希莫马努机场: DCI,LIED
+阿斯提帕拉亚机场: LGPL,JTY
+阿姆克机场: AOS
+米查姆机场: KFTW,FTW
+萨阿梅里克/巴拉登机场: LHSM,SOB
+内拉博机场: ALP,OSAP
+比斯比－道格拉斯国际机场: KDUG,DUG
+班克斯敦机场: BWU,YSBK
+凯捷维克机场: KRS,ENCN
+林恩湖机场: YYL,CYYL
+卡姆巴－庞塔机场: CNQ,SARC
+马加丹机场: GDX,UHMM
+希什马廖夫机场: PASH,SHH
+拉斯韦加斯机场: Las Vegas McCarran International Airport,LVS,KLVS
+索约机场: FNSO,SZA
+科内机场: KNQ,NWWD
+希尼安加机场: HTSY,SHY
+勒卡斯特雷特机场: LFMQ,CTT
+乌提里克岛机场: UTK,03N
+德劳贡－米勒机场: TPL,KTPL
+辛辛那提地方机场: Cincinnati/Northern Kentucky International Airport,KLUK,LUK
+桑瓦雷机场: SUN,KSUN
+伦巴万机场: LBW,WRLB,Aeroporto internanazionale di Bergamo -Orio al Serio
+泰贝萨机场: DABS,Tulsa International Airport,TEE
+德尔诺特机场: MMAN,NTR
+达鲁机场: DAU,AYDU
+霍拉机场: HKHO,HOA,Imam Khomeini International Airport
+金米莱特机场: YLC,CYLC
+科罗内申机场: YCT,CYCT
+阿洛机场: ENML,MOL,Port Moresby Jacksons International Airport
+伯恩里基机场: TRW,NGTA
+恩于机场: Enshi Xujiaping Airport,BII
+乌提拉机场: UII,MHUT,Katowice Airport
+瓦勒多机场: YVO,CYVO
+塔尔贝斯奥松－卢尔德机场: LDE,LFBT
+奥博机场: OBX
+弗林德斯岛机场: YFLI,FLS
+拉蒙维勒达－莫拉尔斯机场: SAP,MHLM
+蓬卡兰切帕机场: KBR,WMKC
+马尼伊特索科直升机机场: BGMQ,JSU
+图莱夫机场: OETR,Athens Eleftherios Venizelos Airport,TUI
+豪登郡机场: KCMX,CMX
+拜姆鲁机场: VMU
+韦尔科夫机场: CYXN,Eagle County Regional Airport,YXN
+伊劳斯奎恩机场: TNCS,SAB
+冲绳岛机场: RORK,KTD,Naha International Airport
+佩克斯郡机场: FST,KFST
+巴拉－科罗拉多机场: MRBC,BCL
+圣凯瑟琳机场: LFKC,CLY
+马斯巴特机场: RPVJ,MBT
+奥奇德岛机场: RCLY,KYD
+库奇机场: COK,VOCI
+密支那机场: MYT,VYMK
+奥耶姆机场: FOGO,OYE
+韦斯特雷机场: WRY,EGEW
+富拉机场: FOA
+拜恩斯代尔机场: YBNS,BSJ
+米图机场: MVP,SKMU
+科拉多盖克斯机场: AOT,LIMW
+奥里兰蒂亚机场: OIA,SDOW
+豪卡森机场: Carson City Airport,ENSG,SOG,卡森市的机场
+怀丁菲尔德海空军机场: NSE,KNSE
+圣弗朗索瓦机场: TFFC,SFC
+考法纳机场: NFTE,EUA
+巴斯特尔机场: TKPK,SKB
+帕拉舍斯机场: PSX,KPSX
+明托机场: MNT
+腊塔纳基里机场: RBE
+诺加莱斯国际机场: OLS,KOLS
+安贡机场: Anqing Tianzhushan Airport,PAGN,AGN
+简达科特机场: JAD,YPJT
+伊苏马国际机场: MYEF,GGT
+诺加布克斯克机场: NOJ,USRO
+兰帕特机场: RMP
+新斯图亚豪克机场: KNW,PANW
+马奇机场: YMDG,DGE
+高奇港机场: YGE,CYGE
+马金岛机场: NGMN,MTK
+佩彻拉机场: PEX
+阿帕尔塔多机场: APO
+西蒙斯军用机场: FBG
+赛克斯顿－梅莫里阿尔机场: KSIK,SIK
+奇卡帕机场: TSH,FZUK
+瓦伦机场: Valencia Airport,ENHV,HVG
+法恩伯勒机场: EGLF,FAB
+维多利亚里弗当斯机场: VCD,YVRD
+圣克莱尔郡国际机场: KPHN,PHN
+亚特卢克毛阿克机场: KATT,ATT
+卡特岛机场: CAT,MYCB,Calicut Airport
+奔萨机场: 意大利语:Aeroporto di Milano Malpensa，英语:Milan Malpensa Airport,UWPP,PEZ
+明尼阿波里斯机场: KMSP,MSP,Minneapolis-Saint Paul International Airport
+巴兰卡维梅哈机场: EJA,SKEJ
+里弗赛德地方机场: RAL,KRAL
+布法罗纳罗斯机场: CYVT,YVT
+艾因罗根机场: DABC,CZL
+莱克查尔斯地方机场: LCH,KLCH
+圣玛丽机场: Aeropuerto Internacional Juan Santamaría,SMS,FMMS
+加托卡埃机场: GTA
+安布勒机场: PAFM,ABL
+本格拉岛机场: BCW
+伊舒尔蒂机场: VGIS,IRD
+巴扬克洪戈机场: BYN,ZMBH
+西奥多弗郎西丝机场: PVD,KPVD
+布厄克斯机场: BXO,LSZC
+新尼克里机场: ICK,SMNI
+布卢菲尔兹机场: BEF,MNBL
+隆亚甲机场: LKH,WBGL
+拉瓦斯机场: LWY,WBGW
+扎黑丹机场: OIZH,ZAH
+加帝夫机场: CWL,EGFF
+托卢机场: TLU,SKTL
+迪亚曼蒂诺机场: SWDM,DMT
+博尔扎诺机场: BZO,LIPB,Aeroporto di Verona
+莱吉萨莫港机场: SKLG,LQM
+海姆提斯机场: VYKI,KHM
+布尔戈斯: LEBG,RGS
+沃里机场: QRW,DNSU
+比洛西克地方机场: GPT,KGPT
+吉鲁阿机场: PNP,AYGR
+阿法隆贝机场: KAVX,AVX
+威斯洛机场: KINW,INW
+莫勒港空军机场: PML,PAAL
+帕格尔布尔机场: BDP,VNCG
+凯内马机场: GFKE,KEN
+赫瓦诺拉机场: UVF,TLPL
+拜雷港机场: KPY
+迈阿密水上飞机基地: MPB
+卡布里达机场: ABK,HAKD
+克里斯塔尔机场: MIC,KMIC
+波普勒山机场: YHP,CPV7
+特雷苏尔凯机场: MYAT,TCB
+特里史代特/米尔顿机场: KHTS,HTS
+内马机场: EMN,GQNI
+切博克萨雷机场: UWKS,CSY
+斯蒂尔沃特机场: SWO
+赫斯特机场: LaGuardia Airport,CYHF,YHF
+多尔郡机场: SUE
+艾丽斯国际机场: KALI,ALI
+格雷军用机场: KGRF,GRF
+皮乌拉机场: “三字代码”，,El Calafate,PIU,SPUR
+洛德瓦尔机场: Jomo Kenyatta International Airport（JKIA）,HKLO,LOK
+埃尔巴格尔机场: EBG,SKEB
+杭扎机场: WIKB,BTH,Hangzhou International Airport
+维吉尼亚机场: FAVG,VIR
+萨尔瓦扎机场: LFMK,CCF
+里戈莱特机场: YRG,CCZ2
+葡萄机场: VYPT,PBU
+佩利肯水上飞机基地: PEC
+翁步埃机场: FOOH,OMB
+谢弗维尔机场: CYKL,YKL
+马默斯莱克斯机场: MMH,KMMH
+基瓦律机场: KWY
+杰斐逊堡机场: RBN,Birmingham-Shuttlesworth International Airport
+布莱德雷机场: KBDL,BDL
+圣路易斯－斯皮里特机场: SUS,KSUS
+拉尼永机场: LFRO,LAI
+马纳波里机场: NZMO,TEU
+维兰库卢什机场: FQVL,VNX
+霍布克特莫恩机场: ENKR,KKN
+默里岛机场: “三字代码”,MYI,European airport three characters code,YMUI
+米兰机场: KGNT,Linate Airport,GNT
+邓克岛机场: YDKI,DKI
+奥尔马拉机场: OPOR,ORW
+西西亚机场: NFCI,ICI
+卡瓦廷机场: RPUY,CYZ
+韦恩莱特机场: PAWI,AIN
+德拉瑟机场: LEU,LESU
+内安恰阿罗斯机场: LGBL,VOL
+和平港机场: PAX,MTPX
+奇姆肯特机场: CIT,Shymkent International Airport,UAII
+维登机场: EUF,Providenciales International Airport,KEUF
+诺思贝机场: BRR,EGPR
+奥尔斯克机场: OSW,UWOR,Sheremetyevo Alexander Pushkin International Airport
+塔皮尼机场: TPI
+基联恩金克机场: GDZ
+科尤克机场: PAKK,KKA
+包德特机场: KBDE,Exeter Airport,BDE
+波拉波拉机场: Bora Bora Airport,NTTB,BOB
+文森特法伊克斯机场: OEM,SMPA
+罗克希尔机场: RKH,KUZA
+索诺马郡机场: KSTS,STS
+瓦拉瓦拉机场: KALW,ALW
+查布阿机场: DIB
+基法机场: KFA,GQNF
+桑德克里克机场: KSDC,SDC
+康康机场: GUXD,KNN
+圣塞瓦斯蒂安机场: EAS,LESO
+诺德代希机场: EDWS,NOE
+帕拉代斯岛水上飞机基地: WZY
+埃尔奥贝德机场: EBD,HSOB
+佩里维尔水上飞机基地: KPV,PAPE
+山达霍得机场: ENTO,TRF
+勒蓬特雷机场: LFOU,CET
+蒙特罗斯郡机场: KMTJ,MTJ
+阿萨奥机场: AAU
+卡斯尔加机场: CYCG,YCG,West Kootenay Regional Airport
+波因特霍普机场: PPHO,PHO
+莱文古德机场: LIV,Goodland Municipal Airport
+弗雷德里克顿机场: YFC,CYFC
+博萨索机场: HCMF,BSA,Egal International Airport
+卡拉姆巴机场: KRB,YKMB
+塞内特－克拉克机场: KGUP,GUP
+卡尔斯巴德机场: KCNM,CNM
+桑布鲁机场: UAS,HKSB
+安布恩提机场: AUJ
+锡格吕菲厄泽机场: SIJ,BISI
+马德普拉塔机场: MDQ,SAZM
+桑雅维尔机场: LELC,MJV
+恩多拉机场: FLND,NLA
+基拉古尼机场: ILU,HKKL
+阿克苏姆机场: AXU,HAAX
+SayakAirport: RPNS,IAO
+埃希贝机场: ICY
+腾达尔空军基地: KPAM,PAM
+华雷斯机场: CJS,MMCS
+列城机场: IXL,VILH
+查里弗－阿尔伊德里希机场: AHU,GMTA
+清泉岗机场: Taichung Ching Chuang Kang Airport,RMQ,RCMQ
+皮瓦努克机场: CYPO,YPO
+台拉登机场: DED,Mumbai Chhatrapati Shivaji International Airport,VIDN
+萨拉戈萨机场: LEZG,ZAZ
+威克岛机场: AWK,PWAK
+阿尔卡雷克机场: UAUR,AYK
+托基恩机场: KTKI,TKI
+达兰萨拉机场: DHM
+舒特港直升机机场: JHQ,YSHR
+道森克里克机场: YDQ,CYDQ
+海空军机场会议室: NGU,KNGU
+北卡伊克斯机场: MBNC,NCA
+纳姆索斯机场: OSY,ENNM
+圣克罗伊水上飞机基地: SSB
+索埃斯特堡机场: EHSB,UTC
+班珠尔Yundum国际机场: Banjul International Airport,GBYD,BJL
+巴耶杜帕尔机场: SKVP,VUP
+普雷斯梅迪希机场: RBR,SBRB
+比拉德纳格尔机场: BIR,VNVT
+杰弗曼机场: SOQ,WASS
+拉佩德雷拉机场: LPD,SKLP
+西姆拉机场: VISM,SLV
+雷诺兹机场: KRIF,RIF
+布兰肯瑟机场: LBC,EDHL
+梅多莱克机场: CYLJ,YLJ
+安德尼斯机场: ENAN,ANX
+德弗尔斯莱克机场: KDVL,DVL
+阿瓦伦机场: AVV,Avalon Airport,YMAV
+格兰特郡机场: MWH,KMWH
+明斯克第1国际机场: UMMM,Minsk National Airport,MHP
+库南布尔机场: “三字代码”,YCNM,European airport three characters code,CNB
+马萨瓦机场: MSW,Asmara International Airport,HHMS
+新库兹涅茨克机场: UNWW,NOZ
+弗兰奇瓦雷机场: KF70,RBK
+克赖斯特彻奇机场: Christchurch International Airport,CHC,NZCH
+ClovisMunicipalAirport: KCVN,CVN
+雷阿尔城机场: LPVR,Ciudad Real,VRL
+图努纳克机场: TNK
+比阿克机场: BIK,WABB
+瓜纳贾机场: GJA,MHNJ
+曼塔机场: SEMT,MEC
+鲍勃巴克－梅莫里阿尔机场: IAN,PAIK
+阿森斯－黑利尼康机场: HEW
+莫罗机场: MXH,AYMR,Port Moresby Jacksons International Airport
+古鲁皮机场: Imperial County Airport,GRP,SWGI
+上里奥森格尔机场: ARR,SAVR
+布尔日机场: LFLD,BOU
+雅纳米拉机场: SPHO,AYP
+克劳森机场: STK,KSTK
+楚莱机场: VVCA,VCL
+库奇贝哈机场: COH,VECO
+波因特姆古海空军机场: KNTD,NTD
+阿那科机场: SVAN,AAO
+莫库蒂洛基机场: FYMO,OKU
+尼珥尼特斯基机场: UKLH,HMJ
+安达瓦杜阿卡: DVD
+雷基阿里德机场: MVA,BIRL
+清州机场: CJJ,韩语:청주국제공항，英语:Cheongju International Airport,RKTU
+新彻讷加机场: NCN,PFCB
+凯亚皮特机场: KIA,PSKA
+沙克图利克机场: PFSH,SKK
+阿尔巴门奇机场: AMH,HAAM
+奥达兹机场: PVR
+普腊亚机场: GVFM,RAI
+廷达尔机场: YPTN,KTR
+伊利诺伊瓦雷地区机场: KVYS,VYS
+蒙特里亚机场: MTR,SKMR
+三马林达机场: Samarinda Aji Pangeran Tumenggung Pranoto International Airport,WALS,SRI
+米凯利机场: MIK,EFMI
+瓦尔内岛机场: BWF,EGNL
+奥卢昆机场: YAUR,AUU
+路易斯机场: KCDK,CDK
+星期五港水上飞机基地: FBS
+埃斯特万机场: YEN,CYEN
+尼泊尔根杰机场: KEP,VNNG
+基洛夫斯克机场: ULMK,KVK
+沃尔格特机场: WGE,YWLG
+迪克威勒: DIW
+诺斯韦机场: ORT,PAOR
+勒莫尔: KNLC,NLC
+莫菲特机场: KNUQ,NUQ
+东戈瓦机场: StrømfjordLUFTHAVN,TGH,NVST
+莱利斯塔德机场: LEY
+卡斯特罗－平托机场: SBJP,JPA
+邦特机场: GFBN,BTE
+霍普堡机场: YFH,CYFH
+新阿里普阿南机场: NVP,SWNA
+莫普提机场: MZI,GAMB
+马纳纳拉机场: FMNC,WMR
+法克法克机场: WASF,FKQ
+圣皮埃尔机场: LFVP,FSP
+奇帕塔机场: FLCP,CIP
+提鲁瓦南萨普拉姆机场: VOTV,TRV,Bengaluru International Airport
+阿瓦巴机场: Avalon Airport,AWB
+塔比特阿绍斯机场: NGTS,TSU
+库帕勒克机场: PAKU,UUK
+贝劳机场: Palau International Airport,WALK,BEJ
+宰赫兰大都会地区机场: DHA,OEDR
+马塔克机场: WIOM,MWK
+杭济机场: FBGZ,GNZ,Hangzhou Jianqiao Airport
+拉皮德城地区机场: RAP,KRAP
+克基拉岛机场: LGKR,CFU
+埃利斯机场: PAMY,MYU
+多多马机场: HTDO,DOD
+拉佛尔机场: KCHA,CHA
+索里机场: SFK,SNSW
+米德兰国际机场: MAF,KMAF
+桑皮特机场: Sampit,SMQ,WAOS
+特胡埃尔切机场: SAVY,PMY
+克尔曼机场: OIKK,KER
+埃图塔基机场: AIT,NCAI
+诺思中心机场: SFZ,KSFZ
+圣加迪恩机场: DOL,LFRG
+比尔詹德机场: OIMB,XBJ
+马特萨法机场: FDMS,MTS
+布隆方丹机场: BFN,FABL
+特马尔机场: KTRM,TRM
+伊格尔－西考斯基－梅莫里阿尔机场: BDR,KBDR
+拉希姆亚尔克罕机场: OPRK,RYK
+kaadedhdhoo机场: KDM,VRMG
+布季机场: Phuket International Airport,BHJ,VABJ
+伯克敦机场: BUC,YBKT
+凡努伊斯机场: KVNY,VNY
+甘巴机场: GAX
+柴尔德里斯机场: KCDS,CDS
+碧差汶机场: PHY,VTPB
+巴尔德文郡机场: MLJ,KMLJ
+奎里奎尔机场: SVMT,MUN
+拉科洛马机场: MULM,LCL
+桑迪机场: EGES,Aeropuerto Internacional Augusto C. Sandino,NDY
+阿尔丹机场: ADH,UEEA
+尼古纳机场: NIG,NGNU
+拉格兰奇机场: YGL,CYGL
+坎波阿雷格雷机场+D1441: SNKE,CMP
+塔拉波托机场: SPST,TPP
+苏德考尔斯机场: LFKF,FSC
+海达堡水上飞机基地: HYG,PAHY
+泰伦斯B利尔森国际机场: EIS,TUPJ
+科瓦尼阿马机场: KWM,YKOW
+贝尔特拉姆机场: CIJ,SLCO
+拉贡机场: KCL
+辛普森港机场: CYPI,YPI
+多芬机场: YDN,CYDN
+乔斯机场: DNJO,Jomo Kenyatta International Airport（JKIA）,JOS
+布宜诺斯艾利斯机场: Ministro Pistarini International Airport,BUE
+桑加尼亚机场: VIJP,JAI
+埃尔尼多机场: ENI
+菲尔顿机场: FZO,EGTG
+加里地区机场: KGYY,GYY
+维雷福德机场: KCBE,CBE
+巴利纳斯机场: BNS,SVBI
+坎大哈机场: KDH,Kandahar Airport,OAKN
+安维克机场: ANV,Holy Cross Airport,PANV
+福斯特郡机场: KVCT,VCT
+贝莱普群岛机场: BMY,NWWC
+阿巴泰纳－伊尔马机场: HADR,DIR
+汤普金斯郡机场: ITH,KITH
+哈桑I机场: GMML,EUN
+凯杜古机场: KGG,GOTK
+卢弗金－安吉尔利纳郡机场: LFK,KLFK
+苏亚雷斯港机场: SLPS,PSZ
+齐斯泰兹机场: TED,EKTS
+诺克斯郡地区机场: KRKD,RKD,McGhee Tyson Airport
+里帕尔斯贝机场: Assaluyeh,YUT,CYUT
+拉戈梅拉机场: GMZ,GCGM,Tenerife
+杰兹卡兹甘机场: DZN,UAKD
+安比卢贝机场: FMNE,AMB
+胡斯利亚机场: PAHL,HSL
+鄂霍次克机场: OHO,UHOO
+斯陶宁机场: EKVJ,STA
+普拉约恩奇科机场: PYC
+朱穆苏里南机场: DOE
+瓦岱机场: Vientiane Wattay International Airport,VTE,VLVT
+弗拉季卡夫卡兹机场: URMO,OGZ
+昂斯洛机场: ONS,YOLW
+达巴赫: HEAL,DBB
+塔尔迪库尔干机场: UAAT,TDK
+埃德森机场: CYET,YET
+莫班巴里机场: VEMN,MOH
+于伐斯居拉机场: EFJY,JYV
+拉贾蒙德里机场: RJA,VORY
+巴基西梅托机场: “三字代码”，,SVBM,BRM,El Calafate
+切卡希机场: CKC,UKKE
+朗德莱克机场: ZRJ,CZRJ
+珀拉卡机场: KPWT,PWT
+贾鲁伊特机场: UIT,N55
+帕默地方机场: PAQ,PAAQ
+哈卡伊帕斯机场: CYHC,YHC
+兰契机场: VERC,IXR
+奥林杜伊克机场: ORJ,SYOR
+奥博珀法芬霍芬机场: EDMO,OBF
+科霍戈机场: HGO,DIKO
+巴瑙尔机场: UNBB,BAX
+戈尔贝机场: CYZE,YZE
+圣彼得机场: PSH,Международный Аэропорт Пулково,EDXO
+大特劳特机场: CYTL,YTL
+迪拉恩特－霍普金斯机场: EEN
+彩虹湖机场: CYOP,YOP,Edmonton International Airport
+费尔茨机场: KSFF,SFF,Fairbanks International Airport
+斯托克顿机场: KSCK,SCK
+博洛罗拉机场: BOX,BOCH
+普肯机场: ZPC,SCPC
+库约机场: CYU,RPLO
+卡萨拉机场: KSL,HSKA
+三宝拢机场: SRG,Achmad Yani International Airport,WIIS
+沙璜机场: WITB,SBG
+巴里奥机场: WBGZ,BBN
+德比机场: YDBY,DRB
+艾尔斯沃斯空军基地: KRCA,RCA
+埃邦机场: EBO
+乔姆森机场: JMO,VNJS
+卡拉干达机场: UAKK,Karaganda Sary-Arka International Airport,KGF
+麦克斯维尔空军基地: KMXF,MXF
+提拉纳机场: TIA,LATI,Katowice Airport
+卡索斯岛机场: KSJ,Νάξος,LGKS
+拉法厄尔努内兹机场: CTG,SKCG
+拉米丹达机场: LDN,VNLD
+卡贝略港机场: SVPC,PBL
+第波罗机场: Aeroporto internazionale di Venezia-Tessera “Marco Polo”（意大利语）、Venice Marco Polo International Airport（英语）,DPL,RPMG
+克麦罗沃机场: UNEE,KEJ
+吉瓦宁机场: FBJW,JWA
+卡里巴机场: KAB,FVKB
+亨特尔空军基地: KSVN,SVN
+班加西Benina机场: BEN,HLLB
+通古尔乌伦机场: CXP,WIHL
+格罗顿新伦敦机场: GON,KGON
+奇萨纳机场: CZN
+卢埃纳机场: FNUE,LUO
+丹戎瑟罗尔机场: WALG,TJS
+讷夫特约甘斯克机场: USRN,NFG
+沃克干－梅莫里阿尔机场: UGN,KUGN
+圣安东尼机场: CYAY,YAY
+帕索德－洛斯利布雷斯机场: AOL,SARL
+卢森堡机场: ELLX,Internationale Flughafen Luxemburg-Findel,LUX
+鲁比机场: PARY,RBY
+圣地亚哥科波泰拉机场: SCQ,LEST
+哈瓦苏派机场: HAE
+奇里齐科机场: CCH,SCCC
+克肖德机场: Khajuraho Airport,VAKS,IXK
+CorozalAirport: SKCZ,CZU
+基卡珀机场: KIEV,KIP
+乌尔基特机场: ULG,ZMUL
+芒廷霍姆空军基地: KMUO,MUO
+美克机场: VYME,MGZ
+巴布达机场: TAPH,BBQ
+拉尔机场: LRR,Aeroporto Internacional Amílcar Cabral,OISL
+赫伦岛直升机机场: HRN
+粟国机场: AGJ,RORA
+马西拉岛机场: MSH,OOMA
+莱克赛德机场: LKSZ,LKS
+根卢西奥－布兰科机场: MMRX,REX
+鄂姆斯克机场: OMS,UNOO
+弗朗西斯堡地方机场: YAG,CYAG
+铀城机场: CYBE,YBE
+洛坤府机场: NST,VTSN
+马尼沃基机场: CYMW,YMW
+戈龙塔洛机场: GTO,WAMG
+莫诺机场: MNY,Mono pump,AGGO
+科伦巴国际机场: SBCR,CMG
+阿德莫尔机场: NZAR,AMZ
+法罗机场: CZFA,ZFA
+夏卡维机场: FBSW,SWX,Yancheng Nanyang International Airport
+托卢卡机场: MMTO,TLC
+内米斯卡机场: CYHH,YNS
+詹姆斯考克斯代顿国机场: DAY,KDAY
+约岛机场: IDY,LFEY
+新科利加内克机场: PAJZ,KGK
+隆邦加机场: LBP
+曼德里尤机场: LFMD,CEQ
+阿弗拉瓦雷机场: AVW,KAVQ
+布兰提机场: WIIT,TKG
+梅里尔机场: PAMR,MRI
+伊努维克/麦克祖博克机场: CYEV,YEV
+胡布利机场: Hubli - Talwar,HBX,VAHB
+埃米特县机场: PLN,KPLN
+埃尔帕索军用机场: BIF,KBIF
+科特里克机场: KOT,PFKO
+博马机场: FZAJ,BOA
+韦帕机场: YBWP,WEI
+图鲁克萨克机场: TLT
+棕榈滩郡格雷兹机场: PHK
+托马斯－拉塞尔机场: ALX,ALX_
+木尔坦机场: MUX,OPMT
+拉普拉塔机场: Durango - La Plata County Airport,SADL,LPG
+阿勒特机场: CYLT,YLT
+耶恩格马机场: WYE,GFYE
+塞普提阿拉乔机场: SBNM,GEL
+兰格雷空军基地: LFI,KLFI
+怀尔顿机场: CYVV,YVV
+耶兰德机场: ELY,KELY
+伊路利萨特机场: JAV,BGJN
+俄亥俄州大学机场: OSU,KOSU
+隆波克机场: KLPC,LPC
+鸟取机场: Niaoqu International Airport,TTJ,RJOR
+路易斯马加尔哈斯机场: SSA,SBSV
+韦尼蒂机场: PAVE,Athens Eleftherios Venizelos Airport,VEE
+乌鲁兹机场: FLN,SBFL
+比沙机场: BHH,OEBH
+马绍尔军用机场: FRI,KFRI
+哈里机场: Beirut-Rafic Hariri International Airport,EFHA,KEV
+吉打邦机场: KTG,WIOK
+旁卡兰布翁机场: PKN,WAOI
+博切基夫机场: DAOB,TID
+奇克拉约机场: SPHI,CIX
+维捷布斯克机场: UMII,VTB
+米拉马尔空海军机场: KNKX,NKX
+斯廷博特斯普林斯机场: KSBS,SBS
+道奇堡机场: KFOD,FOD
+约翰逊－因达斯特里尔机场: KIXD,JCI
+戴维斯机场: MKO,KMKO
+格罗塔格机场: LIBG,TAR
+马约格雷罗机场: STD,SVSO
+特尔古穆列什机场: TGM,LRTM,Flughafen Memmingen
+阿尔延古拉机场: GTE,YGTE
+威尔罗杰斯纪念机场: BRW,PABR
+布巴内斯瓦尔机场: VEBS,BBI
+上丁机场: KTNX,TNX
+圣奥古斯丁机场: UST,KSGJ
+因纹内丝机场: EGPE,INV
+鲁安机场: YUY,CYUY
+威廉姆斯堡机场: KPHF,PHF
+康塔多拉机场: OTD
+马拉洛奇斯机场: MRE
+伊莫珍希机场: DUT,PADU
+利斯塔机场: ENLI,FAN
+努纳皮丘克机场: NUP
+贝基利机场: FMSL,OVA
+布尔瓦机场: KASH,ASH,法语:Aéroport Paris Charles de Gaulle 英语:Paris Charles de Gaulle Airport
+雷格尔机场: DAOR,CBH
+亚琛/梅茨布鲁克机场: EDKA,AAH
+马纳萨斯机场: 科尔根航空公司,Colgan,MNZ,KHEF
+埃鲁内佩机场: SWEI,ERN
+戴维韦恩胡克斯机场: KDWH,DWH
+马纳卡拉机场: WVK,FMSK
+格拉纳达机场: GRX,LEGR,Granada Airport
+格雷特尔－坎卡基机场: IKK,KIKK
+卡维恩机场: AYKV,KVG
+卡罗维发利机场: LKKV,KLV
+大都会地区: BHZ
+塞雷策卡马爵士机机场: FBSK,GBE
+康沃尔地区机场: CYCC,YCC
+诺曼韦尔斯机场: YVQ,CYVQ
+特姆佩尔霍夫机场: EDDI,THF
+布什机场: KAGS,AGS,Houston George Bush Intercontinental Airport
+莱瑟本机场: LEUT,LES
+希利湖机场: PAHV,HKB
+科斯塔奈机场: CNL,EKSN,Hanover/Langenhagen International Airport
+亨特机场: LIND,LND
+普埃布罗－梅莫里阿尔机场: KPUB,PUB
+英戈尔施塔特－曼钦机场: IGS,INGS
+楠德里克岛机场: 3N0,NDK
+斯泰茨维尔地方机场: SVH,KSVH
+埃克塞特机场: Exeter Airport,EGTE,EXT
+基奎特机场: KKW,FZCA
+旧克罗机场: CYOC,YOC
+彼得罗利纳国际机场: SBPL,PNZ
+努基机场: SKNQ,NQU
+凡宁机场: IDA,KIDA
+甘贝拉机场: HAGM,GMB
+米蒂利尼机场: MJT,LGMT
+拉斯埃拉斯机场: SAVH,LHS
+安提曼机场: FTTN,AMC
+卡布弗里乌机场: SBCB,CFB
+詹姆斯－科纳尔机场: KCNW,CNW
+沙姆沙伊赫机场: Sharm el-Sheikh International Airport,HESH,SSH
+萨鲁伊特机场: CYZG,YZG
+伊泰图巴机场: ITB
+西南湾机场: SWJ,Southwest Oregon Regional Airport,NVSX
+索维斯卡亚: OVS,USHS
+拉万瓜尔迪亚机场: SKVV,VVC
+格林科喷气机机场: BQK,KBQK
+包纳加尔机场: BHU,VABV
+托木斯克机场: UNTT,TOF,Tomsk Bogashevo
+埃利斯拉斯机场: ELL,FAEA
+胡萨维克机场: HZK,BIHU
+苏尔古特机场: Khujand Airport,USRR,SGC
+莱迪埃利奥特岛机场: LYT
+布尔干机场: ZMBN,UGA
+梅里贝尔机场: MFX,LFKX
+埃沃内斯机场: EVE,ENEV
+格拉德斯通机场: YGLA,GLT
+卡埃迪机场: KED,GQNK
+肯琼斯机场: 卡尔琼斯机场,MKKJ,POT
+托里斯机场: NVSD,TOH
+埃尔德机场: GRQ,EHGG
+沃洛涅日机场: VOZ,UUOO
+奥尔达斯港机场: SVPR,PZO
+拉合尔机场: Allama Iqbal International Airport,OPLA,LHE
+马恩机场: DIMN,Reims Airport,MJC
+叶尼塞斯克机场: UNII,EIE
+塔拉维拉尔－拉雷尔机场: LEBZ,BJZ
+邦巴托克机场: GBK,GFGK
+佩吉机场: FMY,KFMY
+希拉佛机场: HIL
+帕姆群岛机场: PMK,YPAM
+克里沃罗格机场: KWG,UKDR
+斯马拉机场: SMW,GMMA
+金斯科特机场: “三字代码”,KGC,YKSC,European airport three characters code
+金卡机场: BCO,HABC
+基诺沙地方机场: ENW
+帕尔马马拉尔克机场: PMI,LEPA
+阿特卡什克机场: PATQ,ATK
+邦洛机场: WMPA,PKG
+日月潭机场: SMT
+库比皮特海空军机场: NCP
+达叻机场: TDX,VTBO
+萨图马雷机场: SUJ,LRSM
+罗哈斯城机场: RPVR,RXS
+布朗肯山机场: BHQ,YBHI
+波马拉机场: PUM
+特雷斯科机场: EGHT,TSO
+克罗斯莱克机场: CYCR,YCR
+科巴机场: YCBA,CAZ
+朗里奇机场: YBLR,LRE
+特莫拉机场: YTEM,TEM
+本地治里机场: PNY,VOPC
+扎金索斯州机场: LGZA,ZTH
+白滨机场: RJBD,なんきしらはまくうこう,SHM,Nanki-Shirahama Airport
+法拉凡加纳机场: RVA,FMSG
+埃莫西约机场: HMO,MMHO
+伊尔福德机场: CZBD,ILF
+特鲁克机场: TKK,PTKK
+乔阿特巴芦克机场: CHU,PACH
+测试机场: FMNT,TTS
+埃吉尔斯塔蒂尔机场: BIEG,EGS
+莫塔拉瓦机场: MTV,NVSA
+杜瓦马瓦机场: KDWA,DWA
+斯普林代尔地方机场: SPZ,KSPZ
+塔罗约阿克机场: YYH,CYYH
+胡迪克维瓦尔机场: HUV,ESNH
+马什港国际机场: MHH,MYAM
+甘德机场: CYQX,YQX,St John's International Airport
+劳埃德明斯特机场: CYLL,YLL
+萨菲尔德机场: YSD,CYSD
+布雷维格米西翁机场: KTS,PFKT
+马什菲尔德地方机场: KMFI,MFI
+霍斯特机场: KHT,OAKS
+哈里克雷佛机场: PHD,KPHD
+努库机场: UKU
+比齐机场: KBEC,BEC
+特里史代特－史特优本郡机场: ANQ,KANQ
+雷德莱克机场: CYRL,YRL
+马希拉克机场: RDZ,LFCR
+加拉丁机场: KBZN,BZN
+库莱布拉机场: TJCP,CPX
+金科夫机场: PAVC,KVC
+迪拜市中心切尔希大厦机场: xnb
+马斯克拉特坝机场: MSA,CZMD
+波韦尼尔机场: WPR
+迪亚曼蒂纳: Historic Centre of the Town of Diamantina,SNDT,DTI
+加斯陶－维迪加尔博士机场: SBML,MII
+卡里亚库岛机场: CRU
+雷纳机场: GLD,KGLD,Terre Haute International Airport
+布哈拉机场: BHK,UTSB
+根博尔格兰诺机场: SASA,SLA
+加尔卡尤机场: HCMR,GLK
+克里西乌马机场: CCM,SBCM
+拉巴肯机场: NFNK,LKB
+班达亚齐机场: WITT,BTJ
+斯图尔特岛机场: SZS,NZRC
+卡拉贝阿机场: KEMP,KEX
+基里机场: KRZ,General Mitchell International Airport,FZBT
+科罗托内机场: CRV,Hong Kong International Airport,LIBC
+佩里湾机场: YBB,CYBB
+纳尼希维克机场: CYSR,KEFLAVíK INTERNATIONAL AIRPORT/Keflavíkurflugvöllur,YSR
+莱克兰地方机场: KLAL,LAL
+高知机场: RJOK,KCZ,高知龍馬空港
+拉夫哈机场: RAH,OERF
+马纳岛机场: MNF,NFMA
+林肯港机场: YPLC,PLO
+挪威豪斯机场: YNE,CYNE
+登海尔德机场: EHKD,DHR
+平斯岛机场: ILP,NWWE
+卡卢加机场: UUBS,KLF
+利佩茨克机场: LPK,UUOL
+孟菲斯机场: KMEM,MEM,Memphis International Airport
+拜科夫机场: BKA,UUBB
+科泽科德机场: CCJ,Calicut International Airport,VOCL
+科提斯－梅莫里阿尔机场: PFNO,ORV
+琴斯托霍瓦机场: EPRU,CZW
+德文波特机场: “三字代码”,YDPO,DPO,European airport three characters code
+格雷格县机场: KGGG,GGG
+切图马尔机场: Cancún International Airport,CTM,MMCM
+马兰格机场: FNMA,MEG
+莫阿拉机场: MFJ,NFMO,Alamosa - San Luis Valley Regional/Bergman Airfield
+博拉姆机场: WWK,AYWK
+亚茅斯机场: CYQI,YQI
+提米蒙机场: TMX,DAUT
+利雅得机场: RUH,OERK
+芒廷机场: MWP
+桔井机场: KTI,VDKT
+约恩苏机场: JOE,EFJO
+奥本－奥珀里卡机场: KAUO,AUO
+卡拉巴尔机场: CBQ,DNCA
+托马斯维尔地方机场: TVI,KTVI
+凯克水上飞机基地: KAE
+阿拉拉夸拉机场: SBAQ,AQA
+奥斯曼阿巴德机场: KOMN,OMN
+纳德姆机场: NYM,USMM
+黑林斯多夫机场: Alliance Municipal Airport,HDF,EDAH
+埃斯塔特机场: MYLS,SML
+布雷维斯机场: BVS,SNVS
+特斯林机场: YZW,CYZW
+布里－查姆普尼厄斯机场: LFBU,ANG
+滨海肖勒姆机场: ESH,EGKA
+查尔基奇克机场: PACI,CIK
+巴恩斯塔贝尔机场: KHYA,HYA
+阿拉拉库拉机场: ACR,SKAC
+塔拉哈西地方机场: KTLH,TLH
+考尔港水上飞机基地: CAQ3,CXH
+纳比雷机场: NBX,WABI
+鲍比查恩地方机场: HBG,KHBG
+乌阿胡卡机场: UAH,NTMU
+平昂卡姆派机场: DUM,WIBD
+雷诺瓦机场: MRN,KMRN
+克雷格水上飞机基地: CGA
+马米约科直升机机场: JMY
+格兰德斯特兰德机场: CRE
+珀雷塔机场: LFKB,BIA
+二月四日机场: LAD,FNLU
+坎佩切国际机场: MMCP,CPE
+奇姆布机场: CMU,AYCH
+布卡机场: AYBK,BUA
+赫马凡机场: HMV,ESUT
+多佛空军基地: DOV,KDOV,Dover Air Force Base
+斯波坎国际机场: GEG,KGEG
+兰巴雷内机场: Lambaréné,FOGR,LBQ
+大乌斯秋格机场: VUS,ULWU
+查博伊尔机场: VAF,LFLU
+利斯莫尔机场: LSY,YLIS
+卢邦机场: LBX,RPLU
+康斯提丘恩城机场: CUA,MMDA
+马库维克机场: CYFT,YMN
+拉斯弗雷切拉斯机场: SVSR,SFD
+埃斯克尔机场: EQS,SAVE
+明纳斯贝机场: CYAV,YAV
+南安普敦机场: Southampton Airport,EGHI,SOU
+巴克尔机场: BXE,GOTB
+FlorenceAirport: FLO,KFLO
+森讷堡机场: S&oslash;nderborg Lufthavn,SGD,EKSB
+杜帕奇郡机场: DPA,KDPA
+比林斯机场: KBIL,BIL
+巴利纳－拜隆机场: BNK,YBNA
+瓜纳雷机场: GUQ,SVGU
+伦阿彭机场: LPU,WRLP,Nsimalen Airport
+勒图凯机场: LFAT,LTQ
+特拉基机场: TKF,KTRK
+苏黎世机场: LSZH,ZRH,德语:Flughafen Zürich 法语:Aéroport de Zurich 英语:Zurich Airport
+萨尔塔内加机场: SJX
+泰塔拉巴莱讷机场: CTB6,ZTB
+帕里桑德机场: YPD,CNK4
+欧里亚克机场: LFLW,AUR
+考夫曼考弗水上飞机基地: KCC
+项贡戈机场: FNXA,XGN
+绍拉布尔机场: SSE,VASL
+毛埃斯机场: SWMW,MBZ
+萨文加机场: PASA,SVA
+亚历山德机场: ISW,KISW
+登比多洛机场: HADD,DEM
+马萨勒穆波机场: SIAM,MSI
+季克西机场: IKS,UEST
+马汉姆皇家空军机场: KNF,EGYM
+博尔库姆机场: EDWR,BMK
+卡尔斯库加机场: ESKK,KSK
+阿加迪尔－阿尔马希拉机场: GMAA,AGA
+阿纳拉拉瓦机场: HVA,FMNL
+诺顿空军基地: KSBD,RAF Brize Norton,SBD
+诺德奈机场: NRD,EDWY
+莫安达机场: MNB,FZAG
+阿西尤特机场: ATZ,HEAT
+南帮机场: LPT,Nanchang Changbei International Airport,VTCL
+曼丁加机场: SKCD,COG
+沃圣郡地区机场: KHGR,HGR
+北埃卢萨拉国际机场: ELH,MYEH
+达内里机场: KMGM,MGM
+古邦机场: Ahmedabad - Sardar Vallabh Bhai Patel International Airport,WRKK,KOE
+米灵吉姆彼机场: MGT,YMGB
+卡里布地方机场: CAR,KCAR
+克朗克里机场: YCCY,CNJ
+哈比布－布尔圭巴国际机场: MIR,DTMB
+波特兰机场: YPOD,PTJ,Portland International Airport
+戈格比克郡机场: IWD
+皮克尔莱克机场: CYPL,YPL
+亚里斯多德机场: KSO,LGKA
+马里阿诺－埃斯科贝多机场: MMMY,MTY
+阿纳科特斯机场: OTS
+尼亚加拉瀑布国际机场: IAG,KIAG
+希姆拜机场: Siem Reap Airport,SIM,VDSR
+阿瓜斯卡连特斯机场: MMAS,AGU
+林登机场: LDJ,KLDJ
+岗日港机场: Taichung Ching Chuang Kang Airport,YGG
+丰班机场: FKKM,FOM
+格洛斯特郡机场: Aerfort Phort Láirge,GLO,EGBJ
+卡努安岛机场: TVSC,CIW
+内科切阿机场: NEC,SAZO
+伦贝克: RBX,HSMK
+复活节岛马塔维里机场: SCI,Mataveri International Airport,复活节岛机场,IPC
+伊格卢利克机场: YGT,CYGT
+库马克机场: KOC,NWWK,深圳市库马克新技术股份有限公司
+夏格鲁克机场: PAHX,SHX
+拜希克尔莱克军用机场: KBYS,BYS
+纳米布机场: MSZ,FNMO
+昆都士机场: UND,OAUZ
+雷克弗隆特机场: NEW,KNEW
+赛巴伊岛机场: YSII,SBR
+斯特拉恩机场: SRN,YSRN
+阿拉德机场: ARW,LRAR
+利泽德岛机场: YLZI,LZR
+马尼科雷机场: MNX,SBMY
+卢武克机场: WAMW,Luwuk Airport,LUW
+门迪机场: MDU,AYMN
+卡哈马卡机场: SPJR,CJA
+兹霍布机场: Islamabad International Airport,PZH,OPZB
+朋库卢机场: BKS,WIPL
+费萨拉巴德机场: OPFA,Jinnah International Airport,LYP
+洛斯特纳西翁机场: KLNN,LNN
+克雷尔机场: CSF,LFPC
+苏丹港机场: PZU,HSPN
+马米托波机场: MPI,KMPI
+乌努明莱克机场: CKL3,WNN
+雷斯贝西斯机场: GBJ,TFFM
+道森社区机场: KGDV,GDV
+塔布克机场: TUU,OETB
+加利恩机场: GQQ,KGQQ
+阿纳帕机场: AAQ,URKA
+帕默斯顿北机场: NZPM,PMR
+贾拉帕机场: ComalapaInternationalAirport,MMJA,JAL
+坎贝尔军用机场: KHOP,HOP
+希罗机场: GCHI,Heathrow Airport,VDE
+奥雷斯特斯－阿科斯塔机场: MUMO,MOA
+甘地纳加尔机场: ISK,VANR
+平托马丁斯机场: SBFZ,FOR
+伯德岛机场: FSSB,BDI
+方特堡: FBA,SWOB
+诺特机场: KEWN,Simmons Nott Airport,NTQ
+基普努克水上飞机基地: KPN,PAKI
+卡普斯卡辛机场: YYU,CYYU
+卡图姆贝拉机场: CBT,FNCT
+海德尔水上飞机基地: WHD
+乌佩纳维克机场: BGUK,JUV
+维耶斯泰机场: VIF
+塔利机场: TIZ,AYTA
+卡塔尼亚机场: Aeroporto di Catania-Fontanarossa,LICC,CTA
+贝德维尔港机场: YBW,CYBW
+胡纳机场: PAOH,HNH
+兰德尔郡机场: BAM,BAMB
+盖恩达机场: YGAY,GAH
+诺丁汉机场: NQT,EGBN
+格林布里尔瓦雷机场: LWB,KLWB
+坎顿岛机场: Kanton Atoll,PCIS,CIS
+比格芒顿机场: BMX,PABM
+梅加斯－亚历山德洛斯机场: KVA,LGKV
+埃斯勒机场: ESF,KESF,德语:Flughafen Berlin Brandenburg Willy Brandt 英语:Berlin Brandenburg Airport Willy Brandt
+土库曼阿巴德机场: CRZ
+威廉姆斯港水上飞机基地: KPR
+塞卡达机场: IQT,SPQT
+罗瑟克兰斯－梅莫里阿尔机场: KSTJ,STJ
+胡志明机场: SGN,Cảng hàng kh&ocirc;ng quốc tế T&acirc;n Sơn Nhất/Ho Chi Minh City Tan Son Nhat International Airport,VVTS
+维斯比机场: VBY,ESSV
+布拉德绍军用机场: BSF,PHSF
+安德罗斯镇机场: MYAF,ASD
+马穆朱机场: WAWJ,MJU
+楚尔曼机场: UELL,CNN
+翁丹瓜机场: Eros Airport,FYOA,OND
+萨卜泽瓦尔机场: AFZ,OIMS
+乌芝格罗德机场: UDJ,UKLU
+PICHOY机场: ZAL,SCVD
+滕格里机场: VNDH,DHI
+谢尔登波因特水上飞机基地: SXP
+阿雷约－加西亚机场: SGES,AGT
+巴哈尔达尔机场: BJR,HABD
+弗拉明戈国际机场: TNCB,BON
+弗朗西思科－迪阿西斯机场: SBJF,JDF
+怀阿拉机场: YWHA,WYA
+古纳尔恩机场: SQO,ESUD
+瓜达卢普－维多利亚机场: MMDO,DGO
+乌缪亚格机场: YUD,CYMU
+尼桑岛机场: IIS
+彼得马里茨堡机场: FAPM,PZB
+土布艾岛机场: NTAT,TUB
+阿拉努卡机场: NGUK,AAK
+萨尼基卢阿克机场: CYSK,YSK
+巴拉奥纳机场: BRX,MDBH
+根布埃赫机场: SLRI,RIB
+科罗拉多斯普林机场: KCOS,Colorado Springs Airport,COS
+杰拉尔敦机场: GET,YGEL,Geraldton Airport
+根廷机场: KGTB,GTB
+塔塔里纳空军机场: PATL,TLJ
+代托纳比奇机场: DAB,Daytona Beach International Airport,KDAB
+金沙萨机场: FZAA,FIH
+底特律市机场: Detroit Metropolitan Wayne County Airport (DTW),KDET,DET
+史密斯机场: KSMD,SMD
+马斯蒂克岛机场: TVSM,MQS
+卡里马瓜机场: KCCO,CCO
+博博奎恩莱克机场: CBW4,YBO
+丰特纳莱克机场: YOJ,CYOJ
+瓦利斯岛机场: NLWW,WLS
+苏里高机场: SUG,RPMS
+兰伯顿机场: LBT,KLBT
+朱夫机场: OESK,AJF
+萨福德机场: KSAD,SAD
+阿拉加凯特机场: AET,PFAL
+金伯利机场: FAKM,KIM
+蒂明斯机场: CYTS,YTS
+辛汤机场: WIOS,Xi'an Xianyang International Airport,SQG
+沃普纳菲厄泽机场: VPN,BIVO
+塞斯机场: Valencia Airport,GMFF,FEZ
+森特勒尔机场: PACE,CEM
+舆论岛机场: RORY,RNJ
+雕门机场: WMBT,TOD,Urumchi Diwopu International Airport
+麦克拉尔机场: MKL,KMKL
+蒙特戈梅里机场: MYF
+霍索恩机场: HHR,KHHR
+因佩拉特里斯机场: IMP,SBIZ
+莫里斯维尔－斯托机场: KMVL,MVL
+沙佩科机场: XAP,SBCH
+格兰维尔机场: GFR,LFRF
+灵吉科佛机场: AGRC,RIN
+加莱机场: LFAC,CQF
+关岛空军基地: UAM,PGUA,美国
+北宽扎机场: SPP,FNME
+皮兰斯堡机场: NTY,FAPN
+弗兰克敦机场: ZQN,NZQN
+矿泉城机场: URMM,MRV
+文多弗机场: ENV,KENV
+七岛港机场: YZV,CYZV
+欧塞尔－布朗奇斯机场: AUF,LFLA
+瓦斯卡加尼什机场: CYKQ,YKQ
+美秀机场+D5693: YGJ,RJOH
+三河城机场: CYRQ,YRQ
+科尔德贝机场: CDB,PACD
+盛冈机场: HNA,RJSI,花巻空港
+蒙达机场: AGGM,MUA
+凤凰城－迪尔瓦雷机场: DVT,KDVT
+图克姆卡里机场: KTCC,TCC
+努库斯机场: NukusAeroporti,NCU,UTNN
+卡拉马机场: CJC,SCCF
+棕榈滩郡机场: West Palm Beach International Airport,KLNA,LNA
+瓦伊克罗阿机场: WKL,HI07
+斯卡都机场: OPSD,KDU
+维罗比奇地方机场: VRB,KVRB
+姆班扎刚果机场: Mbanza Kongo, Vestiges of the Capital of the former Kingdom of Kongo,SSY,FNBC
+瓦珀纳曼达机场: AYWD,WBM
+罗克汉普顿机场: YBRK,ROK
+那坤巴统机场: KOP,VTUW
+库姆希尔格拉姆机场: VEKU,IXS
+帕提姆拉机场: Mumbai Chhatrapati Shivaji International Airport,WAPP,AMQ
+纽约市区曼哈顿直升机机场: JRB,KJRB
+武里南机场: BFV,VTUO
+波恩佩机场: PNI,PTPN
+梅特拉卡特拉水上飞机基地: PAMM,MTM
+大都会地区机场: Detroit Metropolitan Wayne County Airport (DTW),KDTW,QRH
+斯塔夫罗波尔机场: URMT,STW
+伊尼扬巴内机场: FQIN,INH
+吉佐机场: GZO,AGGN
+圣地亚哥－德尔埃斯特罗机场: SDE,SANE
+舍布鲁克机场: YSC,CYSC
+明纳机场: MXJ,DNMN
+兰格尔水上飞机基地: PAWG,WRG
+斯韦格机场: ESND,EVG
+阿鲁阿机场: HUAR,RUA
+米克诺斯岛机场: JMK
+罗斯切诺国际机场: USTR,TJM
+马里斯卡尔苏克雷机场: SEQU,UIO
+蓬古恩机场: CBN,WICD
+苏尔机场: SOOS,XAU
+劳埃德琼斯机场: RVS,KRVS
+鲍曼机场: LOU,KLOU
+安达韦拉斯机场: SPHY,ANS
+雷德萨克尔莱克机场: CYRS,YRS
+克加拉机场: VCCK,KCT
+雷德德维尔机场: RDV
+佐格恩胡普机场: ORG,SMZO
+图布曼机场: CPA,GLCP
+瓦勒德尔－默克苏尔国际机场: RLO
+克尔曼沙阿机场: KSH,OICC
+库亚巴机场: SBCY,CGB
+讷韦尔机场: LFQG,NVS
+托雷尧恩空军基地: LETO,TOJ
+梅塞尔郡机场: BLF
+黎巴嫩地区机场: KLEB,LEB
+古斯塔夫斯机场: PAGS,GST
+圣胡博特机场: YHU,CYHU
+埃默拉尔德机场: “三字代码”,EMD,European airport three characters code,YEML
+汉伯塞机场: EGNJ,HUY
+那空叻差是玛机场: VTUQ,NAK
+阿盖尔机场: GYL,YARG
+格伦因尼斯机场: YGLI,GLI
+萨拉姆机场: MVR,FKKL
+朱奈纳机场: EGN,HSGN
+布莱克沃特机场: YBTR,BLT
+托雷翁机场: TRC,MMTC
+摩尔曼斯科机场: MMK,ULMM
+波茨维尔机场: CCD4,YSO
+凯里凯里机场: Kaili Huangping Airport,NZKK,KKE
+吉尔吉特机场: GIL,OPGT
+莱克哈瓦苏城地方机场: HII,KHII
+埃马埃岛机场: EAE,NVSE
+菲亚纳兰楚阿机场: WFI,FMSF
+吉帕拉纳机场: JPR,SWJI
+贝伦斯河机场: CYBV,YBV
+科罗纳机场: CYLW,YLW
+因迪格贝罗奇机场: IBL
+胡尔加达机场: HRG,HEGN
+多尔顿地方机场: DNN,KDNN
+恩加岛机场: NGI,NFNG
+大瀑布国际机场: GTF,KGTF
+宾厄姆顿机场: BGM,KBGM,Elmira Corning Regional Airport
+特巴加普拉机场: WABP,TIM
+布列斯特机场: BQT,UMBB
+阿华斯机场: AHS,MHAH
+博卡斯－德尔托罗机场: MPBO,BOC
+瓜乌纳鲁乌机场: AKS,AGGA
+玻利维亚乌尤尼机场: UYU,SLUY
+克莱德河机场: CYCY,YCY
+扎拉夫尚机场: UTSN,AFS
+德拉加齐汗机场: OPDG,DEA
+高雄机场: KHH,RCKH,Kaohsiung International Airport
+马塞特机场: ZMT,CZMT
+麦卡里斯特机场: MLC,KMLC
+韦索机场: OUE,FCOU
+格林威尔机场: KGSP,GSP
+巴内萨机场: BBU,LRBS
+皮尼亚斯港机场: BFQ,Congonhas International Airport
+埃尔卡迪拉尔机场: SASJ,JUJ
+莫里斯敦地方机场: MMU,KMMU
+南埃流瑟拉机场: RSD,MYER
+奥古斯塔港机场: YPAG,PUG
+巴拿马城Tocumen机场: MPTO,PTY,Panama City - Tocumen Airport
+里伯德机场: KLBF,LBF
+纳尔逊拉贡机场: PAOU,NLG
+埃克机场: EEK,PAEE
+奥本机场: LEW,KLEW
+北贝特尔福德机场: CYQW,YQW
+韩国襄阳机场: YNY,RKNY,韩语:양양국제공항，英语:Yangyang International Airport
+基利岛机场: KIO,Q51
+加途机场: VRMK,KDO
+里查兹机场: MSS,KMSS
+阿尔比纳机场: ABN,SMBN
+蓬内绍机场: PEA,YPSH
+马雷伯勒机场: Piedmont Triad International Airport,MBH,YMYB
+素叻他尼机场: VTSB,URT
+利姆诺斯机场: LXS,LGLM
+圣若泽－杜斯坎普斯机场: SJK,SBSJ
+海法机场: LLHA,HFA
+奇特雷机场: MPCE,CTD
+桑给巴尔机场: 基萨乌尼机场,ZNZ,Zanzibar Airport,HTZA
+奎斯卢克机场: PFKW,KWT
+格施姆机场: GSM,Gbessia国际机场,Conakry International Airport
+凯马纳机场: WASK,KNG
+马里博尔机场: MBX,LJMB
+开普罗曼佐夫机场: CZF,PACZ
+巴示戈机场: RPUO,BSO
+戴布拉－塔珀机场: DBT,HADT
+哈坦加机场: HTG,UOHH
+乌迈塔: SWHT,HUW
+恩舍尔兹维克机场: ESNO,OER
+梅森城: MCW,KMCW,Mason City Municipal Airport
+马尔松哈马卡多机场: SLZ,SBSL
+卡伊机场: Kigali International Airport,GAKY,KYS
+雅索吉机场: OISY,YES
+苏库尔机场: SKZ,Islamabad Benazir Bhutto International Airport,OPSK
+诺托登机场: NTB,ENNO
+库居阿尔阿皮克机场: CYGW,YGW
+卡尔斯卡格地方机场: KLG,PALG
+巴兰科米纳斯机场: USHB,NBB
+丰迪拉克机场: KFLD,FLD
+布劳恩史维希机场: EDVE,BWE
+戈德曼军用机场: FTK,KFTK
+瓦尔顿堡比齐机场: VPS,KVPS
+圣克里斯托瓦尔机场: SEST,SCY
+布罗蒙特机场: CZBM,Southeast Texas Regional Airport,ZBM
+亚库塔特机场: YAK,PAYA
+塞多纳机场: SDX,KSEZ
+加拉柴恩机场: GHE
+布什尔机场: OIBB,BUZ
+陶朗加机场: NZTG,TRG
+凡德尔瓦斯机场: FYKT,KMP
+阿提尤岛机场: NCAT,AIU
+彻斯－拉姆伯丁机场: FKL,KFKL
+迈尔穆勒机场: OMM,OONR
+亚历山德拉机场: NZLX,ALR,Sheremetyevo Alexander Pushkin International Airport
+库奥皮欧机场: KUO,EFKU
+卡亚那机场: AAJ
+雅姆岛机场: XMY,YYMI
+奥赫里德机场: OHD,LWOH
+利伯维尔机场: FOOL,Leon M'Ba International Airport,LBV
+乌尔根奇机场: UGC,UTNU
+马耳他机场: Luqa Airport,LMML,MLA
+布莱纳德机场: KHFD,HFD
+科沙林机场: EPKO,OSZ
+诺阿塔克机场: PAWN,WTK
+雷丁地方机场/斯帕兹机场: RDG,KRDG
+蒙特利尔机场: YMQ
+埃姆登机场: EDWE,EME
+古达机场: WBKT,KUD
+上岛机场: TFFS,LSS
+萨武萨武机场: SVU,NFNS
+湄索机场: VTPM,MAQ
+巴尔喀什机场: BXH
+安卡凡德拉机场: FMMK,JVA
+布莱斯机场: KBLH,BLH
+景唐机场: VYKG,KET
+瓦赫宁恩机场: SMWA,AGI
+拉门贝机场: NVSM,LNB,Sacramento International Airport
+诺尔峡机场: NOR,BINF
+苏伊机场: SUL,OPSU
+恰尔苏特机场: JQA,BGUQ
+约翰逊－伊克塞尤提夫机场: KOJC,OJC
+安察卢瓦机场: WAQ,FMMG
+皮斯科机场: SPSO,PIO
+马赫迪耶机场: MHA,SYMD
+查卡鲁塔机场: ARI,SCAR
+阿塔瓦皮斯基特机场: YAT,CYAT
+温克机场: KINK,INK
+锡布林机场: KSEF,SEF
+帕尔迈拉机场: PMS,OSPR
+坎贝尔郡机场: GCC,KGCC,Gillette-Campbell County Airport
+基尔库克机场: ORKK,KIK
+查佩尔克机场: SAZY,CPC
+基奥卡克机场: KEOK,Keokuk County, Iowa,EOK
+舒恩纳克机场: SHG,PAGH
+戈尔菲托机场: GLF,MRGF
+基德林登机场: OXF,EGTK
+首尔Ab机场: RKSM,SSN,AB
+墨西卡利机场: MMML,MXL
+克罗斯城机场: CTY,KCTY
+阿斯旺机场: HESN,ASW
+巴卡拉兰机场: BKM,WBGQ
+卡勒克机场: KYK,PAKY
+因萨拉赫机场: INZ,DAUI
+京都机场: UKY
+莱维克/廷瓦尔机场: EGET,LWK
+阿伯茨福德机场: CYXX,YXX
+安博塞利机场: HKAM,ASV
+拉德芳斯直升机机场: JPU
+本杰古尔机场: PJG,OPPG
+土格加劳机场: RPUT,TUG
+托吉亚克威里奇机场: TOG,PATG
+卡米纳机场: KMN,FZSA
+艾伦机场: BIG,McAllen-Miller International Airport,PABI
+罗伯茨恩机场: ROD
+圣乔瓦尼机场: KGBD,GBN
+阿尔梅里亚机场: LEAM,LEI
+赫拉特机场: OAHR,HEA
+拜里夫机场: Bonriki International Airport,BBR,TFFB
+迪灵汉姆机场: PHDH,HDH
+马努穆机场: UUU
+壹歧机场: RJDB,IKI
+古卢机场: HUGU,ULU
+麦格哈利机场: MEY,VNMG
+达赫拉机场: VIL,GMMH
+利奥诺拉机场: YLEO,LNO
+滕维达尔机场: SCCY,GXQ
+曼斯菲尔德机场: ZMA
+诺思机场: African airport three characters code,“三字代码”,VGT
+玻利瓦尔城机场: SVCB,CBL
+于斯特机场: JUI,德语:Flughafen Zürich法语:Aéroport de Zurich英语:Zurich Airport,EDWJ
+塔格丹机场: TBH,RPVU
+珀斯机场: Perth International Airport,YPPH,PER
+罗里阿机场: VEJT,JRH
+阿基亚克机场: AKI,PFAK
+黑泽尔顿机场: KHZL,HZL
+普拉亚－德尔卡门机场: PCM
+帕苏丰杜机场: PFB,SBPF
+麦克纳马拉机场: Detroit Metropolitan Wayne County Airport,CEC,KCEC
+阿尔滕堡诺比茨机场: EDAC,AOC
+普雷斯顿－格伦机场: LYH,KLYH
+金德斯利机场: CYKY,YKY
+干尼亚国际机场: CHQ,LGSA,Chania International Airport, "Ioannis Daskalogiannis"
+埃尔比勒机场: EBL,ORER
+利机场: ANP,KANP,Norman Manley International Airport
+德布勒森机场: LHDC,DEB
+邦尼维尔机场: CYBF,YBY
+藻德济机场: FMCZ,DZA
+巴统机场: BUS
+库纳巴拉布兰机场: YCBB,COJ
+贝萨兰皮机场: FMNQ,BPY
+阿克希奥克水上飞机基地: PAKH,AKK
+皇家空军基地: EGXW,WTN,Royal Air Force
+阿克罗蒂里皇家空军机场: AKT,LCRA
+里奥贝尔德机场: SWLC,RVD
+拉瓦格机场: LAO,RPLI,Laoag International Airport
+贡达尔机场: HAGN,GDQ
+西关机场: Fuyang Xiguan Airport,FUG,ZSFY
+萨南达吉机场: فرودگاه بین‌المللی مهرآباد‎,SDG,OICS
+姆巴查机场: MPA,FYKM
+古尔内机场: AYGN,GUR
+阿洛岛机场: ARD,WATM
+克萨尔特南: MGQZ,AAZ
+斯托尼拉匹兹机场: CYSF,YSF
+瓦利斯机场: WAJR,WAR
+迪凯特机场: KDEC,DEC
+安妮特岛机场: ANN,PANT
+斯科特AFB/中美国: BLV,KBLV
+切瓦克机场: PAVA,VAK
+比尔都达勒尔机场: BIBD,BIU
+莱阿提阿机场: RFP,NTTR
+甘比尔岛机场: GMR,NTGJ
+福尔斯帕斯机场: Idaho Falls Regional Airport,PAKF,KFP
+卡宾达机场: FNCA,CAB,Quatro de Fevereiro International Airport
+萨佛尔克郡机场: FOK,KFOK
+韦尔帕斯机场: WWP,Perth International Airport
+里奥西德拉机场: RSI
+佩尼亚斯科港机场: PPE,MMPE
+克鲁克德克里克机场: CKD
+处女岛机场: ISJ,MMIM
+埃尔芬科夫水上飞机基地: ShinMaywa US-2,ELV,PAEL
+特罗姆瑟/朗内斯机场: TOS,ENTC
+瓜莱瓜伊丘机场: GHU,SAAG
+诺斯贝机场: CYYB,YYB
+贝贝拉蒂机场: FEFT,BBT
+圣维森特机场: SVI,El Dorado International Airport,SKSV
+卡斯卡韦尔机场: SBCA,CAC
+拉罗彻机场: La Romana International Airport,LFSL,BVE
+吉斯伯恩机场: NZGS,GIS
+库拉穆图机场: KOU,FOGK,Koulamoutou
+米纳蒂特兰机场: MMMT,MTT
+伊拉克利翁机场: LGIR,Heraklion Airport/ Kazantzakis International Airport,HER
+莫约机场: OYG
+宁根机场: NYN
+托比阿斯－波拉诺斯国际机场: SYQ,MRPV
+卡特赖特机场: CYCA,YRF
+索罗蒂机场: SRT,HUSO
+罗斯科蒙郡机场: KHTL,HTL
+奥考奎约机场: OKF,FYOO
+里贝里机场: LIBP,PSR
+达卡乔埃拉机场: SJL
+夸德市机场: MLI,KMLI
+卡莱尔机场: CAX,EGNC
+卡尔希机场: KSQ,UTSL
+加希姆机场: ELQ,King Abdulaziz International Airport,OEGS
+民用航空: civil aviation
+空中交通管制: Air Traffic Control
+等待航线: holding pattern
+活动圈层: Circle marketing
+飞行检查: Flight inspection
+巡航飞行: cruising flight
+埃恩贝达机场: DAUU,OGX
+马塔利机场: IRP,Maya Maya Airport,FZJH
+拿骚机场: NAS,MYNN
+威科米科地区机场: KSBY,SBY
+索绍弗恩机场: THO,BITN
+乌斯季库特机场: UITT,UKX
+蒙若利机场: CYYY,Mont Joli Airport,YYY
+红石军用机场: KHUA,HUA
+蒂鲁伯蒂机场: TIR,VOTP
+西休斯敦机场: IWS,KIWS
+塔梅机场: SKTM,TME
+切尔尼机场: NBC,UWKE
+耶城机场: XYE,VYYE
+韦斯特利州机场: KWST,WST
+马林杜克岛机场: MRQ,RPUW
+谢拉格兰德机场: SGV,SAVS
+巴金登机场: EGBE,CVT
+奥尔德港水上飞机基地: OLH
+奎雷塔罗机场: QRO,MMQT
+博尼图机场: BYO,SJDB
+通图图里阿克机场: WTL
+台中机场: Taichung Ching Chuang Kang Airport,RCLG,台中国际机场,TXG
+米德尔卡伊克斯机场: MBMC,MDS
+索伦扎拉: SOZ,LFKS
+米蒂加－特里波里机场: MJI,HLLM
+肖尔内菲尔德机场: EDDB,SXF
+斯克林角机场: GOGS,CSK
+斯特拉斯堡巴士车站机场: Aéroport de Strasbourg-Entzheim,XER
+拉沃拉果德机场: RAZ,OPRT
+马德拉机场: Madeira Funchal Cristiano Ronaldo International Airport,MAE,KMAE
+马斯卡特机场: OOMS,MCT
+博尔德城机场: BLD,KBVU
+根安佐阿特圭机场: BLA,SVBC
+加贝斯机场: DTTG,GAE
+斯拉夫莱克机场: YZH,CYZH
+马斯温戈机场: FVMV,MVZ
+纳赫沙克直升机机场: BGNS,JNS
+俄罗斯水上飞机基地: PARS,RSH
+萨尔托机场: SUSO,STY
+多尼戈尔机场: EIDL,CFN
+提尼安机场: PGWT,TIQ
+埃尔伊甸园机场: SKAR,AXM
+尼奥: NIU,NTKN
+米西翁机场: Miho Airport,LVM,KLVM,米子鬼太郎空港
+布里斯托尔机场: BRS,EGGD
+埃尔法舍尔机场: HSFS,ELF
+伊格尔机场: PAEG,EAA
+杰拉尔顿机场: YGQ,CYGQ,Geraldton Airport
+切福纳克水上飞机基地: CYF,PACK
+厄内斯托－盖瑟尔机场: SSUM,UMU
+内恩机场: YDP,CYDP
+佩拉梅杜机场: VOCB,CJB
+伦斯特机场: LER,YLST
+卡穆西机场: Mmusi Kgafela,KUY
+博康迪尼机场: BUI,WAJB
+波多罗兹机场: POW,LJPZ
+梅尼埃港机场: YPN,CYPN
+凯夫拉维克国际机场: KEF,BIKF,KEFLAVíK INTERNATIONAL AIRPORT/Keflavíkurflugvöllur
+黎机场: VTUL,LOE
+皮特－格林维尔机场: KPGV,PGV
+诺思岛海空军机场: NZY,KNZY
+温德姆地方机场: KMWM,MWM
+德尔玛岛机场: ZDY
+圣安娜机场: AGGT,NNB,Santa Ana - John Wayne Airport
+帕亚拉机场: PJA,ESUP
+莱加斯皮机场: LGP,RPLP
+彭巴机场: FQPB,POL
+霍利斯水上飞机基地机场: HYL
+二十里堡机场: Yan'an Ershilipu Airport）,ZLYA,ENY
+沙鲁拉机场: SHW,OESH,King Abdulaziz International Airport
+哈佛城郡机场: KHVR,HVR
+塔帕丘拉国际机场: TAP,MMTP
+梅迪辛哈特机场: CYXH,YXH
+马奥塔萨维尔岛机场: NSMA,MXS
+芒市机场: Dehong Mangshi Airport,ZPMS,LUM
+比拉斯布尔机场: VABI,PAB
+亨利提夫特梅厄斯机场: TMA,KTMA
+佩德罗贝机场: PDB
+阿尔泰机场: LTI,ZMAT
+拉弗顿机场: LVO,YLTN
+安纳巴机场: AAE,DABB
+马里帕索拉机场: SOOA,MPY
+库马纳机场: CUM,SVCU
+利弗莫尔机场: KLVK,LVK
+汉斯威尔机场: KHSV,HSV
+锡比提机场: SIB
+伊斯特伍德机场: CLL,KCLL
+奥基岛机场: OKI,Osaka International  Airport,RJNO
+博季诺德机场: OIMN,BJB
+都柏林地方机场: Dublin International Airport,KDBN,DBN
+阿拉善右旗机场: RHT,ZBAR
+阿罗帕机场: KIE
+莱康明郡机场: IPT,KIPT
+哈尼马德胡机场: HAQ,VRMH
+彭萨科拉海空军机场: KNPA,PensacolaRegionalAirport,NPA
+巴提恩机场: AZI,OMAD
+伦敦圣帕克拉斯: QQS
+威热机场: Sheppard AFB,UGO,FNUG
+萨罗尼巴里机场: TEZ,VETZ
+柴腾机场: SCTN,WCH
+好望堡机场: YGH,CYGH
+PLUGUFFAN机场: UIP,LFRQ
+乌姆塔塔机场: Bush Bucks Umtata,FAUT,UTT
+戴布拉－马科斯机场: HADM,DBM
+戈亚尼亚机场: GYN,SBGO
+内多罗机场: NLO,FZAB
+奥林匹亚机场: KOLM,OLM
+圣皮埃尔港机场: YGV,CYGV
+奥戈基机场: YOG,CNT3
+阿特卡机场: AKB,PAAK
+萨格兰德地方机场: CGZ,KCGZ
+伊卡卢伊特机场: YFB,CYFB
+沃斯堡联盟机场: KAFW,AFW
+巴瑟斯特岛机场: YBTI,BRT
+马库尔迪机场: DNMK,MDI
+亚丁国际机场: OYAA,ADE,Daocheng Yading Airport
+伊巴丹机场: IBA,DNIB
+肯特郡机场: GRR,Grand Rapids Gerald R Ford International Airport,KGRR
+罗德里格斯岛机场: RRG,FIMR
+桑古尔机场: THG,YTNG
+穆德霍勒－史密斯机场: CDV,PACV
+新罗西斯克机场: NOI
+瓦拉德机场: VRA,MUVR
+里奥加耶戈斯国际机场: SAWG,RGL
+维特德机场: KSPG,SPG,Landville Airport,瑞典民航管理局
+卡萨尔多机场: CFC,SBCD
+利尔蒙斯机场: YPLM,LEA
+斯卡茨塔机场: SCS
+若茵维莱机场: SBJV,JOI
+因雅提机场: INY
+博托帕西机场: BTO
+埃达克岛海军基地机场: PADK,ADK
+埃尔波维尼尔机场: PVE
+博斯特机场: BST,OABT
+甘贾机场: UBBG,KVD
+伦德尔洛兹机场: LDZ
+塔巴国际机场: TCP,Taba  International Airport,HETB
+拉菲特地区机场: KLFT,LFT
+马塔坎机场: LESA,Mataveri International Airport,复活节岛机场,SLM
+坦波夫机场: UUOT,TBW
+金菲舍湖机场: CNM5,KIF
+索科特拉岛机场: OYSQ,SCT
+阿维亚诺机场: LIPA,AVB
+兰斯当豪斯机场: CYLH,YLH
+雷德克利夫机场: RCL,NVSR
+纳尔奇克机场: URMN,NAL,Sheremetyevo Alexander Pushkin International Airport
+约克岛机场: OKR,YYKI
+库比环岛: VRMO,GKK
+国际瀑布城机场: KINL,INL
+大峡谷直升机机场: JGC
+基瓦利纳机场: PAVL,KVL
+马查拉机场: SEMH,MCH
+帕米尤特机场: BGFH,JFR
+阿德莫尔地方机场: ADM,KADM
+埃梅特郡机场: ECA,K6D9
+莱克曼亚拉机场: LKY,HTLM
+朱利安娜公主机场: SXM,TNCM,Princess Juliana International Airport
+希奥里艾机场: SQQ,EYSA
+德尔卡里博－根马里诺机场: PMV,SVMG
+普雷罗夫机场: PRV,LKPO
+巴格多格拉机场: VEBD,IXB
+圣塔埃勒娜机场: MGTK,FRS
+开普利斯本机场: PALU,LUR
+雷奈森机场: RNE,LFLO,Reykjavíkurflugvöllur
+卡罗利纳机场: CLN,SBCI
+苏塞克斯郡机场: KGED,GED
+圣泽若普雷特机场: SBSR,SJP
+提普提尼机场: SETI,TPN
+南纳克内克机场: WSN,PFWS,Naknek Airport
+新山机场: Cảng hàng kh&ocirc;ng quốc tế T&acirc;n Sơn Nhất/Ho Chi Minh City Tan Son Nhat International Airport,WMKJ,JHB
+塔伊夫机场: OETF,TIF
+扎里亚机场: ZAR,DNZA
+吉伯尔施塔特机场: ETEU,GHF
+金斯雷机场: KLMT,LMT
+姆布吉马伊机场: MJM,FZWA
+纳曼干机场: UTKN,NMA
+瓦尔迪兹地方机场: VDZ,PAVD
+纳克索斯机场: JNX,LGNX,克拉根福机场
+阿尔达比勒机场: OITL,ADU
+喜界岛机场: KKX,RJKI
+阿姆帕莱机场: GOY,VCCG
+费里克斯霍佛特博伊机场: ABJ,DIAP
+瓦维机场: HTPE,PMA
+瓦纳卡机场: WKA,NZWF
+巴图纳机场: AGBT,BPF
+艾藻尔机场: AJL,VEAZ
+阿加德兹机场: AJY,DRZA
+提吉克贾机场: TIY,GQND
+毛克岛机场: NCMK,MUK
+泰里岛机场: EGPU,泰语:สนามบินสุวรรณภูมิ英语:Suvarnabhumi Airport,TRE
+塔尔哈尔机场: BDN,Harbin Taiping International Airport,OPTH
+坎基克苏阿约克机场: CYKG,YWB
+科恩岛机场: RNI,MNCI
+加陶皇家空军机场: Shek Kong Airfield,VHSK,GWW
+图奥机场: TOU,NWWU
+多内茨克机场: DOK,UKCC
+卡塔戈机场: CRC,SKGO
+马沙德机场: MHD,OIMM
+拉纳卡机场: LCA,Larnaca International Airport,拉纳卡国际机场,LCLK
+奥帕卢克机场: CYLA,YPJ
+圣萨尔瓦多机场: ZSA,MYSM
+新卡尔达斯机场: SBCN,CLV
+迪灵汉姆地方机场: PADL,DLG
+代瓦迪米机场: DWD,OEDW
+拉姆萨尔机场: فرودگاه بین‌المللی مهرآباد‎,OINR,RZR
+塔拉帕卡机场: TCD
+卡本机场: KBT
+圣特雷希塔机场: SST,SAZL
+MOPAH机场: WAKK,MKQ
+哈萨努丁机场: WAAA,UPG
+苏阿法瑙机场: AGGV,VAO
+维拉多迈奥机场: MMO,GVMA
+图拉尼机场: LKTB,BRQ
+迈迪兰岛机场: YGR,CYGR
+柴苏马机场: OEPA,AQI
+龙多诺波利斯机场: ROO,SWRD
+奥尔伯里机场: “三字代码”,ABX,YMAY,European airport three characters code
+霍恩佩恩机场: CYHN,YHN
+巴甫洛达尔机场: PWQ,UASP
+中国湾机场: Dalian Jinzhouwan International Airport,VCCT,TRR
+卡萨布尼卡机场: CYAQ,XKS
+诺梅拉特机场: GHA,DAUG
+巴科洛德机场: RPVB,BCD,Bacolod–Silay International Airport
+圣费尔南多机场: RPUS,SFE
+爱尔福特机场: ERF,EDDE
+伦马克机场: RMK,YREN
+佩里托莫雷诺机场: SAWP,PMQ
+巴戈特维尔机场: YBG,CYBG
+德尔塔郡机场: KESC,ESC
+威廉敏娜机场: ESNV,VHM
+洛克哈特河机场: YLHR,IRG
+贝郡机场: PFN,KPFN
+纳沃伊机场: UTSA,NVI
+加弗纳港机场: GHB,MYEM
+小石城空军基地: LRF,KLRF
+加拉提纳机场: LCC,LIBN
+德雷克湾: MRDK,DRK
+希莫尤机场: VPY,Nsimalen Airport,FQCH
+钦奇拉机场: YCCA,CCL
+盖伦阿拉姆: KRNM,RNM
+昆斯敦机场: UTW,FAQT
+安集延机场: Andijon Xalqaro Aeroporti,AZN,UTKA
+庞兹机场: TYR,KTYR
+圣巴泰勒米岛机场: SBH,TFFJ
+费尔干纳机场: UTKF,FEG
+切斯特机场: EGNR,CEG
+奇格尼克莱克机场: KCQ
+穆巴机场: MOO,YOOM
+帕特雷克斯尧德机场: BIPA,PFJ
+叶卡提机场: CYOA,Shache Yarkand Airport,YOA
+图菲机场: TFI
+马拉桑德机场: RUS,AGGU
+米西马岛机场: MIS,AYMS
+佛尔克机场: KVOK,VOK
+约拉机场: YOL,DNYO
+利欣加机场: FQLC,VXC
+马塔伊瓦机场: MVT,NTGV
+明丘米纳中转机场: PAMH,MHM
+加里萨机场: HKGA,GAS
+伏努科沃机场: VKO,Vnukovo Andrei Tupolev International Airport,UUWW
+弗拉姆内斯机场: NVK,ENNK
+基西米机场: ISM,KISM
+基切: MGQC,AQB
+布斯机场: LFOP,URO
+拉塔巴蒂埃耶机场: CTU5,ZLT
+勒塞克斯特雷机场: LBI,LFCI
+戈佐岛机场: LMMG,GZM
+兰德尔米斯顿机场: FAGM,QRA
+多彩贵州航空有限公司: CGZ,GY,Colorful Guizhou Airlines
+西藏航空有限公司: TBA,西藏,西藏航空,Tibet Airlines,TV,TIBET AIR
+阿拉伯联合酋长国航空公司（阿联酋航空公司）: Emirates,阿航,阿联酋航空,UAE,EK,Emirates Airlines,壕航
+河北航空有限公司: 河北,836,河北/Heibei air,NS,HEBEI AIRLINES,HBH,河北航空
+刘洋: Yang  Liu
+可用吨公里成本: cost of availbale tonne-kilometers
+克鲁格尔－普马兰加国际机场: MQP,FAKN
+三宝颜机场: RPMZ,ZAM
+马拉纳机场: KMZJ,MZJ,Pinal Airpark
+承运人: carrier
+可提供客公里: ASKs
+巴西航空工业公司: Embraer S.A.
+湾流宇航公司: Gulfstream Aerospace Corporation,美国湾流公司
+豪客比奇飞机公司: Hawker Beechcraft Corporation
+赛斯纳飞机公司: Cessna
+失速: Stall
+能见度: visibility
+风切变: wind shear
+空中交通服务: The escape sequence
+机场管制服务: Approach control service
+航空港: airport
+适航性: Airworthiness
+上海吉祥航空有限公司: HO,吉祥航空,均瑶/AIR JUNEYAO,Juneyao Airlines Co., Ltd,DKH,吉祥
+青岛航空股份有限公司: CDA,QINGDAO AIRLINES CO., LTD.,中文胶澳，英文SKY LEGEND,912,青岛航空,青岛,QW
+长安航空有限责任公司: 9H,CGN,长安航空,长安,Air Changan
+江西航空投资有限公司: RY,CJX,江西航空
+昆明航空有限公司: 833,KNA,昆航、KUNMING AIR,KY,Kunming Airlines Co,.LTD,昆明航空,昆航
+南方太平洋航空: JIA,OH
+大新华航空有限公司: GRAND CHINA,CN,GDC,Grand China Air Co.,Ltd.,大新华,大新华航空
+华信航空股份有限公司: MDA,Mandarin,Mandarin Airlines,华信航空,中华航空公司,华信,AE
+香港快运航空: HKE,香港快运,HONG KONG SHUTTLE,UO,Hong Kong Express Airways Ltd
+冯如: Feng Ru
+JSC"BekAir: JSC"BekAir",Z9,BekAir,BEK
+授权代理人: authorized agent
+客运销售代理人: passenger sales agent
+客机: passenger aircraft
+窄体机: narrow-body aircraft
+军民合用机场: civil-military airport
+国际机场: international airport
+备降机场: alternate airport
+航线: air route
+俄罗斯优梯航空公司: UTair Aviation,UT
+柬埔寨巴戎航空有限公司: CAMBODIA BAYONAIRLINES LIMITED,柬埔寨巴戎航空,BD,BMA
+空中世界航空: VV,空中世界,AEW,空中世界-乌克兰航空公司,Аеросвіт авіаланії
+智能翼航空公司: QS,TVS
+美佳航空公司: Mega Global Air Service(Maldives) Private Ltd.,LV
+釜山航空: BX,AIR BUSAN,釜山,Air Busan,ABL
+海参崴航空: Владивосток Авиа,海参崴,VLK,XF
+济州航空: Jeju Air,7C,JJA,济州
+澳洲航空: QF,澳航,QFA,Qantas Airways,澳洲,澳大利亚快达航空公司
+TAP葡萄牙航空: TP,TAP
+达美航空: DL,三角洲航空,DAL,Delta Air Lines, Inc.,Delta,达美
+美国大陆航空公司: 大陆,CO,Continental Airlines,大陆航空,COA
+维珍航空: VIR,VS,Virgin Atlantic Airways,维珍,Virgin
+也门航空: Yemen Airways / الخطوط الجوية اليمنية,IYE,YEMENi,IY
+喀里多尼亚航空: TPC,TY
+中国联合航空有限公司: 中联航,China United Airlines Co.,Ltd.,联合航空,CUA,联航LIANHANG,KN,中国联航
+伊朗航空: IR,IRA,Iran Air,伊朗
+阿里亚纳阿富汗航空公司: FG,Ariana Afghan Airlines,阿里亚纳阿富汗航空,阿富汗,AFG
+仰光航空: AYG,YH,Yangon Airways
+亚特兰大冰岛航空: 冰岛亚特兰大航空,亚特兰大,ABD,CC
+罗马尼亚航空公司: RO
+菲鹰航空: 菲律宾,GAP,2P,Air Philippines
+塞浦路斯航空公司: Cyprus Airways Ltd,CY
+易捷航空: 英国易捷航空公司,EasyJet Airline Company Limited,U2,EZY
+约旦皇家航空: 约旦皇家,RJA,RJ
+沙特阿拉伯航空: SV,沙特航空,SAUDIA,SVA,Saudi Arabian Airlines
+匈牙利航空公司: 匈牙利,MAH,匈牙利航空,MA
+澳门航空: AMU,澳门/Air Macau,NX,Air Macau Co, LTD,澳门,中国国际航空股份有限公司
+菲律宾航空: PAL,PR,菲航
+坦桑尼亚精密航空公司: PW,PRF,精密航空,精密
+芬兰航空公司: 芬航,Finnair,FIN,芬兰航空,Finn Air,AY
+塞舌尔航空: HVY,HM,Air Seychelles
+印度航空公司: 印度航空,Air India,AIC,AI,印度
+天马航空: BC,SKY
+哥斯达黎加航空公司: LACSA-Lineas A'ereas Costarricenses,LR
+TNT航空: TNT Airways,3V,TAY
+乌克兰航空公司: 6U,乌克兰航空,乌克兰,UKR
+泰国都市航空: 泰国都市,CityAirways,Thailand,都市航空,E8,GTA
+立荣航空公司: 立荣,立荣航空,UIA,UNI Air,B7,Glory
+中国国际航空股份有限公司: Air China,中国国航,国航,Air China Limited,CCA,CA
+瑞士航空公司: Swissair,LX,SWR,Swiss International Air Lines
+俄罗斯普尔科沃航空公司: 普尔科沃航空,普尔科沃,SDM,FV,Pulkovo Airlines
+新加坡航空: SINGAPORE AIRLINES,SIA,SQ,新航
+台湾虎航: TTW,Tigerair Taiwan,法国国内,IT
+越捷航空: VJ,Công ty Cổ phần Hàng không VietJet,VJC
+意大利航空: 意大利,AZ,Alitalia - Linee Aeree Italiane,AZA
+诺瓦航空公司: Air Nova,QK
+印度快线航空公司: IX,印尼城市快线航空
+冰岛航空公司: NY,Icelandair,FXI
+阿斯塔纳航空公司: KZR,KC,Air Astana,阿斯塔纳航空,哈萨克斯坦
+海湾航空: 海湾,Gulf Air,GFA,GF
+冰岛航空: Icelandair,FI,ICE,冰岛
+维姆航空公司: NN,MOV
+安哥拉航空公司: DTA,DT,安哥拉航空,安哥拉
+美鹰航空: MQ,ENY
+坦桑尼亚航空公司: 坦桑尼亚航空,TC,ATC
+飞鸟航空（泰国皇雀航空）: DD,飞鸟,NOK,飞鸟航空
+新几内亚航空公司: Air Niugini,ANG,PX
+哈萨克斯坦国际航空: 哈萨克斯坦,KZK,K4
+德国之翼航空公司: 4U
+捷克航空: OK,CSA
+日本航空公司: JAL,JL,日本航空,日航
+韩国大韩航空公司（大韩航空株式会社）: 大韩,KE,KAL,大韩航空
+顺丰航空: CSS,O3,顺丰/SHUNFENG AIR,顺丰,SF Airlines Co. Ltd.
+西班牙国家航空公司: IBERIA,IB,Iberia Airlines of Spain,IBE
+奥地利航空: AUA,奥航,OS
+泰国亚洲航空: Thai AirAsia,泰亚航,泰国亚洲航空公司,AIQ,FD
+奥斯特拉尔航空: AU,AUT,Air Austral
+埃及航空: MS,MSR,Egypt Air,埃及
+捷星航空: JETSTAR,Jetstar Airways Pty Limited,澳洲航空,JST,JQ
+格鲁吉亚航空公司: ZX
+加纳航空: Ghana Airways,GH,GLP
+津巴布韦航空: AZW,津巴布韦,UM,Air Zimbabwi,津巴布韦国家航空公司
+A-7攻击机: CRL,SS,Corsair
+香料航空公司: SEJ,SG,印度香料航空,SpiceJet
+挪威航空: Air Swdnb,Norwegian Air Shuttle,SWN,DY,挪威
+智利航空: LA,LAN Airlines,LAN,智利
+俄罗斯雅库特航空公司: R3,SYL,雅库特航空,yakutaviatrans
+远东航空: Far Eastern,Far Eastern Air Transport,FE,FAT,远东
+中国飞龙专业航空公司: CFA,飞龙专业航空,FL,飞龙航空
+维尔姆航空公司: VLM,VG
+易斯达航空公司: 易斯达,ESR,ZE,易斯达航空
+塔希提航空: 塔希提,Air Tahiti,VTA,VT
+秘鲁航空公司: P9
+布鲁塞尔航空: brussels airlines,SN,SAB
+蓝色航空: Blue Air,BMS,BucharestBăneasa,0B
+高丽航空公司: 高丽航空,KOR,JS
+国泰航空有限公司: 太古集团,CPA,CX,国泰航空,Cathay Pacific Airways Ltd,Cathay,国泰
+越南航空: VN,HVN,越南
+塞内加尔共和国: V7,塞内加尔,SNG
+南非航空: 南非,SAA,SA
+新西兰航空公司: Air New Zealand Limited,新西兰,ANZ,New Zealand,新西兰航空,NZ
+卢森堡航空公司: Cargolux Airlines International,LG
+巴哈马航空公司: UP,BHS
+毛里求斯航空: MAU,MK
+世界航天: 世界航空,WO,WOA,世界航
+阿曼航空公司: OMA,WY
+阿塞拜疆航空公司: J2,Azərbaycan Hava Yolları/AZAL Azerbaijan Airlines,AHY
+中华航空股份有限公司: 中华航空,CI,CAL,中华
+立陶宛航空公司: LIL,TE
+西班牙欧洲航空公司: UX,Air Europa Lineas Aereas
+精神航空公司: 精神航空,NK,Spirit Airlines,NKS
+国际航空运输: international air transport
+公共航空运输企业: public air transport enterprise
+指定空运企业: designated air transport enterprise
+以色列航空: ELY,ELAL,LY,以色列
+萨哈林航空: SHU,萨哈林,HZ
+格陵兰航空: GL,GRL
+卡塔尔航空公司: QTR,QR,Qatar Airways Company Q.C.S.C.,Qatari,卡塔尔,卡塔尔航空
+赤塔航空公司: 赤塔,X7,CHF,赤塔航空
+鲲鹏航空有限公司: 鲲鹏航空,鲲鹏,KPA,Kun Peng Airlines Co., Ltd.,VD
+韩亚航空公司: OZ,AAR,韩亚,Asiana Airlines Inc,韩亚航空
+俄罗斯航空公司: Aeroflot-Russian Airlines,SU,AFL
+湄公航空: 湄公,MKG,P8
+葡萄牙老鹰航空公司: 2B
+中国货运航空: Cargo King,CKK,中货航,China Cargo Airlines LTD.,CK
+荷兰皇家航空公司: 荷兰皇家航空,KLM,KL,KLM Royal Dutch Airlines,荷兰皇家
+Indigo: IBU,I9
+长青国际航空: EZ,EIA,长青国际,Evergreen International Airlines
+加拿大航空: Air Canada,加航,AC,ACA
+斯里兰卡航空公司: ALK,斯里兰卡航空,斯里拉卡航空,斯里兰卡,UL
+国泰港龙航空: HDA,港龙,Dragon,KA,港龙航空,国泰港龙,Cathay Dragon Airlines Limited
+AirPlusComet: MPD,Air Plus Comet,A7
+旅行航空公司: VKG,旅行,旅行航空,DK
+香草航空: VNL,JW
+越洋航空公司: CTV,TS
+阿尔及利亚航空: Air Algerie,AIR ALGERIE,DAH,AH,阿尔及利亚
+香港航空有限公司: CRK,HX,香港航空,港航
+爱尔兰航空公司: Aer Lingus,爱尔兰航空,EI,EIN
+美国联合航空: UA,UAL,美联航
+乐桃航空: APJ,MM
+捷蓝航空: JetBlue Airways,JBU,B6
+曼谷航空: BKP,PG,BANGKOK AIRWAYS,曼谷
+埃塞俄比亚航空: ETH,埃塞俄比亚,ET
+蒙古民用航空: MIAT Mongolia,MGL,蒙古航空民用,蒙古,OM
+荷兰泛航航空公司: HV
+捷特航空: Indian Jet Airways Co Ltd.,JAI,9W
+航空工业部: 航空部
+俄罗斯洲际航空: TSO,全禄航空,UN,Transaero,Transaero Airlines
+亚特拉斯航空: 5Y,GTI
+OrionAir: TAG,HS
+AirNostrum: ANE,YW
+IndonesiaAirAsiaX: SKT,XT
+Kulula.com: CAW,MN
+利得国际航空公司: 利得国际航空,XO,LTE,利得航空
+MonarchAirlines: MON,ZB
+汤普森航空公司: 汤普森航空,TOM,BY,汤普森
+WorldAirlines: W2,WRD
+PullmanturAir: EB,PLM
+阿塞拜疆航空货运公司: 阿塞拜疆航空货运,AZQ,SilkWay,ZP
+埃及休闲航空公司: ALD,埃及休闲,AL,Egypt Air
+AirasiaAirline: QZ,印尼亚洲航空,AWQ
+UkraineInternationalAirlines: AUI,乌克兰国际航空,PS
+Eurowings: EWG,EW
+德国汉亚航空公司: HR,汉亚,汉亚航空,HHN
+SurinamAirways: PY,SLM
+AegeanAviation: AEE,A3
+泰国暹罗航空有限公司: SQM,O8
+ApexAirline: SO
+SimpliflyDeccan: DKN,DN,Simplifly德干
+维德勒航空公司: 维德勒航空,WIF,WF
+virginAustralia: VA,VLE
+ManxAirlines: MNX,Manx Airlines,JE
+KaboAir: Kabo Air,QNK,N9
+马达加斯加航空公司: Air Madagascar,MDG,马达加斯加航空,马达加斯加,MD
+CeibaIntercontinental: C2,CEL
+Ellinair航空: EL,ELB
+NortlandAirManitoba: NAM,7N
+WizzAirHungary: W6,WZZ
+GambiaBird: GMQ,3G
+SyrianArabAirlines: RB,SYR
+PhoenixAviation: PHG,P3
+韦斯特拉航空公司: VTI,UK
+嘉鲁达印尼航空公司(印度尼西亚): GA,GIA,鹰航,嘉鲁达印尼,嘉鲁达印尼航空公司
+天翼亚洲航空公司: 天翼亚洲航空,天翼,SWM,ZA
+南非鹈鹕航空: South African Airways,SAA,鹈鹕,鹈鹕航空,7V,PDF
+FelixAirways: FO,FXX
+MexicanadeAviacion: MX,MXA
+JetLinkExpress: J0,JLX
+StarAir: STQ,明星航空公司,5H
+TransjetAirways: SWL,S9
+阿拉比亚航空: ABY,G9,阿拉伯航空
+Tunisair: TAR,突尼斯航空,‎الخطوط الجوية التونسية‎ ， Tunisair,TU
+NationalAirServices(NAS): KNE,XY,国家航空服务公司
+InterjetAirline: 4O,AIJ
+卢森堡货运国际航空公司: CLX,卢森堡货运航空,Cargolux Airlines International,卢森堡,CV
+Valuair: VF,VLU
+MalindoAir: 马印航空,MXD,OD
+LionAirlines: JT,LNI
+ATAAirlines: I3,美国泛航航空公司,TBZ
+OmniAirInternational: OAE,X9,全能国际航空
+CanadianNorth: 5T,MPE
+澳大利亚欣丰虎航空有限公司: TT,TGG,澳洲虎航
+PinnacleAirlines: EDV,9E
+CaribbeanAirlines: BWA,BW
+WOW航空公司: WOW,WW
+Trygg-Flyg: YC,TYG
+缅甸金色航空: SNW,MYANMAR AIRWAYS CORP.,Y5
+尼奥斯航空: NO,尼奥斯航空公司,NOS
+HokkaidoInternationalAirlines-AirDo: ADO,HD
+NordicAirlink(FlyNordic): 北欧飞行航空,LF,NDC
+SaudiGulfAirlines: 6S,SGQ,saudigulf
+Conviasa: V0,VCV
+RoyalSwaziNationalAirways: RSN,ZC
+WuhanAirlines: CWU,WU
+HamburgAirways: HAY,HK
+DrukAir-RoyalBhutanAirlines: KB,DRK
+WestJetEncoreLtd.: WestJetEncore,WEN,WR
+NEXTimeJet: NTJ,2N
+SamaAirlines: ZS,SMY
+Vistajet: 5V,VJT
+GolTransportesAereos: GLO,Gol Transporte,G3,GOL Airlines
+PointAir: FW,POA
+BACityflyer: CFE,CJ
+Airworld: RL,AWD
+天工航空: SRK,SX
+TransaviaFrance: 法国泛航航空,TO,TVF
+科斯塔航空公司: LLB,LB
+JC（柬埔寨）国际航空: JC国际航空,JCC,QD,JC航空,柬埔寨景成国际航空
+KoralBlueAirlines: KBR,K7
+AirMalta: AMC,KM
+Magnicharters: GMT,UJ
+Avianca: AV,AVA
+PacificWings: LW,NMI
+AirCanadaRouge: RV,Air Canada,ROU
+SkyRegionalAirlines: KV,SKV,SkyRegional
+AirBristol: AZX,7L
+CielosdelPeru: CIU,A2
+AeroContinenteDominicana: 9D,CND
+MalmoAviation: TF,SCW
+Intersky: 3L,ISK
+AsianWingsAirways: YJ,AWM
+CapeAir: KAP,9K
+塔希里航空公司: DTH,SF
+InterlinkAirlines: ID,ITK
+EuropeanAirExpress: EA,EAL
+USAir: US,USA,US Airways
+Donavia: DNV,D9
+AirGreece-Aerodromis: JG
+AirCairo: SM,MSC,卡里奥航空公司
+亚马逊航空运输公司: AZN,Z8
+I-Fly航空公司: RSY,H5,I-Fly航空,I-Fly
+CargoBAirlines: CBB,BB
+GreatPlainsAirlines: GRP,ZO
+NationwideAirlines: CE,NTW
+BataviaAir: Batavia,Y6,Batavia Air,BTV
+TACAInternationalAirlines: TAI,TA
+泰国越捷航空公司: VZ,Công ty Cổ phần Hàng không VietJet,QCL,泰国越捷航空
+EasternAirways: EZE,T3
+laoskyway航空公司: Kyrgyz航空公司,LK,KGZ
+EuropeAirpost: 5O,FPO
+英国国际直升机航空: BS,BIH,英国国际直升机
+NovairInternational: NGK,EN
+塞塔航空公司: SP,SAT
+BelleAir: SWU/LBY,LZ
+CorendonAirlines: XC,CAI
+TigerMandala: MDL,RI
+美国西南航空公司: Southwest Airlines,WN,SWA,SouthwestAirlines
+StobartAir: REA,RE
+泰国狮航: LTM,SL
+DarwinAirline: F7,DWT
+伏尔加第聂伯航空公司: 伏尔加第聂伯航空,伏尔加第聂伯,VDA,Volga-Dnepr Airline,VI
+PortugaliaAirlines: NI,PGA
+KiwiInternationalAirLines: KP,KIA
+WebjetLinhasAereas: WH,WEB
+SudanAirways: 苏丹航空,SD,SUD
+巴基斯坦蓝色航空公司: ABQ,蓝色航空公司,PA
+HOP!航空公司: DB,法航所属航空,BZH
+MegantaraAir: 9M,MKE
+捷特亚洲航空公司: JF,JAA
+FrontierAirlines: Frontier Airlines,边疆航空,F9,FFT
+AeroMexicoConnect: SLI,5D
+大空货运: M8
+TEAFrance: TFR,FN
+土耳其MNG航空公司: 土耳其MNB航空公司,MB,MNB
+MountCookAirlines: NZM,NM,MountCook
+Aero-Charter: UCR,DW
+尼泊尔皇家航空公司: 尼泊尔皇家航空,RNA,尼泊尔皇家,RA
+ChamplainEnterprises: C5,UCA
+ERAAviation: 7H,ERH
+CCMAirlines: XK,CCM
+AirAustral: REU,UU,Air Austral
+亚洲大西洋航空: HB,AAQ
+Inex-AdriaAirways: ADR,JP
+OrionAirways: ORN,KG
+Aviancabrasil: O6,ONE
+VivaAerobus: VIV,VB
+GoAir: GOW,G8
+SkywestAirlines: XR,OZW
+塞拉太平洋航空公司: 塞拉太平洋,SI,SPA,塞拉太平洋航空
+AeroGal: GLG,2K
+TransStatesAirlines: LOF,AX
+RégionalCompagnieAerienneEuropéenne: RAE,YS
+OntarioExpress: OEL,9X
+TranStar航空公司: MC,TranStar航空,TST
+SamaraAirlines: BRZ,E5
+AirzenaGeorgianAirways: TGZ,A9
+TUIfly: TUI,哈帕克－劳埃德快运航空,X3
+Jambojet: KPA,JM,jambojet
+Skytrans: Q6,SKP
+PMTair: U4,PMT
+克拉斯诺雅茨克航空: 克拉斯,KJC,7B,克拉斯航空
+AirNamibia: SW,NMB
+MahanAirlines: IRM,马汉航空,W5
+通用航空公司: UV,UVA
+AirJapan: AJX,全日空,NQ
+Dniproavia: UDN,Z6
+Cimber: CIM,QA
+TABCargo: BOL,2L
+Blue1: KF,BLF
+AfriqiyahAirways: AAW,8U
+JadeCargoInternational: JI,JAE
+澜湄航空（柬埔寨）股份有限公司: LQ,SNJ,澜媚航空,澜湄航空
+捷星太平洋航空: 捷星太平洋,Jetstar Pacific Airlines,PIC,Pacific Express,BL
+SaharaAirlines: RSH,S2
+诺斯达航空公司: TYA,Y7,诺斯达,诺斯达航空
+Germania: GMI,ST
+加雷姆航空: 俄罗斯加雷姆航空,KGL,斯加雷姆航空,7K
+KubanAirlines: GW,KIL
+AirWisconsin: ZW,AWI,Air Wisconsin
+Yanair: YE,乌克兰燕航空,ANR
+AOMFrenchAirlines: AOM,IW
+吉尔吉斯斯坦航空公司: QH,吉尔吉斯斯坦航空,吉尔吉斯斯坦,LYN
+FederalExpress(FedEx): FDX,FX
+AirSerbia: JAT,JU
+SriwijayaAir: SJ,SJY,三佛齐航空
+ScottAir: FWA,I4,斯科特航空
+TANHonduras: TX,TAN
+FineAirServices: FB,FBF
+ASEstonianAir: ELL,OV
+AirArmenia: ARR,QN
+TUIflyNetherlands: OR,TFL
+Aviastar: TUP,4B
+诺德文德航空公司: NWS,N4,诺德文德航空,诺德文德
+MistralAir: MSA,7M
+玻利维亚航空公司: OB,玻利维亚航空,ASZ
+TradewindsAirlines: TDX,WI,信风航空
+SunnyAirways: SUW,2S
+OlympicAviation: ML,OLY
+LibyanAirlines: LN,LAA
+USAJetAirlines: U7,JUS
+ArikAir: 阿利克航空,MDI,W3
+BritishAirtours航空公司: BKT,KT,BritishAirtours航空
+SkyWings: GSW,ND,天空之翼航空公司
+TAM-TransportesAereosdelMercosur: PZ,LAP
+CargojetAirwaysLtd: CJT,W8
+CompassAirlines: CP,CPZ,Compass Airlines (North America)
+Armavia: U8,RNV
+Indigoairlines: 6E,IGO
+AngaraAirlines: AGU,IK
+LANArgentina: DSM,4M
+AllegiantAir: AAY,G4
+AZUL-LinhasAereasBrasileiras: AD,AZU,LinhasAereasBrasileiras
+飞龙航空公司: EZD,Z2,飞龙航空,飞龙
+RwandAirExpress: WB,RWD
+LufthansaCityline: CL,CLH,Lufthansa CityLine
+EastwindAirlines: SGR,W9
+ThaiSmileAirwaysCompanyLimited: 泰国微笑航空,WE,THD
+德威航空公司: 德威,TWB,TW,德威航空
+HellasJet: RDS,T4
+VirginNigeria: VK,VGN
+FlyingTigerLine: FT,FTL
+TAT-TransportAérienTransrégional: IO,IAE
+EznisAirwaysCo.Ltd.: 伊斯尼斯航空,EF,EZA
+RegentAirways: RX,RGE
+AtlanticSoutheast: EV,ASQ
+Arkia-IsraeliAirlines: AIZ,IZ
+AirBaltic: BT,BTI
+AtlasGlobalAirlines: KKK,Atlasglobal,KK
+TranseuropeanAirlines: TEP,UE
+缅甸航空公司: UB,缅甸航空,UBA,MYANMAR AIRWAYS CORP.
+TACAPeru: T0,TPU
+JapanTransoceanAir: NU,JTA
+ProAir: PRH,XL
+SouthAirlines: YG,OTL
+MeridianaFly: IG,ISS
+施莱纳航空公司公司: SCH,施莱纳航空,AW
+FirstAir: 7F,FAB
+TulipAir: TD,郁金香航空,TLP
+Volaris: Y4,VOI
+TransAirCongo(TAC): TSG,Q8
+ShaheenAir: NL,沙欣航空公司,SAI
+ThomasCookAirlines: CFG,DE
+flyCongo: ALX,EO
+柬埔寨洞里萨航空: 洞里萨航空,洞里萨,K9,TSP
+LanPeru: LP,LPE
+WorldAtlanticAirlines: K8,WAL
+空桥货运航空公司: AirBridgeCargo Airlines,空桥货运航空,ABW,空桥货运,RU
+AirSinai: 4D,ASD
+塔吉克斯坦航空公司: 塔吉克斯坦,7J,TJK,塔吉克斯坦航空
+UTair-Ukraine: UTN,QU
+IslandAir: MKU,WP
+PamirAirways: NR,PIR
+UnitedAirways: UBD,4H
+HorizonAir: QX,QXE
+Starflyer: 7G,SFJ
+太阳之翼航空公司: SunwingAirlines,WG,SWG,Sunwing Airlines
+HollandExel: HXL,YZ
+维瓦哥伦比亚航空: FC,VVC
+布拉森斯区域航空公司: DC,BRX,布拉森斯区域航空,布拉森斯,Kendell Airlines
+TAMAir: VNZ,L6
+SunExpress: XQ,SXS
+巴伐利亚: BV,BPA,巴伐利亚航空
+AirArabiaMaroc: 3O,MAC
+MidwestAirlines: MEP,YX
+MATMacedonianAirlines: IN,MAK
+Ryanair: RYR,FR
+DeerJet: DF,DER
+Globus航空公司: Globus,GLP,GB,Globus航空
+直连航空: DQ,DCP
+JordanAviation: R5,JAV
+Cubana: CU,CUB
+TolAir: TI,TOL
+Itavia: IH
+Jet2: LS,Jet2 Airlines,EXS
+AirMandalay: AMY,6T
+TAME: TAE,EQ
+RAKAirways: RT,RKM
+萨菲航空公司: 4Q,SFW
+斯凯威航空公司: 斯凯威航空,RCT,RK,斯凯威
+乌兹别克斯坦航空公司: UZB,乌兹别克斯坦,HY,乌兹别克斯坦航空
+InterairSouthAfrica: ILN,D6
+Hapagfly: HLF,HF
+Britannia: DBY,BN
+IsrairAirlines: 6H,ISR
+CyprusTurkishAirlines(KTHY): YK,KYV
+SmartLynx: 6Y,SmartLynx航空公司,ART
+Zip: 3J,WZP,ZIP航空
+BHAirlines: BON,JA
+PanairdoBrasil: PB,PAB
+AzmanAirServicesLimited: AZM,ZQ,阿兹曼航空
+VirginSamoa: PLB,DJ
+马尔代夫美佳航空公司: Mega Global Air Service(Maldives) Private Ltd.,SIB,美佳航空,5M,西伯利亚泛空
+AstarAirCargo: ER,DHL
+秘鲁之星航空公司: 2I,SRU
+TatarstanAir: U9,TAK,Tatarstan Airlines
+安琪航空公司: 安琪航空,安琪,8G,NGE
+AirBotswana: BOT,BP
+AirMalawi: QM,AML
+TobagoExpress: TB,TBX
+云南英安航空公司: 英安航空,AYE,YI
+SilverAirways: 3M,SIL
+CentrAfriqueAirExpress: CAE,6C
+Aeromar: VW,大湖航空,TAO
+NokScoot: NCT,XW
+TyroleanAirways: TYR,VO
+挪威国际航空: Air Swdnb,D8,Norwegian Air Shuttle,IBK
+Vueling: Vueling Airlines,VY,VLG
+中国邮政航空: CYZ,China Postal Airlines,CF
+SATAInternational: S4,RZO
+AurignyAirServices: GR,AUR
+TransafrikInternational: TFK,泛非国际航空,PQ
+AfricanExpressAirways: XU,AXK
+蒙古航空公司: M0,MNG,蒙古航空,MIAT MONGOLIA,蒙古
+卢森堡意大利航空公司: 卢森堡意大利航空,C8,Cargolux Airlines International,ICV
+OLTExpressGermany: OL,OLT,OLT航空公司
+泰国新时代航空公司: VGO,泰国新时代航空,E3
+PacificSun: FJI,FJ
+NWTAir: NV,NWT
+柬埔寨百善航空公司: 百善航空公司,5B,BSX
+AirOneCityLiner: ADH,AP
+QeshmAir: IRQ,QB
+AirInuit: AIE,3H
+Carpatair: KRP,V3
+西伯利亚航空公司: 西伯利亚,西伯利亚航空,Авиакомпания „Сибирь,SBI,S7
+CityJet: BCY,WX
+TRIPLinhasAéreas: OLS,8R
+KyrgyzTransAvia: 6K,KTC
+HelittLíneasAéreas: Helitt航空,H9,HTH
+PorterAirlines: POE,PD
+SkyserviceAirlines: 5G,服务航空公司,SSV
+NordesteLinhasAereas: JH,NES/HLQ/FDA
+AirSeoul: ASV,RS
+MesaAirlines: ASH,YV
+OlympicAirways: OAL,OA
+LAMMozambiqueAirlines: LAM,TM
+伊朗旅行航空公司: IRB,伊朗航空旅行,伊朗旅行,B9
+香港华民航空: 香港华民,Air Hong Kong,LD,香港,AHK
+SouthAfricanExpressAirways: XZ,EXY
+RoyalAirMaroc: RAM,AT
+BerjayaAir: BVT,J8
+GoJetAirlines: G7,GJS
+TransliftAirways: TLA,泛空运航空公司,T7
+InselAir: INC,7I
+珀斯航空公司: W4
+AirlinkSouth: 4Z,LNK
+宿翱航空: DG,SRQ
+匈奴航空公司: MR,MML,匈奴航空,蒙古
+J-Air: XM,JLJ,日本航空（JAL）
+AirMali: CMM,I5
+SBAAirlines: S3,BBR
+Maldivian: DQA,Q2
+AirMoldova: 9U,MLD
+FilderAirServiceAirlines: NRX,M3
+基什航空航空公司: 基什航空航空,Y9,KIS
+SagaAirlines: 2J,SGX
+福建航空公司: CFJ,IV
+Aeropostal: VH,LAV
+ShuttleAmerica: S5,TCF
+KittyHawkAircargo: KHA,KR
+印尼城市快线航空公司: QG,印度尼西亚城市快线航空,印尼城市快线航空
+SkyAirline: 天空航空公司,H2,SKU
+KhorsAircompany: KHO,KO
+TunisairExpress: TUX,UG
+Eurolot: K2,ELO
+MEA-MiddleEastAirlines: MEA,ME
+玛纳斯航空公司: MBB,ZM,Manas International Airport
+MartinairHolland: MPH,MP
+BigSkyAirlines: 大天空航空公司,GQ,BSY
+台湾威航: 威航,ZV,台湾威航空,VAX
+bmiRegional: BM,BMR
+AirSofia: SFB,CT
+Flybe: BEE,BE
+TransTravelAirlines: TRQ,6N,美国海外航空
+文莱皇家航空公司: 文莱皇家,文莱皇家航空,BI,RBA,Royal Brunei Airlines
+索蒙航空公司: 4J,索蒙航空,SMR,索蒙
+BimanBangladeshAirlines: BBC,BG
+塞内加尔航空公司: R2,Air Sénégal International,TRANSAIR,GTS
+CopaAirlines: CM,CMP
+DanaAir: DAN,9J
+OnurAir: OHY,8Q
+伊拉克航空公司: IRAQI AIRWAYS,IA,IAW,伊拉克航空,伊拉克
+SunCountryAirlines: 阳光之乡航空,SY,SCX
+日本货运航空公司: 日本货运航空,NIPPON CARGO,KZ,NCA,日本货运,日本邮船株式会社,NIPPON CARGO AIRLINES.CO.LTD.
+XLAirwaysFrance: SE,XLF
+MayaIslandAir: MW,马雅岛航空公司,MYD
+BelleAirEurope: L9,BAL
+AerolineasArgentinas: ARG,AR
+JazeeraAirways: JZR,J9
+TabanAirlines: HH,TBM
+Bukovyna航空公司: BQ,BKV,Bukovyna航空
+BoraJet航空公司: BoraJet航空,BRJ,BJ,BoraJet
+AirTahitiNui（THT）: THT,TN,大溪地航空（THT）
+AircompanySomonAirLLC: SMR,索门航空公司,SZ
+MihinLanka: MLR,MJ
+KuwaitAirways: KAC,KU
+PacificEastAir: PCE,6P
+胜利航空: DP,FCA
+津巴布韦AvientAviation航空公司: AvientAviation航空,AvientAviation,Z3,SMJ
+SyphaxAirlines: SYA,FS
+LanExpress: LU,LXP
+宿务太平洋航空公司: 宿务太平洋,宿务太平洋航空,CEB,5J
+Air Nippon Network航空: AKX,EH
+巴西: RG,VRG,巴西航空
+MountainAirExpress: M7,PKP
+瓦努阿图（营运）航空公司: NF,AVN
+伊朗阿斯曼航空公司: EP,伊朗阿斯曼航空,阿斯曼,IRC
+NayzakAirTransport: NZA,M4
+加勒比之星航空有限公司: 加勒比之星航空,GFI,Caribbean Star Airlines,加勒比之星,8B
+VirginAmerica: VX,维珍美国航空,VRD
+AigleAzur: ZI,AAF,Aigle Azur
+KLMCityhopper航空: 荷兰皇家航空城市短途公司,WA,KLC
+REX(RegionalExpress): ZL,RXA
+CalmAirInternational: MO,CAV
+DanishAirTransport: DX,DTR
+土库曼斯坦航空: 土库曼斯坦,T5,TUA
+大西洋世界航空公司: RC,Atlantic Airways
+Firefly: FFM,FY
+Westjet: WS,西捷航空,WJA,WestJet
+Pegasus: PC,PGT
+泰国亚航X航空: TAX,XJ
+SWItalia: IU,CSW
+EliteAirways: 7Q,MNU
+AeroLogic货运: BOX,3S,AeroLogic货运航空
+NULL: HL,XHL
+SkyWest: SKW,OO
+IberiaExpress: IBS,I2
+AstroAirInternational: AAV,8Y
+AIRMEDITERRANEAN: MV,MAR
+MyIndoAirlines: 2Y,MYU
+AirCargoGlobal: CW,CCC
+AtyrauAirways: IP,JOL
+AlohaAirCargo: KH,AAH
+货物运输量: freight
+货物周转量: freight tonne-kilometers performed
+加班: additional flight
+PrivilegeStyle: PVG,P6
+APGAirlines: GP,RIV
+AircompanyArmenia: RM,NGT
+PassaredoTransportesAereos: 2Z,PTB
+航空公司: Airlines
+可提供吨公里: ATKs
+可提供座位: available seats
+可用吨公里: available tone
+可用座公里成本: CASKs
+可用座公里收入: RASKs
+客公里成本: CPKs
+客公里收入: revenue per RPKs
+客座利用率: seat utilization
+机翼: wing
+庞巴迪: Bombardier,庞巴迪公司
+波音飞机公司: 公司1916.7.15-1917.5.9名叫B&W,波音,The Boeing Company
+空中客车公司: Airbus
+英国宇航公司: British Aerospace Corporation
+航空运输: air transportation
+国内航空运输: domestic air transport
+续程承运人: connecting carrier
+伯努利定理: Bernoulli's theorem
+客运代理人: passenger agent
+地面服务代理人: ground service agent
+宽休机: wide-body aircraft
+民用机场: civil airport
+国内机场: China's Top Ten Airports,中国十大机场
+国内航线: domestic route
+地区航线: regional route
+航节: leg
+航段: segment
+定期航班: scheduled flight
+国内航班: domestic flight
+续程航班: connecting flight
+航班号: flight number
+国内航空运输业务权: cabotage
+航空客运收益管理: revenue management
+运输总周转量: total traffic performed
+旅客运输量: passengers carried
+航班载运率: load factor
+机场吞吐量: handling capacity of an airport
+客运市场: passenger market
+国际航线: international route
+干线: trunk line
+支线: feeder line
+区内航线: local route
+不定期航班: non-scheduled flight
+国际航班: international flight
+直达航班: direct flight
+航班班次: flight frequency
+班期时刻表: timetable
+运输总条件: general conditions of carriage
+承运人规定: regulations of carrier
+航空公司联盟: airlines alliance,Caring more about you
+代号共享: code-sharing
+旅客周转量: passenger traffic performed tone-kilometers
+飞机日利用率: aircraft daily utilization
+机场旅客吞吐量: handling passenger capacity of an airport
+客源: passenger source
+市场需求: market demand
+市场分析: market analysis
+买方市场: buyer's market
+卖方市场: seller's market
+市场信息: market information
+市场调查: market survey
+市场预测: market forecast
+市场战略: marketing strategy
+市场细分: market segmentation
+市场机会: market opportunity
+市场宣传: market publicity
+市场份额: market share
+市场管理: market administration
+国际旅客: international passenger
+团体旅客: group passenger
+始发旅客: departure passenger
+中转旅客: transfer passenger
+过站旅客: nan
+儿童: child
+无成入陪伴儿童: unaccompanied minor
+被拒绝入境旅客: inadmissible passenger
+病残旅客: incapacitated passenger
+目标市场: target market
+市场潜力: market potential
+市场类型: market type
+市场竞争: market competition
+市场开发: market development
+市场渗透: market penetration
+市场营销组合: marketing mix
+市场规则: market rule
+国内旅客: domestic passenger
+常旅客: Frequent Flyer Program
+联程旅客: interline passenger
+婴儿: infant
+重要旅客: very important passenger 
+酒醉旅客: drunken passenger
+遣返旅客: deportee
+罪犯旅客culprit: deportee
+轮椅旅客: wheelchair passenger
+担架旅客: stretched passenger
+错乘旅客: passenger boarding a wrong plane
+漏乘旅客: passenger missing flight
+患病旅客: patient
+盲人旅客: blind passenger
+孕妇旅客: pregnant passenger
+偷乘者: an aerial stowaway
+误机旅客: no-show passenger
+航班输入: flight input
+座位申请: seat application
+航班变更: flight modification
+预留配额: advanced allocation
+核对航班: flight verification
+始发站控制: departure control
+检查销售: sales inspecting
+清理配额: quota clearance
+座位跟踪: seat tracking
+超售: over sale
+定座时限: reservation limit
+定座优先权: reservation priority
+合同单位定座: contracted units reservation
+座位再证实: reconfirmation
+团体旅客座位再证实: reconfirmation of group passengers
+候补旅客: stand-by passenger/go-show passenger
+衔接错失的旅客: misconnection passenger
+计算机定座系统: computer reservation system
+运价输入: tariff input
+调整舱位座位数: seat class adjustment
+锁留座位: locked up seat
+集中控制: centralized control
+配额控制: quota control
+清理航班: flight seat clearance
+限制销售: restricted sale
+定座: reservation
+旅客定座单: reservation form
+旅客定座记录: passenger name recorder
+限时定座: time limit reservation
+重复定座: duplicated
+无定座记录: no reservation record
+定座取消: reservation cancellation
+标准运输凭证: standard traffic document
+电子客票: electronic ticket
+附有登机牌的自动客票: automated ticket and boarding pass
+证实定座: reservation verification
+座位超定: over booking
+客票: ticket
+过渡性自动打印客票: transitional automated ticket off premise transactional automated ticket
+国际客票: international ticket
+不定期客票: open ticket
+连续客票: conjunction ticket
+遗失客票: lost ticket
+旅客联/收据: passenger coupon/receipt
+财务联: audit coupon
+出票人联: agent coupon
+旅费证: miscellaneous charges order
+有效身份证件: 有效乘机证件,valid identification certificates
+原出票承运人: original issuing carrier
+出票时限: issuing time limits
+付款时限: pay for time limits
+环球程: round the world journey
+中转点: transfer point
+开票点: ticketed point
+最大允许里程: maximum permitted mileage
+国内客票: domestic ticket
+定期客票: ticket
+联程客票: interline ticket
+逾重行李票: excess baggage ticket
+客票号码: ticket number
+乘机联: flight coupon
+多用途票证: multiple purpose document
+出票承运人: issuing carrier
+购票时限: ticketing time limits
+单程: one way
+来回程: round trip
+缺口程: open jaw
+环程: circle trip
+中途分程: stop over
+中途转机点: connecting point
+相同开票点: common ticketed point
+票价计算点: fare construction point
+开票点里程: ticketed point mileages 
+超里程附加费: excess mileage surcharge 
+允许超里程优惠: extra mileage allowance 
+中间较高点: higher intermediate point
+票价等级差额: difference of fare class
+客票签转: endorsements
+更改客票: change of ticket
+退票: refund
+自愿退票: voluntary refund
+航空运价: air tariff
+相同点运价: common rating
+分段相加最低组合运价: the lowest combination of sector fare
+普通票价: normal fare
+国际航协票价: IATA fare
+平季票价: shoulder period fare
+旺季票价: high-reason/peak fare
+机场费: airport fee
+行李声明价值附加费: excess value declaration and charge
+行李保管费: baggage storage fee
+比例分摊: proportion
+航班动态信息: flight movement information
+办理乘机手续: check-in
+截止办理乘机手续时间: check-in closed time
+中间组合单位: neutral units of construction
+兑换率: rate of exchange
+预付票款通知: prepaid ticket advice
+客票有效期: validity of ticket
+客票换开: reissuing ticket
+非自愿退票: involuntary refund
+协议运价: agreed tariff
+公布直达运价: published thoroughfare
+比例运价: add-ons
+混合等级运价: mixed class fare
+特种票价: special fare
+候补票价: stand-by fare
+淡季票价: Iow-reason/peak fare
+当地货币票价: local currency fare
+票价表: tariff
+税款: tax
+误机费: no-show charge
+逾重行李费: excess baggage charge
+赔偿费: compensation fee
+登机牌: boarding pass
+过站登机牌: transit boarding pass
+行李: luggage
+托运行李: checked baggage
+自理行李: carrying-on articles
+菲托运行李: unchecked baggage
+中转行李: transferred baggage
+超重行李: over-weighed baggage
+计重行李: weight concept
+迟运行李: delayed baggage
+无人认领的行李: unclaimed baggage
+无法交付的行李: undelivered baggage
+破损行李: damaged baggage
+行李牌识别联: identification/claim baggage
+联程行李牌: on interline tag
+免除责任行李牌: limited release tag
+重要旅客行李牌: baggage tag for VIP
+公务舱旅客行李牌: baggage tag for business class
+收运行李: baggage acceptance
+免费行李额: free baggage allowance
+行李查询: baggage inquiry
+安全检查: Security check
+联程行李: interline baggage
+逾直行李: excess baggage
+超大行李: over-sized baggage
+计件行李: piece concept
+速运行李: expedite baggage
+错运行李: mishandled baggage
+违章行李: baggage in violation of regulation
+行李牌: baggage tag
+速运行李牌: expedite rush baggage tag
+团体旅客行李牌: baggage tag for group passenger
+行李的实际价值: actual value for baggage
+行李的声明价值: declared value for baggage
+交付行李: baggage delivery
+行李不正常运输: Not normal transport
+行李赔偿: baggage compensation
+最大起飞重量: maximum take-off weight
+基本重量: basic operating weight
+燃油重量: fuel weight
+最大业务载重量: maximum payload
+行李运输事故记录: baggage irregularity report
+分摊赔偿: proportional compensation
+最大滑行重麗: maximum taxiing weight
+最大着陆重量: maximum landing weight
+空机重量: operational empty weight
+最大无燃油重量: maximum zero fuel weight
+修正后的基本重量: revised basic operating weight
+起飞重量: take-off weight
+实际业务载重量: actual payload
+操作重量: operating weight
+飞机的重心: center of gravity aircraft
+飞机的重心范围: range center of gravity aircraft
+航班预配: advanced payload
+载重表: payload sheet
+旅客舱单: manifest
+随机业务文件: traffic documents
+运输: 搬运站
+旅客运输: passenger transport
+连续运输: conjunction transport
+限制运输: restricted transport
+通程业载: through payload
+飞机的重心位置: position center of gravity aircraft
+配载: Cargo
+航班载重核查: flight payload verification
+平衡图: payload balance sheet
+总申报单: general declaration
+运力: ㄧㄨㄣˋ ㄌㄧˋ
+行李运输: baggage transport
+拒绝运输: refused transport
+航班合并: flight combination
+航班加降: emergency midway landing
+不正常航班: irregular flight
+特殊旅客服务: service to special passenger
+婴儿服务: service to infant
+儿童服务: service to child
+导盲犬: seeing-eye dog
+聋哑人服务: service to deaf-mute
+助听犬: hearing-ear dog
+救护车服务: ambulance service
+售票服务: ticketing service
+包机运输: charter transportation
+航班取消: flight cancellation
+航班备降: alternate landing
+飞机调配: aircraft dispatch
+重要旅客服务: service to VIP
+孕妇服务: service to pregnant
+残疾人服务: service to the handicapped
+盲人服务: service to the blind
+轮椅服务: wheelchair service
+担架服务: stretcher service
+定座服务: 订座网
+地面服务: ground service
+空中服务: The escape sequence
+广播服务: broadcasting service
+包机合同: charter contract
+包机合同变更: change of charter contract
+普通包机: common purpose charter
+社团包机: affinity group charter
+旅游包机: nan
+包舱: block space
+引导服务: guiding service
+问讯服务: The information desk
+餐饮服务: Food and Beverages
+包机业务: to charter a plane; a chartered plane
+包机: to charter a plane; a chartered plane
+自用包机: own use charter
+学生包机: student charter
+包机费: charter charges
+留机费: stopping at the airport for over 24 hours
+专机: special/flight
+质量指标: quality indicator
+旅客满意率: passenger's satisfaction rate
+行李运输差错率: baggage transport discrepancy rate
+设备完好率: facility readiness rate
+运输事故等级: accident class
+航站楼: passenger terminal
+航班动态牌: flight information board
+出港大厅: departure hall
+旅客桥: passenger bridge
+进港大厅: arrival hall
+调机费: dispatching charges
+退包费: charges for canceling charter
+出票差错率: ticketing discrepancy rate
+有效投诉率: valid complaint rate
+运输事故: accident
+引导标识: guiding mark
+计算机离港系统: departure control system
+客机坪: terminal building
+摆渡车: ferry vehicle
+配餐车: food supply vehicle
+清洁水车: cleaning water supply vehicle
+行李拖车: baggage trail car
+升降平台车: platform lift vehicle
+飞机拖车: aircraft tractor
+残疾人升降车: lift vehicle for disabled
+备降和临时加降: nan
+出港旅客: departure passenger
+出港平均载运率: departure avg. payload
+残疾人服务专用设备: facilities for disabled
+客梯车: stepladder vehicle
+饮水车: drinking water supply vehicle
+垃圾车: rubbish truck
+行李拖斗: baggage trailer
+传送带车: conveyer belt vehicle
+除冰车: deicing vehicle
+救护车: ambulance
+财务费用: finance expense
+出港平均客座率: departure avg. LF
+代飞航班的统计: nan
+吨: tonne
+吨公里收入: revenue of tonne-kilometers
+飞行班次: Aircraft departures
+飞行里程: Aircraft kilometers performed
+飞行小时生产率（吨公里/时）: nan
+非托运行李: unchecked baggage
+航段运量: nan
+吨公里成本: CTKs
+返航的统计: nan
+飞行（轮档）小时: block time
+飞行小时: aircraft hours
+飞行性质: flight type
+管理费用: management expenses
+航班中断: nan
+航空公司全成本: nan
+航空器: aircraft
+合并航班: nan
+货运吨公里: tonne-kilometers performed
+进港旅客: arrival passenger
+YAK42: Yak-42
+Yak-40: 幼鳕,Yak-40/ Jacques-40
+Y-7: Xian Y-7
+Y-5: Nanchang Y-5 or Shijiazhuang Y-5
+Y-11: Harbin Y-11
+Viscount: Vickers Viscount
+VC-10: Vickers VC 10
+宽体机: wide-body aircraft
+每货运吨公里收益: revenue per RCK
+每收费客公里收益: revenue per RPK
+可用吨公里收入: RTKs
+可用座位公里: ASKs
+客座率: load factor
+利润总额: profit
+旅客吞吐量: passenger throughput
+每收费吨公里收益: revenue per TKM
+起飞架次: Aircraft departures
+提供座位数: available seats
+销售费用: sales enpenses
+邮件运输量: mail carried
+运营里程: Aircraft kilometers
+主营业务成本费用: operating cost & expenses
+罪犯旅客: culprit
+平均运程: nan
+收费吨公里: RTKs
+收费客公里: RPKs
+无成人陪伴儿童: unaccompanied minor
+营业利润: operating profit
+逾重行李: excess baggage
+运输起降架次: Aircraft departures
+载运率: load factor
+主营业务成本: Operating cost
+主营业务利润: operating profit
+主营业务税金及附加: operating tax and add
+涡轮风扇发动机: 涡扇发动机,Turbofan
+仪表着陆系统: Instrument Landing System, ILS,盲降系统
+连续性定理: continuity principle
+航路: air route
+Tupolev334: 俄文:Ty-334、英文:Tu-334
+Tu-114: Tu114 airliner
+SE210: Sud Aviation Caravelle
+Tupolev204: Tu-204
+Tupolev154: Tu-154,大意(careless）
+Tu-154: Ty-154
+SuperKingAir350: Beechcraft King Air 350
+S92: S-92® Helicopter
+SA365N: 黑豹,French Dolphin Helicopter
+Regional: regional
+PA-44-180: Piper PA-44
+MU-300: Mitsubishi MU-300 Diamond
+Mi-8T: Mi-8 Transport Helicopter
+Me262: Messerschmitt Me-262
+MD11F: McDonnell Douglas MD-11
+MD-12: 麦道公司
+MD-11: McDonnell Douglas MD-11
+M82: Barrett M82A1
+Learjet60: Learjet 60XR
+PA42: Piper PA-42
+P-180: Piaggio P.180 Avanti
+MD87: MD-87
+MD82: MD-82
+MD-80: McDonnell Douglas MD-80
+M90: Barrett Model 90
+Learjet55: Learjet 55
+Learjet23: Learjet 31
+Learjet45: Bombardier Learjet 45
+Learjet25: Learjet-25
+Learjet-55: Learjet 55
+IL96-300: Ил-96
+IL62-MkII: Ilyushin Il-62
+Il-76: IL-76
+Fokker-270: Fokker F27 Friendship
+L-1011: L-1011 TriStar
+Jetstream-31: Jetstream 31
+IL86: Il-86/Ил-86
+Il-96: Ил-96
+Il-62: Ilyushin Il-62
+Il-114: IL-114
+IAI1124: 西风
+Gulfstream-V: Gulfstream V
+ERJ-190: Embraer E190
+Falcon900B: Falcon 900
+F-27: Fokker F27 Friendship
+ERJ-145: Embraer ERJ 145
+ERJ-135: Embraer ERJ-135
+EC225: Eurocopter EC225 Super Puma
+EC155: Eurocopter EC155
+E-175: Embraer E175
+DO328: Fairchild-Dornier 328
+DHC7: de Havilland Canada Dash 7
+DHC6: 双水獭,DHC-6 Twin Otter
+DHC-8: Dash
+DC-9: Douglas DC-9
+DC-10: Douglas DC-10
+ERJ145: Embraer ERJ 145
+EMB120: Embraer EMB 120 Brasilia
+EMB-120: Embraer EMB 120 Brasilia
+EC-225: Eurocopter EC225,超级美洲狮 Mk II+
+E-190: Embraer E190
+E-170: Embraer regional jet
+Dornier228-100: Dornier228
+Do-328: Fairchild-Dornier 328
+DHC-8-300: Dash
+DHC-7: de Havilland Canada Dash 7
+DC-8: Douglas DC-8
+CN-235: CASA/IPTN CN-235
+Challenger-CL601: Challenger
+CRJ700标准型: Bombardier CRJ700
+Concorde: concorde
+Cessna-560: cessna-560
+Cessna-525: Sessna 525 CitationJet Twin-turbofan BusinessJet
+Cessna-425: cessna 425
+Caravan: 房车,Recreational Vehicle
+C919: COMAC C919
+C-17: C-17 Globemaster III
+C-160: Transall C-160
+C-133: Casrgomaster
+Cessna-S550: cessna 550
+Cessna-650: cessna-650
+Cessna-550: cessna 550
+Cessna-441: cessna 441
+Cessna-402: Cessna 402
+CBA-123: EMB-123
+C-130: Lockheed C-130 Hercules
+Beechjet-400A: Beechjet400A
+BAe146-300: British Aerospace 146
+BAC1-11-500: BAC One-eleven
+B777-200A: Boeing 777-200
+B767-300: Boeing 767
+Beech-60: Hed Kandi
+Beech-350: Beechcraft King Air 350
+BAe146-100: British Aerospace 146
+B777-200IGW: Boeing 777-200
+B747SP: Boeing747SP
+B737-500: Boeing737-500
+B737-400: Boeing737-400
+B727-200: Boeing 727
+Avtek400: Avtek-400
+ATR72: ATR-72
+B747-400SP: Boeing747-400
+B737-800: Boeing737-800
+B737-200ADV: Boeing 737-200
+B707: Boeing 707,明日飞机
+ATR72-210: ATR-72
+AS350: AS350 Squirrel
+ARJ21F: Advanced Regional Jet for the 21st Century
+ARJ218: Advanced Regional Jet for 21st Century
+ARJ21-700: Advanced Regional Jet for the 21st Century
+AN72: Antonov An-72
+AN26: Antonov An-26
+ARJ: Advanced Regional Jet for 21st Century
+AN70T: КБ Антонов Ан-70
+AN22: Antonov An-22 Antheus
+AN12: Antonov An-12
+An-225: Antonov An-225 "Mriya"
+An-124: Antonov An-124 transport aircraft,鲁斯兰
+AE31X: Airbus A320
+A119: A119 Koala
+77W: Boeing 777
+B777-200: Boeing 777-200
+AN124: Antonov An-124 transport aircraft,鲁斯兰
+An-26: Antonov An-26
+An-12: Antonov An-12
+A350-1000: Airbus A350-1000
+A350-900: Airbus A350-900
+A340-313: Airbus A340-300
+A300-600ST: AIRBUS A300-600ST
+787: B787,Boeing 787 Dreamliner
+777-300: Boeing777-300
+767-200: Boeing767-200
+747-8: 波音747系列的新机型,Boeing747-8
+737-800: Boeing737-800
+737-600: Boeing 737-600
+737-500: Boeing737-500
+737-400: Boeing737-400
+B707-320C: Boeing 707,明日飞机
+B747-400 : Boeing747-400
+727: Boeing 727
+B707-120B: Boeing 720
+A310－300: Airbus A310
+A321-100: Airbus A321
+A310-200: Airbus A310
+中国商用飞机有限责任公司: Commercial Aircraft Corporation of China Ltd,中国商飞 COMAC
+A300-600: Airbus A300-600
+扰流板: Slingshot Autosculpt,汽车尾翼
+应答机: Answering machine
+音障: Sound barrier
+热障: thermal barrier;thermal curtain
+起飞滑跑距离: Taking-offRunningDistance
+导航: Navigation
+空中交通管理: air traffic management，ATM
+雷达: Radar（英文缩写）
+一次雷达: Primary Surveillance Radar
+航空: Aviation
+二字代码: IATA
+飞机颠簸: Turbulence
+通用航空: General Aviation
+航性标准: Aerospace standards
+备降: diversion
+飞机: aircraft
+TCAS: 空中警告及避撞系统，空中防撞系统
+PCN: 道面等级号,Pavement Classification Number
+APU: 辅助动力系统,auxiliary power unit
+联程机票: Connecting flight,联程航班,航班联程
+航空客运候补: 候补票
+金鹏俱乐部: FORTUNE WINGS CLUB
+急流: jet (高空急流 upper-level jet stream 低空急流 low-level jet stream)
+三字代码: 三字码,ICAO
+空中交通流量管理: ATFM,air traffic flow management
+A380系列: Airbus A380
 747系列: 波音747
-机体结构: 飞机部分
-安全检查: 安检
-餐饮服务: 吃的
-餐饮服务: 早餐
-行李收运: 带重
-机体结构: 主要部分
-中国南方航空股份有限公司: 中国最大的航空公司
+直升机: helicopter
+水上飞机: Seaplane;Flying Boat

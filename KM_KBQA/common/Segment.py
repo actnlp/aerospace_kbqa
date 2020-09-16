@@ -1,4 +1,3 @@
-
 import os
 from ltp import LTP
 from ..config.config import LEX_PATH

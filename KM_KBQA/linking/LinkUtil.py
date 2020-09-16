@@ -1,8 +1,7 @@
 from functools import lru_cache
-
 from fuzzywuzzy import fuzz
-
 from ..config import config
+import re
 
 aerospace_lexicons = set()
 with open(config.AEROSPACE_LEXICON_PATH, 'r') as f:
@@ -19,8 +18,8 @@ def generate_unigram(sent_cut, ignore_words=['服务']):
     unigram = []
     for w in sent_cut:
         if len(w) <= 1:
-            if w in {'丢', '住', '吃', '喝', '换', '停'}:
-                unigram.append(w)
+            # if w in {'丢', '住', '吃', '喝', '换', '停'}:
+            #     unigram.append(w)
             continue
         # if w == '服务':
         #     continue
@@ -41,9 +40,9 @@ def generate_bigram(sent_cut, pos_tag):
                for tag in pos_tag]
     used_words = [sent_cut[i] for i in range(n)
                   if len(sent_cut[i]) > 1 and
-                  pos_tag[i] != '' and
-                  '有' not in sent_cut[i] and
-                  '机场' not in sent_cut[i]
+                  pos_tag[i] != ''
+                  # and '有' not in sent_cut[i] and
+                  # '机场' not in sent_cut[i]
                   and sent_cut[i] not in aerospace_lexicons  # TODO 这个是为啥？？
                   ]
     # cand = []
@@ -55,8 +54,11 @@ def generate_bigram(sent_cut, pos_tag):
 
     # bigram = []
     for w in used_words:
-        for air_lexicon in aerospace_lexicons:
-            score = cal_ratio(w, air_lexicon)
+        if w in ['IATA','ICAO','iata','icao']:  # 这些字符的字串是某些实体的简称或者代码，所以不再进行匹配
+            continue
+        for lexicon in aerospace_lexicons:
+            # if bool(re.search('[A-Za-z]', lexicon))
+            score = cal_ratio(w, lexicon)
             if score > 70:
                 bigram.append(w)
                 break

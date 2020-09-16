@@ -223,7 +223,6 @@ class AsyncNeoDriver():
             arrow2 = '>'
         neo4j = 'match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return distinct m, id(m)'% (f_genre, arrow1, arrow2, c_genre, f_name)
         res = await self.execute_async(neo4j)
-        print(neo4j)
         # res = [x['name'] for x in result]
         # res = list(map(lambda x: tuple(x['row']), result['data']))
         # self.relation_cache[query_tuple] = res
@@ -280,7 +279,6 @@ class AsyncNeoDriver():
     async def get_label_by_id_async(self, id):
         result = await self.execute_async('match (n) where id(n) = %d return labels(n)' % (id))
         res = list(map(lambda x: x['row'][0][0], result['data']))
-
         return res
 
     def get_label_by_id(self, id):

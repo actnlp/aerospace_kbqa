@@ -1,5 +1,7 @@
 import re
+import pandas as pd
 from fuzzywuzzy import fuzz
+from ..config.config import AIRPORT_LEXICON_PATH
 
 
 class ConstraintExtractor():
@@ -101,9 +103,9 @@ class ConstraintExtractor():
         return ret
 
     def check_airport(self, sent):
-        airlines = ['敦煌国际机场', '北京首都机场']  # 找类型是机场的
+        airport = list(pd.read_csv(AIRPORT_LEXICON_PATH,sep="\n",header=None)[0]) # 找类型是机场的
         ret = []
-        for airline in airlines:
+        for airline in airport:
             if airline in sent:
                 ret.append(airline)
 
@@ -122,10 +124,11 @@ class ConstraintExtractor():
         constr = {'时间': '', '地点': ''}  # , '币种': '', '银行': '', '航空公司': '',  '价格': '', '机场': '',
         time_check = self.check_time(sent)
         loc_check = self.check_location(sent)
-        cur_check = self.check_currency(sent)
-        bank_check = self.check_bank(sent)
-        price_check = self.check_price(sent)
+        # cur_check = self.check_currency(sent)
+        # bank_check = self.check_bank(sent)
+        # price_check = self.check_price(sent)
         airline_check = self.check_airline(sent)
+        airport_check = self.check_airport(sent)
         # airport_check = self.check_airport(sent)
         if time_check is not None and len(time_check) > 0:
             constr['时间'] = time_check
@@ -135,13 +138,15 @@ class ConstraintExtractor():
         #     constr['币种'] = cur_check
         # if bank_check is not None and len(bank_check) > 0:
         #     constr['银行'] = bank_check
-        # if airline_check is not None and len(airline_check) > 0:
-        #     constr['航空公司'] = airline_check
+        if airline_check is not None and len(airline_check) > 0:
+            constr['航空公司'] = airline_check
+        if "机场" in sent and len(airport_check) > 0:
+            constr['机场'] = airport_check
         # if airport_check is not None and len(airport_check) > 0:  # zsh
         #     constr['机场'] = airport_check
         # if price_check is not None and len(price_check) > 0:
         #     constr['价格'] = price_check
-        for check in [time_check,loc_check,cur_check,bank_check,airline_check,price_check]:
+        for check in [time_check,loc_check,airline_check,airport_check]:
             if check is None:
                 return None
         # if time_check is None and loc_check is None and cur_check is None and bank_check is None and airline_check is None and price_check is None:

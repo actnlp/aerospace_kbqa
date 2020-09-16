@@ -8,6 +8,7 @@ model_path = os.path.join(project_dir, 'models')
 LEX_PATH = os.path.join(project_dir, 'lexicons')
 STOP_WORD_PATH = os.path.join(LEX_PATH, 'stopwords.txt')
 AEROSPACE_LEXICON_PATH = os.path.join(LEX_PATH, 'aerospace_lexicon.txt')
+AIRPORT_LEXICON_PATH = os.path.join(LEX_PATH, 'air_lexicon.txt')
 ENT_ALIAS_PATH = os.path.join(project_dir, 'res', 'ent_alias.txt')
 
 ####################################总部地点、省份、所在城市
@@ -28,8 +29,29 @@ ABS_REL_DICT = {'几点': '时间', '地址': '地点', '地方': '地点', '几
                 '联系电话': '联系电话', '电话': '电话', '联系方式': '联系方式'}
 
 LIST_WORD_LIST = ['有', '哪些', '几个', '可以', '介绍']
-FILTER_NODE_LABELS = ['行李安检', '普通行李', '航空公司',
-                      '电池', '剧毒物品', '非易燃物品', '放射性物品', '易燃易爆物品']
+
+# 可回答的列举类问题标志词
+LIST_CONTENT_LIST = ['航空公司', '航司', '机场']
+
+# CQA问题关键词
+CQA_QUESTION_WORDS = ["怎么做", "怎么办", "怎样", "如何", "办理", "手续", "流程", "要做什么", "有哪些要求", "目的", "为什么", "靠什么", "原理", "原因", "为何",
+                      "排名", "历史", "发展史", "趋势", "怎么来的", "来源", "优点", "缺点", "优缺点", "特点", "区别", "相比", "比较", "前者", "后者",
+                      "关系", "联系", "影响", "差值", "注意", "要求", "须知", "规则", "过程", "上飞机", "开飞机", "坐飞机", "需要", "可提供", "使用", "积分",
+                      "补偿", "故障", "携带", "排名", "发展", "起源", "计算", "怎么算"]
+# 非民航问题关键词
+NO_AIR_QUESTION_WORDS = ["直升机", "直升飞机", "招聘", "故事", "神话", "无人机", "无人飞机", "空军"]
+
+# 民航问题中频繁出现的词语
+FREQUENT_WORDS = ["飞机", "飞行", "客票", "航班", "行李"]  # "航空"容易影响"航空公司"问题，需要单独处理
+
+# 易被错匹配的术语类实体名称
+FREQUENT_MATCHED_ENT = ["机场", "飞机", "飞行（轮档）小时", "航空器（大中型）", "航空器（小型）", "航空", "客票", "航班", "行李"]
+
+# 特殊英语分词处理（如ca是国航的代码，如果把ICAO继续ngram，会在指称中出现ca，最终造成实体链接错误）
+SPECIAL_ENGLISH_IN_SEGMENT = {'IATA': ['AT', 'IA', 'ATA', 'TA', 'at', 'ia', 'ata', 'ta'], "ICAO": ['ca', 'CA']}
+
+# 航空公司公司名称中对实体相似度匹配无意义的词（在实体链接相似度匹配前需要删除）
+AIR_COMPANY_TAG = ['航空股份有限公司', '航空有限责任公司', '航空有限公司', '航空投资有限公司', '航空公司']
 
 
 class Airport:
@@ -38,7 +60,6 @@ class Airport:
         self.alias = ['昆明机场', '长水机场', '昆明长水机场']
         self.filter_words = ['昆明机场', '长水机场', '昆明长水', '昆明国际', '国际机场']
         self.remove_words = ['机场', '长水']
-
 
 airport = Airport()
 

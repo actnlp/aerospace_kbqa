@@ -7,6 +7,15 @@ from ..common.HITBert import cosine_word_similarity
 from ..config import config
 
 
+def contain_chinese(s):
+    s = s.replace('-', '').lower()
+    # if s in {'wifi', 'atm', 'vip', 'kfc', 'ktv'}:
+    #     return True
+    for c in s:
+        if ('\u4e00' <= c <= '\u9fa5'):
+            return True
+    return False
+
 class AbstractRelExtractor():
     def __init__(self):
         raise NotImplementedError
@@ -55,8 +64,8 @@ class MatchRelExtractor(AbstractRelExtractor):
 
     def normalize_ratio(self, word, prop):
         ratio = 1.0
-        if '时间' in prop and '时间' in word or '时间' in prop and '几点' in word:
-            ratio = 1.5
+        # if '时间' in prop and '时间' in word or '时间' in prop and '几点' in word:
+        #     ratio = 1.5
 
         # if '地址' in word and '地点' in prop or '地点' in prop and '地方' in word or '地点' in prop and '几楼' in word or '怎么走' in word and '地点' in prop or '位置' in word and '地点' in prop:
         place_words = ['地址', '地点', '总部', '位置']
@@ -83,7 +92,6 @@ class MatchRelExtractor(AbstractRelExtractor):
                     thresh=config.prop_ths):
         ent = linked_ent['ent']
         mention = linked_ent.get('mention', ent['name'])  # 链接结果中该实体的指代名称
-        # extract all prop， 限制支持一个？
         props_dict = {}
 
         for prop, value in ent.items():
@@ -133,10 +141,11 @@ class MatchRelExtractor(AbstractRelExtractor):
                 text_score = fuzz.UQRatio(word, prop)/100
                 ratio = 0.6
                 score = ratio*cos_score + (1-ratio)*text_score
-                rule_score = self.normalize_ratio(word, prop)
-                score = rule_score if rule_score > 1 else score
+                # rule_score = self.normalize_ratio(word, prop)  # 暂停用规则抽取得分
+                # score = rule_score if rule_score > 1 else score
                 if word in prop and len(word) > 1:
-                    score *= 1.2
+                    if word not in ['定义']:
+                        score *= 1.2
                 if score > thresh and (word, prop) not in used_pairs:
                     used_pairs.add((word, prop))
                     # res.append([neoId, cand_name, ent_name, {
