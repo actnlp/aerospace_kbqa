@@ -20515,3 +20515,5 @@ EGAC n
 KVBG n
 guiding mark n
 运营模式 n
+行李破损 n
+行李赔偿 n

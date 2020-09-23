@@ -123,6 +123,7 @@ class MatchRelExtractor(AbstractRelExtractor):
         '''
         rest_words = [
             w for w in sent_cut if w not in mention]  # 除了指代以外的其他分词（在这些词中找关系）
+        print("mention ",mention,' ',"rest_words",rest_words)
         props_set = list(props_dict.keys())
 
         props_set.remove('name')
@@ -135,12 +136,14 @@ class MatchRelExtractor(AbstractRelExtractor):
         for prop in props_set:
             old_prop = prop
             for word in rest_words:
-                # prop = prop.replace('服务', '')
-                cos_score = cosine_word_similarity(
-                    word, self.normalize_prop(prop))
-                text_score = fuzz.UQRatio(word, prop)/100
-                ratio = 0.6
-                score = ratio*cos_score + (1-ratio)*text_score
+                if word==prop:
+                    score = 1
+                else:
+                    cos_score = cosine_word_similarity(
+                        word, prop)
+                    text_score = fuzz.UQRatio(word, prop)/100
+                    ratio = 0.6
+                    score = ratio*cos_score + (1-ratio)*text_score
                 # rule_score = self.normalize_ratio(word, prop)  # 暂停用规则抽取得分
                 # score = rule_score if rule_score > 1 else score
                 if word in prop and len(word) > 1:

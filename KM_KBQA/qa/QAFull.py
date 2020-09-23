@@ -15,10 +15,10 @@ class QAFull():
     def not_kbqa_question(self,question):
         for word in config.NO_AIR_QUESTION_WORDS:
             if word in question:
-                return ["非民航问题"]
+                return "非民航问题"
         for word in config.CQA_QUESTION_WORDS:
             if word in question:
-                return ["非KBQA问题"]
+                return "非KBQA问题"
         return False
 
     def contain_freq_word(self, question):
@@ -40,5 +40,5 @@ class QAFull():
             else:
                 ans = self.kbqa.answer(sent)
             return ans
-        except:
-            return []
+        except Exception as e:
+            return [e.args]

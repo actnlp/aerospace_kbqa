@@ -64,6 +64,24 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
     return sent
 
 
+# 取列表中不被其他字符串包含的字符串 如：['IATA','IA','AT','中国航空公司','国航']，结果是['IATA', '中国航空公司']
+def remain_max_string(name_list,sent_cut):
+    res = []
+    all_list = name_list+sent_cut
+    for i in all_list:
+        item = all_list.copy()
+        item.remove(i)
+        flag = True
+        for k in item:
+            if i in k:
+                flag = False
+                break
+        if flag:
+            res.append(i)
+    res = list(set(res) - set(sent_cut))
+    return res
+
+
 class QA():
     stop_list = ['吗', '里面']
     rpl_list = [('在哪', '的地点所在城市'),
@@ -74,7 +92,6 @@ class QA():
                 ('vip', '贵宾'),
                 ('我国', '国内'),
                 # ('国内', '中国'),
-                ('功能', '作用'),
                 ('哪个航空公司', '公司名称'),
                 ('哪家航空公司', '公司名称'),
                 ('什么航空公司', '公司名称'),
@@ -94,13 +111,18 @@ class QA():
                 ('烧什么油', '燃料'),
                 ('个部分', '组成'),
                 ('修好', '故障'),
+                ('官方网站', '官网'),
+                ('公司性质', '公司类型'),
                 ('播音', '波音公司'),
                 ('二字码', 'IATA代码'),
                 ('二字代码', 'IATA代码'),
                 ('四字码', 'ICAO代码'),
                 ('四字代码', 'ICAO代码'),
                 ('功用', '作用'),
+                ('什么用', '作用'),
+                ('功能', '作用'),
                 ('不足', '缺点'),
+                ('优势', '优点'),
                 ('哪年成立的', '成立时间'),
                 ('什么时候建的', '成立时间'),
                 ('什么时间建的', '成立时间'),
@@ -167,15 +189,17 @@ class QA():
         for word in aerospace_lexicons:
             word = str(word)
             if (word in sent or word in sent_replaced) and word not in sent_cut_pro:
-                sent_cut_pro.append(word)
-                pos_tag_pro.append('n')
                 ent_list.append(word)
+
+        ent_list = remain_max_string(ent_list,sent_cut_pro)
+        sent_cut_pro += ent_list
+        pos_tag_pro += ['n' for i in range(len(ent_list))]
 
         # 去除英文分词错误
         # 如：分词中既有IATA，又有IA。如果删除句子中的IATA后，不存在IA字符串，说明IA是分词错误，需要删除
-        for word,sup_word in config.SPECIAL_ENGLISH_IN_SEGMENT.items(): # eg：{'IATA':['AT', 'IA', 'ATA', 'TA']}
+        for word, sup_word in config.SPECIAL_ENGLISH_IN_SEGMENT.items():  # eg：{'IATA':['AT', 'IA', 'ATA', 'TA']}
             if word in sent_cut_pro and any([sup in sent_cut_pro for sup in sup_word]):  # 分词中既有IATA，又有IA或ATA
-                temp = sent.replace(word,"")
+                temp = sent.replace(word, "")
                 if any([sup in temp for sup in sup_word]) is False:  # 删除IATA后，句子中不再有IA或ATA，删除IA和ATA
                     for sup in sup_word:
                         if sup in sent_cut_pro:
@@ -250,7 +274,6 @@ class QA():
                     } for e in instances])
             elif ent['entity_label'] == 'Instance':  # or ent['name'] in EntityLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
-
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
         id2linked_ent = {
             ent['id']: ent
@@ -388,14 +411,12 @@ class QA():
 
     def rank_ans(self, qa_res, sent):
         for ans in qa_res:
-            # # 各步骤分值相加
-            # ans['final_score'] = ans.get('constr_score', 0) + \
-            #     ans['link_score'] + \
-            #     ans.get('rel_score', 0)
-            # 各步骤分值相乘
-            ans['final_score'] = ans.get('constr_score', 1) * \
-                ans['link_score'] * \
-                ans.get('rel_score', 1)
+            # 各步骤分值相加
+            ans['final_score'] = ans['link_score'] * 0.65 + ans.get('rel_score', 0) * 0.35  # ans.get('constr_score', 0) + \
+            # # 各步骤分值相乘
+            # ans['final_score'] = ans.get('constr_score', 1) * \
+            #     ans['link_score'] * \
+            #     ans.get('rel_score', 1)
         qa_res.sort(key=lambda ans: ans['final_score'], reverse=True)
         # score相同，mention是问题子串的排在前面
         for i in range(len(qa_res)):
@@ -426,6 +447,7 @@ class QA():
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
         logger.debug('cut :' + str(sent_cut))
+        print('cut :' + str(sent_cut))
 
         # 2. 提取限制条件:时间、地点、航空公司等
         constr_res = self.constr_extractor.extract(sent)
