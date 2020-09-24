@@ -35,7 +35,6 @@ class QAFull():
             no_kbqa_flag = self.not_kbqa_question(sent)
             if no_kbqa_flag:
                 # ans = [{'natural_ans': not_kbqa_flag}]
-                ans = [no_kbqa_flag]
                 ans = [{'answers':no_kbqa_flag}]
                 logger.info('%s: %s' % (no_kbqa_flag,sent))
             else:
