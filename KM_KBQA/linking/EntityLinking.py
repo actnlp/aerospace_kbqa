@@ -161,7 +161,7 @@ class RuleLinker():
 
         if not mention_list:
             return []
-        list_words = ['哪些', '几个', '列举']  # "几个"覆盖词汇：哪几个，有几个
+        list_words = ['哪些', '几个', '列举', '都有','哪几大']  # "几个"覆盖词汇：哪几个，有几个
         is_list = any([w in sent for w in list_words])
 
         res = []
@@ -318,11 +318,10 @@ class RuleLinker():
                             'score': 2.5,
                             'source': 'rule'})
                 # continue  # 存在实体名称也是英文，所以不能continue
-
-            is_not_ent, true_ent = self.is_not_entity(mention)
-            cand_names = self.convert_mention2ent(mention)  # 查找 mention代表的实体名称
+            is_not_ent, cand_names = self.is_not_entity(mention)
+            # cand_names = self.convert_mention2ent(mention)  # 查找 mention代表的实体名称
             # 别名字典中找到了mention代表的实体,直接返回候选实体
-            if cand_names != [mention]:
+            if cand_names:
                 for linked_ent_name in cand_names:
                     # 通过name查找实体信息
                     ent = self.id2ent[linked_ent_name]
@@ -333,16 +332,9 @@ class RuleLinker():
                         'score': 1,
                         'source': 'rule'
                     })
-            elif true_ent:
-                # 通过name查找实体信息
-                ent = self.id2ent[true_ent]
-                one_res.append({
-                    'ent': ent,
-                    'mention': mention,
-                    'id': ent['neoId'],
-                    'score': 1,
-                    'source': 'rule'
-                })
+            else:
+                cand_names = [mention]
+
             # 没有通过别名字典直接匹配到实体，则进行相似度匹配
             if not one_res:
                 for ent in self.id2ent.values():
@@ -455,28 +447,36 @@ class RuleLinker():
                 return ent_names
         return [mention]
 
-    def is_not_entity(self, item):
+    def merge_dict(self,dict1,dict2):
+        tmp = dict2
+        return tmp.update(dict1)
+
+    def is_not_entity(self, mention):
         """
         判断是否是实体
         return bool 实体是否是实体, 代表的实体名名称
         """
-        true_ent_name = ""
-        ent_list = list(self.mention2ent.keys()) + self.ent_names
-        # 英文字符串：同时判断大小写
-        if not contain_chinese(item):
-            for word in [item, item.upper()]:
-                if word in ent_list:
-                    true_ent_name = word
-                    if word in self.mention2ent:
-                        true_ent_name = self.mention2ent[word]
-                    return False, true_ent_name
-        elif item not in ent_list:
-            return True, ""
+        if contain_english(mention):
+            word_list = [mention, mention.upper()]  # 英文字符串需要同时判断大写和小写
+        else:
+            word_list = [mention]
 
-        if item in self.mention2ent:
-            true_ent_name = self.mention2ent[item]
+        ent_names = []
+        for word in word_list:
+            # 是否是实体名
+            if word in self.ent_names:  # self.ent_names是所有实体name和别名，根据self.mention2ent可以找到实体的name
+                # 是否属于实体别名
+                ent_names = self.mention2ent.get(word, [])
+                if ent_names:
+                    if not isinstance(ent_names, list):
+                        ent_names = [ent_names]
+                else:
+                    ent_names.append(word)
+        if ent_names:
+            return False, ent_names
+        else:
+            return True, None
 
-        return False, true_ent_name
 
     def rewrite_ent_name(self, ent_name):
         ent_name = ent_name.split('(')[0].split('（')[0].lower()  # 中英文括号前面的部分
