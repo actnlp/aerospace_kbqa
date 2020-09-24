@@ -36,9 +36,10 @@ class QAFull():
             if no_kbqa_flag:
                 # ans = [{'natural_ans': not_kbqa_flag}]
                 ans = [no_kbqa_flag]
+                ans = [{'answers':no_kbqa_flag}]
                 logger.info('%s: %s' % (no_kbqa_flag,sent))
             else:
                 ans = self.kbqa.answer(sent)
             return ans
         except Exception as e:
-            return [e.args]
+            return [e]
