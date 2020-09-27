@@ -1,7 +1,7 @@
 from ..config import config
 
 
-def check_list_questions(sent, link_res):
+def check_list_questions(sent):
     # def has_rel_word(word, prop):
     #     ret = False
     #     if '时间' in prop and '时间' in word or '时间' in prop and '几点' in word:
@@ -42,9 +42,9 @@ def check_list_questions(sent, link_res):
                 break
         return flag
 
-    if len(link_res) > 0 and list_able_content(sent):
-        min_start = min(map(lambda ent: sent.find(ent.get('mention', '')),
-                            link_res))
+    if list_able_content(sent):
+        # min_start = min(map(lambda ent: sent.find(ent.get('mention', '')),
+        #                     link_res))
         # 查找是否有一个listword在句子里面
         for list_word in config.LIST_WORD_LIST:
             word_loc = sent.find(list_word)

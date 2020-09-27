@@ -5,3 +5,4 @@ KM_KBQA/models/*
 *.log
 test/result/*
 *.xlsx
+KM_KBQA/res/entity_encode*

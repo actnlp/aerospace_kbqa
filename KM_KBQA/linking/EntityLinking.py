@@ -46,10 +46,11 @@ def make_mention2ent(ent2alias):
     mention2ent = {}
     for ent, alias in ent2alias.items():
         for mention in alias:
+            mention = mention.lower()
             if mention in mention2ent:
-                mention2ent[mention].append(ent)
+                mention2ent[mention].append(ent.lower())
             else:
-                mention2ent[mention] = [ent]
+                mention2ent[mention] = [ent.lower()]
     return mention2ent
 
 
@@ -73,14 +74,30 @@ class RuleLinker():
         else:
             self.driver = driver
         self.load_all_entities(entity_labels=['Instance'])
+        self.alias2manufacturers = self.load_manufacturer_alias()
         ent2alias = load_ent_alias(config.ENT_ALIAS_PATH)
         self.mention2ent = make_mention2ent(ent2alias)
+
+    #  获取飞机制造公司的所有名称，包括所有别名
+    def load_manufacturer_alias(self):
+        manufacturers_info = self.driver.get_entities_by_property('类别', '民航企业').result()
+        manufacturers2alias,  _, _ = self.get_entity_all_alias(manufacturers_info)  # manufacturers_alias name:[所有别名]
+        # reverse dict
+        alias2ent = {}
+        for ent, alias in manufacturers2alias.items():
+            for word in alias:
+                word = word.lower()
+                if word not in alias2ent:
+                    alias2ent[word] = ent.lower()
+            if ent not in alias2ent:
+                alias2ent[ent] = ent
+        return alias2ent
 
     #  获取所有实体的所有名称，包括所有别名
     def get_entity_all_alias(self, all_entities):
         all_alias = {}
         all_names, prop_list, alias_filter = [], [], []
-        alias_prop_list = ['别名', '全称', '简称', '名称', '呼号', '外文', '中文', '英文', 'IATA', 'ICAO', '三字', '二字']
+        alias_prop_list = ['别名', '全称', '简称', '名称', '呼号', '外文', '中文', '英文', 'IATA', 'ICAO', '三字', '二字','曾用','前身']
 
         for e in all_entities:
             alias = []
@@ -132,10 +149,10 @@ class RuleLinker():
             tmp_entities = self.driver.get_all_entities(entity_label).result()
             for e in tmp_entities:
                 e['entity_label'] = entity_label
-            tmp_entities = [e for e in tmp_entities
-                            if not self.is_special_entity(e)]
+            # tmp_entities = [e for e in tmp_entities
+            #                 if not self.is_special_entity(e)]
             all_entities += tmp_entities
-        self.id2ent = {x['name']: x for x in all_entities}
+        self.id2ent = {x['name'].lower(): x for x in all_entities}  # 为方便后续英文实体匹配，将所有英文部分转化为小写
         self.all_alias, self.ent_names, _ = self.get_entity_all_alias(all_entities)
 
     def load_location(self, tname):
@@ -148,7 +165,7 @@ class RuleLinker():
         return location
 
     # @lru_cache(maxsize=128)
-    def link(self, sent, sent_cut, pos_tag, limits=None):
+    def link(self, sent, sent_cut, pos_tag, is_list, limits=None):
         # use bert embedding to fuzzy match entities
         # mention_list = recognize_entity(sent)
         mention_list = retrieve_mention(sent_cut, pos_tag)
@@ -161,8 +178,8 @@ class RuleLinker():
 
         if not mention_list:
             return []
-        list_words = ['哪些', '几个', '列举', '都有','哪几大']  # "几个"覆盖词汇：哪几个，有几个
-        is_list = any([w in sent for w in list_words])
+        # list_words = ['哪些', '几个', '列举', '都有','哪几大']  # "几个"覆盖词汇：哪几个，有几个
+        # is_list = any([w in sent for w in list_words])
 
         res = []
         country_list = ['俄罗斯', '挪威', '美国', '蒙古', '泰国', '韩国']
@@ -173,6 +190,28 @@ class RuleLinker():
         city = self.load_location(config.CITY)
         ############################################
         if is_list:  # 分国内航空公司，国外航空公司，航空公司和机场分具体国家，省份，城市
+            # 机型列举
+            if any([word in sent for word in self.alias2manufacturers]) and any([word in sent for word in ['机型', '系列','飞机']]) :
+                manufacturer = None
+                # 链接 制造商
+                for word in self.alias2manufacturers:
+                    if word in sent:
+                        manufacturer = self.alias2manufacturers[word]
+                        break
+                if manufacturer:
+                    linked_ent = self.driver.get_genres_by_relation(f_genre='Instance',c_genre='SubGenre',f_name=manufacturer,relation='制造').result()
+                    if linked_ent:
+                        for ent in linked_ent:
+                            ent['entity_label'] = 'SubGenre'
+                            res.append({
+                                'ent': ent,
+                                'mention': word,
+                                'rel_name': '类别',
+                                'rel_val': '飞机型号',
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
+            # 国内航空公司
             if any([word in mention for word in ['国内', '中国'] for mention in mention_list]) and any(
                 [word in mention for word in company_word for mention in mention_list]):
                 for ent in self.id2ent.values():
@@ -334,7 +373,6 @@ class RuleLinker():
                     })
             else:
                 cand_names = [mention]
-
             # 没有通过别名字典直接匹配到实体，则进行相似度匹配
             if not one_res:
                 for ent in self.id2ent.values():
@@ -379,7 +417,6 @@ class RuleLinker():
                             # score_cos = score
                             score1 = fuzz.UQRatio(cand_name, ent_name_rewrite) / 100
                             score = RATIO * score + (1 - RATIO) * score1
-
                         one_res.append({
                             'ent': ent,
                             'mention': mention,
@@ -393,15 +430,16 @@ class RuleLinker():
                             break
                         """  # 因为存在同名实体，如术语PCN和皮克顿机场机场的三字码都是PCN，所以不能用score=1判断匹配截止
             # 连接到的实体中事发后有非术语类型的实体, 是, 则降低民航术语实体分值
-            link_not_terms_flag = any([ent['ent']['类别']!='民航术语' for ent in one_res if ent['score'] > 0.8])
-            for i, a_res in enumerate(one_res):
-                # 降低常见词、民航术语的分值
-                # 常见词 或 民航术语 在其他类别实体的属性中出现的几率大，如果有匹配到非术语类实体，则需要降低置信度
-                if link_not_terms_flag:
-                    if a_res['ent']['name'] in config.FREQUENT_MATCHED_ENT:
-                        one_res[i]['score'] = 0.4
-                    elif a_res['ent']['类别'] == "民航术语":
-                        one_res[i]['score'] = 0.5
+            link_not_terms_flag = any([ent['ent']['类别']!='民航术语' and ent['ent']['name'] not in config.FREQUENT_MATCHED_ENT for ent in one_res if ent['score'] > config.simi_ths])
+            # 降低常见词、民航术语的分值
+            # 常见词 或 民航术语 在其他类别实体的属性中出现的几率大，如果有匹配到非术语类实体，则需要降低置信度
+            if link_not_terms_flag:
+                for i, a_res in enumerate(one_res):
+                    if a_res['score']> config.simi_ths:
+                        if a_res['ent']['name'] in config.FREQUENT_MATCHED_ENT :
+                            one_res[i]['score'] = 0.8
+                        elif a_res['ent']['类别'] == "民航术语":
+                            one_res[i]['score'] = 0.81
 
             one_res.sort(key=lambda x: x['score'], reverse=True)
             for a_res in one_res[:3]:
@@ -409,11 +447,11 @@ class RuleLinker():
                     res.append(a_res)
 
         # 如果链接到了非术语类型的实体，则降低术语类型实体的分值
-        link_not_terms_ent = any([ent['ent']['类别'] != '民航术语' for ent in res if ent['score'] > 0.8])
+        link_not_terms_ent = any([ent['ent']['类别'] != '民航术语' for ent in res])
         if link_not_terms_ent:
             for i, r in enumerate(res):
-                if r['ent']['类别'] == "民航术语" and res[i]['score'] > 0.8:
-                    res[i]['score'] = 0.5
+                if r['ent']['类别'] == "民航术语" and r['score']> config.simi_ths:
+                    res[i]['score'] = 0.8
         res.sort(key=lambda x: x['score'], reverse=True)
 
         return res
@@ -456,22 +494,18 @@ class RuleLinker():
         判断是否是实体
         return bool 实体是否是实体, 代表的实体名名称
         """
-        if contain_english(mention):
-            word_list = [mention, mention.upper()]  # 英文字符串需要同时判断大写和小写
-        else:
-            word_list = [mention]
-
         ent_names = []
-        for word in word_list:
-            # 是否是实体名
-            if word in self.ent_names:  # self.ent_names是所有实体name和别名，根据self.mention2ent可以找到实体的name
-                # 是否属于实体别名
-                ent_names = self.mention2ent.get(word, [])
-                if ent_names:
-                    if not isinstance(ent_names, list):
-                        ent_names = [ent_names]
-                else:
-                    ent_names.append(word)
+        all_ent_names = [item.lower() for item in self.ent_names]
+        if mention in all_ent_names:  # self.ent_names是所有实体name和别名，根据self.mention2ent可以找到实体的name
+            # 是否属于实体别名
+            ent_names = self.mention2ent.get(mention, [])
+            print("ent_names ",ent_names)
+            if ent_names:
+                if not isinstance(ent_names, list):
+                    ent_names = [ent_names.lower()]
+            else:
+                ent_names.append(mention)
+
         if ent_names:
             return False, ent_names
         else:

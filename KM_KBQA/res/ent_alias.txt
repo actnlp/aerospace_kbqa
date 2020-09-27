@@ -5874,6 +5874,7 @@ PassaredoTransportesAereos: 2Z,PTB
 客公里收入: revenue per RPKs
 客座利用率: seat utilization
 机翼: wing
+临界马赫数: 临界M数
 庞巴迪: Bombardier,庞巴迪公司
 波音飞机公司: 公司1916.7.15-1917.5.9名叫B&W,波音,The Boeing Company
 空中客车公司: Airbus
@@ -6431,6 +6432,7 @@ B707-120B: Boeing 720
 A310－300: Airbus A310
 A321-100: Airbus A321
 A310-200: Airbus A310
+运-10: 运-十,运10,运十,Y-10
 中国商用飞机有限责任公司: Commercial Aircraft Corporation of China Ltd,中国商飞 COMAC
 A300-600: Airbus A300-600
 扰流板: Slingshot Autosculpt,汽车尾翼
@@ -6458,7 +6460,7 @@ APU: 辅助动力系统,auxiliary power unit
 急流: jet (高空急流 upper-level jet stream 低空急流 low-level jet stream)
 三字代码: 三字码,ICAO
 空中交通流量管理: ATFM,air traffic flow management
-A380系列: Airbus A380
+A380: Airbus A380,空客A380
 747系列: 波音747
 直升机: helicopter
 水上飞机: Seaplane;Flying Boat

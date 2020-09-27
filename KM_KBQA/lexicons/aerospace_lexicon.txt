@@ -11,7 +11,7 @@ LRAR n
 凯恩斯国际机场 n
 LY n
 HDH n
-A380系列 n
+A380 n
 温斯德雷赫特机场 n
 Srinagar Airport n
 NSH n
@@ -1040,7 +1040,6 @@ SE n
 总申报单 n
 布莱斯机场 n
 ILY n
-飞机重量 n
 3H n
 MMIM n
 CYVM n
@@ -8225,7 +8224,6 @@ LEVX n
 PATE n
 KGJT n
 WJA n
-380 n
 萨莫比佛机场 n
 OKN n
 KPSP n
@@ -14065,6 +14063,8 @@ HDOB n
 YKII n
 VEY n
 机翼 n
+临界马赫数 n
+临界M数 n
 斯特朗赛机场 n
 SOOS n
 ITB n
@@ -15726,6 +15726,7 @@ YWH n
 HOP n
 YXX n
 波音747 n
+运-10 n
 PNA n
 MEC n
 C919大型客机 n

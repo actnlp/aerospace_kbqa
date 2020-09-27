@@ -100,6 +100,7 @@ class QA():
                 ('每小时多少公里', '速度'),
                 ('坐多少人', '容量'),
                 ('失事的几率', '事故率'),
+                ('载客', '客运量'),
                 ('英文是', '外文名'),
                 ('英文名是', '外文名'),
                 ('英语', '外文名'),
@@ -162,6 +163,8 @@ class QA():
             3. 分词后替换规则：停用词，特殊词
         """
         # 分词前替换规则：过滤掉停用词，替换抽象词汇    如'在哪儿'表示'的地点'
+        if "有机场吗" in sent:
+            sent = sent.replace("有机场吗",'有哪些机场')
         sent_replaced = replace_word(sent, QA.stop_list, QA.rpl_list, QA.special_rules)
         # 分词
         sent_cut, pos_tag = seg.pos_cut(sent_replaced)  # pos_cut：list(zip(*pseg.cut(sent))) pos_tag：词性标注
@@ -190,7 +193,7 @@ class QA():
             word = str(word)
             if (word in sent or word in sent_replaced) and word not in sent_cut_pro:
                 ent_list.append(word)
-
+        print("ent_list ", ent_list)
         ent_list = remain_max_string(ent_list,sent_cut_pro)
         sent_cut_pro += ent_list
         pos_tag_pro += ['n' for i in range(len(ent_list))]
@@ -225,7 +228,7 @@ class QA():
         return sent_replaced, sent_cut, pos_tag
 
     # @lru_cache(maxsize=128)
-    def link(self, sent, sent_cut, pos_tag):
+    def link(self, sent, sent_cut, pos_tag, is_list):
         def merge_link_res(res, id2linked_ent):
             for linked_ent in res:
                 neoId = linked_ent['id']
@@ -244,7 +247,7 @@ class QA():
         # commercial_res = self.commercial_linker.link(sent, sent_cut)  # 注释掉 zsh
         # print('商业链接: %s' % str(commercial_res))
 
-        rule_res = self.rule_linker.link(sent, sent_cut, pos_tag)  # bert embedding to fuzzy match entities
+        rule_res = self.rule_linker.link(sent, sent_cut, pos_tag, is_list)  # bert embedding to fuzzy match entities
         logger.debug('规则链接: %s' % str(rule_res))
         link_res = rule_res
         id2linked_ent = {linked_ent['id']: linked_ent
@@ -259,7 +262,7 @@ class QA():
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if ent['entity_label'] in ['SubGenre','SubGenre_child', 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
+            if not is_list and ent['entity_label'] in ['SubGenre','SubGenre_child', 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
                 # if self.rule_linker.is_special_entity(ent):  # 注释掉 zsh
                 #     continue
                 instances = self.get_instances(
@@ -272,7 +275,7 @@ class QA():
                         'score':linked_ent['score'],
                         'source':linked_ent['source']+' sub',  # source 是指是bert结果，还是规则匹配结果
                     } for e in instances])
-            elif ent['entity_label'] == 'Instance':  # or ent['name'] in EntityLinking.exception_subgenre:
+            elif is_list or ent['entity_label'] == 'Instance':  # or ent['name'] in EntityLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
         id2linked_ent = {
@@ -412,7 +415,7 @@ class QA():
     def rank_ans(self, qa_res, sent):
         for ans in qa_res:
             # 各步骤分值相加
-            ans['final_score'] = ans['link_score'] * 0.65 + ans.get('rel_score', 0) * 0.35  # ans.get('constr_score', 0) + \
+            ans['final_score'] = ans.get('link_score', 0) * 0.65 + ans.get('rel_score', 0) * 0.35  # ans.get('constr_score', 0) + \
             # # 各步骤分值相乘
             # ans['final_score'] = ans.get('constr_score', 1) * \
             #     ans['link_score'] * \
@@ -447,30 +450,33 @@ class QA():
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
         logger.debug('cut :' + str(sent_cut))
-        print('cut :' + str(sent_cut))
+        print('sent :' + str(sent))
 
         # 2. 提取限制条件:时间、地点、航空公司等
         constr_res = self.constr_extractor.extract(sent)
         logger.debug('限制: ' + str(constr_res))
 
-        # 3. link: 使用多种linker，合并结果
-        link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag)
-        logger.debug('链接结果: ' + str(link_res[:10]))
-
-        # 4. 处理列举类型：问句询问某实体是否存在或存在数量
-        is_list = check_list_questions(sent, link_res)  # 提及具体的属性（如时间等）则False
+        # 3. 处理列举类型：问句询问某实体是否存在或存在数量
+        is_list = check_list_questions(sent)  # 提及具体的属性（如时间等）则False
         logger.debug('是否列举: ' + str(is_list))
 
+        # 4. link: 使用多种linker，合并结果
+        link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag, is_list)
+        logger.debug('链接结果: ' + str(link_res[:10]))
+
         # 5. 非列举型匹配关系 extract relations, match+bert
-        rel_match_res = self.extract_rel(sent, sent_cut, link_res)
-        logger.debug('关系匹配: ' + str(rel_match_res[:10]))
+        if not is_list:
+            rel_match_res = self.extract_rel(sent, sent_cut, link_res)
+            logger.debug('关系匹配: ' + str(rel_match_res[:10]))
+        else:
+            rel_match_res = []
 
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         qa_res = []
         LINK_THRESH = 0.8
         REL_THRESH = 0.8
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
-        if is_list:
+        if is_list and len(link_res) > 0:
             qa_res.extend([{
                 'id': linked_ent['id'],
                 'mention': linked_ent.get('mention', linked_ent['ent']['name']),

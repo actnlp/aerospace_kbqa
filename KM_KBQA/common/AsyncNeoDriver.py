@@ -101,6 +101,10 @@ class AsyncNeoDriver():
                                           (self.entity_label, property, value))
         return self.process_result(result)
 
+    def get_entities_by_property(self, property, value):
+        return asyncio.run_coroutine_threadsafe(
+            self.get_entities_by_property_async(property, value), self.loop)
+
     async def get_entities_by_property_async(self, property, value):
         result = await self.execute_async('match (n) where n.%s="%s" return n,id(n)' %
                                           (property, value))
@@ -211,7 +215,7 @@ class AsyncNeoDriver():
             return r is not None and r != []
         return asyncio.run_coroutine_threadsafe(_exist_name(name), self.loop)
 
-    async def get_genres_by_relation_async(self, f_genre, c_genre, f_name, reverse=False):
+    async def get_genres_by_relation_async(self, f_genre, c_genre, f_name, reverse=False,relation=None):
         '''
             return : list of triples (relation, entity name, entity neoId)
         '''
@@ -221,19 +225,23 @@ class AsyncNeoDriver():
             arrow1 = '<'
         else:
             arrow2 = '>'
-        neo4j = 'match (n:%s)%s-[r]-%s(m:%s) where n.name =\'%s\' return distinct m, id(m)'% (f_genre, arrow1, arrow2, c_genre, f_name)
+        if relation:
+            r_name = ':'+relation
+        else:
+            r_name = ''
+        neo4j = 'match (n:%s)%s-[r%s]-%s(m:%s) where n.name =\'%s\' return distinct m, id(m)'% (f_genre, arrow1, r_name, arrow2, c_genre, f_name)
         res = await self.execute_async(neo4j)
         # res = [x['name'] for x in result]
         # res = list(map(lambda x: tuple(x['row']), result['data']))
         # self.relation_cache[query_tuple] = res
         return self.process_result(res)
 
-    def get_genres_by_relation(self, f_genre, c_genre, f_name, reverse=False):
+    def get_genres_by_relation(self, f_genre, c_genre, f_name, reverse=False,relation=None):
         '''
             return : list of triples (relation, entity name, entity neoId)
         '''
         return asyncio.run_coroutine_threadsafe(
-            self.get_genres_by_relation_async(f_genre, c_genre, f_name, reverse), self.loop)
+            self.get_genres_by_relation_async(f_genre, c_genre, f_name, reverse,relation), self.loop)
 
     async def get_relations_by_id_async(self, id, l_label, r_label, direction=''):
         '''
