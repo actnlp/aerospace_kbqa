@@ -190,8 +190,8 @@ class RuleLinker():
         city = self.load_location(config.CITY)
         ############################################
         if is_list:  # 分国内航空公司，国外航空公司，航空公司和机场分具体国家，省份，城市
-            # 机型列举
-            if any([word in sent for word in self.alias2manufacturers]) and any([word in sent for word in ['机型', '系列','飞机']]) :
+        # 机型列举
+            if any([word in sent for word in ['机型', '系列','飞机']]) and any([word in sent for word in self.alias2manufacturers]) :
                 manufacturer = None
                 # 链接 制造商
                 for word in self.alias2manufacturers:
@@ -211,116 +211,118 @@ class RuleLinker():
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
-            # 国内航空公司
-            if any([word in mention for word in ['国内', '中国'] for mention in mention_list]) and any(
-                [word in mention for word in company_word for mention in mention_list]):
-                for ent in self.id2ent.values():
-                    if '类别' not in ent:
-                        continue
-                    if ent['类别'] == '国内航空公司':
-                        res.append({
-                            'ent': ent,
-                            'mention': ''.join(['中国', '航空公司']),
-                            'rel_name': '类别',
-                            'rel_val': '中国航空公司',
-                            'id': ent['neoId'],
-                            'score': 1.5,
-                            'source': 'rule'})
-            elif any([word in mention for word in country_list for mention in mention_list]) and any(
-                [word in mention for word in company_word for mention in mention_list]):
-                for c in country_list:
-                    if c in mention_list:
-                        country = c
-                        continue
-                word = [word for word in mention_list if word in country_list][0]
-                for ent in self.id2ent.values():
-                    flag = False
-                    if '类别' not in ent:
-                        continue
-                    if ent['类别'] == '国外航空公司':
-                        if '别名' in ent and any([word in name for name in eval(ent['别名'])]):
-                            flag = True
-                        if '公司名称' in ent and word in ent['公司名称']:
-                            flag = True
-                        if flag:
+        # 航司列举
+            elif any([word in mention for word in company_word for mention in mention_list]):
+                if any([word in mention for word in ['国内', '中国'] for mention in mention_list]):
+                    # 国内航空公司
+                    for ent in self.id2ent.values():
+                        if '类别' not in ent:
+                            continue
+                        if ent['类别'] == '国内航空公司':
                             res.append({
                                 'ent': ent,
-                                'mention': '国外航空公司',
+                                'mention': ''.join(['中国', '航空公司']),
                                 'rel_name': '类别',
-                                'rel_val': country + '航空公司',
+                                'rel_val': '中国航空公司',
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
-            ##############################################
-            elif any([word in Headquaters_location for word in mention_list]) and any(
-                [word in mention for word in company_word for mention in mention_list]):
-                for word in mention_list:
-                    if word in Headquaters_location:
-                        head_l = word
-                for ent in self.id2ent.values():
-                    if '总部地点' not in ent:
-                        continue
-                    if ent['总部地点'] == head_l:
-                        res.append({
-                            'ent': ent,
-                            'mention': ''.join([head_l, '航空公司']),
-                            'rel_name': '总部地点',
-                            'rel_val': head_l + '航空公司',
-                            'id': ent['neoId'],
-                            'score': 1.5,
-                            'source': 'rule'})
-            ################################################
-            elif any([word in mention for word in ['国内', '中国'] for mention in mention_list]) and "机场" in mention_list:
-                for word in mention_list:
-                    if word in province:
-                        pro = word
-                for ent in self.id2ent.values():
-                    if '类别' not in ent:
-                        continue
-                    if ent['类别'] == '国内机场':
-                        res.append({
-                            'ent': ent,
-                            'mention': '国内机场',
-                            'rel_name': '类别',
-                            'rel_val': '国内机场',
-                            'id': ent['neoId'],
-                            'score': 1.5,
-                            'source': 'rule'})
-            elif any([word in province for word in mention_list]) and "机场" in mention_list:
-                for word in mention_list:
-                    if word in province:
-                        pro = word
-                for ent in self.id2ent.values():
-                    if '省份' not in ent:
-                        continue
-                    if ent['省份'] == pro:
-                        res.append({
-                            'ent': ent,
-                            'mention': ''.join([pro, '的机场']),
-                            'rel_name': '省份',
-                            'rel_val': pro + '的机场',
-                            'id': ent['neoId'],
-                            'score': 1.5,
-                            'source': 'rule'})
-            ################################################
-            elif any([word in city for word in mention_list]) and "机场" in mention_list:
-                for word in mention_list:
-                    if word in city:
-                        ci = word
-                        break
-                for ent in self.id2ent.values():
-                    if '所在城市' not in ent or '类别' not in ent or ent['类别'] not in ['国内机场', '国外机场']:
-                        continue
-                    if ent['所在城市'] == ci:
-                        res.append({
-                            'ent': ent,
-                            'mention': ''.join([ci, '的机场']),
-                            'rel_name': '所在城市',
-                            'rel_val': ci + '的机场',
-                            'id': ent['neoId'],
-                            'score': 1.5,
-                            'source': 'rule'})
-            ################################################
+                elif any([word in mention for word in country_list for mention in mention_list]):
+                    # 某个城市的航空公司
+                    for c in country_list:
+                        if c in mention_list:
+                            country = c
+                            continue
+                    word = [word for word in mention_list if word in country_list][0]
+                    for ent in self.id2ent.values():
+                        flag = False
+                        if '类别' not in ent:
+                            continue
+                        if ent['类别'] == '国外航空公司':
+                            if '别名' in ent and any([word in name for name in eval(ent['别名'])]):
+                                flag = True
+                            if '公司名称' in ent and word in ent['公司名称']:
+                                flag = True
+                            if flag:
+                                res.append({
+                                    'ent': ent,
+                                    'mention': '国外航空公司',
+                                    'rel_name': '类别',
+                                    'rel_val': country + '航空公司',
+                                    'id': ent['neoId'],
+                                    'score': 1.5,
+                                    'source': 'rule'})
+                elif any([word in Headquaters_location for word in mention_list]):
+                    # 根据总部地点查找航司
+                    for word in mention_list:
+                        if word in Headquaters_location:
+                            head_l = word
+                    for ent in self.id2ent.values():
+                        if '总部地点' not in ent:
+                            continue
+                        if ent['总部地点'] == head_l:
+                            res.append({
+                                'ent': ent,
+                                'mention': ''.join([head_l, '航空公司']),
+                                'rel_name': '总部地点',
+                                'rel_val': head_l + '航空公司',
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
+        # 机场列举
+            elif any(["机场" in mention for mention in mention_list]):
+                if any([word in mention for word in ['国内', '中国'] for mention in mention_list]):
+                    # 国内机场
+                    for word in mention_list:
+                        if word in province:
+                            pro = word
+                    for ent in self.id2ent.values():
+                        if '类别' not in ent:
+                            continue
+                        if ent['类别'] == '国内机场':
+                            res.append({
+                                'ent': ent,
+                                'mention': '国内机场',
+                                'rel_name': '类别',
+                                'rel_val': '国内机场',
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
+                elif any([word in province for word in mention_list]):
+                    # 某个省份的机场
+                    for word in mention_list:
+                        if word in province:
+                            pro = word
+                    for ent in self.id2ent.values():
+                        if '省份' not in ent:
+                            continue
+                        if ent['省份'] == pro:
+                            res.append({
+                                'ent': ent,
+                                'mention': ''.join([pro, '的机场']),
+                                'rel_name': '省份',
+                                'rel_val': pro + '的机场',
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
+                elif any([word in city for word in mention_list]):
+                    # 某个城市的机场
+                    for word in mention_list:
+                        if word in city:
+                            ci = word
+                            break
+                    for ent in self.id2ent.values():
+                        if '所在城市' not in ent or '类别' not in ent or ent['类别'] not in ['国内机场', '国外机场']:
+                            continue
+                        if ent['所在城市'] == ci:
+                            res.append({
+                                'ent': ent,
+                                'mention': ''.join([ci, '的机场']),
+                                'rel_name': '所在城市',
+                                'rel_val': ci + '的机场',
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
             if res:
                 return res
 
