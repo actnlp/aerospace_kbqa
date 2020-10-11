@@ -45,7 +45,7 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
     for replace in rpl_list:
         sent = sent.replace(replace[0], replace[1])
 
-    code_word = ['三字码','三字代码']  # IATA是航司的二字码，机场的三字码
+    code_word = ['三字']  # IATA是航司的二字码，机场的三字码
     for word in code_word:
         if word in sent:
             en_name = 'IATA' if '机场' in sent else 'ICAO'
@@ -98,6 +98,7 @@ class QA():
                 ('什么公司', '公司名称'),
                 ('哪个公司', '公司名称'),
                 ('每小时多少公里', '速度'),
+                ('飞多少小时？', '飞行时间'),
                 ('坐多少人', '容量'),
                 ('失事的几率', '事故率'),
                 ('载客', '客运量'),
@@ -115,10 +116,8 @@ class QA():
                 ('官方网站', '官网'),
                 ('公司性质', '公司类型'),
                 ('播音', '波音公司'),
-                ('二字码', 'IATA代码'),
-                ('二字代码', 'IATA代码'),
-                ('四字码', 'ICAO代码'),
-                ('四字代码', 'ICAO代码'),
+                ('二字', 'IATA代码'),
+                ('四字', 'ICAO代码'),
                 ('功用', '作用'),
                 ('什么用', '作用'),
                 ('功能', '作用'),
@@ -131,11 +130,13 @@ class QA():
                 ('什么时候成立', '成立时间'),
                 ('时候', '时间'),
                 ('机型', '飞机型号'),
+                ('简写', '简称'),
                 ('是怎么回事', '定义'),
                 ('什么意思', '定义'),
                 ('什么是', '定义'),
                 ('什么叫', '定义'),
                 ('是什么', '定义'),
+                ('指什么', '定义'),
                 ('什么叫做', '定义')]
     special_rules = [
         [("航班", "不正常"), "不正常航班"],
@@ -193,7 +194,6 @@ class QA():
             word = str(word)
             if (word in sent or word in sent_replaced) and word not in sent_cut_pro:
                 ent_list.append(word)
-        print("ent_list ", ent_list)
         ent_list = remain_max_string(ent_list,sent_cut_pro)
         sent_cut_pro += ent_list
         pos_tag_pro += ['n' for i in range(len(ent_list))]
@@ -290,14 +290,17 @@ class QA():
             parent_label, instance_label, parent_name, reverse=True).result()
         return instances
 
-    def extract_rel(self, sent: str, sent_cut: list, link_res):
+    def extract_rel(self, sent: str, sent_cut: list, link_res, is_list=False):
         # 抽取关系
-        rel_match_res = []
+        rel_match_res, properties = [], []
         for linked_ent in link_res:
             ent = linked_ent['ent']
             # 匹配关系
             rel_matched = self.match_extractor.extract_rel(
-                sent_cut, linked_ent)
+                sent_cut, linked_ent, is_list, limits=None,
+                thresh=config.prop_ths)
+            if is_list and rel_matched and not properties:
+                properties = [item['rel_name'] for item in rel_match_res]
             rel_match_res += rel_matched
             # bert 提取关系
             """ 
@@ -310,7 +313,8 @@ class QA():
                     else:
                         rel_match_res.append(bert_rel)
             """
-        return rel_match_res
+        return rel_match_res, properties
+
 
     def match_constraint(self, qa_res, constraint, id2linked_ent):
         non_empty_constr = [(constr_name, constr_val) for constr_name, constr_val in constraint.items()
@@ -387,7 +391,7 @@ class QA():
                         if prop in ["name","名称","neoId","entity_label"]:
                             continue
                         info = ent[prop]
-                        if "[" in info:
+                        if info[0] == '[' and info[-1] == ']':
                             info = eval(info)
                             info = str("、".join(info))
                         desc = "%s是%s" % (prop, info)
@@ -450,7 +454,6 @@ class QA():
         # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
         logger.debug('cut :' + str(sent_cut))
-        print('sent :' + str(sent))
 
         # 2. 提取限制条件:时间、地点、航空公司等
         constr_res = self.constr_extractor.extract(sent)
@@ -464,12 +467,13 @@ class QA():
         link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag, is_list)
         logger.debug('链接结果: ' + str(link_res[:10]))
 
-        # 5. 非列举型匹配关系 extract relations, match+bert
-        if not is_list:
-            rel_match_res = self.extract_rel(sent, sent_cut, link_res)
-            logger.debug('关系匹配: ' + str(rel_match_res[:10]))
+        # 5. 匹配关系 extract relations, match+bert
+        rel_match_res,properties = self.extract_rel(sent, sent_cut, link_res, is_list)
+        logger.debug('关系匹配: ' + str(rel_match_res[:10]))
+        if is_list and rel_match_res:
+            property_name = properties
         else:
-            rel_match_res = []
+            property_name = None
 
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         qa_res = []
@@ -477,12 +481,27 @@ class QA():
         REL_THRESH = 0.8
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list and len(link_res) > 0:
-            qa_res.extend([{
-                'id': linked_ent['id'],
-                'mention': linked_ent.get('mention', linked_ent['ent']['name']),
-                'entity': linked_ent['ent']['name'],
-                'link_score': linked_ent['score'],
-            } for linked_ent in link_res])
+            rel_match_res_id = [item['id'] for item in rel_match_res]
+            for linked_ent in link_res:
+                if linked_ent['id'] not in rel_match_res_id:
+                    qa_res.append({
+                        'id': linked_ent['id'],
+                        'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                        'entity': linked_ent['ent']['name'],
+                        'link_score': linked_ent['score'],
+                    })
+                else:
+                    for item in rel_match_res:
+                        if item['entity'] != linked_ent['ent']['name']:
+                            continue
+                        if item['rel_score'] >= REL_THRESH and item['link_score'] >= LINK_THRESH:
+                            qa_res.append(item)
+            # qa_res.extend([{
+            #     'id': linked_ent['id'],
+            #     'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+            #     'entity': linked_ent['ent']['name'],
+            #     'link_score': linked_ent['score'],
+            # } for linked_ent in link_res])
         else:
             # 删掉关系匹配的结果中，匹配结果不高的部分
             qa_res.extend([rel_res for rel_res in rel_match_res
@@ -492,24 +511,32 @@ class QA():
             for linked_ent in link_res:
                 if linked_ent['id'] not in match_rel_ent_ids \
                         and linked_ent['score'] >= LINK_THRESH:
-                    if '定义' in linked_ent['ent'].keys():
-                        qa_res.append({
-                            'id': linked_ent['id'],
-                            'mention': linked_ent.get('mention', linked_ent['ent']['name']),
-                            'entity': linked_ent['ent']['name'],
-                            'rel_name': '定义',
-                            'rel_val': linked_ent['ent']['定义'],
-                            'link_score': linked_ent['score'],
-                            'rel_score': 0.8,
-                            'rel_source': 'match'
-                        })
-                    else:
-                        qa_res.append({
-                            'id': linked_ent['id'],
-                            'mention': linked_ent.get('mention', linked_ent['ent']['name']),
-                            'entity': linked_ent['ent']['name'],
-                            'link_score': linked_ent['score']
-                        })
+
+                    qa_res.append({
+                        'id': linked_ent['id'],
+                        'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                        'entity': linked_ent['ent']['name'],
+                        'link_score': linked_ent['score']
+                    })
+
+                    # if '定义' in linked_ent['ent'].keys():
+                    #     qa_res.append({
+                    #         'id': linked_ent['id'],
+                    #         'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                    #         'entity': linked_ent['ent']['name'],
+                    #         'rel_name': '定义',
+                    #         'rel_val': linked_ent['ent']['定义'],
+                    #         'link_score': linked_ent['score'],
+                    #         'rel_score': 0.5,
+                    #         'rel_source': 'match'
+                    #     })
+                    # else:
+                    #     qa_res.append({
+                    #         'id': linked_ent['id'],
+                    #         'mention': linked_ent.get('mention', linked_ent['ent']['name']),
+                    #         'entity': linked_ent['ent']['name'],
+                    #         'link_score': linked_ent['score']
+                    #     })
 
         # 7. 匹配机场本身相关的问题
         """
@@ -535,27 +562,36 @@ class QA():
 
         if is_list:
             # 10. 生成自然语言答案
-            natural_ans = []
             filtered_qa_res = []
-            ent_name = qa_res[0]['mention']
-            cnt = len(qa_res)
-            ans_name = ent_name
-            natural_ans = '您好，%s有' % (ans_name)
-            true_entity = ""
-            for res in qa_res:
-                natural_ans = ''
-                airline_ans = ''
-                true_entity = true_entity + res['entity'] +'、'
+            ids = {item['id']: 0 for item in qa_res}
+            cnt = len(ids)
 
-            natural_ans += true_entity
-            n_ans = natural_ans[:-1]
+            ans_all = []
+            if property_name:
+                for i, res in enumerate(qa_res):
+                    if 'rel_val' not in res:
+                        res['rel_val'] = '暂无'
+                        res['rel_name'] = "和".join(property_name)
+                    if res['entity'] == qa_res[i - 1]['entity']:
+                        ans_all[-1] += "  {}是{}".format(res['rel_name'], res['rel_val'])
+                    else:
+                        ans_all.append("{}的{}是{}".format(res['entity'], res['rel_name'], res['rel_val']))
+            else:
+                for res in qa_res:
+                    ans_all.append(res['entity'])
+            ans_all_head = []
+            ans_all_behind = []
+            for ans_str in ans_all:
+                if "暂无" in ans_str:
+                    ans_all_behind.append(ans_str)
+                else:
+                    ans_all_head.append(ans_str)
+            ans_all = ans_all_head + ans_all_behind
+            natural_ans = "、".join(ans_all)
             _res = dict()
-            _res['natural_ans'] = n_ans
+            _res['natural_ans'] = natural_ans
             filtered_qa_res.append(_res)
-            # logger.info('自然语言答案: ' + str(natural_ans))
-            # end = time.clock()
-            # print('答案生成： %s Seconds'%(end-start))
-            # start = end
+            logger.info('自然语言答案: ' + str(natural_ans))
             return self.frontend.decorate(filtered_qa_res, cnt)
         else:
             # 9. 答案排序

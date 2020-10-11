@@ -88,6 +88,7 @@ class MatchRelExtractor(AbstractRelExtractor):
 
     def extract_rel(self, sent_cut,
                     linked_ent,
+                    is_list=False,
                     limits=None,
                     thresh=config.prop_ths):
         ent = linked_ent['ent']
@@ -123,46 +124,65 @@ class MatchRelExtractor(AbstractRelExtractor):
         '''
         rest_words = [
             w for w in sent_cut if w not in mention]  # 除了指代以外的其他分词（在这些词中找关系）
-        print("mention ",mention,' ',"rest_words",rest_words)
+        # print("mention ",mention,' ',"rest_words",rest_words)
         props_set = list(props_dict.keys())
 
         props_set.remove('name')
         if '名称' in props_set:
             props_set.remove('名称')
-
+        if is_list and '公司名称' in props_set:
+            props_set.remove('公司名称')
         # cal prop rel similarity
         res = []
         used_pairs = set()
         for prop in props_set:
             old_prop = prop
             for word in rest_words:
-                if word==prop:
+                if word.lower() in ['icao','iata']:
+                    word += '代码'
+                if word.lower() == prop.lower():
                     score = 1
                 else:
                     cos_score = cosine_word_similarity(
                         word, prop)
-                    text_score = fuzz.UQRatio(word, prop)/100
+                    text_score = fuzz.UQRatio(word.lower(), prop.lower())/100
                     ratio = 0.6
                     score = ratio*cos_score + (1-ratio)*text_score
                 # rule_score = self.normalize_ratio(word, prop)  # 暂停用规则抽取得分
                 # score = rule_score if rule_score > 1 else score
-                if word in prop and len(word) > 1:
+                if word.lower() in prop.lower() and len(word) > 1:
                     if word not in ['定义']:
                         score *= 1.2
-                if score > thresh and (word, prop) not in used_pairs:
-                    used_pairs.add((word, prop))
-                    # res.append([neoId, cand_name, ent_name, {
-                    #    prop: props_dict[prop]}, accepted_limit, score, ent_score])
-                    res.append({
-                        'id': ent['neoId'],
-                        'mention': mention,
-                        'entity': ent['name'],
-                        'rel_name': old_prop,
-                        'rel_val': props_dict[old_prop],
-                        'link_score': linked_ent['score'],
-                        'rel_score': score,
-                        'rel_source': 'match'
-                    })
+                if score > thresh:
+                    if (word, prop) not in used_pairs:
+                        used_pairs.add((word, prop))
+                        # res.append([neoId, cand_name, ent_name, {
+                        #    prop: props_dict[prop]}, accepted_limit, score, ent_score])
+                        res.append({
+                            'id': ent['neoId'],
+                            'mention': mention,
+                            'entity': ent['name'],
+                            'rel_name': old_prop,
+                            'rel_val': props_dict[old_prop],
+                            'link_score': linked_ent['score'],
+                            'rel_score': score,
+                            'rel_source': 'match'
+                        })
+                    else:
+                        for i,item in enumerate(res):
+                            if item['rel_name'] == prop:
+                                if item['rel_name']['rel_score'] < score:
+                                    res[i] = {
+                                        'id': ent['neoId'],
+                                        'mention': mention,
+                                        'entity': ent['name'],
+                                        'rel_name': old_prop,
+                                        'rel_val': props_dict[old_prop],
+                                        'link_score': linked_ent['score'],
+                                        'rel_score': score,
+                                        'rel_source': 'match'
+                                    }
+                                break
         if len(res) == 0:
             return []
         res.sort(key=lambda x: x['rel_score'], reverse=True)

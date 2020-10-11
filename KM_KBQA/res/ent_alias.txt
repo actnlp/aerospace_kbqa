@@ -5252,7 +5252,7 @@ MOPAH机场: WAKK,MKQ
 克鲁格尔－普马兰加国际机场: MQP,FAKN
 三宝颜机场: RPMZ,ZAM
 马拉纳机场: KMZJ,MZJ,Pinal Airpark
-承运人: carrier
+承运人: carrier,航空承运人
 可提供客公里: ASKs
 巴西航空工业公司: Embraer S.A.
 湾流宇航公司: Gulfstream Aerospace Corporation,美国湾流公司

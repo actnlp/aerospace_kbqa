@@ -191,29 +191,60 @@ class RuleLinker():
         ############################################
         if is_list:  # 分国内航空公司，国外航空公司，航空公司和机场分具体国家，省份，城市
         # 机型列举
-            if any([word in sent for word in ['机型', '系列','飞机']]) and any([word in sent for word in self.alias2manufacturers]) :
-                manufacturer = None
-                # 链接 制造商
-                for word in self.alias2manufacturers:
-                    if word in sent:
-                        manufacturer = self.alias2manufacturers[word]
-                        break
-                if manufacturer:
-                    linked_ent = self.driver.get_genres_by_relation(f_genre='Instance',c_genre='SubGenre',f_name=manufacturer,relation='制造').result()
+            if any([word in sent for word in ['机型', '系列','飞机']]):
+                if any([word in sent for word in self.alias2manufacturers]):
+                    manufacturer = None
+                    # 链接 制造商
+                    for word in self.alias2manufacturers:
+                        if word in sent:
+                            manufacturer = self.alias2manufacturers[word]
+                            break
+                    if manufacturer:
+                        linked_ent = self.driver.get_genres_by_relation(f_genre='Instance',c_genre='SubGenre',f_name=manufacturer,relation='制造').result()
+                        if linked_ent:
+                            for ent in linked_ent:
+                                ent['entity_label'] = 'SubGenre'
+                                res.append({
+                                    'ent': ent,
+                                    'mention': word,
+                                    'rel_name': '类别',
+                                    'rel_val': '飞机型号',
+                                    'id': ent['neoId'],
+                                    'score': 1.5,
+                                    'source': 'rule'})
+                else:
+                    if "型" in sent:
+                        type='飞机型号'
+                        entity_label = 'SubGenre'
+                    else:
+                        type='飞机'
+                        entity_label = 'Instance'
+
+                    linked_ent = self.driver.get_entities_by_property('类别', type).result()
                     if linked_ent:
                         for ent in linked_ent:
-                            ent['entity_label'] = 'SubGenre'
+                            if ent['name']=='飞机':
+                                continue
+                            ent['entity_label'] = entity_label
                             res.append({
                                 'ent': ent,
-                                'mention': word,
+                                'mention': '飞机',
                                 'rel_name': '类别',
-                                'rel_val': '飞机型号',
+                                'rel_val': '飞机',
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
         # 航司列举
             elif any([word in mention for word in company_word for mention in mention_list]):
-                if any([word in mention for word in ['国内', '中国'] for mention in mention_list]):
+                # 判断某些词语在是否存在与mention中
+                def word_in_mentionlist(word_list,mention_list):
+                    for word in word_list:
+                        for mention in mention_list:
+                            if word in mention:
+                                return word
+                    return False
+                if word_in_mentionlist(['国内','中国'],mention_list):
+                    key_word = word_in_mentionlist(['国内','中国'],mention_list)
                     # 国内航空公司
                     for ent in self.id2ent.values():
                         if '类别' not in ent:
@@ -221,34 +252,31 @@ class RuleLinker():
                         if ent['类别'] == '国内航空公司':
                             res.append({
                                 'ent': ent,
-                                'mention': ''.join(['中国', '航空公司']),
+                                'mention': ''.join([key_word, '航空公司']),
                                 'rel_name': '类别',
                                 'rel_val': '中国航空公司',
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
-                elif any([word in mention for word in country_list for mention in mention_list]):
+                elif word_in_mentionlist(country_list,mention_list):
                     # 某个城市的航空公司
-                    for c in country_list:
-                        if c in mention_list:
-                            country = c
-                            continue
-                    word = [word for word in mention_list if word in country_list][0]
+                    country = word_in_mentionlist(country_list,mention_list)
+                    # word = [word for word in mention_list if word in country_list][0]
                     for ent in self.id2ent.values():
                         flag = False
                         if '类别' not in ent:
                             continue
                         if ent['类别'] == '国外航空公司':
-                            if '别名' in ent and any([word in name for name in eval(ent['别名'])]):
+                            if '别名' in ent and any([country in name for name in eval(ent['别名'])]):
                                 flag = True
-                            if '公司名称' in ent and word in ent['公司名称']:
+                            if '公司名称' in ent and country in ent['公司名称']:
                                 flag = True
                             if flag:
                                 res.append({
                                     'ent': ent,
-                                    'mention': '国外航空公司',
+                                    'mention': country + '航空公司',
                                     'rel_name': '类别',
-                                    'rel_val': country + '航空公司',
+                                    'rel_val': '国外航空公司',
                                     'id': ent['neoId'],
                                     'score': 1.5,
                                     'source': 'rule'})
@@ -266,6 +294,19 @@ class RuleLinker():
                                 'mention': ''.join([head_l, '航空公司']),
                                 'rel_name': '总部地点',
                                 'rel_val': head_l + '航空公司',
+                                'id': ent['neoId'],
+                                'score': 1.5,
+                                'source': 'rule'})
+                else:
+                    for ent in self.id2ent.values():
+                        if '类别' not in ent:
+                            continue
+                        if ent['类别'] in ['国外航空公司','国内航空公司']:
+                            res.append({
+                                'ent': ent,
+                                'mention': ent['类别'],
+                                'rel_name': '类别',
+                                'rel_val': ent['类别'],
                                 'id': ent['neoId'],
                                 'score': 1.5,
                                 'source': 'rule'})
@@ -501,7 +542,6 @@ class RuleLinker():
         if mention in all_ent_names:  # self.ent_names是所有实体name和别名，根据self.mention2ent可以找到实体的name
             # 是否属于实体别名
             ent_names = self.mention2ent.get(mention, [])
-            print("ent_names ",ent_names)
             if ent_names:
                 if not isinstance(ent_names, list):
                     ent_names = [ent_names.lower()]
