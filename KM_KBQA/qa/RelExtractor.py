@@ -150,9 +150,9 @@ class MatchRelExtractor(AbstractRelExtractor):
                     score = ratio*cos_score + (1-ratio)*text_score
                 # rule_score = self.normalize_ratio(word, prop)  # 暂停用规则抽取得分
                 # score = rule_score if rule_score > 1 else score
-                if word.lower() in prop.lower() and len(word) > 1:
-                    if word not in ['定义']:
-                        score *= 1.2
+                # if word.lower() in prop.lower() and len(word) > 1:
+                #     if word not in ['定义']:
+                #         score *= 1.2
                 if score > thresh:
                     if (word, prop) not in used_pairs:
                         used_pairs.add((word, prop))

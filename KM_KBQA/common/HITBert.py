@@ -6,7 +6,7 @@ import torch,time,json
 import torch.nn.functional as F
 from transformers import BertConfig, BertModel, BertTokenizer
 
-all_entity_encode_path = 'KM_KBQA/res/entity_encode_new.txt'
+all_entity_encode_path = 'KM_KBQA/res/entity_encode_1029.txt'
 pretrained_bert_path = 'KM_KBQA/models'
 
 hit_tokenizer = BertTokenizer.from_pretrained(pretrained_bert_path)

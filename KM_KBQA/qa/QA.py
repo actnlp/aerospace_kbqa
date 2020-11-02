@@ -51,6 +51,11 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
             en_name = 'IATA' if '机场' in sent else 'ICAO'
             sent = sent.replace(word,en_name)
 
+    # 航司全称是公司名称，机场的全称是中文名
+    if '全称' in sent:
+        property = '中文名' if '机场' in sent else '公司名称'
+        sent = sent.replace('全称', property)
+
     for rules in special_rules:
         keywords = rules[0]
         name = rules[1]
@@ -250,11 +255,6 @@ class QA():
         rule_res = self.rule_linker.link(sent, sent_cut, pos_tag, is_list)  # bert embedding to fuzzy match entities
         logger.debug('规则链接: %s' % str(rule_res))
         link_res = rule_res
-        id2linked_ent = {linked_ent['id']: linked_ent
-                         for linked_ent in link_res}
-
-        # merge bert res
-        # merge_link_res(bert_res, id2linked_ent) # zsh
 
         # merge commecial res
         # merge_link_res(commercial_res, id2linked_ent) # 注释掉 zsh
@@ -262,7 +262,7 @@ class QA():
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if not is_list and ent['entity_label'] in ['SubGenre','SubGenre_child', 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
+            if not is_list and ent['entity_label'] in ['SubGenre', 'SubGenre_child', 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
                 # if self.rule_linker.is_special_entity(ent):  # 注释掉 zsh
                 #     continue
                 instances = self.get_instances(
@@ -278,11 +278,15 @@ class QA():
             elif is_list or ent['entity_label'] == 'Instance':  # or ent['name'] in EntityLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
-        id2linked_ent = {
-            ent['id']: ent
-            for ent in link_res_extend}
-        # if ent['ent']['label'] == 'Instance'}
-        #print(link_res_extend)
+
+        id2linked_ent = {}
+        id2linked_ent = {linked_ent['id']: linked_ent
+                         for linked_ent in link_res if linked_ent['id'] not in id2linked_ent or (linked_ent['id'] in id2linked_ent and id2linked_ent[linked_ent['id']]['score'] < linked_ent['score'])}
+
+        link_res_extend = []
+        for k,v in id2linked_ent.items():
+            link_res_extend.append(v)
+
         return link_res_extend, id2linked_ent
 
     def get_instances(self, parent_name, parent_label, instance_label):
@@ -319,7 +323,8 @@ class QA():
     def match_constraint(self, qa_res, constraint, id2linked_ent):
         non_empty_constr = [(constr_name, constr_val) for constr_name, constr_val in constraint.items()
                             if constr_val != '' and constr_val is not None]
-        for ans in qa_res:
+        is_matched = False
+        for i,ans in enumerate(qa_res):
             linked_ent = id2linked_ent[ans['id']]
             match_res = None
             try:
@@ -330,7 +335,7 @@ class QA():
 
             ans['constr_score'] = 0
             if match_res is not None and len(match_res) != 0:
-                # logger.info('限制匹配结果: '+str(match_res))
+                logger.info('限制匹配结果: '+str(match_res))
                 for constr, is_match in match_res.items():
                     if is_match:
                         ans['constr_score'] += 0.3
@@ -344,6 +349,10 @@ class QA():
                         ans['link_score'] -= 0.3
                     else:
                         ans['constr_score'] += -0.2
+            if ans['constr_score']>0:
+                is_matched = True
+            qa_res[i] = ans
+        return qa_res,is_matched
 
     def generate_natural_ans(self, qa_res: dict, id2linked_ent, flag):
         linked_ent = id2linked_ent[qa_res['id']]
@@ -418,8 +427,12 @@ class QA():
 
     def rank_ans(self, qa_res, sent):
         for ans in qa_res:
-            # 各步骤分值相加
-            ans['final_score'] = ans.get('link_score', 0) * 0.65 + ans.get('rel_score', 0) * 0.35  # ans.get('constr_score', 0) + \
+            if ans.get('rel_score', 0) == 0 and ans['mention'] == sent:
+                # 判断问题中是否只有实体，不包含属性。如果只包含实体，则不进行权值计算，只取实体链接得分
+                ans['final_score'] = ans['link_score']
+            else:
+                # 各步骤分值相加
+                ans['final_score'] = ans.get('link_score', 0) * 0.75 + ans.get('rel_score', 0) * 0.25  # ans.get('constr_score', 0) + \
             # # 各步骤分值相乘
             # ans['final_score'] = ans.get('constr_score', 1) * \
             #     ans['link_score'] * \
@@ -429,7 +442,11 @@ class QA():
         for i in range(len(qa_res)):
             if qa_res[i]['mention'] in sent:
                 if qa_res[i]['final_score'] == qa_res[i-1]['final_score']:
-                    if qa_res[i-1]['mention'] in sent and len(qa_res[i]['mention']) > len(qa_res[i-1]['mention']):
+                    long_metion = len(qa_res[i]['mention']) > len(qa_res[i-1]['mention'])
+                    long_relation = 'rel_name' in qa_res[i] and 'rel_name' in qa_res[i - 1] \
+                                    and len(qa_res[i]['rel_name']) > len(qa_res[i - 1]['rel_name'])
+                    pre_is_definition = 'rel_name' in qa_res[i - 1] and qa_res[i - 1]['rel_name'] == "定义"
+                    if qa_res[i -1]['mention'] in sent and (long_metion or long_relation or pre_is_definition):
                         temp = qa_res[i].copy()
                         qa_res[i] = qa_res[i-1]
                         qa_res[i-1] = temp
@@ -478,10 +495,11 @@ class QA():
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         qa_res = []
         LINK_THRESH = 0.8
-        REL_THRESH = 0.8
+        REL_THRESH = 0.72
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
         if is_list and len(link_res) > 0:
             rel_match_res_id = [item['id'] for item in rel_match_res]
+            max_rel_score = 0
             for linked_ent in link_res:
                 if linked_ent['id'] not in rel_match_res_id:
                     qa_res.append({
@@ -496,6 +514,8 @@ class QA():
                             continue
                         if item['rel_score'] >= REL_THRESH and item['link_score'] >= LINK_THRESH:
                             qa_res.append(item)
+                            if item['rel_score'] > max_rel_score:
+                                max_rel_score = item['rel_score']
             # qa_res.extend([{
             #     'id': linked_ent['id'],
             #     'mention': linked_ent.get('mention', linked_ent['ent']['name']),
@@ -557,8 +577,12 @@ class QA():
         """
 
         # 8. 匹配限制
-        # if any(map(lambda x: x != '', constr_res.values())):
-        #     self.match_constraint(qa_res, constr_res, id2linked_ent)
+        if any(map(lambda x: x != '', constr_res.values())):
+            qa_res,is_matched = self.match_constraint(qa_res, constr_res, id2linked_ent)
+            if is_matched:
+                qa_res = [ent for ent in qa_res if ent['constr_score']>0]
+            qa_res = sorted(qa_res,key=lambda x:x['constr_score'],reverse=True)
+            logger.debug('限制结果: ' + str(qa_res))
 
         if is_list:
             # 10. 生成自然语言答案
@@ -590,6 +614,7 @@ class QA():
             natural_ans = "、".join(ans_all)
             _res = dict()
             _res['natural_ans'] = natural_ans
+            _res['final_score'] = qa_res[0]['link_score'] * 0.75 + max_rel_score * 0.25
             filtered_qa_res.append(_res)
             logger.info('自然语言答案: ' + str(natural_ans))
             return self.frontend.decorate(filtered_qa_res, cnt)
@@ -605,17 +630,17 @@ class QA():
             for res in qa_res:
                 n_ans = self.generate_natural_ans(res, id2linked_ent, 1)
                 if n_ans not in natural_ans:
-                    res['natural_ans'] = n_ans
+                    res['natural_ans'] = n_ans.replace("\n",'')
                     natural_ans.append(n_ans)
                     filtered_qa_res.append(res)
             logger.info('自然语言答案: ' + str(natural_ans))
 
-            # 11 对包含常见民航词语（飞机、飞行、航空）的问题进行阈值控制
-            aver_final_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
-            if self.contain_freq_word(sent) \
-                and min_threshold_contain_freq <= aver_final_score <= max_threshold_contain_freq \
-                and len(sent) > max_sent_len_contain_freq:
-                filtered_qa_res = []
+            # # 11 对包含常见民航词语（飞机、飞行、航空）的问题进行阈值控制  阈值待调整 1101
+            # aver_final_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
+            # if self.contain_freq_word(sent) \
+            #     and min_threshold_contain_freq <= aver_final_score <= max_threshold_contain_freq \
+            #     and len(sent) > max_sent_len_contain_freq:
+            #     filtered_qa_res = []
             return self.frontend.decorate(filtered_qa_res[:3], -1)  # -1表示非列举类问题
 
     def contain_freq_word(self, question):
@@ -666,6 +691,7 @@ class FrontendAdapter():
             }
         """
         answer = qa_res['natural_ans']
+        score = qa_res['final_score']
         nodes = []
         edges = []
         global_id = 0
@@ -703,7 +729,8 @@ class FrontendAdapter():
             list_flag = True
         if list_flag:
             return {
-                'answers': '搜寻到的结果数:{}  {} '.format(cnt,answer)
+                'answers': '搜寻到的结果数:{}  {} '.format(cnt,answer),
+                'score': qa_res['final_score']
             }
 
         topic_ent = make_node(int(qa_res['id']), qa_res['entity'], 'answer_entity')
@@ -724,6 +751,7 @@ class FrontendAdapter():
 
         return {
             'answers': answer,
+            'score': score,
             'nodes': nodes,
             'edges': edges
         }

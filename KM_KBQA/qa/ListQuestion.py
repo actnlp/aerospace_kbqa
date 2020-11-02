@@ -1,4 +1,5 @@
 from ..config import config
+import pandas as pd
 
 
 def check_list_questions(sent):
@@ -46,8 +47,16 @@ def check_list_questions(sent):
         # min_start = min(map(lambda ent: sent.find(ent.get('mention', '')),
         #                     link_res))
         # 查找是否有一个listword在句子里面
+        lexicon = pd.read_csv(config.AEROSPACE_LEXICON_PATH, sep="\n", header=None)[0]
+        num_property = [w.split(" ")[0] for w in lexicon if "数量" in w and w != '数量']
         for list_word in config.LIST_WORD_LIST:
+            if list_word == '有' and any([word in sent for word in ['有限','有多重','有多高']]):
+                continue
+            if list_word == '数量' and any([word in sent for word in num_property]):
+                continue
             word_loc = sent.find(list_word)
             if word_loc >= 0:
                 return True
+        if sent in ['国内航空公司','国内廉价航空公司','廉价航空公司','中国航空公司','国内机场','中国机场']:
+            return True
     return False

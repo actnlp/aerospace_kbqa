@@ -113,7 +113,7 @@ class AsyncNeoDriver():
     async def get_all_entities_async(self, entity_label, filter_labels):
         processed_filters = ''
         for filter_label in filter_labels:
-            processed_filters += 'not n.label contains \'%s\' and ' % (
+            processed_filters += 'not n.类别 contains \'%s\' and ' % (
                 filter_label)
         if processed_filters != '':
             # 删去最后一个and 并在前面加上where语句
