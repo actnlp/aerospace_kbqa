@@ -596,9 +596,10 @@ class RuleLinker():
             res_id2ent = {ent['id']: ent for ent in res}
             for a_res in one_res[:3]:
                 if a_res['score'] > config.simi_ths:
+                    # 如果多次链接同个实体，只保留score最高的结果
                     if a_res['id'] not in res_id2ent or (a_res['id'] in res_id2ent and res_id2ent[a_res['id']]['score'] < a_res['score']):
-                        res.append(a_res)
                         res_id2ent[a_res['id']] = a_res
+            res = [item for id,item in res_id2ent.items()]
 
         # 如果链接到了非术语类型的实体，则降低术语类型实体的分值
         link_not_terms_ent = any([ent['ent']['类别'] != '民航术语' and ent['ent']['name'] not in config.FREQUENT_MATCHED_ENT for ent in res])
