@@ -2867,7 +2867,7 @@ CiudadDelCarmenAirport: MMCE,卡门城机场,CME
 极地货运航空公司: 极地货运,PAC,极地货运航空,PO
 墨西哥航空: MXA,AM
 大西洋航空公司: RC,Atlantic Airways
-柏林航空: BER,AB,柏林航空服务两合有限公司,Air Berlin,柏林
+柏林航空服务两合有限公司: BER,AB,柏林航空,Air Berlin,柏林
 阿拉斯加航空公司: AS,阿拉斯加航空,ASA
 吴哥航空: AKW,K6,Cambodia Angkor Air,柬埔寨吴哥航空
 密尔沃基劳伦斯－提莫尔曼机场: 劳伦斯－提莫尔曼机场,MWC,密尔沃基机场,KMWC
@@ -4152,7 +4152,7 @@ Kaadedhdhookaadedhdhoo机场: kaadedhdhoo机场,Kaadedhdhoo机场,KDM,甘岛国�
 卡塔赫纳拉法厄尔努内兹机场: 卡塔赫纳机场,拉法厄尔努内兹机场,CTG,SKCG
 拉米丹达机场: VNLD,LDN
 卡贝略港机场: PBL,SVPC
-第波罗机场: 威尼斯马可·波罗国际机场,RPMG,Aeroporto internazionale di Venezia-Tessera “Marco Polo”（意大利语）、Venice Marco Polo International Airport（英语）,DPL
+第波罗机场: RPMG,Aeroporto internazionale di Venezia-Tessera “Marco Polo”（意大利语）、Venice Marco Polo International Airport（英语）,DPL
 克麦罗沃机场: KEJ,UNEE
 吉瓦宁机场: FBJW,JWA
 卡里巴机场: KAB,FVKB
@@ -4858,7 +4858,7 @@ FlorenceAirport: FLO,KFLO,佛罗伦萨机场
 舒恩纳克机场: PAGH,SHG
 戈尔菲托机场: MRGF,GLF
 牛津基德林登机场: 基德林登机场,牛津机场,OXF,EGTK
-首尔Ab机场: 首尔机场,RKSM,Ab机场,柏林航空,AB,SSN
+首尔Ab机场: 首尔机场,RKSM,Ab机场,AB,SSN
 墨西卡利机场: MXL,MMML
 克罗斯城机场: KCTY,CTY
 阿斯旺机场: HESN,ASW

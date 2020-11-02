@@ -3,7 +3,7 @@ import traceback
 from functools import lru_cache
 from numpy import mean
 import pandas as pd
-import time
+import time,re
 
 
 from fuzzywuzzy import fuzz
@@ -40,7 +40,8 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
     # 过滤词汇
     for stop in stop_list:
         sent = sent.replace(stop, '')
-
+    if re.findall(r"(.*?)的(.*?)是什么",sent):
+        sent = sent.replace('是什么', '')
     # 替换实体或属性名称
     for replace in rpl_list:
         sent = sent.replace(replace[0], replace[1])
@@ -48,6 +49,8 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
     code_word = ['三字']  # IATA是航司的二字码，机场的三字码
     for word in code_word:
         if word in sent:
+            if "三字结算码" in sent:
+                continue
             en_name = 'IATA' if '机场' in sent else 'ICAO'
             sent = sent.replace(word,en_name)
 
@@ -230,6 +233,7 @@ class QA():
 
                 sent_cut.append(word)
                 pos_tag.append(tag)
+        sent_cut = [w.replace("母公司名称", '母公司') for w in sent_cut]
         return sent_replaced, sent_cut, pos_tag
 
     # @lru_cache(maxsize=128)

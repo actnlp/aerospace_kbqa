@@ -18,7 +18,7 @@ class QAFull():
                 return "非民航问题"
         for word in config.CQA_QUESTION_WORDS:
             if word in question:
-                if (word == '上飞机' and '水上飞机' in question) or (word == '提供' and '可提供业载' in question):
+                if (word == '上飞机' and '水上飞机' in question) or (word == '可提供' and '可提供业载' in question):
                     continue
                 return "非KBQA问题"
         return False
