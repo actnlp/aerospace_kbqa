@@ -278,7 +278,7 @@ TMA: TL
 米苏拉约翰逊贝尔机场: 约翰逊贝尔机场,MSO,KMSO,米苏拉机场
 富蕴机场: FYN,ZWFY,富蕴可可托海机场,Fuyun Koktokay Airport
 普雷斯科特机场: KPRC,ErnestA.LoveField,PRC
-广汉杜阿拉机场: ZUGH,杜阿拉机场,广汉机场,GHN
+广汉杜阿拉机场: ZUGH,广汉机场,GHN
 布拉柴维尔马亚马亚机场: BZV,FCBB,马亚马亚机场,布拉柴维尔机场,Maya Maya Airport
 林肯地方机场: 林肯机场,地方机场,KLNK,Lincoln Airport,LNK
 雅典国际机场: Athens Eleftherios Venizelos Airport,雅典埃莱夫赛里奥斯·韦尼泽洛斯机场,雅典机场,LGAV,ATH
@@ -737,7 +737,7 @@ null埃德蒙顿机场: 埃德蒙顿机场,YEG,Edmonton International Airport,nu
 曼萨尼约机场: MANZANILLO S. MAESTRA,ZLO,MMZO
 热那亚—西塞斯特里克里斯托弗·哥伦布国际机场: LIMJ,GOA,热那亚国际机场,—西塞斯特里克里斯托弗·哥伦布国际机场,热那亚机场,Genoa-Narcissus Telikeli Christopher Columbus International Airport
 坎昆切图马尔国际机场: 坎昆国际机场,坎昆机场,CUN,切图马尔国际机场,MMUN
-卢顿阿姆利则机场: EGGW,London Luton Airport,伦敦机场,卢顿机场,LTN,阿姆利则机场,伦敦卢顿机场
+卢顿阿姆利则机场: EGGW,London Luton Airport,伦敦机场,卢顿机场,LTN,伦敦卢顿机场
 久米岛机场: UEO,ROKJ
 西安咸阳国际机场: 西安国际机场,西安机场,咸阳机场,西安咸阳机场,XIY,咸阳国际机场,ZLXY,Xi'an Xianyang International Airport
 科托努机场: COO,ICotonou Cadjehoun Airport,DBBB
@@ -2479,7 +2479,7 @@ KosAirport: KGS,LGKO,Kos机场
 坦帕圣彼得斯堡国际机场: 坦帕国际机场,PIE,坦帕机场,圣彼得斯堡国际机场,KPIE
 伊利济机场: DAAP,VVZ,伊利机场,Erie International Airport
 塞迈里特机场: TTH,OOTH
-安巴托查愁安机场: 查愁安机场,望安机场,安巴托机场,SEAM,ATF,Wangan Airport
+安巴托查愁安机场: 查愁安机场,安巴托机场,SEAM,ATF,Wangan Airport
 古斯贝机场: YYR,CYYR,Goose Bay Airport
 伊斯特梅恩机场: ZEM,CZEM
 施特劳宾瓦尔姆霍尔机场: RBM,瓦尔姆霍尔机场,KRBM,施特劳宾机场
@@ -4195,7 +4195,7 @@ CorozalAirport: CZU,SKCZ,科罗萨尔机场
 科伦巴国际机场: SBCR,CMG,科伦巴机场
 阿德莫尔机场: AMZ,NZAR
 法罗机场: CZFA,ZFA
-夏卡维机场: 盐城南洋国际机场,Yancheng Nanyang International Airport,FBSW,SWX
+夏卡维机场: FBSW,SWX
 墨西哥城托卢卡机场: 墨西哥城机场,托卢卡机场,TLC,MMTO
 内米斯卡机场: CYHH,YNS
 詹姆斯考克斯代顿国机场: DAY,KDAY,代顿机场,詹姆斯考克斯国机场
@@ -4969,7 +4969,6 @@ FlorenceAirport: FLO,KFLO,佛罗伦萨机场
 民用航空: civil aviation
 空中交通管制: Air Traffic Control
 等待航线: holding pattern
-活动圈层: Circle marketing
 飞行检查: Flight inspection
 巡航飞行: cruising flight
 瓦尔格拉埃恩贝达机场: 埃恩贝达机场,DAUU,瓦尔格拉机场,OGX
@@ -6291,12 +6290,11 @@ Z-9: Z-9直升机
 Y-10: 运-10
 Tupolev334: 图-334客机,俄文：Ty-334、英文：Tu-334
 Tupolev134: 图-134
-Tu-204: 图-204
+Tu-204: 图-204,Tupolev204
 Tu-134: 图-134
 Tu-114: Tu114 airliner,图-114
 SE210: SE210快帆客机(卡拉维尔),Sud Aviation Caravelle
 SAAB-340: 萨博340
-Tupolev204: Tu-204,图-204
 Tupolev154: 图-154,Tu-154,大意(careless）
 Tu-154: Ty-154,图-154客机
 TB200: tb200

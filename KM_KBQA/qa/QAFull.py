@@ -1,8 +1,13 @@
 import logging
-
-from ..common.QCLS import QCLSWrapper
+import pandas as pd
+# from ..common.QCLS import QCLSWrapper
 from ..config import config
 from .QA import QA
+# from ..ERNIEReject.torch_utils import load_config
+# from ..ERNIEReject.loader_foronetext import DataLoader
+# from ..ERNIEReject.trainer import MyTrainer
+# import requests, os
+from ..ERNIEReject import kbqa_reject
 
 logger = logging.getLogger('qa')
 
@@ -12,23 +17,18 @@ class QAFull():
         self.kbqa = QA()
         # self.qcls = QCLSWrapper.from_pretrained(config.QCLS_PATH)
 
-    def not_kbqa_question(self,question):
+    def question_type(self, question):
+        res = kbqa_reject.query_type_infer(question)
+        return res
+
+    def not_kbqa_question(self, question):
         for word in config.NO_AIR_QUESTION_WORDS:
             if word in question:
-                return "非民航问题"
-        for word in config.CQA_QUESTION_WORDS:
-            if word in question:
-                if (word == '上飞机' and '水上飞机' in question) or (word == '可提供' and '可提供业载' in question):
+                if word == '驾驶' and '仪' in question:
                     continue
-                return "非KBQA问题"
-        return False
-
-    def contain_freq_word(self, question):
-        for word in config.FREQUENT_WORDS:
-            if word in question:
-                return True
-        if "航空" in question and "公司" not in question:
-            return True
+                return "非民航问题"
+        if self.question_type(question) == 1:
+            return "非KBQA问题"
         return False
 
     def answer(self, sent):
@@ -36,11 +36,11 @@ class QAFull():
         try:
             no_kbqa_flag = self.not_kbqa_question(sent)
             if no_kbqa_flag:
-                # ans = [{'natural_ans': not_kbqa_flag}]
-                ans = [{'answers':no_kbqa_flag}]
-                logger.info('%s: %s' % (no_kbqa_flag,sent))
+                ans = [{'answers': no_kbqa_flag}]
+                logger.info('%s: %s' % (no_kbqa_flag, sent))
             else:
                 ans = self.kbqa.answer(sent)
             return ans
         except Exception as e:
-            return [{'answers':str(e.args)}]
+            logger.info('%s: %s' % (str(e.args), sent))
+            return []

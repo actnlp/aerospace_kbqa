@@ -1,13 +1,17 @@
 import logging
 import os
+import pandas as pd
 
 project_dir = os.path.dirname(os.path.dirname(__file__))
 data_path = os.path.join(project_dir, 'data')
 model_path = os.path.join(project_dir, 'models')
+ERNIE_path = os.path.join(project_dir, 'ERNIEReject/pretrained_ERNIE')
+ernie_best_model_path = os.path.join(project_dir, 'ERNIEReject/best_model.pt')
 
 LEX_PATH = os.path.join(project_dir, 'lexicons')
 STOP_WORD_PATH = os.path.join(LEX_PATH, 'stopwords.txt')
 AEROSPACE_LEXICON_PATH = os.path.join(LEX_PATH, 'aerospace_lexicon.txt')
+CQA_LEXICON_PATH = os.path.join(LEX_PATH, 'cqa_lexicon.txt')
 AIRPORT_LEXICON_PATH = os.path.join(LEX_PATH, 'air_lexicon.txt')
 ENT_ALIAS_PATH = os.path.join(project_dir, 'res', 'ent_alias.txt')
 
@@ -28,21 +32,19 @@ ABSTRACT_DICT = {'丢': '失物招领', '取款机': 'atm', '存款机': 'atm', 
 ABS_REL_DICT = {'几点': '时间', '地址': '地点', '地方': '地点', '几楼': '地点', '位置': '地点', '怎么走': '地点', '地点': '地点', '时间': '时间', '价格': '价格', '收费': '价格', '收费标准': '价格',
                 '联系电话': '联系电话', '电话': '电话', '联系方式': '联系方式'}
 
-LIST_WORD_LIST = ['有', '哪些', '那些', '几个', '可以', '介绍', '列举', '哪几大', '多少家', '几家', '多少个', '所有', '大全', '各','数量']
-
+LIST_WORD_LIST = ['有', '哪些', '那些', '几个', '介绍', '列举', '哪几大', '多少家', '几家', '多少个', '所有', '大全', '各', '数量', '分别']
+# 在飞机上可以带多少公斤东西
 # 可回答的列举类问题标志词
 LIST_CONTENT_LIST = ['航空', '航司', '机场','机型','系列','飞机']
 
-# CQA问题关键词 '排名','影响'
-CQA_QUESTION_WORDS = ['怎么做', '怎么办', '怎样', '如何', '办理', '手续', '流程', '条件', '要做什么', '有哪些要求', '目的', '为什么', '靠什么', '原理',
-                      '为何',  '历史', '发展', '趋势', '怎么来的', '区别', '相比', '比较', '前者', '后者',
-                      '关系', '联系', '差值', '注意', '要求', '须知', '规则', '过程', '上飞机', '开飞机', '坐飞机', '需要', '可提供',
-                      '积分', '补偿', '故障', '携带', '起源', '计算', '怎么算', '额度','赔偿', '乘坐', '何时能', '购买', '便宜', '支付', '规定', '改票', '更改机票', '食宿', '吃', '早餐','值机']  # '使用'
+# CQA问题关键词 '影响'
+CQA_QUESTION_WORDS = list(pd.read_csv(CQA_LEXICON_PATH,sep="\n",header=None)[0])  # '使用'
 # 非民航问题关键词
-NO_AIR_QUESTION_WORDS = ['直升机', '直升飞机', '招聘', '招飞行员', '驾驶', '考', '选拔', '故事', '神话', '无人机', '无人飞机', '空军', '兵', '军官']
+NO_AIR_QUESTION_WORDS = ['直升机', '直升飞机', '招聘', '招飞行员', '驾驶', '考', '选拔', '故事', '神话', '无人机', '无人飞机','私人飞机', '空军', '兵', '军官', '视频',
+                         '遥控飞机', '折飞机', '火车票', '12306', '公路']
 
 # 民航问题中频繁出现的词语
-FREQUENT_WORDS = ["飞机", "飞行", "客票", "航班", "行李"]  # "航空"容易影响"航空公司"问题，需要单独处理
+FREQUENT_WORDS = ["飞机", "飞行", "客票", "机票", "航班", "航线", "行李", "机场"]  # "航空"容易影响"航空公司"问题，需要单独处理
 
 # 易被错匹配的术语类实体名称
 FREQUENT_MATCHED_ENT = ["机场", "飞机", "飞行（轮档）小时", "航空器（大中型）", "航空器（小型）", "航空", "客票", "航班", "行李", "飞行员"]

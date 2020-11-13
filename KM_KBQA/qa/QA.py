@@ -3,8 +3,7 @@ import traceback
 from functools import lru_cache
 from numpy import mean
 import pandas as pd
-import time,re
-
+import time, re
 
 from fuzzywuzzy import fuzz
 
@@ -14,6 +13,7 @@ from ..config import config
 from ..linking import EntityLinking
 from .ConstraintExtractor import ConstraintExtractor
 from .ListQuestion import check_list_questions
+from .RankQuestion import check_rank_questions, select_entity, generate_answer
 from .RelExtractor import BertRelExtractor, MatchRelExtractor
 
 
@@ -29,9 +29,9 @@ with open(config.AEROSPACE_LEXICON_PATH, 'r') as f:
     for line in f:
         aerospace_lexicons.add(line.split()[0])
 # 问题中包含民航高频关键实体词的阈值空值
-max_sent_len_contain_freq = 12    # 句子最短长度
-max_threshold_contain_freq = 1.8  # final_score 在[1, 1.8]之间
-min_threshold_contain_freq = 1
+max_sent_len_contain_freq = 12  # 句子最短长度
+max_threshold_contain_freq = 0.75  # final_score 在[1, 1.8]之间
+# min_threshold_contain_freq = 1
 
 logger = logging.getLogger('qa')
 
@@ -40,7 +40,7 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
     # 过滤词汇
     for stop in stop_list:
         sent = sent.replace(stop, '')
-    if re.findall(r"(.*?)的(.*?)是什么",sent):
+    if re.findall(r"(.*?)的(.*?)是什么", sent):
         sent = sent.replace('是什么', '')
     # 替换实体或属性名称
     for replace in rpl_list:
@@ -52,7 +52,12 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
             if "三字结算码" in sent:
                 continue
             en_name = 'IATA' if '机场' in sent else 'ICAO'
-            sent = sent.replace(word,en_name)
+            sent = sent.replace(word, en_name)
+    if "代码" in sent and any([word in sent for word in ['航空', '航司']]) and all(
+        [word not in sent.upper() for word in ['三字', '二字', 'IATA', 'ICAO', '证券', '票证', '组织机构']]):
+        sent = sent.replace('代码', 'IATA代码')
+    if '国有' in sent and any([word in sent for word in ['属于国有', '是国有']]):
+        sent = sent.replace('国有', '国有企业')
 
     # 航司全称是公司名称，机场的全称是中文名
     if '全称' in sent:
@@ -68,14 +73,14 @@ def replace_word(sent, stop_list, rpl_list, special_rules):
                 flag = False
                 break
         if flag:
-            sent = sent+ name
+            sent = sent + name
     return sent
 
 
 # 取列表中不被其他字符串包含的字符串 如：['IATA','IA','AT','中国航空公司','国航']，结果是['IATA', '中国航空公司']
-def remain_max_string(name_list,sent_cut):
+def remain_max_string(name_list, sent_cut):
     res = []
-    all_list = name_list+sent_cut
+    all_list = name_list + sent_cut
     for i in all_list:
         item = all_list.copy()
         item.remove(i)
@@ -93,10 +98,12 @@ def remain_max_string(name_list,sent_cut):
 class QA():
     stop_list = ['吗', '里面']
     rpl_list = [('在哪', '的地点所在城市'),
+                ('哪里个', '哪几个'),
                 ('哪里', '地点所在城市'),
                 ('在哪个城市', '所在城市'),
                 ('航司', '航空公司'),
-                ('属于', '在'),
+                # ('属于', '在'),
+                ('国企', '国有企业'),
                 ('vip', '贵宾'),
                 ('我国', '国内'),
                 # ('国内', '中国'),
@@ -110,6 +117,7 @@ class QA():
                 ('坐多少人', '容量'),
                 ('失事的几率', '事故率'),
                 ('载客', '客运量'),
+                ('英文字母简称', 'IATA代码'),
                 ('英文是', '外文名'),
                 ('英文名是', '外文名'),
                 ('英语', '外文名'),
@@ -120,6 +128,7 @@ class QA():
                 ('有多重', '重量'),
                 ('烧什么油', '燃料'),
                 ('个部分', '组成'),
+                ('主要部分', '组成'),
                 ('修好', '故障'),
                 ('官方网站', '官网'),
                 ('公司性质', '公司类型'),
@@ -127,6 +136,7 @@ class QA():
                 ('二字', 'IATA代码'),
                 ('四字', 'ICAO代码'),
                 ('功用', '作用'),
+                ('用处', '作用'),
                 ('什么用', '作用'),
                 ('功能', '作用'),
                 ('不足', '缺点'),
@@ -139,17 +149,22 @@ class QA():
                 ('时候', '时间'),
                 ('机型', '飞机型号'),
                 ('简写', '简称'),
+                ('什么层飞行', '飞行云层'),
+                ('什么高度飞行', '飞行高度'),
                 ('是怎么回事', '定义'),
                 ('什么意思', '定义'),
                 ('什么是', '定义'),
                 ('什么叫', '定义'),
                 ('是什么', '定义'),
+                ('含义', '定义'),
                 ('指什么', '定义'),
                 ('什么叫做', '定义')]
     special_rules = [
         [("航班", "不正常"), "不正常航班"],
+        [("飞行", "气压高度"), "飞行气压高度"],
         [("机场", "ICAO"), "机场三字码"],
         [("公司", "价格"), "造价"],
+        [("公司", "缩写"), "IATA代码"],
     ]
 
     def __init__(self):
@@ -162,7 +177,6 @@ class QA():
         self.constr_extractor = ConstraintExtractor()
         self.frontend = FrontendAdapter()
 
-
     def preprocess(self, sent):
         """
             返回(处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag)
@@ -173,7 +187,7 @@ class QA():
         """
         # 分词前替换规则：过滤掉停用词，替换抽象词汇    如'在哪儿'表示'的地点'
         if "有机场吗" in sent:
-            sent = sent.replace("有机场吗",'有哪些机场')
+            sent = sent.replace("有机场吗", '有哪些机场')
         sent_replaced = replace_word(sent, QA.stop_list, QA.rpl_list, QA.special_rules)
         # 分词
         sent_cut, pos_tag = seg.pos_cut(sent_replaced)  # pos_cut：list(zip(*pseg.cut(sent))) pos_tag：词性标注
@@ -202,7 +216,7 @@ class QA():
             word = str(word)
             if (word in sent or word in sent_replaced) and word not in sent_cut_pro:
                 ent_list.append(word)
-        ent_list = remain_max_string(ent_list,sent_cut_pro)
+        ent_list = remain_max_string(ent_list, sent_cut_pro)
         sent_cut_pro += ent_list
         pos_tag_pro += ['n' for i in range(len(ent_list))]
 
@@ -245,7 +259,7 @@ class QA():
                     if linked_ent['source'] not in id2linked_ent[neoId]['source']:
                         id2linked_ent[neoId]['score'] += linked_ent['score']
                         id2linked_ent[neoId]['source'] += ' ' + \
-                            linked_ent['source']
+                                                          linked_ent['source']
                 else:
                     id2linked_ent[neoId] = linked_ent
                     link_res.append(linked_ent)
@@ -266,7 +280,8 @@ class QA():
         link_res_extend = []
         for linked_ent in link_res:
             ent = linked_ent['ent']
-            if not is_list and ent['entity_label'] in ['SubGenre', 'SubGenre_child', 'Genre']:  #  and ent['name'] not in EntityLinking.exception_subgenre)\
+            if not is_list and ent['entity_label'] in ['SubGenre', 'SubGenre_child',
+                                                       'Genre']:  # and ent['name'] not in EntityLinking.exception_subgenre)\
                 # if self.rule_linker.is_special_entity(ent):  # 注释掉 zsh
                 #     continue
                 instances = self.get_instances(
@@ -275,22 +290,21 @@ class QA():
                     link_res_extend.extend([{
                         'ent': e,
                         'mention': linked_ent.get('mention', e['name']),
-                        'id':e['neoId'],
-                        'score':linked_ent['score'],
-                        'source':linked_ent['source']+' sub',  # source 是指是bert结果，还是规则匹配结果
+                        'id': e['neoId'],
+                        'score': linked_ent['score'],
+                        'source': linked_ent['source'] + ' sub',  # source 是指是bert结果，还是规则匹配结果
                     } for e in instances])
             elif is_list or ent['entity_label'] == 'Instance':  # or ent['name'] in EntityLinking.exception_subgenre:
                 link_res_extend.append(linked_ent)
         link_res_extend.sort(key=lambda x: x['score'], reverse=True)
-
         id2linked_ent = {}
         id2linked_ent = {linked_ent['id']: linked_ent
-                         for linked_ent in link_res if linked_ent['id'] not in id2linked_ent or (linked_ent['id'] in id2linked_ent and id2linked_ent[linked_ent['id']]['score'] < linked_ent['score'])}
-
+                         for linked_ent in link_res_extend if linked_ent['id'] not in id2linked_ent or (
+                             linked_ent['id'] in id2linked_ent and id2linked_ent[linked_ent['id']]['score'] <
+                             linked_ent['score'])}
         link_res_extend = []
-        for k,v in id2linked_ent.items():
+        for k, v in id2linked_ent.items():
             link_res_extend.append(v)
-
         return link_res_extend, id2linked_ent
 
     def get_instances(self, parent_name, parent_label, instance_label):
@@ -298,7 +312,7 @@ class QA():
             parent_label, instance_label, parent_name, reverse=True).result()
         return instances
 
-    def extract_rel(self, sent: str, sent_cut: list, link_res, is_list=False):
+    def extract_rel(self, sent: str, sent_cut: list, link_res, is_list=False, is_comparision=False):
         # 抽取关系
         rel_match_res, properties = [], []
         for linked_ent in link_res:
@@ -323,12 +337,11 @@ class QA():
             """
         return rel_match_res, properties
 
-
     def match_constraint(self, qa_res, constraint, id2linked_ent):
         non_empty_constr = [(constr_name, constr_val) for constr_name, constr_val in constraint.items()
                             if constr_val != '' and constr_val is not None]
         is_matched = False
-        for i,ans in enumerate(qa_res):
+        for i, ans in enumerate(qa_res):
             linked_ent = id2linked_ent[ans['id']]
             match_res = None
             try:
@@ -339,7 +352,7 @@ class QA():
 
             ans['constr_score'] = 0
             if match_res is not None and len(match_res) != 0:
-                logger.info('限制匹配结果: '+str(match_res))
+                logger.info('限制匹配结果: ' + str(match_res))
                 for constr, is_match in match_res.items():
                     if is_match:
                         ans['constr_score'] += 0.3
@@ -347,16 +360,31 @@ class QA():
                         ans['constr_val'] = linked_ent['ent'][constr]
                     else:
                         ans['constr_score'] += -0.2
-            else:
-                for constr_name, constr_val in non_empty_constr:
-                    if fuzz.UQRatio(constr_val[0], ans['entity']) >= 60:
-                        ans['link_score'] -= 0.3
-                    else:
-                        ans['constr_score'] += -0.2
-            if ans['constr_score']>0:
+            # else:
+            #     for constr_name, constr_val in non_empty_constr:
+            #         if fuzz.UQRatio(constr_val[0], ans['entity']) >= 60:
+            #             ans['link_score'] -= 0.3
+            #         else:
+            #             ans['constr_score'] += -0.2
+            if ans['constr_score'] > 0:
                 is_matched = True
             qa_res[i] = ans
-        return qa_res,is_matched
+        return qa_res, is_matched
+
+    def generate_ent_desc_str(self, ent):
+        prop_desc = []
+        for prop in ent.keys():
+            if prop in ["name", "名称", "neoId", "entity_label"]:
+                continue
+            info = ent[prop]
+            if info[0] == '[' and info[-1] == ']':
+                info = eval(info)
+                info = str("、".join(info))
+            desc = "%s是%s" % (prop, info)
+            if desc not in prop_desc:
+                prop_desc.append(desc)
+        desc = '%s，具体信息如下：%s' % (ent['name'], "，".join(prop_desc))
+        return desc
 
     def generate_natural_ans(self, qa_res: dict, id2linked_ent, flag):
         linked_ent = id2linked_ent[qa_res['id']]
@@ -399,18 +427,8 @@ class QA():
                 # else:
                 #     ans = '您好，机场内有%s，位置在%s，营业时间是%s' % (ans_name, loc_prop_value, time_prop_value)
                 if not natural_ans:
-                    prop_desc = []
-                    for prop in ent.keys():
-                        if prop in ["name","名称","neoId","entity_label"]:
-                            continue
-                        info = ent[prop]
-                        if info[0] == '[' and info[-1] == ']':
-                            info = eval(info)
-                            info = str("、".join(info))
-                        desc = "%s是%s" % (prop, info)
-                        if desc not in prop_desc:
-                            prop_desc.append(desc)
-                    natural_ans = '您好，您询问的是%s，具体信息如下：%s' % (ent_name, "，".join(prop_desc))
+                    ent_desc_str = self.generate_ent_desc_str(ent)
+                    natural_ans = '您好，您询问的是%s' % ent_desc_str
                     return natural_ans
                 else:
                     natural_ans = '，'.join(ans_list)
@@ -430,30 +448,38 @@ class QA():
                 return natural_ans
 
     def rank_ans(self, qa_res, sent):
+        qa_res_final = []
         for ans in qa_res:
             if ans.get('rel_score', 0) == 0 and ans['mention'] == sent:
                 # 判断问题中是否只有实体，不包含属性。如果只包含实体，则不进行权值计算，只取实体链接得分
                 ans['final_score'] = ans['link_score']
             else:
+                if ans.get('rel_score', 0) == 0:
+                    ans['tip'] = '（提示：因知识库缺失相关属性或属性别名，暂时无法返回精确信息）'
                 # 各步骤分值相加
-                ans['final_score'] = ans.get('link_score', 0) * 0.75 + ans.get('rel_score', 0) * 0.25  # ans.get('constr_score', 0) + \
+                ans['final_score'] = ans.get('link_score', 0) * 0.75 + ans.get('rel_score',
+                                                                               0) * 0.25  # ans.get('constr_score', 0) + \
+            if ans['final_score'] < 0.7:
+                continue
+            qa_res_final.append(ans)
             # # 各步骤分值相乘
             # ans['final_score'] = ans.get('constr_score', 1) * \
             #     ans['link_score'] * \
             #     ans.get('rel_score', 1)
+        qa_res = qa_res_final
         qa_res.sort(key=lambda ans: ans['final_score'], reverse=True)
         # score相同，mention是问题子串的排在前面
         for i in range(len(qa_res)):
             if qa_res[i]['mention'] in sent:
-                if qa_res[i]['final_score'] == qa_res[i-1]['final_score']:
-                    long_metion = len(qa_res[i]['mention']) > len(qa_res[i-1]['mention'])
+                if qa_res[i]['final_score'] == qa_res[i - 1]['final_score']:
+                    long_metion = len(qa_res[i]['mention']) > len(qa_res[i - 1]['mention'])
                     long_relation = 'rel_name' in qa_res[i] and 'rel_name' in qa_res[i - 1] \
                                     and len(qa_res[i]['rel_name']) > len(qa_res[i - 1]['rel_name'])
                     pre_is_definition = 'rel_name' in qa_res[i - 1] and qa_res[i - 1]['rel_name'] == "定义"
-                    if qa_res[i -1]['mention'] in sent and (long_metion or long_relation or pre_is_definition):
+                    if qa_res[i - 1]['mention'] in sent and (long_metion or long_relation or pre_is_definition):
                         temp = qa_res[i].copy()
-                        qa_res[i] = qa_res[i-1]
-                        qa_res[i-1] = temp
+                        qa_res[i] = qa_res[i - 1]
+                        qa_res[i - 1] = temp
         return qa_res
 
     def answer(self, sent):
@@ -471,37 +497,55 @@ class QA():
         """
         logger.info('question :%s' % sent)
         # 1. 使用替换规则(预处理)
-        # sent = replace_word(sent, self.stop_list, self.rpl_list)
-        # sent_cut = LTP.customed_jieba_cut(sent, cut_stop=True)
         sent, sent_cut, pos_tag = self.preprocess(sent)  # 处理后问句sent_replaced, 分词结果sent_cut, 词性标注 pos_tag
         logger.debug('cut :' + str(sent_cut))
 
-        # 2. 提取限制条件:时间、地点、航空公司等
-        constr_res = self.constr_extractor.extract(sent)
-        logger.debug('限制: ' + str(constr_res))
-
-        # 3. 处理列举类型：问句询问某实体是否存在或存在数量
+        # 2. 处理列举类型：问句询问某实体是否存在或存在数量
+        # (1)排序型：问句是否符合正则表达式
+        is_rank, rank_inf = check_rank_questions(sent)
+        if is_rank:
+            logger.debug('排序问题' + str(sent))
+            sent = rank_inf['Generate_Question']
+            sent, sent_cut, pos_tag = self.preprocess(sent)
+            logger.debug('排序识别后cut :' + str(sent_cut))
+        # (2)列举型
         is_list = check_list_questions(sent)  # 提及具体的属性（如时间等）则False
         logger.debug('是否列举: ' + str(is_list))
+        # (3)比较型
+        is_comparision = True if any([word in sent for word in ["区别", '比较', '相比']]) else False
+
+        # 3. 提取限制条件:时间、地点、航空公司等
+        constr_res = self.constr_extractor.extract(sent) if not is_comparision else {}
+        logger.debug('限制: ' + str(constr_res))
 
         # 4. link: 使用多种linker，合并结果
         link_res, id2linked_ent = self.link(sent, sent_cut, pos_tag, is_list)
         logger.debug('链接结果: ' + str(link_res[:10]))
 
+        # 如果是排序类直接匹配逻辑
+        if is_rank:
+            rank_inf['Attribute'], rank_inf['Entity'], rank_inf['TrueOrder'], rank_inf['Order'] = \
+                select_entity(rank_inf, link_res)
+            filtered_qa_res = generate_answer(rank_inf)
+            return self.frontend.decorate(filtered_qa_res, -2)
+
         # 5. 匹配关系 extract relations, match+bert
-        rel_match_res,properties = self.extract_rel(sent, sent_cut, link_res, is_list)
-        logger.debug('关系匹配: ' + str(rel_match_res[:10]))
-        if is_list and rel_match_res:
-            property_name = properties
+        if is_comparision:
+            rel_match_res = []
         else:
-            property_name = None
+            rel_match_res, properties = self.extract_rel(sent, sent_cut, link_res, is_list, is_comparision)
+            logger.debug('关系匹配: ' + str(rel_match_res[:10]))
+            if is_list and rel_match_res:
+                property_name = properties
+            else:
+                property_name = None
 
         # 6. 如果没有匹配到的关系，且实体识别分值较高，算作列举
         qa_res = []
         LINK_THRESH = 0.8
         REL_THRESH = 0.72
         match_rel_ent_ids = {e['id'] for e in rel_match_res}
-        if is_list and len(link_res) > 0:
+        if (is_comparision or is_list) and len(link_res) > 0:
             rel_match_res_id = [item['id'] for item in rel_match_res]
             max_rel_score = 0
             for linked_ent in link_res:
@@ -534,8 +578,7 @@ class QA():
                            ])
             for linked_ent in link_res:
                 if linked_ent['id'] not in match_rel_ent_ids \
-                        and linked_ent['score'] >= LINK_THRESH:
-
+                    and linked_ent['score'] >= LINK_THRESH:
                     qa_res.append({
                         'id': linked_ent['id'],
                         'mention': linked_ent.get('mention', linked_ent['ent']['name']),
@@ -582,49 +625,63 @@ class QA():
 
         # 8. 匹配限制
         if any(map(lambda x: x != '', constr_res.values())):
-            qa_res,is_matched = self.match_constraint(qa_res, constr_res, id2linked_ent)
+            qa_res, is_matched = self.match_constraint(qa_res, constr_res, id2linked_ent)
             if is_matched:
-                qa_res = [ent for ent in qa_res if ent['constr_score']>0]
-            qa_res = sorted(qa_res,key=lambda x:x['constr_score'],reverse=True)
+                qa_res = [ent for ent in qa_res if ent['constr_score'] > 0]
+            qa_res = sorted(qa_res, key=lambda x: x['constr_score'], reverse=True)
             logger.debug('限制结果: ' + str(qa_res))
 
-        if is_list:
+        if (is_list or is_comparision) and qa_res:
             # 10. 生成自然语言答案
             filtered_qa_res = []
             ids = {item['id']: 0 for item in qa_res}
             cnt = len(ids)
 
             ans_all = []
-            if property_name:
-                for i, res in enumerate(qa_res):
-                    if 'rel_val' not in res:
-                        res['rel_val'] = '暂无'
-                        res['rel_name'] = "和".join(property_name)
-                    if res['entity'] == qa_res[i - 1]['entity']:
-                        ans_all[-1] += "  {}是{}".format(res['rel_name'], res['rel_val'])
-                    else:
-                        ans_all.append("{}的{}是{}".format(res['entity'], res['rel_name'], res['rel_val']))
-            else:
-                for res in qa_res:
-                    ans_all.append(res['entity'])
-            ans_all_head = []
-            ans_all_behind = []
-            for ans_str in ans_all:
-                if "暂无" in ans_str:
-                    ans_all_behind.append(ans_str)
-                else:
-                    ans_all_head.append(ans_str)
-            ans_all = ans_all_head + ans_all_behind
-            natural_ans = "、".join(ans_all)
             _res = dict()
-            _res['natural_ans'] = natural_ans
-            _res['final_score'] = qa_res[0]['link_score'] * 0.75 + max_rel_score * 0.25
+            # 列举型术语：分有属性和无属性
+            if is_list:
+                if property_name:
+                    for i, res in enumerate(qa_res):
+                        if 'rel_val' not in res:
+                            res['rel_val'] = '暂无'
+                            res['rel_name'] = "和".join(property_name)
+                        if res['entity'] == qa_res[i - 1]['entity']:
+                            ans_all[-1] += "  {}是{}".format(res['rel_name'], res['rel_val'])
+                        else:
+                            ans_all.append("{}的{}是{}".format(res['entity'], res['rel_name'], res['rel_val']))
+                else:
+                    for res in qa_res:
+                        ans_all.append(res['entity'])
+                ans_all_head = []
+                ans_all_behind = []
+                for ans_str in ans_all:
+                    if "暂无" in ans_str:
+                        ans_all_behind.append(ans_str)
+                    else:
+                        ans_all_head.append(ans_str)
+                ans_all = ans_all_head + ans_all_behind
+                natural_ans = "、".join(ans_all)
+                _res['natural_ans'] = natural_ans
+                _res['final_score'] = qa_res[0]['link_score'] * 0.75 + max_rel_score * 0.25
+            # 对比型术语：
+            elif is_comparision:
+                index = 0
+                for res in qa_res:
+                    index += 1
+                    ent = id2linked_ent[res['id']]['ent']
+                    show_info = str(index) + "、 " + self.generate_ent_desc_str(ent)
+                    ans_all.append(show_info)
+                natural_ans = "<br>".join(ans_all)
+                _res['natural_ans'] = natural_ans
+                _res['final_score'] = mean([ent['link_score'] for ent in qa_res])
+
             filtered_qa_res.append(_res)
             logger.info('自然语言答案: ' + str(natural_ans))
             return self.frontend.decorate(filtered_qa_res, cnt)
         else:
             # 9. 答案排序
-            qa_res = self.rank_ans(qa_res,sent)
+            qa_res = self.rank_ans(qa_res, sent)
             qa_res = qa_res[:10]
             logger.debug('答案: ' + str(qa_res))
 
@@ -634,22 +691,26 @@ class QA():
             for res in qa_res:
                 n_ans = self.generate_natural_ans(res, id2linked_ent, 1)
                 if n_ans not in natural_ans:
-                    res['natural_ans'] = n_ans.replace("\n",'')
+                    res['natural_ans'] = n_ans.replace("\n", '')
+                    res['entity'] = res['entity']
+                    res['rel_name'] = res.get('rel_name','')
                     natural_ans.append(n_ans)
                     filtered_qa_res.append(res)
             logger.info('自然语言答案: ' + str(natural_ans))
 
-            # # 11 对包含常见民航词语（飞机、飞行、航空）的问题进行阈值控制  阈值待调整 1101
-            # aver_final_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
-            # if self.contain_freq_word(sent) \
-            #     and min_threshold_contain_freq <= aver_final_score <= max_threshold_contain_freq \
-            #     and len(sent) > max_sent_len_contain_freq:
-            #     filtered_qa_res = []
+            # 11 对包含常见民航词语（飞机、飞行、航空）的问题进行阈值控制  阈值待调整 1101
+            aver_final_score = mean([item['final_score'] for item in filtered_qa_res[:3]])
+            if self.contain_freq_word(sent,filtered_qa_res) \
+                and aver_final_score <= max_threshold_contain_freq \
+                and len(sent) >= max_sent_len_contain_freq:  # min_threshold_contain_freq <= a
+                filtered_qa_res = []
             return self.frontend.decorate(filtered_qa_res[:3], -1)  # -1表示非列举类问题
 
-    def contain_freq_word(self, question):
+    def contain_freq_word(self, question,res):
         for word in config.FREQUENT_WORDS:
             if word in question:
+                if word == '机场' and '机场' in res[0]['entity'] and res[0]['entity']!= '机场':
+                    continue
                 return True
         return False
 
@@ -658,7 +719,7 @@ class FrontendAdapter():
     def __init__(self):
         self.driver = AsyncNeoDriver.get_driver()
 
-    def decorate_one(self, qa_res,cnt):
+    def decorate_one(self, qa_res, cnt):
         """
         Args:
             qa_res: {
@@ -728,13 +789,16 @@ class FrontendAdapter():
             }
 
         # 列举类
-        list_flag = False
-        if cnt != -1:
-            list_flag = True
-        if list_flag:
+        if cnt > -1:
             return {
-                'answers': '搜寻到的结果数:{}  {} '.format(cnt,answer),
+                'answers': '搜寻到的结果数:{}  {} '.format(cnt, answer),
                 'score': qa_res['final_score']
+            }
+        # 排序类
+        elif cnt == -2:
+            return {
+                'answers': answer,
+                'score': score
             }
 
         topic_ent = make_node(int(qa_res['id']), qa_res['entity'], 'answer_entity')
@@ -751,17 +815,21 @@ class FrontendAdapter():
         if 'constr_name' in qa_res:
             constr_ent = make_node(-1, qa_res['constr_val'], 'answer_restriction_value')
             nodes.append(constr_ent)
-            edges.append(make_edge(topic_ent, constr_ent, qa_res['constr_val'],'answer_restriction'))
+            edges.append(make_edge(topic_ent, constr_ent, qa_res['constr_val'], 'answer_restriction'))
 
         return {
             'answers': answer,
             'score': score,
+            'entity': qa_res['entity'],
+            'rel_name': qa_res.get('rel_name',''),
+            'tip': qa_res.get('tip',''),
             'nodes': nodes,
             'edges': edges
         }
 
     def decorate(self, all_qa_res, cnt):
-        return [self.decorate_one(res,cnt) for res in all_qa_res]
+        print("d qian ",all_qa_res)
+        return [self.decorate_one(res, cnt) for res in all_qa_res]
 
 
 def test_qa():

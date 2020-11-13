@@ -51,11 +51,8 @@ def run_server():
         )
     })
     resource = cors.add(server.router.add_resource("/"))
-    # cors.add(server.router.add_resource("/"))
     cors.add(resource.add_route("GET", answer))
-    # app.router.add_route('GET', '/', getIndex)
 
-    # server.add_routes(routes)
     web.run_app(server, port=args.local_port)
 
 if __name__ == "__main__":

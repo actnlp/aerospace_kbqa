@@ -85,7 +85,7 @@ class ConstraintExtractor():
 
     # 航空联盟
     def check_alliances(self, sent):
-        flags = ['联盟', '成员']
+        flags = ['星空联盟', '天合联盟', '寰宇一家', '海航联盟']
         ret = []
         for flag in flags:
             if flag in sent:
@@ -94,7 +94,16 @@ class ConstraintExtractor():
 
     # 国际机场
     def check_INT(self, sent):
-        flags = ['国际']
+        flags = ['国际机场']
+        ret = []
+        for flag in flags:
+            if flag in sent:
+                ret.append(flag)
+        return ret
+
+    # 航司类型:国有，民营等
+    def check_company_type(self, sent):
+        flags = ['国营', '国有企业', '私营', '民营']
         ret = []
         for flag in flags:
             if flag in sent:
@@ -103,28 +112,31 @@ class ConstraintExtractor():
 
     def extract(self, sent):
         sent = self.preprocess(sent)  # 一～十 替换成 阿拉伯数字
-        constr = {'时间': '', '地点': '', '国际机场': '', '常旅客计划': '', '运营模式': '', '航空联盟': ''}
+        constr = {'时间': '', '地点': '', '中文名': '', '常旅客计划': '', '运营模式': '', '航空联盟': '','类型': ''}
         time_check = self.check_time(sent)
         loc_check = self.check_location(sent)
         INT_check = self.check_INT(sent)  # 国际
         ffp_check = self.check_ffp(sent)  # 常旅客计划
         business_model_check = self.check_business_model(sent)  # 运营模式
         alliances_check = self.check_alliances(sent)  # 航空联盟
+        company_type_check = self.check_company_type(sent)  # 航司类型:国有，民营等
 
         if time_check is not None and len(time_check) > 0:
             constr['时间'] = time_check
         if loc_check is not None and len(loc_check) > 0:
             constr['地点'] = loc_check
         if INT_check is not None and len(INT_check) > 0:
-            constr['国际机场'] = INT_check
+            constr['中文名'] = INT_check
         if ffp_check is not None and len(ffp_check) > 0:
             constr['常旅客计划'] = ffp_check
         if business_model_check is not None and len(business_model_check) > 0:
             constr['运营模式'] = business_model_check
         if alliances_check is not None and len(alliances_check) > 0:
             constr['航空联盟'] = alliances_check
+        if company_type_check is not None and len(company_type_check) > 0:
+            constr['类型'] = company_type_check
 
-        for check in [time_check, loc_check, INT_check, ffp_check, business_model_check, alliances_check]:
+        for check in [time_check, loc_check, INT_check, ffp_check, business_model_check, alliances_check, company_type_check]:
             if check is None:
                 return None
         # if time_check is None and loc_check is None and cur_check is None and bank_check is None and airline_check is None and price_check is None:
@@ -137,23 +149,25 @@ class ConstraintExtractor():
         exist_constr = []
         res_constr = {}
         ent = linked_ent['ent']
+        match_constr = False
         for constr_name, constr_val in constraint.items():
-            if constr_val != '' and constr_val is not None \
-                and fuzz.UQRatio(constr_val[0], ent['name']) < 50:
-                match_constr = False
+            if constr_val != '' and constr_val is not None:
+                # and fuzz.UQRatio(constr_val[0], ent['name']) < 50:
                 for rel, rel_val in ent.items():
+                    # rel 实体属性名  rel_val 实体属性值
                     if rel in self.remove_prop:
                         continue
                     rel_val = str(rel_val)
                     if (constr_name in rel
-                        or constr_name in rel_val
-                        or constr_val[0] in rel
-                        or constr_val[0] in rel_val):
+                        # or constr_name in rel_val
+                        # or constr_val[0] in rel
+                        # or constr_val[0] in rel_val):
+                        and constr_val[0] in rel_val):
                         match_constr = True
                         res_constr[rel] = True
                         exist_constr.append((rel, constr_name))
-                if not match_constr:
-                    return None
+        if not match_constr:
+            return None
 
         # filter result
         time_pattern = re.compile(r'\d+[:, ：]')

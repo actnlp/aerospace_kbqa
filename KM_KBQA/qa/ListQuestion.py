@@ -54,6 +54,8 @@ def check_list_questions(sent):
                 continue
             if list_word == '数量' and any([word in sent for word in num_property]):
                 continue
+            if any([word in sent for word in ['范围','分类','部分','结构','工作人员','职位','服务','缺点','优点','用处','作用']]):
+                continue
             word_loc = sent.find(list_word)
             if word_loc >= 0:
                 return True

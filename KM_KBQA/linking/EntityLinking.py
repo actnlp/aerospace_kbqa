@@ -1,5 +1,5 @@
 import logging
-import os,json
+import os,json,sets
 import re, time
 from functools import lru_cache
 
@@ -124,7 +124,6 @@ class RuleLinker():
 
                         if prop not in prop_list:
                             prop_list.append(prop)
-
             alias = list(set(alias))
             all_names += alias.copy()
             if name in alias:
@@ -214,16 +213,40 @@ class RuleLinker():
         print("更新")
         exit()
 
+
+    def gene_name2ent(self,all_entities):
+        name2ent = dict()
+        # 如果同名实体中有Instance和其他labels的实体，则只保留Instance实体
+        for ent in all_entities:
+            name = ent['name'].lower()  # 为方便后续英文实体匹配，将所有英文部分转化为小写
+            print(ent)
+            if name not in name2ent:
+                name2ent[name] = {ent['neoId']:[ent['entity_label'],ent]}
+            else:
+                name2ent[name][ent['neoId']]=[ent['entity_label'],ent]
+
+        final = dict()
+        for name,ents in name2ent.items():
+            if len(ents)==1:
+                final[name]=list(ents.values())[0][1]
+            for id,info in ents.items():
+                if info[0]!='Instance':
+                    continue
+                else:
+                    final[name] = info[1]
+        return final
+
     def load_all_entities(self, entity_labels=['Instance', 'SubGenre', 'SubGenre_child', 'Genre']):
         all_entities = []
         for entity_label in entity_labels:
-            tmp_entities = self.driver.get_all_entities(entity_label).result()
+            tmp_entities = self.driver.get_all_entities(entity_label, filter_label=['标签']).result()
             for e in tmp_entities:
                 e['entity_label'] = entity_label
             # tmp_entities = [e for e in tmp_entities
             #                 if not self.is_special_entity(e)]
             all_entities += tmp_entities
         self.id2ent = {x['name'].lower(): x for x in all_entities}  # 为方便后续英文实体匹配，将所有英文部分转化为小写
+        # self.id2ent = self.gene_name2ent(all_entities)
         self.all_alias, self.ent_names, _ = self.get_entity_all_alias(all_entities)
 
     def load_location(self, tname):
@@ -242,10 +265,19 @@ class RuleLinker():
                 entity_name = entity_name.replace(w, '')
         return entity_name
 
+    # 判断某些词语在是否存在与mention中
+    def word_in_mentionlist(self,word_list, mention_list):
+        for word in word_list:
+            for mention in mention_list:
+                if word in mention:
+                    return word
+        return False
+
     # @lru_cache(maxsize=128)
     def link(self, sent, sent_cut, pos_tag, is_list, limits=None):
         # use bert embedding to fuzzy match entities
         # mention_list = recognize_entity(sent)
+        is_comparison = True if any([word in sent for word in ["区别",'比较','相比']]) else False
         mention_list = retrieve_mention(sent_cut, pos_tag)
 
         # 特殊处理
@@ -298,6 +330,7 @@ class RuleLinker():
                         entity_label = 'Instance'
 
                     linked_ent = self.driver.get_entities_by_property('类别', type).result()
+                    country = self.word_in_mentionlist(country_list,mention_list)
                     if linked_ent:
                         for ent in linked_ent:
                             if ent['name']=='飞机':
@@ -311,17 +344,24 @@ class RuleLinker():
                                 'id': ent['neoId'],
                                 'score': 1,
                                 'source': 'rule'})
+        # 民航院校
+            elif any([word in sent for word in ['民航院校', '航空院校']]):
+                for ent in self.id2ent.values():
+                    if '类别' not in ent:
+                        continue
+                    if ent['类别'] == '民航院校':
+                        res.append({
+                            'ent': ent,
+                            'mention': '民航院校',
+                            'rel_name': '类别',
+                            'rel_val': '民航院校',
+                            'id': ent['neoId'],
+                            'score': 1,
+                            'source': 'rule'})
         # 航司列举
             elif any([word in mention for word in company_word for mention in mention_list]):
-                # 判断某些词语在是否存在与mention中
-                def word_in_mentionlist(word_list,mention_list):
-                    for word in word_list:
-                        for mention in mention_list:
-                            if word in mention:
-                                return word
-                    return False
-                if word_in_mentionlist(['国内','中国'],mention_list):
-                    key_word = word_in_mentionlist(['国内','中国'],mention_list)
+                if self.word_in_mentionlist(['国内','中国'],mention_list):
+                    key_word = self.word_in_mentionlist(['国内','中国'],mention_list)
                     # 国内航空公司
                     for ent in self.id2ent.values():
                         if '类别' not in ent:
@@ -335,9 +375,9 @@ class RuleLinker():
                                 'id': ent['neoId'],
                                 'score': 1,
                                 'source': 'rule'})
-                elif word_in_mentionlist(country_list,mention_list):
+                elif self.word_in_mentionlist(country_list,mention_list):
                     # 某个城市的航空公司
-                    country = word_in_mentionlist(country_list,mention_list)
+                    country = self.word_in_mentionlist(country_list,mention_list)
                     # word = [word for word in mention_list if word in country_list][0]
                     for ent in self.id2ent.values():
                         flag = False
@@ -484,6 +524,7 @@ class RuleLinker():
                                 'id': ent['neoId'],
                                 'score': 1,
                                 'source': 'rule'})
+
             if res:
                 return res
 
@@ -592,15 +633,19 @@ class RuleLinker():
                         elif a_res['ent']['类别'] == "民航术语":
                             one_res[i]['score'] = 0.81
 
+            if not one_res:
+                continue
             one_res.sort(key=lambda x: x['score'], reverse=True)
+
+            choose_top_n = 1 if is_comparison else 3
             res_id2ent = {ent['id']: ent for ent in res}
-            for a_res in one_res[:3]:
+            for a_res in one_res[:choose_top_n]:
                 if a_res['score'] > config.simi_ths:
                     # 如果多次链接同个实体，只保留score最高的结果
-                    if a_res['id'] not in res_id2ent or (a_res['id'] in res_id2ent and res_id2ent[a_res['id']]['score'] < a_res['score']):
+                    if a_res['id'] not in res_id2ent or \
+                        (a_res['id'] in res_id2ent and res_id2ent[a_res['id']]['score'] < a_res['score']):
                         res_id2ent[a_res['id']] = a_res
-            res = [item for id,item in res_id2ent.items()]
-
+            res = [item for id, item in res_id2ent.items()]
         # 如果链接到了非术语类型的实体，则降低术语类型实体的分值
         link_not_terms_ent = any([ent['ent']['类别'] != '民航术语' and ent['ent']['name'] not in config.FREQUENT_MATCHED_ENT for ent in res])
         if link_not_terms_ent:
@@ -608,7 +653,6 @@ class RuleLinker():
                 if r['score']> config.simi_ths and (r['ent']['类别'] == "民航术语" or r['ent']['name'] in config.FREQUENT_MATCHED_ENT):
                     res[i]['score'] = 0.8
         res.sort(key=lambda x: x['score'], reverse=True)
-
         return res
 
     def convert_abstract_verb(self, word, sent, limits):

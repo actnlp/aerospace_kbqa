@@ -3,6 +3,9 @@
 */output/*
 KM_KBQA/models/*
 *.log
-test/result/*
+test/*
 *.xlsx
 KM_KBQA/res/entity_encode*
+KM_KBQA/ERNIEReject/best_model.pt
+KM_KBQA/ERNIEReject/pretrained_ERNIE/*
+nohup.out

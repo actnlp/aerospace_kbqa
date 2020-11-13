@@ -130,8 +130,11 @@ class MatchRelExtractor(AbstractRelExtractor):
         props_set.remove('name')
         if '名称' in props_set:
             props_set.remove('名称')
-        if is_list and '公司名称' in props_set:
-            props_set.remove('公司名称')
+        if is_list:
+            if '公司名称' in props_set:
+                props_set.remove('公司名称')
+            if '公司名称' in rest_words:
+                rest_words.remove('公司名称')
         # cal prop rel similarity
         res = []
         used_pairs = set()
